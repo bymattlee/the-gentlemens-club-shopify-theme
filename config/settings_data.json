@@ -2,51 +2,53 @@
   "current": {
     "color_body_bg": "#ffffff",
     "color_body_text": "#000000",
-    "color_price": "#1c1d1d",
+    "color_price": "#000000",
     "color_savings_text": "#C20000",
-    "color_borders": "#e8e8e1",
-    "color_button": "#111111",
+    "color_borders": "#000000",
+    "color_button": "#000000",
     "color_button_text": "#ffffff",
-    "color_cart_dot": "#ff4f33",
+    "color_sale_tag": "#ffffff",
+    "color_sale_tag_text": "#000000",
+    "color_cart_dot": "#ed1c24",
     "color_small_image_bg": "#ffffff",
     "color_large_image_bg": "#0f0f0f",
     "color_header": "#ffffff",
     "color_header_text": "#000000",
-    "color_announcement": "#0f0f0f",
+    "color_announcement": "#000000",
     "color_announcement_text": "#ffffff",
     "color_footer": "#ffffff",
     "color_footer_text": "#000000",
     "color_drawer_background": "#ffffff",
     "color_drawer_text": "#000000",
-    "color_drawer_border": "#e8e8e1",
-    "color_drawer_button": "#111111",
+    "color_drawer_border": "#000000",
+    "color_drawer_button": "#000000",
     "color_drawer_button_text": "#ffffff",
-    "color_modal_overlays": "#e6e6e6",
+    "color_modal_overlays": "#000000",
     "color_image_overlay": "#000000",
     "color_image_overlay_text_shadow": 20,
-    "type_header_font_family": "tenor_sans_n4",
+    "type_header_font_family": "questrial_n4",
     "type_header_spacing": "0",
-    "type_header_base_size": 36,
+    "type_header_base_size": 24,
     "type_header_line_height": 1,
     "type_header_capitalize": true,
     "type_headers_align_text": true,
-    "type_base_font_family": "twentieth_century_n4",
-    "type_base_spacing": "25",
-    "type_base_size": 18,
+    "type_base_font_family": "questrial_n4",
+    "type_base_spacing": "0",
+    "type_base_size": 14,
     "type_base_line_height": 1.4,
     "type_body_align_text": true,
     "type_navigation_style": "body",
-    "type_navigation_size": 16,
+    "type_navigation_size": 14,
     "type_navigation_capitalize": true,
     "type_product_style": "body",
     "type_collection_font": "body",
-    "type_collection_size": 20,
+    "type_collection_size": 16,
     "button_style": "square",
     "icon_weight": "2px",
     "icon_linecaps": "miter",
     "quick_shop_text": "Quick view",
     "product_grid_image_size": "natural",
-    "product_hover_image": false,
+    "product_hover_image": true,
     "collection_grid_style": "overlaid-box",
     "collection_grid_shape": "square",
     "collection_grid_image": "product",
@@ -55,16 +57,26 @@
     "collection_grid_opacity": 10,
     "collection_grid_gutter": true,
     "cart_type": "drawer",
+    "cart_icon": "bag",
     "cart_notes_enable": false,
     "cart_terms_conditions_enable": false,
-    "checkout_logo_position": "left",
+    "share_facebook": false,
+    "share_twitter": false,
+    "share_pinterest": false,
+    "favicon": "shopify:\/\/shop_images\/4Hunnid_Favicon.png",
+    "search_enable": false,
+    "predictive_search_enabled": false,
+    "checkout_logo_image": "shopify:\/\/shop_images\/4Hunnid_Logo_b5194fb6-13b5-4e5c-9261-4d73609ff64a.png",
+    "checkout_logo_position": "center",
     "checkout_logo_size": "small",
     "checkout_body_background_color": "#ffffff",
     "checkout_input_background_color_mode": "white",
-    "checkout_sidebar_background_color": "#fafafa",
-    "checkout_accent_color": "#111111",
-    "checkout_button_color": "#111111",
-    "checkout_error_color": "#ff6d6d",
+    "checkout_sidebar_background_color": "#ffffff",
+    "checkout_heading_font": "Helvetica Neue",
+    "checkout_body_font": "Helvetica Neue",
+    "checkout_accent_color": "#000000",
+    "checkout_button_color": "#000000",
+    "checkout_error_color": "#ed1c24",
     "breadcrumb": false,
     "sections": {
       "header": {
@@ -73,8 +85,10 @@
           "1524770014057": {
             "type": "logo",
             "settings": {
-              "desktop_logo_width": 140,
-              "mobile_logo_width": 110
+              "logo": "shopify:\/\/shop_images\/4Hunnid_Logo_b5194fb6-13b5-4e5c-9261-4d73609ff64a.png",
+              "logo-inverted": "shopify:\/\/shop_images\/4Hunnid_Logo_-_White.png",
+              "desktop_logo_width": 170,
+              "mobile_logo_width": 130
             }
           }
         },
@@ -83,7 +97,7 @@
         ],
         "settings": {
           "main_menu_link_list": "main-menu",
-          "mega_menu_images": true,
+          "mega_menu_images": false,
           "main_menu_alignment": "center-split",
           "header_style": "sticky",
           "sticky_index": false,
@@ -91,15 +105,24 @@
           "announcement_compact": true,
           "announcement_above_header": false,
           "toolbar_menu": "",
-          "toolbar_social": true,
-          "show_locale_selector": true,
+          "toolbar_social": false,
+          "show_locale_selector": false,
           "show_currency_selector": true,
-          "show_currency_flags": true
+          "show_currency_flags": false
         }
       },
       "footer": {
         "type": "footer",
         "blocks": {
+          "6447d789-e2ac-4a34-8a78-82294e775b82": {
+            "type": "custom",
+            "settings": {
+              "show_footer_title": true,
+              "title": "",
+              "text": "<p>© 2022 4Hunnid<\/p>",
+              "container_width": 25
+            }
+          },
           "1494301487049": {
             "type": "menu",
             "settings": {
@@ -108,27 +131,28 @@
               "container_width": 25
             }
           },
-          "1494292487693": {
-            "type": "newsletter",
+          "c121f1cd-3fff-4ded-8626-2ce0d7531b34": {
+            "type": "menu",
             "settings": {
-              "show_footer_title": true,
-              "title": "Sign up and save",
-              "text": "<p>Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.<\/p>",
-              "container_width": 33
+              "show_footer_title": false,
+              "menu": "footer-menu-2",
+              "container_width": 25
             }
           },
-          "1494301487048": {
-            "type": "logo_social",
+          "1b050507-37a6-43c8-a3e1-dda0bc45fdc4": {
+            "type": "menu",
             "settings": {
-              "desktop_logo_height": 50,
-              "container_width": 95
+              "show_footer_title": false,
+              "menu": "footer-menu-3",
+              "container_width": 25
             }
           }
         },
         "block_order": [
+          "6447d789-e2ac-4a34-8a78-82294e775b82",
           "1494301487049",
-          "1494292487693",
-          "1494301487048"
+          "c121f1cd-3fff-4ded-8626-2ce0d7531b34",
+          "1b050507-37a6-43c8-a3e1-dda0bc45fdc4"
         ],
         "settings": {
           "show_locale_selector": true,
@@ -165,46 +189,16 @@
       },
       "footer-promotions": {
         "type": "footer-promotions",
-        "blocks": {
-          "footer-promotions-0": {
-            "type": "promotion",
-            "settings": {
-              "enable_image": true,
-              "title": "Site-wide promotion",
-              "text": "<p>Use this section to promote content throughout every page of your site. Add images for further impact.<\/p>",
-              "button_label": "Optional button",
-              "button_link": ""
-            }
-          },
-          "footer-promotions-1": {
-            "type": "promotion",
-            "settings": {
-              "enable_image": true,
-              "title": "Site-wide promotion",
-              "text": "<p>Use this section to promote content throughout every page of your site. Add images for further impact.<\/p>",
-              "button_label": "Optional button",
-              "button_link": ""
-            }
-          },
-          "footer-promotions-2": {
-            "type": "promotion",
-            "settings": {
-              "enable_image": true,
-              "title": "Site-wide promotion",
-              "text": "<p>Use this section to promote content throughout every page of your site. Add images for further impact.<\/p>",
-              "button_label": "Optional button",
-              "button_link": ""
-            }
-          }
-        },
-        "block_order": [
-          "footer-promotions-0",
-          "footer-promotions-1",
-          "footer-promotions-2"
-        ],
         "settings": {
-          "hide_homepage": false,
+          "hide_homepage": true,
           "image_size": "wide"
+        }
+      },
+      "giftcard-header": {
+        "type": "giftcard-header",
+        "settings": {
+          "desktop_logo_width": 200,
+          "mobile_logo_width": 140
         }
       }
     },
