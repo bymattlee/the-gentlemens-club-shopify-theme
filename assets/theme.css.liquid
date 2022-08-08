@@ -55,7 +55,8 @@
   --colorDrawerButtonText:{{ settings.color_drawer_button_text | default: "#fff" }};
 
   --grid-gutter:17px;
-  --drawer-gutter:20px;
+  --drawer-gutter:24px;
+  --drawer-gutter-desktop:32px;
 
   --sizeChartMargin:25px 0;
   --sizeChartIconMargin:5px;
@@ -109,7 +110,7 @@
 
 @keyframes overlay-on{
   0%{ opacity:0; }
-  to{ opacity:0.6; }
+  to{ opacity:0.5; }
 }
 
 @keyframes overlay-off{
@@ -1385,15 +1386,15 @@ body,html{
 }
 
 .page-content,.shopify-email-marketing-confirmation__container,.shopify-policy__container{
-  padding-top:40px;
-  padding-bottom:40px
+  padding-top:24px;
+  padding-bottom:24px
 }
 
 @media only screen and (min-width:769px){
 
 .page-content,.shopify-email-marketing-confirmation__container,.shopify-policy__container{
-    padding-top:75px;
-    padding-bottom:75px
+    padding-top:32px;
+    padding-bottom:32px
 }
   }
 
@@ -1522,7 +1523,7 @@ body,html{
 
 .faux-select,body,button,input,select,textarea{
   font-family:var(--typeBasePrimary),var(--typeBaseFallback);
-  font-size:calc(var(--typeBaseSize)*0.92);
+  font-size:var(--typeBaseSize);
   letter-spacing:var(--typeBaseSpacing);
   line-height:var(--typeBaseLineHeight);
 }
@@ -1739,9 +1740,9 @@ label{
   }
 
 .ajaxcart__subtotal{
-  text-transform:uppercase;
+/*   text-transform:uppercase;
   letter-spacing:0.3em;
-  font-size:0.8em;
+  font-size:0.8em; */
 }
 
 .rte .enlarge-text{
@@ -1889,6 +1890,7 @@ th{
 button{
   overflow:visible;
   color:currentColor;
+  text-transform: uppercase;
 }
 
 button[disabled],html input[disabled]{
@@ -1896,19 +1898,19 @@ button[disabled],html input[disabled]{
 }
 
 .btn,.rte .btn,.shopify-payment-button .shopify-payment-button__button--unbranded,.spr-container .spr-button,.spr-container .spr-summary-actions a{
-  line-height:1.42;
+  /* line-height:1.42; */
   text-decoration:none;
   text-align:center;
   white-space:normal;
 
-  font-size:calc(var(--typeBaseSize) - 4px);
-  font-size:max(calc(var(--typeBaseSize) - 4px), 13px);
-  font-weight:700;
+  font-size:var(--typeBaseSize);
+  /* font-size:max(calc(var(--typeBaseSize) - 4px), 13px); */
+  font-weight:600;
   text-transform:uppercase;
-  letter-spacing:0.3em;
+/*   letter-spacing:0.3em; */
 
   display:inline-block;
-  padding:11px 20px;
+  padding:16px 32px;
   margin:0;
   width:auto;
   min-width:90px;
@@ -1926,14 +1928,14 @@ button[disabled],html input[disabled]{
   background:var(--colorBtnPrimary)
 }
 
-@media only screen and (max-width:768px){
+/* @media only screen and (max-width:768px){
 
 .btn,.rte .btn,.shopify-payment-button .shopify-payment-button__button--unbranded,.spr-container .spr-button,.spr-container .spr-summary-actions a{
     padding:9px 17px;
     font-size:calc(var(--typeBaseSize) - 5px);
     font-size:max(calc(var(--typeBaseSize) - 5px), 11px)
 }
-  }
+  } */
 
 .btn:hover,.rte .btn:hover,.shopify-payment-button .shopify-payment-button__button--unbranded:hover,.spr-container .spr-button:hover,.spr-container .spr-summary-actions a:hover{
     color:{{ settings.color_button_text | default: "#fff" }};
@@ -2001,7 +2003,7 @@ button[disabled],html input[disabled]{
       transition:background 0.2s ease 0s
     }
 
-[data-button_style=square] .btn:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):after,[data-button_style=square] .rte .btn:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):after,[data-button_style=square] .shopify-payment-button .shopify-payment-button__button--unbranded:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):after,[data-button_style=square] .spr-container .spr-button:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):after,[data-button_style=square] .spr-container .spr-summary-actions a:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):after,[data-button_style^=round] .btn:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):after,[data-button_style^=round] .rte .btn:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):after,[data-button_style^=round] .shopify-payment-button .shopify-payment-button__button--unbranded:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):after,[data-button_style^=round] .spr-container .spr-button:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):after,[data-button_style^=round] .spr-container .spr-summary-actions a:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):after{
+/* [data-button_style=square] .btn:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):after,[data-button_style=square] .rte .btn:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):after,[data-button_style=square] .shopify-payment-button .shopify-payment-button__button--unbranded:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):after,[data-button_style=square] .spr-container .spr-button:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):after,[data-button_style=square] .spr-container .spr-summary-actions a:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):after,[data-button_style^=round] .btn:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):after,[data-button_style^=round] .rte .btn:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):after,[data-button_style^=round] .shopify-payment-button .shopify-payment-button__button--unbranded:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):after,[data-button_style^=round] .spr-container .spr-button:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):after,[data-button_style^=round] .spr-container .spr-summary-actions a:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):after{
         content:"";
         position:absolute;
         top:0;
@@ -2010,16 +2012,16 @@ button[disabled],html input[disabled]{
         height:100%;
         transform:skewX(-20deg);
         background-image:linear-gradient(90deg,transparent, hsla(0, 0%, 100%, 0.25),transparent);
-      }
+      } */
 
-[data-button_style=square] .btn:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):hover:after,[data-button_style=square] .rte .btn:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):hover:after,[data-button_style=square] .shopify-payment-button .shopify-payment-button__button--unbranded:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):hover:after,[data-button_style=square] .spr-container .spr-button:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):hover:after,[data-button_style=square] .spr-container .spr-summary-actions a:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):hover:after,[data-button_style^=round] .btn:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):hover:after,[data-button_style^=round] .rte .btn:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):hover:after,[data-button_style^=round] .shopify-payment-button .shopify-payment-button__button--unbranded:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):hover:after,[data-button_style^=round] .spr-container .spr-button:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):hover:after,[data-button_style^=round] .spr-container .spr-summary-actions a:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):hover:after{
+/* [data-button_style=square] .btn:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):hover:after,[data-button_style=square] .rte .btn:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):hover:after,[data-button_style=square] .shopify-payment-button .shopify-payment-button__button--unbranded:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):hover:after,[data-button_style=square] .spr-container .spr-button:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):hover:after,[data-button_style=square] .spr-container .spr-summary-actions a:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):hover:after,[data-button_style^=round] .btn:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):hover:after,[data-button_style^=round] .rte .btn:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):hover:after,[data-button_style^=round] .shopify-payment-button .shopify-payment-button__button--unbranded:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):hover:after,[data-button_style^=round] .spr-container .spr-button:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):hover:after,[data-button_style^=round] .spr-container .spr-summary-actions a:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):hover:after{
         animation:shine 0.75s cubic-bezier(0.01, 0.56, 1, 1);
-      }
+      } */
 
 [data-button_style=square] .btn:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):hover,[data-button_style=square] .rte .btn:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):hover,[data-button_style=square] .shopify-payment-button .shopify-payment-button__button--unbranded:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):hover,[data-button_style=square] .spr-container .spr-button:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):hover,[data-button_style=square] .spr-container .spr-summary-actions a:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):hover,[data-button_style^=round] .btn:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):hover,[data-button_style^=round] .rte .btn:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):hover,[data-button_style^=round] .shopify-payment-button .shopify-payment-button__button--unbranded:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):hover,[data-button_style^=round] .spr-container .spr-button:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):hover,[data-button_style^=round] .spr-container .spr-summary-actions a:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):hover{
         background:{{ settings.color_button | default: "#000" | color_lighten: 10 }};
         background:var(--colorBtnPrimaryLight);
-        transition-delay:0.25s;
+        /* transition-delay:0.25s; */
       }
 
 [data-button_style=square] .btn:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):active,[data-button_style=square] .rte .btn:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):active,[data-button_style=square] .shopify-payment-button .shopify-payment-button__button--unbranded:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):active,[data-button_style=square] .spr-container .spr-button:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):active,[data-button_style=square] .spr-container .spr-summary-actions a:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):active,[data-button_style^=round] .btn:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):active,[data-button_style^=round] .rte .btn:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):active,[data-button_style^=round] .shopify-payment-button .shopify-payment-button__button--unbranded:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):active,[data-button_style^=round] .spr-container .spr-button:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):active,[data-button_style^=round] .spr-container .spr-summary-actions a:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(.btn--body):not(.btn--static):active{
@@ -2946,7 +2948,7 @@ svg.icon:not(.icon--full-color) circle,svg.icon:not(.icon--full-color) ellipse,s
   -webkit-overflow-scrolling:touch;
   top:0;
   bottom:0;
-  max-width:95%;
+  /* max-width:95%; */
   z-index:30;
   color:{{ settings.color_drawer_text | default: "#fff" }};
   color:var(--colorDrawerText);
@@ -2990,14 +2992,14 @@ svg.icon:not(.icon--full-color) circle,svg.icon:not(.icon--full-color) ellipse,s
   }
 
 .drawer--left{
-  width:350px;
-  left:-350px
+  width:100%;
+  transform:translateX(-100%);
 }
 
 .drawer--left.drawer--is-open{
     display:block;
-    transform:translateX(350px);
-    transition-duration:0.45s;
+    transform:translateX(0px);
+    transition-duration:0.5s;
   }
 
 .drawer--right{
@@ -3007,9 +3009,14 @@ svg.icon:not(.icon--full-color) circle,svg.icon:not(.icon--full-color) ellipse,s
 
 @media only screen and (min-width:769px){
 
+  .drawer--left{
+  width:440px;
+  transform:translateX(-100%);
+}
+
 .drawer--right{
-    width:450px;
-    right:-450px
+    width:440px;
+    right:-440px
 }
   }
 
@@ -3048,32 +3055,41 @@ svg.icon:not(.icon--full-color) circle,svg.icon:not(.icon--full-color) ellipse,s
   animation:overlay-off 0.25s forwards;
 }
 
-.drawer__fixed-header,.drawer__footer,.drawer__header,.drawer__scrollable{
-  padding-left:20px;
+.drawer__fixed-header,.cart__item-row,.drawer__header,.drawer__scrollable{
+  padding-left:24px;
   padding-left:var(--drawer-gutter);
-  padding-right:20px;
+  padding-right:24px;
   padding-right:var(--drawer-gutter);
 }
 
 .drawer__header{
   display:table;
-  height:70px;
+  /* height:70px; */
   width:100%;
-  padding:11.53846px 0;
+  padding:var(--drawer-gutter) 0;
   margin-bottom:0;
-  border-bottom:1px solid;
+/*   border-bottom:1px solid;
   border-bottom-color:{{ settings.color_drawer_border | default: "#343535" }};
-  border-bottom-color:var(--colorDrawerBorder);
+  border-bottom-color:var(--colorDrawerBorder); */
 }
 
 .drawer__fixed-header{
-  height:70px;
+  /* height:70px; */
   overflow:visible;
 }
 
 @media only screen and (min-width:769px){
+  .drawer__fixed-header,.cart__item-row,.drawer__header,.drawer__scrollable{
+    padding-left:32px;
+    padding-left:var(--drawer-gutter-desktop);
+    padding-right:32px;
+    padding-right:var(--drawer-gutter-desktop);
+  }
+  .drawer__header{
+    padding: var(--drawer-gutter-desktop) 0;
+  }
   .drawer__fixed-header,.drawer__header{
-    height:80px;
+    /* height:80px; */
   }
 }
 
@@ -3093,18 +3109,19 @@ svg.icon:not(.icon--full-color) circle,svg.icon:not(.icon--full-color) ellipse,s
 
 .drawer__close-button{
   position:relative;
-  height:100%;
+/*   height:100%;
   right:-20px;
   right:calc(var(--drawer-gutter)*-1);
   padding:0 20px;
-  padding:0 var(--drawer-gutter);
-  color:inherit
+  padding:0 var(--drawer-gutter); */
+  color:inherit;
+  padding: 0;
 }
 
-.drawer__close-button:active{
+/* .drawer__close-button:active{
     background-color:{{ settings.color_drawer_background | default: "#1c1d1d" | color_darken: 5 }};
     background-color:var(--colorDrawersDim);
-  }
+  } */
 
 .drawer__close-button .icon{
     height:28px;
@@ -3135,8 +3152,8 @@ svg.icon:not(.icon--full-color) circle,svg.icon:not(.icon--full-color) ellipse,s
 }
 
 .drawer__scrollable{
-  padding-top:20px;
-  padding-top:var(--drawer-gutter);
+/*   padding-top:20px;
+  padding-top:var(--drawer-gutter); */
   overflow:hidden;
   overflow-y:auto;
   -webkit-overflow-scrolling:touch;
@@ -3146,17 +3163,17 @@ svg.icon:not(.icon--full-color) circle,svg.icon:not(.icon--full-color) ellipse,s
   border-top:1px solid;
   border-top-color:{{ settings.color_drawer_border | default: "#343535" }};
   border-top-color:var(--colorDrawerBorder);
-  padding-top:15px;
+/*   padding-top:15px;
   padding-bottom:20px;
-  padding-bottom:var(--drawer-gutter)
+  padding-bottom:var(--drawer-gutter) */
 }
 
-@media only screen and (min-width:769px){
+/* @media only screen and (min-width:769px){
 
 .drawer__footer{
     padding-top:22.22222px
 }
-  }
+  } */
 
 .drawer__inner.is-loading .drawer__scrollable{
     transition:opacity 0.3s ease 0.7s;
@@ -3711,7 +3728,8 @@ tool-tip[data-tool-tip-open=true] .tool-tip__inner{
   }
 
 .site-footer{
-  padding-bottom:30px;
+  padding-top:32px;
+  padding-bottom:32px;
   background-color:{{ settings.color_footer | default: "#111" }};
   background-color:var(--colorFooter);
   color:{{ settings.color_footer_text | default: "#fff" }};
@@ -3721,46 +3739,51 @@ tool-tip[data-tool-tip-open=true] .tool-tip__inner{
 @media only screen and (min-width:769px){
 
 .site-footer{
-    padding-top:60px;
-    padding-bottom:60px
+    padding-top:48px;
+    padding-bottom:48px
 }
   }
 
 .site-footer .footer__collapsible{
-    font-size:calc(var(--typeBaseSize)*0.85);
+    font-size:var(--typeBaseSize);
+    padding: 0;
+  }
+
+.site-footer .footer__collapsible p:last-child{
+    margin-bottom: 0;
   }
 
 @media only screen and (min-width:769px){
     .site-footer input,.site-footer select,.site-footer textarea{
-      font-size:calc(var(--typeBaseSize)*0.85);
+      font-size:var(--typeBaseSize);
     }
   }
 
 @media only screen and (max-width:768px){
 
-[data-center-text=true] .site-footer{
+/* [data-center-text=true] .site-footer{
     text-align:center
-}
+} */
 
 .site-footer{
     padding-bottom:0
 }
 
     .site-footer .grid__item{
-      padding-bottom:5px
+      padding-bottom:24px
     }
 
-      .site-footer .grid__item:after{
+/*       .site-footer .grid__item:after{
         content:"";
         border-bottom:1px solid;
         border-bottom-color:{{ settings.color_footer_text | default: "#fff" }};
         border-bottom-color:var(--colorFooterText);
         opacity:0.12;
         display:block;
-      }
+      } */
 
       .site-footer .grid__item:first-child{
-        padding-top:7.5px;
+        /* padding-top:7.5px; */
       }
 
       .site-footer .grid__item:last-child:after{
@@ -3830,10 +3853,18 @@ ul+.footer__small-text{
   margin:0
 }
 
+.site-footer__linklist li{
+  margin-bottom: 8px;
+}
+
+.site-footer__linklist li:last-child{
+  margin-bottom: 0;
+}
+
 .site-footer__linklist a{
     color:currentColor;
     display:inline-block;
-    padding:4px 0;
+    /* padding:4px 0; */
   }
 
 .footer__newsletter{
@@ -5216,12 +5247,13 @@ form+.footer__social{
 }
 
 .mobile-nav{
-  margin:-20px -20px 0;
-  margin:calc(var(--drawer-gutter)*-1) calc(var(--drawer-gutter)*-1) 0
+  margin: 24px 0 0;
+/*   margin:-20px -20px 0;
+  margin:calc(var(--drawer-gutter)*-1) calc(var(--drawer-gutter)*-1) 0 */
 }
 
-.mobile-nav li{
-    margin-bottom:0;
+.mobile-nav > li{
+    margin-bottom:16px;
     list-style:none;
   }
 
@@ -5239,7 +5271,7 @@ form+.footer__social{
     background-color:var(--colorDrawers)
 }
 
-.mobile-nav__item:after{
+/* .mobile-nav__item:after{
     content:"";
     position:absolute;
     bottom:0;
@@ -5250,15 +5282,15 @@ form+.footer__social{
     border-bottom:1px solid;
     border-bottom-color:{{ settings.color_drawer_border | default: "#343535" }};
     border-bottom-color:var(--colorDrawerBorder);
-  }
+  } */
 
 .mobile-nav__faux-link,.mobile-nav__link{
   display:block;
 }
 
-.mobile-nav__link--top-level{
+/* .mobile-nav__link--top-level{
   font-size:1.4em
-}
+} */
 
 .mobile-nav--heading-style .mobile-nav__link--top-level{
     font-family:var(--typeHeaderPrimary),var(--typeHeaderFallback);
@@ -5274,8 +5306,8 @@ form+.footer__social{
 .mobile-nav__faux-link,.mobile-nav__link,.mobile-nav__toggle .faux-button,.mobile-nav__toggle button{
   color:{{ settings.color_drawer_text | default: "#fff" }};
   color:var(--colorDrawerText);
-  padding:15px 20px;
-  padding:15px var(--drawer-gutter);
+/*   padding:15px 20px;
+  padding:15px var(--drawer-gutter); */
   text-decoration:none
 }
 
@@ -5290,7 +5322,7 @@ form+.footer__social{
   }
 
 .mobile-nav__child-item{
-  display:flex
+  display:flex;
 }
 
 .mobile-nav__child-item .mobile-nav__link,.mobile-nav__child-item a{
@@ -5343,7 +5375,7 @@ form+.footer__social{
     height:16px;
   }
 
-.mobile-nav__toggle .faux-button,.mobile-nav__toggle button{
+/* .mobile-nav__toggle .faux-button,.mobile-nav__toggle button{
     height:60%;
     padding:0 30px;
     margin:20% 0;
@@ -5353,10 +5385,15 @@ form+.footer__social{
     border-left:1px solid;
     border-left-color:{{ settings.color_drawer_border | default: "#343535" }};
     border-left-color:var(--colorDrawerBorder);
-  }
+  } */
 
 .mobile-nav__sublist{
   margin:0
+}
+
+.mobile-nav__sublist .mobile-nav__item{
+  padding-top: 16px;
+  margin-bottom: 0;
 }
 
 .mobile-nav__sublist .mobile-nav__item:after{
@@ -5365,14 +5402,14 @@ form+.footer__social{
     border-bottom:none;
   }
 
-.mobile-nav__sublist .mobile-nav__item:last-child{
+/* .mobile-nav__sublist .mobile-nav__item:last-child{
     padding-bottom:15px;
-  }
+  } */
 
 .mobile-nav__sublist .mobile-nav__faux-link,.mobile-nav__sublist .mobile-nav__link{
     font-weight:400;
-    padding:7.5px 25px 7.5px 20px;
-    padding:7.5px 25px 7.5px var(--drawer-gutter);
+    padding:0 0 0 16px;
+    /* padding:7.5px 25px 7.5px var(--drawer-gutter); */
   }
 
 .mobile-nav__grandchildlist{
@@ -5808,8 +5845,8 @@ form+.footer__social{
 .js-qty__wrapper{
   display:inline-block;
   position:relative;
-  max-width:80px;
-  min-width:60px;
+/*   max-width:80px;
+  min-width:60px; */
   overflow:visible;
   background-color:{{ settings.color_body_bg | default: "#fff" }};
   background-color:var(--colorBody);
@@ -5826,8 +5863,9 @@ form+.footer__social{
   display:block;
   background:none;
   text-align:center;
-  width:100%;
-  padding:5px 20px;
+  width:72px;
+  height: 24px;
+  padding:0;
   margin:0;
   z-index:1;
 }
@@ -5835,14 +5873,18 @@ form+.footer__social{
 .js-qty__adjust{
   cursor:pointer;
   position:absolute;
-  display:block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   top:0;
   bottom:0;
   border:0 none;
   background:none;
   text-align:center;
   overflow:hidden;
-  padding:0 10px;
+/*   padding:0 10px; */
+  width: 24px;
+  height: 24px;
   line-height:1;
   -webkit-user-select:none;
           user-select:none;
@@ -5858,8 +5900,8 @@ form+.footer__social{
     display:block;
     font-size:8px;
     vertical-align:middle;
-    width:10px;
-    height:10px;
+    width:6px;
+    height:6px;
     fill:inherit;
   }
 
@@ -5877,10 +5919,12 @@ form+.footer__social{
 
 .js-qty__adjust--plus{
   right:0;
+  border-left-width: 1px;
 }
 
 .js-qty__adjust--minus{
   left:0;
+  border-right-width: 1px;
 }
 
 .drawer .js-qty__wrapper{
@@ -5892,15 +5936,18 @@ form+.footer__social{
 .drawer .js-qty__num{
     color:{{ settings.color_drawer_text | default: "#fff" }};
     color:var(--colorDrawerText);
-    padding-top:2px;
-    padding-bottom:2px;
+/*     padding-top:2px;
+    padding-bottom:2px; */
   }
 
 .drawer .js-qty__adjust{
     color:{{ settings.color_drawer_text | default: "#fff" }};
     color:var(--colorDrawerText);
     fill:{{ settings.color_drawer_text | default: "#fff" }};
-    fill:var(--colorDrawerText)
+    fill:var(--colorDrawerText);
+    border-color:{{ settings.color_drawer_border | default: "#343535" }};
+    border-color:var(--colorDrawerBorder);
+    border-style: solid;
   }
 
 .drawer .js-qty__adjust:hover{
@@ -5962,9 +6009,9 @@ form+.footer__social{
 }
   }
 
-.mobile-nav__has-sublist .collapsible-trigger__icon{
+/* .mobile-nav__has-sublist .collapsible-trigger__icon{
     right:25px
-}
+} */
 
 .collapsible-trigger__icon .icon{
     display:block;
@@ -6034,9 +6081,9 @@ form+.footer__social{
   height:0
 }
 
-.collapsible-content--all .collapsible-content__inner{
+/* .collapsible-content--all .collapsible-content__inner{
     transform:translateY(40px);
-  }
+  } */
 
 @media only screen and (max-width:768px){
   .collapsible-content--small{
@@ -6057,10 +6104,10 @@ form+.footer__social{
   transition:transform 0.3s cubic-bezier(.25,.46,.45,.94)
 }
 
-.is-open .collapsible-content__inner{
+/* .is-open .collapsible-content__inner{
     transform:translateY(0);
     transition:transform 0.5s cubic-bezier(.25,.46,.45,.94)
-}
+} */
 
 .rte.collapsible-content__inner--faq{
   padding-bottom:30px;
@@ -6663,7 +6710,7 @@ input[type=image]{
   }
 
 .index-section{
-  margin:40px 0;
+  margin:24px 0;
 }
 
 .index-section--small{
@@ -6715,7 +6762,7 @@ input[type=image]{
 
 @media only screen and (min-width:769px){
   .index-section{
-    margin:75px 0;
+    margin:32px 0;
   }
 
   .index-section--small{
@@ -10508,15 +10555,15 @@ newsletter-reminder .newsletter-reminder__message{
 
 .cart__item{
   display:flex;
-  margin-bottom:20px;
-  padding-bottom:20px;
-  border-bottom:1px solid;
+  /* margin-bottom:20px; */
+  padding-bottom:8px;
+/*   border-bottom:1px solid;
   border-bottom-color:{{ settings.color_borders | default: "#1c1d1d" }};
-  border-bottom-color:var(--colorBorder)
+  border-bottom-color:var(--colorBorder) */
 }
 
 .cart__item:first-child{
-    padding-top:10px;
+    /* padding-top:10px; */
   }
 
 .cart__item:last-child{
@@ -10540,28 +10587,35 @@ newsletter-reminder .newsletter-reminder__message{
   }
 
 .drawer .cart__image{
-    flex:0 0 100px
+    flex:0 0 128px;
+    margin-right: 8px;
 }
 
 .cart__item-details{
   flex:1 1 auto;
-  display:flex;
-  flex-wrap:wrap;
+/*   display:flex;
+  flex-wrap:wrap; */
 }
 
 .cart__item-title{
-  flex:1 1 100%
+  /* flex:1 1 100% */
 }
 
 .drawer .cart__item-title{
-    font-size:calc(var(--typeBaseSize)*0.85)
+    font-size:var(--typeBaseSize);
+    margin-bottom: 16px;
 }
 
 .cart__item-sub{
-  flex:1 1 100%;
+  /* flex:1 1 100%; */
   display:flex;
   justify-content:space-between;
   line-height:1
+}
+
+.drawer .cart__item-sub {
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 .cart__item-sub>div:first-child{
@@ -10572,14 +10626,19 @@ newsletter-reminder .newsletter-reminder__message{
   margin-bottom:20px;
 }
 
+.drawer .cart__item-row{
+  margin-bottom:0;
+}
+
 .cart__remove a{
     display:inline-block;
-    margin-top:10px;
+    margin-top:12px;
+    font-size: 8px;
   }
 
-.drawer .cart__remove{
+/* .drawer .cart__remove{
     display:none
-}
+} */
 
 .cart__checkout{
   width:100%;
@@ -10587,16 +10646,16 @@ newsletter-reminder .newsletter-reminder__message{
 
 .cart__item-name{
   display:block;
-  font-size:calc(var(--typeBaseSize) + 1px);
+  font-size:var(--typeBaseSize);
   margin-bottom:8px;
 }
 
-.cart__item--variants{
-  margin-bottom:10px
+.cart__item-price-col{
+  margin-bottom:8px
 }
 
 .cart__item--variants span{
-    font-weight:700;
+    /* font-weight:700; */
   }
 
 .cart__price{
@@ -10624,9 +10683,9 @@ newsletter-reminder .newsletter-reminder__message{
     letter-spacing:0;
   }
 
-.cart__checkout-wrapper{
+/* .cart__checkout-wrapper{
   margin-top:20px
-}
+} */
 
 .cart__checkout-wrapper .additional-checkout-buttons{
     margin-top:12px;
@@ -10675,7 +10734,7 @@ iframe.zoid-component-frame{
 }
 
 .page-content--product{
-  padding-top:55px;
+  padding-top:24px;
 }
 
 @media only screen and (max-width:768px){
