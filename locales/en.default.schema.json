@@ -841,6 +841,9 @@
             },
             "center-drawer": {
               "label": "Logo center, menu drawer"
+            },
+            "right-center": {
+              "label": "Logo right, menu center"
             }
           }
         },
@@ -2775,6 +2778,9 @@
         "cart_icon": {
           "label": "Cart icon",
           "options": {
+            "text": {
+              "label": "Text"
+            },
             "bag": {
               "label": "Bag"
             },

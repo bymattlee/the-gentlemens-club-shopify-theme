@@ -282,7 +282,7 @@
         "id": "type_header_base_size",
         "label": "t:settings_schema.typography.settings.type_header_base_size.label",
         "default": 32,
-        "min": 22,
+        "min": 8,
         "max": 60,
         "unit": "px"
       },
@@ -372,7 +372,7 @@
         "id": "type_base_size",
         "label": "t:settings_schema.typography.settings.type_base_size.label",
         "default": 16,
-        "min": 12,
+        "min": 8,
         "max": 20,
         "unit": "px"
       },
@@ -416,7 +416,7 @@
         "id": "type_navigation_size",
         "label": "t:settings_schema.typography.settings.type_navigation_size.label",
         "default": 18,
-        "min": 12,
+        "min": 8,
         "max": 40,
         "unit": "px"
       },
@@ -836,6 +836,10 @@
         "label": "t:settings_schema.cart.settings.cart_icon.label",
         "default": "bag-minimal",
         "options": [
+          {
+            "value": "text",
+            "label": "t:settings_schema.cart.settings.cart_icon.options.text.label"
+          },
           {
             "value": "bag",
             "label": "t:settings_schema.cart.settings.cart_icon.options.bag.label"
