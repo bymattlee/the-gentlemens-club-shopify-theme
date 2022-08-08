@@ -1865,6 +1865,14 @@ lazySizesConfig.expFactor = 4;
             });
           }
         }
+
+        // update cart quantity in cart text
+        var textQuantity = document.querySelectorAll('.cart-link__text-quantity');
+        if (textQuantity.length) {
+          textQuantity.forEach(text => {
+            text.innerText = count;
+          });
+        }
       }
     });
   
