@@ -7,7 +7,7 @@
         "home_featured_products": "2022-season-1",
         "per_row": 4,
         "rows": 5,
-        "mobile_scrollable": true,
+        "mobile_scrollable": false,
         "view_all": false,
         "divider": false
       }

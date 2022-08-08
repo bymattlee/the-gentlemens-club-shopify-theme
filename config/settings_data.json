@@ -57,7 +57,7 @@
     "collection_grid_opacity": 10,
     "collection_grid_gutter": true,
     "cart_type": "drawer",
-    "cart_icon": "bag",
+    "cart_icon": "text",
     "cart_notes_enable": false,
     "cart_terms_conditions_enable": false,
     "share_facebook": false,
