@@ -1,5 +1,13 @@
 {
   "sections": {
+    "166016143562e648f7": {
+      "type": "featured-video",
+      "settings": {
+        "title": "",
+        "video_url": "https:\/\/vimeo.com\/670401974",
+        "divider": false
+      }
+    },
     "featured-collection": {
       "type": "featured-collection",
       "settings": {
@@ -14,6 +22,7 @@
     }
   },
   "order": [
+    "166016143562e648f7",
     "featured-collection"
   ]
 }
