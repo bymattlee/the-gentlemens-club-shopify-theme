@@ -65,6 +65,14 @@
   --color-body-text:{{ settings.color_body_text | default: "#1c1d1d" }};
   --color-body:{{ settings.color_body_bg | default: "#fff" }};
   --color-bg:{{ settings.color_body_bg | default: "#fff" }};
+
+  --color-red: #ED1C24;
+  --color-black: #000;
+}
+
+*::selection {
+  background-color: var(--color-red);
+  color: ;
 }
 
 @media only screen and (min-width:769px){
@@ -11814,4 +11822,51 @@ html[dir=rtl] .product-single__meta .rte{
   .template-giftcard .logo{
     color:#58686f;
   }
+}
+
+.password-text-splash {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  text-align: center;
+  padding: 128px 0;
+}
+
+.password-text-splash__header {
+  width: 100%;
+}
+
+.password-text-splash__logo {
+
+}
+
+.password-text-splash__logo h1 {
+  margin-bottom: 0;
+}
+
+.password-text-splash__main {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 64px 0;
+}
+
+.password-text-splash__main-content {
+
+}
+
+.password-text-splash__main-message {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.password-text-splash__footer {
+  width: 100%;
+}
+
+.password-text-splash__footer-message {
+  max-width: 300px;
+  margin: 0 auto;
 }
