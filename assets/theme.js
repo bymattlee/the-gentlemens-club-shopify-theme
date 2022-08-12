@@ -5289,6 +5289,22 @@ lazySizesConfig.expFactor = 4;
     return PasswordHeader;
   })();
   
+  theme.PasswordTextSplash = (function() {
+    function PasswordTextSplash() {
+      this.init();
+    }
+  
+    PasswordTextSplash.prototype = Object.assign({}, PasswordTextSplash.prototype, {
+      init: function() {
+        var section = document.querySelector('.password-text-splash');
+
+        theme.mobileNumberForm(section);
+      }
+    });
+  
+    return PasswordTextSplash;
+  })();
+
   theme.Photoswipe = (function() {
     var selectors = {
       trigger: '.js-photoswipe__zoom',
@@ -7782,7 +7798,144 @@ lazySizesConfig.expFactor = 4;
   
     return Testimonials;
   })();
-  
+
+  theme.mobileNumberForm = function(section) {
+    // Phone number field auto format
+    function isNumericInput(event) {
+      var key = event.keyCode;
+      return ((key >= 48 && key <= 57) || // Allow number line
+        (key >= 96 && key <= 105) // Allow number pad
+      );
+    };
+
+    function isModifierKey(event) {
+      var key = event.keyCode;
+      return (event.shiftKey === true || key === 35 || key === 36) || // Allow Shift, Home, End
+        (key === 8 || key === 9 || key === 13 || key === 46) || // Allow Backspace, Tab, Enter, Delete
+        (key > 36 && key < 41) || // Allow left, up, right, down
+        (
+          // Allow Ctrl/Command + A,C,V,X,Z
+          (event.ctrlKey === true || event.metaKey === true) &&
+          (key === 65 || key === 67 || key === 86 || key === 88 || key === 90)
+        )
+    };
+
+    function enforceFormat(event) {
+      // Input must be of a valid number format or a modifier key, and not longer than ten digits
+      if(!isNumericInput(event) && !isModifierKey(event)){
+        event.preventDefault();
+      }
+    };
+
+    function formatToPhone(event) {
+      if(isModifierKey(event)) {return;}
+
+      // I am lazy and don't like to type things more than once
+      var target = event.target;
+      var input = event.target.value.replace(/\D/g,'').substring(0,10); // First ten digits of input only
+      var zip = input.substring(0,3);
+      var middle = input.substring(3,6);
+      var last = input.substring(6,10);
+
+      if(input.length > 6){target.value = `(${zip}) ${middle}-${last}`;}
+      else if(input.length > 3){target.value = `(${zip}) ${middle}`;}
+      else if(input.length > 0){target.value = `(${zip}`;}
+    };
+
+    var inputElement = section.querySelector('.mobile-number-form__input');
+    inputElement.addEventListener('keydown', enforceFormat);
+    inputElement.addEventListener('keyup', formatToPhone);
+
+    // Form submit
+    var form = section.querySelector('.mobile-number-form');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      var thisForm = e.target;
+      var input = thisForm.querySelector('.mobile-number-form__input');
+      var submit = thisForm.querySelector('.mobile-number-form__submit');
+      var formattedNumber = input.value.replace('(', '').replace(')', '').replace('-', '').replace(' ', '');
+      var attentiveVisitorId = document.cookie.replace(/(?:(?:^|.*;\s*)__attentive_id\s*=\s*([^;]*).*$)|^.*$/, '$1');
+      var responseMessage = form.querySelector('.mobile-number-form__response-message');
+
+      var postUrl = 'https://tour.4hunnid.com/attentive/';
+      var messageDelay = 0;
+      var submittingMessage = 'Submitting...';
+      var successMessage = 'Thank you for your submission. Please check your text messages to confirm.';
+      var errorMessage = 'Sorry, there was an error with your submission. Please double check what you\'ve entered and try again.';
+
+      var data = {
+        phone: formattedNumber,
+        visitorId: attentiveVisitorId
+      };
+
+      responseMessage.textContent = submittingMessage;
+      if (!responseMessage.classList.contains('is-active')) responseMessage.classList.add('is-active');
+
+      fetch(postUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams(data),
+      })
+      .then((response) => {
+        var status = response.status;
+        var message = '';
+
+        if (status === 200) {
+          message = successMessage;
+        } else {
+          message = errorMessage;
+        }
+
+        responseMessage.textContent = message;
+      });
+
+
+      // $.ajax({
+      //   type: 'POST',
+      //   url: 'https://tour.4hunnid.com/attentive/',
+      //   data: data,
+      //   success: function(data, status) {
+      //     var messageDelay = 0;
+      //     data = String(data).trim();
+
+      //     if ($response.hasClass('is-active')) {
+      //       $response.removeClass('is-active');
+      //       messageDelay = 200;
+      //     }
+
+      //     setTimeout(function() {
+      //       if (data == 'NULL') {
+      //         $response.text(errorMessage);
+      //         $response.addClass('is-active');
+      //       } else {
+      //         $response.text(successMessage);
+      //         $response.addClass('is-active');
+      //       }
+      //     }, messageDelay);
+      //   },
+      //   error: function(XMLHttpRequest, textStatus, errorThrown) {
+      //     var messageDelay = 0;
+
+      //     if ($response.hasClass('is-active')) {
+      //       $response.removeClass('is-active');
+      //       messageDelay = 200;
+      //     }
+
+      //     setTimeout(function() {
+      //       $response.text(errorMessage);
+      //       $response.addClass('is-active');
+      //     }, messageDelay);
+      //   },
+      //   complete: function() {
+      //     $submit.removeClass('is-loading');
+      //   }
+      // });
+    });
+
+  };
 
   theme.isStorageSupported = function(type) {
     // Return false if we are in an iframe without access to sessionStorage
@@ -7878,6 +8031,7 @@ lazySizesConfig.expFactor = 4;
     theme.sections.register('product', theme.Product);
     theme.sections.register('blog', theme.Blog);
     theme.sections.register('password-header', theme.PasswordHeader);
+    theme.sections.register('password-text-splash', theme.PasswordTextSplash);
     theme.sections.register('photoswipe', theme.Photoswipe);
     theme.sections.register('product-recommendations', theme.Recommendations);
     theme.sections.register('background-image', theme.BackgroundImage);
