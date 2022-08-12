@@ -6378,7 +6378,8 @@ lazySizesConfig.expFactor = 4;
   theme.FooterSection = (function() {
     var selectors = {
       locale: '[data-disclosure-locale]',
-      currency: '[data-disclosure-currency]'
+      currency: '[data-disclosure-currency]',
+      signUp: '.site-footer__signup'
     };
   
     function FooterSection(container) {
@@ -6391,8 +6392,13 @@ lazySizesConfig.expFactor = 4;
   
     FooterSection.prototype = Object.assign({}, FooterSection.prototype, {
       init: function() {
+        var signUpEl = this.container.querySelector(selectors.signUp);
         var localeEl = this.container.querySelector(selectors.locale);
         var currencyEl = this.container.querySelector(selectors.currency);
+  
+        if (signUpEl) {
+          theme.mobileNumberForm(signUpEl);
+        }
   
         if (localeEl) {
           this.localeDisclosure = new theme.Disclosure(localeEl);

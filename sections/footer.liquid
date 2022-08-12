@@ -25,92 +25,132 @@
 {%- endif -%}
 
 <footer class="site-footer" data-section-id="{{ section.id }}" data-section-type="footer-section">
-  <div class="page-width">
 
-    <div class="grid">
-      {%- assign row_width = 0 -%}
-      {%- for block in section.blocks -%}
-        {%- assign row_width = row_width | plus: block.settings.container_width -%}
-        {%- if row_width > 100 -%}
-          <div class="footer__clear small--hide"></div>
-          {%- assign row_width = row_width | minus: 100 -%}
-        {%- endif -%}
+  {%- if section.settings.show_attentive_signup != blank -%}
+    <div class="site-footer__signup">
+      <div class="page-width">
+        <div class="site-footer__signup-form">
+          <form class="mobile-number-form">
 
-        <div {{ block.shopify_attributes }} class="grid__item footer__item--{{ block.id }}" data-type="{{ block.type }}">
-          {%- style -%}
-            @media only screen and (min-width: 769px) and (max-width: 959px) {
-              .footer__item--{{ block.id }} {
-                width: 50%;
-                padding-top: 40px;
+            {% unless section.settings.capture_message == blank %}
+              <div class="mobile-number-form__heading">{{ section.settings.capture_message }}</div>
+            {% endunless %}
+
+            <div class="mobile-number-form__fieldset">
+              <input class="mobile-number-form__input input-group-field" autocomplete="tel" pattern="(\+1)?\(?\d{3}\)?[ -]?\d{3}[ -]?\d{4}" type="tel"  placeholder="(XXX) XXX - XXXX" required>
+              <button type="submit" class="mobile-number-form__submit">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 13" xml:space="preserve">
+                  <path d="m6 6.6-.4-.4L1.1 1 0 1.9l4 4.7-4 4.7 1.1 1 4.5-5.2.4-.5z"/>
+                </svg>
+              </button>
+            </div>
+
+            {% unless section.settings.disclaimer_message == blank %}
+              <label class="mobile-number-form__disclaimer" for="mobile-number-form__disclaimer-checkbox">
+                <div class="mobile-number-form__disclaimer-checkbox-container">
+                  <input type="checkbox" id="mobile-number-form__disclaimer-checkbox" class="mobile-number-form__disclaimer-checkbox" required>
+                  <span class="mobile-number-form__disclaimer-checkbox-ui"></span>
+                </div>
+                <div class="mobile-number-form__disclaimer-message">
+                  {{ section.settings.disclaimer_message }}
+                </div>
+              </label>
+            {% endunless %}
+            <div class="mobile-number-form__response-message"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+
+  <div class="site-footer__main">
+    <div class="page-width">
+
+      <div class="grid">
+        {%- assign row_width = 0 -%}
+        {%- for block in section.blocks -%}
+          {%- assign row_width = row_width | plus: block.settings.container_width -%}
+          {%- if row_width > 100 -%}
+            <div class="footer__clear small--hide"></div>
+            {%- assign row_width = row_width | minus: 100 -%}
+          {%- endif -%}
+
+          <div {{ block.shopify_attributes }} class="grid__item footer__item--{{ block.id }}" data-type="{{ block.type }}">
+            {%- style -%}
+              @media only screen and (min-width: 769px) and (max-width: 959px) {
+                .footer__item--{{ block.id }} {
+                  width: 50%;
+                  padding-top: 40px;
+                }
+                .footer__item--{{ block.id }}:nth-child(2n + 1) {
+                  clear: left;
+                }
               }
-              .footer__item--{{ block.id }}:nth-child(2n + 1) {
-                clear: left;
-              }
-            }
-            @media only screen and (min-width: 960px) {
-              .footer__item--{{ block.id }} {
-                width: {{ block.settings.container_width }}%;
-              }
+              @media only screen and (min-width: 960px) {
+                .footer__item--{{ block.id }} {
+                  width: {{ block.settings.container_width }}%;
+                }
 
-            }
-          {%- endstyle -%}
+              }
+            {%- endstyle -%}
 
-          {%- liquid
-            case block.type
-              when 'logo_social'
-                render 'footer-logo', block: block
-              when 'custom'
-                render 'footer-custom-text', block: block
-              when 'newsletter'
-                render 'footer-newsletter', block: block
-              when 'menu'
-                render 'footer-menu', block: block
-            endcase
+            {%- liquid
+              case block.type
+                when 'logo_social'
+                  render 'footer-logo', block: block
+                when 'custom'
+                  render 'footer-custom-text', block: block
+                when 'newsletter'
+                  render 'footer-newsletter', block: block
+                when 'menu'
+                  render 'footer-menu', block: block
+              endcase
+            -%}
+          </div>
+        {%- endfor -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'logo' -%}
+            <div class="grid__item medium-up--hide">
+              {%- render 'footer-logo', block: block -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      {%- if show_selectors -%}
+        <div class="footer__section">
+          {%- render 'multi-selectors',
+            locale_selector: locale_selector,
+            currency_selector: currency_selector,
+            show_currency_flags: section.settings.show_currency_flags
+            location: 'footer'
           -%}
         </div>
-      {%- endfor -%}
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'logo' -%}
-          <div class="grid__item medium-up--hide">
-            {%- render 'footer-logo', block: block -%}
-          </div>
-        {%- endif -%}
-      {%- endfor -%}
+      {%- endif -%}
+
+      {%- if section.settings.show_payment_icons -%}
+        {%- unless shop.enabled_payment_types == empty -%}
+          <ul class="inline-list payment-icons footer__section">
+            {%- for type in shop.enabled_payment_types -%}
+              <li class="icon--payment">
+                {{ type | payment_type_svg_tag }}
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endunless -%}
+      {%- endif -%}
+
+      {%- if section.settings.show_copyright -%}
+        <p class="footer__small-text">
+          &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}
+          {%- if section.settings.copyright_text != blank -%}
+            {{ section.settings.copyright_text }}
+          {%- endif -%}
+        </p>
+      {%- endif -%}
+      <!-- <p class="footer__small-text">{{ powered_by_link }}</p> -->
+
     </div>
-
-    {%- if show_selectors -%}
-      <div class="footer__section">
-        {%- render 'multi-selectors',
-          locale_selector: locale_selector,
-          currency_selector: currency_selector,
-          show_currency_flags: section.settings.show_currency_flags
-          location: 'footer'
-        -%}
-      </div>
-    {%- endif -%}
-
-    {%- if section.settings.show_payment_icons -%}
-      {%- unless shop.enabled_payment_types == empty -%}
-        <ul class="inline-list payment-icons footer__section">
-          {%- for type in shop.enabled_payment_types -%}
-            <li class="icon--payment">
-              {{ type | payment_type_svg_tag }}
-            </li>
-          {%- endfor -%}
-        </ul>
-      {%- endunless -%}
-    {%- endif -%}
-
-    {%- if section.settings.show_copyright -%}
-      <p class="footer__small-text">
-        &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}
-        {%- if section.settings.copyright_text != blank -%}
-          {{ section.settings.copyright_text }}
-        {%- endif -%}
-      </p>
-    {%- endif -%}
-    <!-- <p class="footer__small-text">{{ powered_by_link }}</p> -->
-
   </div>
 </footer>
 
@@ -119,6 +159,28 @@
   "name": "t:sections.footer.name",
   "max_blocks": 12,
   "settings": [
+    {
+      "type": "header",
+      "content": "Attentive signup"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_attentive_signup",
+      "label": "Show Attentive signup",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "capture_message",
+      "label": "Capture message",
+      "default": "<p>Enter your mobile number to be the first to know about the next collection release.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "disclaimer_message",
+      "label": "Disclaimer message",
+      "default": "<p>Agree to <a href=\"http://attn.tv/4hunnid/terms.html\" target=\"blank\">Terms</a> & <a href=\"https://attnl.tv/p/g4j\" target=\"blank\">Privacy</a>.</p>"
+    },
     {
       "type": "header",
       "content": "t:sections.footer.settings.header_language_selector",
