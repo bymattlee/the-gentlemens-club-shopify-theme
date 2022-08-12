@@ -7891,48 +7891,6 @@ lazySizesConfig.expFactor = 4;
 
         responseMessage.textContent = message;
       });
-
-
-      // $.ajax({
-      //   type: 'POST',
-      //   url: 'https://tour.4hunnid.com/attentive/',
-      //   data: data,
-      //   success: function(data, status) {
-      //     var messageDelay = 0;
-      //     data = String(data).trim();
-
-      //     if ($response.hasClass('is-active')) {
-      //       $response.removeClass('is-active');
-      //       messageDelay = 200;
-      //     }
-
-      //     setTimeout(function() {
-      //       if (data == 'NULL') {
-      //         $response.text(errorMessage);
-      //         $response.addClass('is-active');
-      //       } else {
-      //         $response.text(successMessage);
-      //         $response.addClass('is-active');
-      //       }
-      //     }, messageDelay);
-      //   },
-      //   error: function(XMLHttpRequest, textStatus, errorThrown) {
-      //     var messageDelay = 0;
-
-      //     if ($response.hasClass('is-active')) {
-      //       $response.removeClass('is-active');
-      //       messageDelay = 200;
-      //     }
-
-      //     setTimeout(function() {
-      //       $response.text(errorMessage);
-      //       $response.addClass('is-active');
-      //     }, messageDelay);
-      //   },
-      //   complete: function() {
-      //     $submit.removeClass('is-loading');
-      //   }
-      // });
     });
 
   };
