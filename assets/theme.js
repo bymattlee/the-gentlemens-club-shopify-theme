@@ -5290,15 +5290,15 @@ lazySizesConfig.expFactor = 4;
   })();
   
   theme.PasswordTextSplash = (function() {
-    function PasswordTextSplash() {
+    function PasswordTextSplash(container) {
+      this.container = container;
       this.init();
     }
   
     PasswordTextSplash.prototype = Object.assign({}, PasswordTextSplash.prototype, {
       init: function() {
-        var section = document.querySelector('.password-text-splash');
-
-        theme.mobileNumberForm(section);
+        var signUpEl = this.container.querySelector('.password-text-splash__signup-form');
+        if (signUpEl) theme.mobileNumberForm(signUpEl);
       }
     });
   
@@ -5306,19 +5306,19 @@ lazySizesConfig.expFactor = 4;
   })();
   
   theme.PasswordImageSplash = (function() {
-    function PasswordImageSplash() {
+    function PasswordImageSplash(container) {
+      this.container = container;
+      this.countdown = container.querySelector('.password-image-splash__main-countdown');
       this.init();
     }
   
     PasswordImageSplash.prototype = Object.assign({}, PasswordImageSplash.prototype, {
       init: function() {
-        var section = document.querySelector('.password-image-splash');
-        var countdown = document.querySelector('.password-image-splash__main-countdown');
+        var signUpEl = this.container.querySelector('.password-image-splash__signup-form');
+        if (signUpEl) theme.mobileNumberForm(signUpEl);
 
-        theme.mobileNumberForm(section);
-
-        if (countdown) {
-          var countdownDateTime = countdown.dataset.countdown;
+        if (this.countdown) {
+          var countdownDateTime = this.countdown.dataset.countdown;
           var DateTime = luxon.DateTime;
           var countdownObj = DateTime.fromFormat(countdownDateTime, 'yyyy-MM-dd HH:mm').setZone('America/Los_Angeles');
 
@@ -5327,8 +5327,6 @@ lazySizesConfig.expFactor = 4;
       },
 
       displayCountdown: function(countdownObj) {
-        var countdown = document.querySelector('.password-image-splash__main-countdown');
-
         var interval = setInterval(function() {
           var diff = countdownObj.diffNow(['days', 'hours', 'minutes', 'seconds']);
           var seconds = Math.floor(diff.seconds) === 60 ? 0 : Math.floor(diff.seconds) ;
@@ -5339,7 +5337,7 @@ lazySizesConfig.expFactor = 4;
             return;
           }
 
-          countdown.textContent = countdownDisplay;
+          this.countdown.textContent = countdownDisplay;
         }.bind(this), 1000);
       },
 
@@ -6438,7 +6436,8 @@ lazySizesConfig.expFactor = 4;
   
     var selectors = {
       locale: '[data-disclosure-locale]',
-      currency: '[data-disclosure-currency]'
+      currency: '[data-disclosure-currency]',
+      mobileNavSignup: '.mobile-nav__signup'
     };
   
     function HeaderSection(container) {
@@ -6466,6 +6465,9 @@ lazySizesConfig.expFactor = 4;
         this.initDisclosures();
         theme.headerNav.init();
         theme.announcementBar.init();
+
+        var signUpEl = document.querySelector(selectors.mobileNavSignup);
+        if (signUpEl) theme.mobileNumberForm(signUpEl);
       },
   
       initDisclosures: function() {

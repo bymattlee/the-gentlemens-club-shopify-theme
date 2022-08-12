@@ -102,12 +102,16 @@
           "header_style": "sticky",
           "sticky_index": false,
           "sticky_collection": false,
+          "mobile_secondary_menu_link_list": "mobile-secondary-menu",
+          "show_attentive_signup": true,
+          "capture_message": "<p>Enter your mobile number to be the first to know about the next collection release.<\/p>",
+          "disclaimer_message": "<p>Agree to <a href=\"http:\/\/attn.tv\/4hunnid\/terms.html\" target=\"_blank\">Terms<\/a> & <a href=\"https:\/\/attnl.tv\/p\/g4j\" target=\"_blank\">Privacy<\/a>.<\/p>",
           "announcement_compact": true,
           "announcement_above_header": false,
           "toolbar_menu": "",
           "toolbar_social": false,
           "show_locale_selector": false,
-          "show_currency_selector": true,
+          "show_currency_selector": false,
           "show_currency_flags": false
         }
       },
