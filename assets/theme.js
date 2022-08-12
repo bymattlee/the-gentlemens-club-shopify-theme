@@ -5304,6 +5304,52 @@ lazySizesConfig.expFactor = 4;
   
     return PasswordTextSplash;
   })();
+  
+  theme.PasswordImageSplash = (function() {
+    function PasswordImageSplash() {
+      this.init();
+    }
+  
+    PasswordImageSplash.prototype = Object.assign({}, PasswordImageSplash.prototype, {
+      init: function() {
+        var section = document.querySelector('.password-image-splash');
+        var countdown = document.querySelector('.password-image-splash__main-countdown');
+
+        theme.mobileNumberForm(section);
+
+        if (countdown) {
+          var countdownDateTime = countdown.dataset.countdown;
+          var DateTime = luxon.DateTime;
+          var countdownObj = DateTime.fromFormat(countdownDateTime, 'yyyy-MM-dd HH:mm').setZone('America/Los_Angeles');
+
+          this.displayCountdown(countdownObj);
+        }
+      },
+
+      displayCountdown: function(countdownObj) {
+        var countdown = document.querySelector('.password-image-splash__main-countdown');
+
+        var interval = setInterval(function() {
+          var diff = countdownObj.diffNow(['days', 'hours', 'minutes', 'seconds']);
+          var seconds = Math.floor(diff.seconds) === 60 ? 0 : Math.floor(diff.seconds) ;
+          var countdownDisplay = this.padWithZero(diff.days) + ' Days • ' + this.padWithZero(diff.hours) + ' Hours • ' + this.padWithZero(diff.minutes) + ' Minutes • ' + this.padWithZero(seconds) + ' Seconds';
+          
+          if (seconds < 0) {
+            clearInterval(interval);
+            return;
+          }
+
+          countdown.textContent = countdownDisplay;
+        }.bind(this), 1000);
+      },
+
+      padWithZero: function(num) {
+        return String(num).padStart(2, '0');
+      }
+    });
+  
+    return PasswordImageSplash;
+  })();
 
   theme.Photoswipe = (function() {
     var selectors = {
@@ -7990,6 +8036,7 @@ lazySizesConfig.expFactor = 4;
     theme.sections.register('blog', theme.Blog);
     theme.sections.register('password-header', theme.PasswordHeader);
     theme.sections.register('password-text-splash', theme.PasswordTextSplash);
+    theme.sections.register('password-image-splash', theme.PasswordImageSplash);
     theme.sections.register('photoswipe', theme.Photoswipe);
     theme.sections.register('product-recommendations', theme.Recommendations);
     theme.sections.register('background-image', theme.BackgroundImage);
