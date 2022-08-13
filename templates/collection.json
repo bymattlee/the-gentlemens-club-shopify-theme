@@ -5,7 +5,9 @@
       "settings": {
         "enable": true,
         "collection_image_enable": false,
-        "parallax": false
+        "parallax": false,
+        "collection_menu_enable": true,
+        "collection_menu_link_list": "collection-menu"
       }
     },
     "main-collection": {

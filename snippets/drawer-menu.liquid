@@ -34,7 +34,7 @@
                 {%- if link.url == '#' -%}
                   <button type="button"
                     aria-controls="Linklist-{{ child_list_handle }}"{% if link.active or link.child_active %} aria-open="true"{% endif %}
-                    class="mobile-nav__link--button mobile-nav__link--top-level collapsible-trigger collapsible--auto-height{% if link.active or link.child_active %} is-open{% endif %}">
+                    class="mobile-nav__link--button mobile-nav__link--top-level collapsible-trigger collapsible--auto-height{% if link.active or link.child_active %} is-open{% endif %}{% if link.active %} mobile-nav__link--underline{% endif %}">
                     <span class="mobile-nav__faux-link"{% if link.active %} data-active="true"{% endif %}>
                       {{ link.title }}
                     </span>
@@ -48,7 +48,7 @@
                   </button>
                 {%- else -%}
                   <a href="{{ link.url }}"
-                    class="mobile-nav__link mobile-nav__link--top-level"
+                    class="mobile-nav__link mobile-nav__link--top-level{% if link.active %} mobile-nav__link--active{% endif %}"
                     id="Label-{{ child_list_handle }}"
                     {% if link.active %}data-active="true"{% endif %}>
                     {{ link.title }}
@@ -66,7 +66,7 @@
                 {%- endif -%}
               </div>
             {%- else -%}
-              <a href="{{ link.url }}" class="mobile-nav__link mobile-nav__link--top-level"{% if link.active %} data-active="true"{% endif %}>{{ link.title }}</a>
+              <a href="{{ link.url }}" class="mobile-nav__link mobile-nav__link--top-level{% if link.active %} mobile-nav__link--active{% endif %}"{% if link.active %} data-active="true"{% endif %}>{{ link.title }}</a>
             {%- endif -%}
 
             {%- if has_dropdown -%}
@@ -87,13 +87,13 @@
                           {%- if childlink.url == '#' and has_sub_dropdown -%}
                             <button type="button"
                             aria-controls="Sublinklist-{{ child_list_handle }}-{{ grand_child_list_handle }}"{% if childlink.active or childlink.child_active %} aria-open="true"{% endif %}
-                            class="mobile-nav__link--button collapsible-trigger{% if childlink.active or childlink.child_active %} is-open{% endif %}">
+                            class="mobile-nav__link--button collapsible-trigger{% if childlink.active or childlink.child_active %} is-open{% endif %}{% if childlink.active %} mobile-nav__link--active{% endif %}">
                               <span class="mobile-nav__faux-link"{% if childlink.active %} data-active="true"{% endif %}>{{ childlink.title | escape }}</span>
                               {%- render 'collapsible-icons-alt' -%}
                             </button>
                           {%- else -%}
                             <a href="{{ childlink.url }}"
-                              class="mobile-nav__link"
+                              class="mobile-nav__link{% if childlink.active %} mobile-nav__link--active{% endif %}"
                               id="Sublabel-{{ grand_child_list_handle }}"
                               {% if childlink.active %}data-active="true"{% endif %}>
                               {{ childlink.title | escape }}
@@ -119,7 +119,7 @@
                               <ul class="mobile-nav__grandchildlist">
                                 {%- for grandchildlink in childlink.links -%}
                                   <li class="mobile-nav__item">
-                                    <a href="{{ grandchildlink.url }}" class="mobile-nav__link"{% if grandchildlink.active %} data-active="true"{% endif %}>
+                                    <a href="{{ grandchildlink.url }}" class="mobile-nav__link{% if grandchildlink.active %} mobile-nav__link--active{% endif %}"{% if grandchildlink.active %} data-active="true"{% endif %}>
                                       {{ grandchildlink.title }}
                                     </a>
                                   </li>

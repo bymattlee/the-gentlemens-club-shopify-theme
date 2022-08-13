@@ -52,12 +52,24 @@
     </div>
   {%- else -%}
     {%- assign disable_sticky_header = true -%}
-    <div class="page-width page-content page-content--top">
+    <div class="page-width">
       <header class="section-header section-header--flush">
-        {%- render 'breadcrumbs' -%}
-        <h1 class="section-header__title">
-          {{ collection.title }}
-        </h1>
+
+        {%- if section.settings.collection_menu_enable -%}
+          <ul class="collection-menu site-nav" role="navigation">
+            {%- for link in linklists[section.settings.collection_menu_link_list].links -%}
+              <li class="site-nav__item">
+                <a href="{{ link.url }}" class="site-nav__link{% if link.active %} site-nav__link--active{% endif %}">{{ link.title }}</a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- else -%}
+          {%- render 'breadcrumbs' -%}
+          <h1 class="section-header__title">
+            {{ collection.title }}
+          </h1>
+        {%- endif -%}
+
       </header>
     </div>
   {%- endif -%}
@@ -97,6 +109,18 @@
       "id": "parallax",
       "label": "t:sections.collection-header.settings.parallax.label",
       "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "collection_menu_enable",
+      "label": "Show collection menu",
+      "default": true
+    },
+    {
+      "type": "link_list",
+      "id": "collection_menu_link_list",
+      "label": "Collection menu",
+      "default": "main-menu"
     }
   ]
 }
