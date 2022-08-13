@@ -28,22 +28,40 @@
           "settings": {
             "is_tab": false
           }
+        },
+        "5bf35d1f-bf8e-4519-9cd5-68ff1b14175d": {
+          "type": "tab",
+          "settings": {
+            "title": "Size Guide",
+            "content": "",
+            "page": "{{ product.metafields.tab.size_guide_page.value }}"
+          }
+        },
+        "c314e8e0-84c9-4e19-b699-a5ca4fe86ce3": {
+          "type": "tab",
+          "settings": {
+            "title": "Shipping & Returns",
+            "content": "",
+            "page": "shipping-returns-tab"
+          }
         }
       },
       "block_order": [
         "price",
         "variant_picker",
         "buy_buttons",
-        "description"
+        "description",
+        "5bf35d1f-bf8e-4519-9cd5-68ff1b14175d",
+        "c314e8e0-84c9-4e19-b699-a5ca4fe86ce3"
       ],
       "settings": {
         "sku_enable": false,
         "image_position": "left",
-        "image_size": "medium",
+        "image_size": "large",
         "product_zoom_enable": true,
         "thumbnail_position": "beside",
         "thumbnail_arrows": false,
-        "mobile_layout": "partial",
+        "mobile_layout": "full",
         "enable_video_looping": true,
         "product_video_style": "muted"
       }
@@ -68,18 +86,12 @@
       "settings": {
         "recent_count": 4
       }
-    },
-    "collection-return": {
-      "type": "collection-return",
-      "settings": {
-      }
     }
   },
   "order": [
     "main",
     "sub",
     "product-recommendations",
-    "recently-viewed",
-    "collection-return"
+    "recently-viewed"
   ]
 }
