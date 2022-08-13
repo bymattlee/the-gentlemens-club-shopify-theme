@@ -390,6 +390,23 @@
                     <div class="product-block" {{ block.shopify_attributes }}>
                       {{ block.settings.code }}
                     </div>
+                  {%- when 'color_variations' -%}
+                    {%- assign product_color_items = product.metafields.colors.color_variation_products -%}
+                    {%- assign product_colors = product.metafields.colors.product_color_variations -%}
+                    {%- if product_color_items.value and product_colors.value -%}
+                      <div class="product-block product-block--color-variations" {{ block.shopify_attributes }}>
+                        <label class="variant__label">Color</label>
+                        <div class="color-variations">
+                          {%- assign colors_array = product_colors | replace: "[", "" | replace: "]", "" | replace: '"', "" | split: "," -%}
+                          {%- for product_color_item in product_color_items.value -%}
+                            {% assign index = forloop.index0 %}
+                            <a href="{{ product_color_item.url }}" class="color-variations__item{% if product_color_item.handle == product.handle %} is-active{% endif %}"> 
+                              <span class="color-variations__item-color" style="background-color:{{ colors_array[index] }}"></span>
+                            </a>
+                          {%- endfor -%}
+                        </div>
+                      </div>
+                    {%- endif -%}
                 {%- endcase -%}
               {%- else -%}
                 <div data-blocks-holder
