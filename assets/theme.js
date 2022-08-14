@@ -5404,11 +5404,6 @@ lazySizesConfig.expFactor = 4;
         var index = this.inSlideshow ? this.getChildIndex(image) : parseInt(image.dataset.index) + 1;
   
         this.initGallery(this.items, index);
-
-        console.log('this.inSlideshow', this.inSlideshow);
-        console.log('this.items', this.items);
-        console.log('image', image);
-        console.log('index', index);
       },
   
       // Because of image set feature, need to get index based on location in parent
