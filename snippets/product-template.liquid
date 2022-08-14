@@ -70,7 +70,7 @@
   <div class="_page-content _page-content--product">
     <div class="page-width">
 
-      <div class="grid{% unless image_position == 'left' %} grid--product-images-right{% endunless %}{% if mobile_layout == 'partial' %} grid--product-images--partial{% endif %}">
+      <div class="grid{% unless image_position == 'left' %} grid--product-images-right{% endunless %}{% if mobile_layout == 'partial' %} grid--product-images--partial{% endif %}{% if thumbnail_position == 'remove' %} grid--thumbs-removed{% endif %}">
         {%- if image_position == 'left' -%}
           <div class="grid__item {{ product_image_width }} product-single__sticky">
             {%- render 'product-images',
@@ -89,7 +89,7 @@
           </div>
         {%- endif -%}
 
-        <div class="grid__item {{ product_description_width }}">
+        <div class="grid__item {{ product_description_width }}{% if thumbnail_position == 'remove' %} grid__item--thumbs-removed{% endif %}">
 
           <div class="product-single__meta">
             <div class="product-block product-block--header">

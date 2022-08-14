@@ -5354,7 +5354,8 @@ lazySizesConfig.expFactor = 4;
       trigger: '.js-photoswipe__zoom',
       images: '.photoswipe__image',
       slideshowTrack: '.flickity-viewport ',
-      activeImage: '.is-selected'
+      activeImage: '.is-selected',
+      photoThumbsRemoved: '.product__photos--remove',
     };
   
     function Photoswipe(container, sectionId) {
@@ -5384,7 +5385,13 @@ lazySizesConfig.expFactor = 4;
         // Streamline changes between a slideshow and
         // stacked images, so recheck if we are still
         // working with a slideshow when initializing zoom
-        if (this.container.dataset && this.container.dataset.hasSlideshow === 'true') {
+        if (this.container.querySelector(selectors.photoThumbsRemoved)) {
+          if (window.innerWidth <= 768) {
+            this.inSlideshow = true;
+          } else {
+            this.inSlideshow = false;
+          }
+        } else if (this.container.dataset && this.container.dataset.hasSlideshow === 'true') {
           this.inSlideshow = true;
         } else {
           this.inSlideshow = false;
@@ -5392,11 +5399,16 @@ lazySizesConfig.expFactor = 4;
   
         this.items = this.getImageData();
   
-        var image = this.inSlideshow ? this.container.querySelector(selectors.activeImage) : evt.currentTarget;
+        var image = this.inSlideshow ? this.container.querySelector(selectors.activeImage) : evt.currentTarget.closest('.product-main-slide ');
   
-        var index = this.inSlideshow ? this.getChildIndex(image) : image.dataset.index;
+        var index = this.inSlideshow ? this.getChildIndex(image) : parseInt(image.dataset.index) + 1;
   
         this.initGallery(this.items, index);
+
+        console.log('this.inSlideshow', this.inSlideshow);
+        console.log('this.items', this.items);
+        console.log('image', image);
+        console.log('index', index);
       },
   
       // Because of image set feature, need to get index based on location in parent
@@ -5430,7 +5442,7 @@ lazySizesConfig.expFactor = 4;
   
           items.push(item);
         });
-  
+
         return items;
       },
   
@@ -6564,7 +6576,8 @@ lazySizesConfig.expFactor = 4;
         currentImageSet: null,
         imageSize: '620x',
         currentSlideIndex: 0,
-        videoLooping: container.dataset.videoLooping
+        videoLooping: container.dataset.videoLooping,
+        photoThumbsRemoved: container.querySelector('.product__photos--remove'),
       };
   
       // Overwrite some settings when loaded in modal
@@ -6643,6 +6656,8 @@ lazySizesConfig.expFactor = 4;
           this.initProductSlider();
           this.customMediaListners();
           this.addIdToRecentlyViewed();
+
+          window.addEventListener('resize', this.initProductSlider.bind(this));
         }
       },
   
@@ -7266,18 +7281,21 @@ lazySizesConfig.expFactor = 4;
       },
   
       initProductSlider: function(variant) {
-        // Stop if only a single image, but add active class to first slide
-        if (this.cache.mainSlider.querySelectorAll(selectors.slide).length <= 1) {
+        // Destroy slider in preparation of new initialization
+        if (this.flickity && typeof this.flickity.destroy === 'function') {
+          this.flickity.destroy();
+        }
+
+        // Stop if only a single image or product thumbs are removed, but add active class to first slide
+        var singleImage = this.cache.mainSlider.querySelectorAll(selectors.slide).length <= 1;
+        var photoThumbsRemoved = this.settings.photoThumbsRemoved && window.innerWidth > 768;
+
+        if (singleImage || photoThumbsRemoved) {
           var slide = this.cache.mainSlider.querySelector(selectors.slide);
           if (slide) {
             slide.classList.add('is-selected');
           }
           return;
-        }
-  
-        // Destroy slider in preparation of new initialization
-        if (this.flickity && typeof this.flickity.destroy === 'function') {
-          this.flickity.destroy();
         }
   
         // If variant argument exists, slideshow is reinitializing because of the
@@ -7484,15 +7502,18 @@ lazySizesConfig.expFactor = 4;
           if (this.settings.imageSetName) {
             if (this.variants) {
               this.initProductSlider();
+              window.addEventListener('resize', this.initProductSlider.bind(this));
             } else {
               document.addEventListener('quickview:loaded', function(evt) {
                 if (evt.detail.productId === this.sectionId) {
                   this.initProductSlider();
+                  window.addEventListener('resize', this.initProductSlider.bind(this));
                 }
               }.bind(this));
             }
           } else {
             this.initProductSlider();
+            window.addEventListener('resize', this.initProductSlider.bind(this));
           }
           this.customMediaListners();
           this.addIdToRecentlyViewed();
