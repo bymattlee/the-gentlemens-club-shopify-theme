@@ -22,12 +22,22 @@
             "show_dynamic_checkout": false,
             "surface_pickup_enable": false
           }
+        },
+        "f04516e7-cbde-4edf-989d-313bc0f49fee": {
+          "type": "content_toggle",
+          "settings": {
+            "tab_2_title": "Size Guide",
+            "tab_2_content": "{{ product.metafields.tab.size_guide_page.value }}",
+            "tab_3_title": "Shipping & Returns",
+            "tab_3_content": "shipping-returns-tab"
+          }
         }
       },
       "block_order": [
         "f5d49e77-9e1e-4406-8d7c-3a480f5d5a97",
         "variant_picker",
-        "buy_buttons"
+        "buy_buttons",
+        "f04516e7-cbde-4edf-989d-313bc0f49fee"
       ],
       "settings": {
         "sku_enable": false,

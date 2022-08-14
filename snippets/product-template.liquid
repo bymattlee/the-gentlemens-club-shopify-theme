@@ -411,6 +411,39 @@
                         </div>
                       </div>
                     {%- endif -%}
+                  {%- when 'content_toggle' -%}
+                    <div class="product-block product-block--content-toggle" {{ block.shopify_attributes }}>
+                      <div class="product-content-toggle">
+                        <div class="product-content-toggle__header">
+                          <button class="product-content-toggle__trigger" data-tab="1">Description</button>
+
+                          {%- if block.settings.tab_2_title and block.settings.tab_2_content -%}
+                            <button class="product-content-toggle__trigger" data-tab="2">{{ block.settings.tab_2_title }}</button>
+                          {%- endif -%}
+
+                          {%- if block.settings.tab_3_title and block.settings.tab_3_content -%}
+                            <button class="product-content-toggle__trigger" data-tab="3">{{ block.settings.tab_3_title }}</button>
+                          {%- endif -%}
+                        </div>
+                        <div class="product-content-toggle__content">
+                          <div class="product-content-toggle__content-item" data-tab="1">
+                            {%- render 'product-description' -%}
+                          </div>
+
+                          {%- if block.settings.tab_2_content -%}
+                            <div class="product-content-toggle__content-item" data-tab="2">
+                              {{ block.settings.tab_2_content.content }}
+                            </div>
+                          {%- endif -%}
+
+                          {%- if block.settings.tab_3_content -%}
+                            <div class="product-content-toggle__content-item" data-tab="3">
+                              {{ block.settings.tab_3_content.content }}
+                            </div>
+                          {%- endif -%}
+                        </div>
+                      </div>
+                    </div>
                 {%- endcase -%}
               {%- else -%}
                 <div data-blocks-holder

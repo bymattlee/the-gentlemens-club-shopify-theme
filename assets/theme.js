@@ -6651,6 +6651,7 @@ lazySizesConfig.expFactor = 4;
           this.initProductSlider();
           this.customMediaListners();
           this.addIdToRecentlyViewed();
+          this.initContentToggle();
 
           window.addEventListener('resize', this.initProductSlider.bind(this));
         }
@@ -7637,6 +7638,33 @@ lazySizesConfig.expFactor = 4;
         if (this.flickity && typeof this.flickity.destroy === 'function') {
           this.flickity.destroy();
         }
+      },
+
+      /*============================================================================
+        Content toggle
+      ==============================================================================*/
+      initContentToggle: function() {
+        var contentToggle = this.container.querySelector('.product-content-toggle');
+
+        if (!contentToggle) return;
+
+        var trigger = this.container.querySelectorAll('.product-content-toggle__trigger');
+        var contentItem = this.container.querySelectorAll('.product-content-toggle__content-item');
+
+        trigger.forEach(el => {
+          el.addEventListener('click', function(evt) {
+            // Clear all active states
+            trigger.forEach(el => el.classList.remove('is-active'));
+            contentItem.forEach(el => el.classList.remove('is-active'));
+
+            var thisEl = evt.target;
+            var thisTabNumber = thisEl.dataset.tab;
+            var thisContentItem = this.container.querySelector('.product-content-toggle__content-item[data-tab="' + thisTabNumber + '"');
+
+            thisEl.classList.add('is-active');
+            thisContentItem.classList.add('is-active');
+          }.bind(this));
+        });
       }
     });
   
