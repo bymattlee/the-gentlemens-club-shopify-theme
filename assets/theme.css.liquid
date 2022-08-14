@@ -71,11 +71,23 @@
   --color-black: #000;
   --color-white: #fff;
   --color-grey: #D3D3D3;
+
+  --font-accent-family: 'Caviar Dreams', sans-serif;
+  --font-accent-spacing: -0.02em;
 }
 
 *::selection {
   background-color: var(--color-red);
   color: var(--color-white);
+}
+
+@font-face {
+  font-family: 'Caviar Dreams';
+  src: url('{{ "caviardreams-webfont.woff2" | asset_url }}') format('woff2'),
+       url('{{ "caviardreams-webfont.woff" | asset_url }}') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @media only screen and (min-width:769px){
@@ -1181,7 +1193,7 @@ html[dir=rtl] .grid--center .grid__item{
   }
   .grid__item--thumbs-removed {
     position: relative;
-    min-height: 300px;
+    min-height: 500px;
   }
   .grid__item--thumbs-removed .product-single__meta {
     position: sticky;
@@ -10976,7 +10988,7 @@ iframe.zoid-component-frame{
 
 .product-single__meta{
   padding-left:16px;
-  max-width: 360px;
+  max-width: 372px;
   margin: 0 auto;
 }
 
@@ -11023,7 +11035,17 @@ html[dir=rtl] .product-single__meta .rte{
 .product-single__title{
   margin-bottom:0;
   word-wrap:break-word;
-  font-size: 10px;
+  font-family: var(--font-accent-family);
+  letter-spacing: var(--font-accent-spacing);
+  font-size: 28px;
+  line-height: 32px;
+}
+
+@media only screen and (min-width:769px){
+  .product-single__title{
+    font-size: 36px;
+    line-height: 40px;
+  }
 }
 
 .product-single__review-link{
@@ -11357,7 +11379,7 @@ html[dir=rtl] .product-single__meta .rte{
   color:var(--colorPrice);
   margin-right:5px;
   /* font-size:calc(var(--typeBaseSize) + 2px) */
-  font-size: 10px;
+  /* font-size: 10px; */
 }
 
 .product__price.on-sale{
