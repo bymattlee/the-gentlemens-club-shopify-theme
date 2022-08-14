@@ -7653,16 +7653,24 @@ lazySizesConfig.expFactor = 4;
 
         trigger.forEach(el => {
           el.addEventListener('click', function(evt) {
-            // Clear all active states
-            trigger.forEach(el => el.classList.remove('is-active'));
-            contentItem.forEach(el => el.classList.remove('is-active'));
 
             var thisEl = evt.target;
             var thisTabNumber = thisEl.dataset.tab;
             var thisContentItem = this.container.querySelector('.product-content-toggle__content-item[data-tab="' + thisTabNumber + '"');
 
-            thisEl.classList.add('is-active');
-            thisContentItem.classList.add('is-active');
+            if (thisEl.classList.contains('is-active')) {
+              // Close this tab
+              thisEl.classList.remove('is-active');
+              thisContentItem.classList.remove('is-active');
+            } else {
+              // Clear all active states
+              trigger.forEach(el => el.classList.remove('is-active'));
+              contentItem.forEach(el => el.classList.remove('is-active'));
+
+              // Open this tab
+              thisEl.classList.add('is-active');
+              thisContentItem.classList.add('is-active');
+            }
           }.bind(this));
         });
       }
