@@ -15,6 +15,7 @@
   --colorLink:{{ settings.color_body_text | default: "#1c1d1d" }};
 
   --colorTextBody:{{ settings.color_body_text | default: "#1c1d1d" }};
+  --colorHoverText:{{ settings.color_hover_text | default: "#1c1d1d" }};
   --colorPrice:{{ settings.color_price | default: "#1c1d1d" }};
   --colorTextSavings:{{ settings.color_savings_text | default: "#1c1d1d" }};
   --colorSaleTag:{{ settings.color_sale_tag | default: "#1c1d1d" }};
@@ -1894,7 +1895,7 @@ th{
 .text-link:hover,a:hover{
 /*     color:{{ settings.color_body_text | default: "#1c1d1d" }};
     color:var(--colorTextBody); */
-    color: var(--color-red) !important;
+    color: var(--colorHoverText) !important;
   }
 
 .text-link{
@@ -3144,7 +3145,7 @@ svg.icon:not(.icon--full-color) circle,svg.icon:not(.icon--full-color) ellipse,s
 }
 
 .drawer__close-button:hover {
-  color: var(--color-red);
+  color: var(--colorHoverText);
 }
 
 /* .drawer__close-button:active{
@@ -3930,7 +3931,7 @@ ul+.footer__small-text{
   }
 
 .site-footer__linklist a:hover {
-  color: var(--color-red);
+  color: var(--colorHoverText);
 }
 
 .footer__newsletter{
@@ -5150,7 +5151,7 @@ form+.footer__social{
 .site-nav__link:hover{
 /*     color:{{ settings.color_header_text | default: "#000" }};
     color:var(--colorNavText); */
-    color:var(--color-red);
+    color:var(--colorHoverText);
   }
 
 .is-light .site-nav__link{
@@ -8300,9 +8301,9 @@ html[dir=rtl] .grid-product__content{
   transition: color 300ms;
 }
 
-.grid-product__link:hover{
+/* .grid-product__link:hover{
   color: var(--color-red);
-}
+} */
 
 .grid-product__link--inline{
   display:flex
@@ -10840,7 +10841,7 @@ newsletter-reminder .newsletter-reminder__message{
 }
 
 .cart__item-name:hover{
-  color: var(--color-red) !important;
+  color: var(--colorHoverText) !important;
 }
 
 .cart__item-price-col{
@@ -12100,6 +12101,7 @@ html[dir=rtl] .product-single__meta .rte{
 .mobile-number-form__input {
   width: 100%;
   text-align: center;
+  border: 1px solid var(--colorTextBody);
 }
 
 @media only screen and (max-width:768px){
@@ -12125,6 +12127,8 @@ html[dir=rtl] .product-single__meta .rte{
 
 .mobile-number-form__submit svg {
   width: 6px;
+  color: var(--colorTextBody);
+  fill: currentColor;
 }
 
 .mobile-number-form__disclaimer {
@@ -12140,7 +12144,7 @@ html[dir=rtl] .product-single__meta .rte{
   height: 8px;
   margin-right: 8px;
   position: relative;
-  border: 1px solid var(--color-grey);
+  border: 1px solid var(--colorTextBody);
 }
 
 .mobile-number-form__disclaimer-checkbox {
@@ -12167,7 +12171,7 @@ html[dir=rtl] .product-single__meta .rte{
 }
 
 .mobile-number-form__disclaimer-checkbox:checked ~ .mobile-number-form__disclaimer-checkbox-ui {
-  background-color: var(--color-grey);
+  background-color: var(--colorTextBody);
 }
 
 .mobile-number-form__disclaimer-message {
@@ -12288,7 +12292,7 @@ html[dir=rtl] .product-single__meta .rte{
 }
 
 .color-variations__item.is-active {
-  box-shadow: 0 0 0 1px var(--color-black);
+  box-shadow: 0 0 0 1px var(--colorTextBody);
 }
 
 .color-variations__item-color {

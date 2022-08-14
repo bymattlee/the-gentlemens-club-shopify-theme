@@ -28,6 +28,12 @@
       },
       {
         "type": "color",
+        "id": "color_hover_text",
+        "label": "Hover text",
+        "default": "#1c1d1d"
+      },
+      {
+        "type": "color",
         "id": "color_price",
         "label": "t:settings_schema.colors.settings.color_price.label",
         "default": "#1c1d1d"
