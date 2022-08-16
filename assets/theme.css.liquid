@@ -71,23 +71,11 @@
   --color-black: #000;
   --color-white: #fff;
   --color-grey: #D3D3D3;
-
-  --font-accent-family: 'Caviar Dreams', sans-serif;
-  --font-accent-spacing: -0.02em;
 }
 
 *::selection {
   background-color: var(--color-red);
   color: var(--color-white);
-}
-
-@font-face {
-  font-family: 'Caviar Dreams';
-  src: url('{{ "caviardreams-webfont.woff2" | asset_url }}') format('woff2'),
-       url('{{ "caviardreams-webfont.woff" | asset_url }}') format('woff');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
 }
 
 @media only screen and (min-width:769px){
@@ -1392,7 +1380,7 @@ body,html{
 }
 
 .page-width{
-  /* max-width:1500px; */
+  max-width:1400px;
   margin:0 auto;
 }
 
@@ -1943,7 +1931,7 @@ button[disabled],html input[disabled]{
 
   font-size:var(--typeBaseSize);
   /* font-size:max(calc(var(--typeBaseSize) - 4px), 13px); */
-  font-weight:600;
+  font-weight:700;
   text-transform:uppercase;
 /*   letter-spacing:0.3em; */
 
@@ -5291,8 +5279,8 @@ form+.footer__social{
 }
 
 .site-nav__dropdown{
-  border-top: 1px solid var(--color-grey);
-  border-bottom: 1px solid var(--color-grey);
+/*   border-top: 1px solid var(--color-grey);
+  border-bottom: 1px solid var(--color-grey); */
   background-color:{{ settings.color_body_bg | default: "#fff" }};
   background-color:var(--colorBody);
   padding: 16px 32px;
@@ -8178,7 +8166,7 @@ label.tag__checkbox-wrapper{
 
 .variant-input-wrap label{
     font-family:var(--typeBasePrimary),var(--typeBaseFallback);
-    font-size:calc(var(--typeBaseSize)*0.92);
+    font-size:14px;
     letter-spacing:var(--typeBaseSpacing);
     line-height:var(--typeBaseLineHeight)
   }
@@ -8186,7 +8174,7 @@ label.tag__checkbox-wrapper{
 @media only screen and (min-width:769px){
 
 .variant-input-wrap label{
-    font-size:var(--typeBaseSize)
+    font-size:14px
   }
   }
 
@@ -8206,7 +8194,6 @@ label.tag__checkbox-wrapper{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 10px;
   }
 
 [data-center-text=true] .variant-input-wrap label{
@@ -10880,7 +10867,7 @@ newsletter-reminder .newsletter-reminder__message{
 .cart__remove a{
     display:inline-block;
     margin-top:12px;
-    font-size: 8px;
+    font-size: 11px;
   }
 
 /* .drawer .cart__remove{
@@ -11058,16 +11045,14 @@ html[dir=rtl] .product-single__meta .rte{
 .product-single__title{
   margin-bottom:0;
   word-wrap:break-word;
-  font-family: var(--font-accent-family);
-  letter-spacing: var(--font-accent-spacing);
-  font-size: 28px;
-  line-height: 32px;
+  font-size: 24px;
+  line-height: 28px;
 }
 
 @media only screen and (min-width:769px){
   .product-single__title{
-    font-size: 36px;
-    line-height: 40px;
+    font-size: 40px;
+    line-height: 44px;
   }
 }
 
@@ -12338,7 +12323,8 @@ html[dir=rtl] .product-single__meta .rte{
 }
 
 .password-image-splash__main-countdown {
-
+  margin-top: 4px;
+  font-size: 18px;
 }
 
 .password-image-splash__footer {
@@ -12414,6 +12400,11 @@ html[dir=rtl] .product-single__meta .rte{
 .product-content-toggle__content-item a{
   color: var(--color-black);
   text-decoration: underline;
+}
+
+.product-content-toggle__content-item a:hover{
+  color: var(--color-black) !important;
+  text-decoration: none;
 }
 
 .product-content-toggle__content-item table {

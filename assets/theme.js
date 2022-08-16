@@ -5330,7 +5330,7 @@ lazySizesConfig.expFactor = 4;
         var interval = setInterval(function() {
           var diff = countdownObj.diffNow(['days', 'hours', 'minutes', 'seconds']);
           var seconds = Math.floor(diff.seconds) === 60 ? 0 : Math.floor(diff.seconds) ;
-          var countdownDisplay = this.padWithZero(diff.days) + ' Days • ' + this.padWithZero(diff.hours) + ' Hours • ' + this.padWithZero(diff.minutes) + ' Minutes • ' + this.padWithZero(seconds) + ' Seconds';
+          var countdownDisplay = this.padWithZero(diff.days) + ':' + this.padWithZero(diff.hours) + ':' + this.padWithZero(diff.minutes) + ':' + this.padWithZero(seconds);
           
           if (seconds < 0) {
             clearInterval(interval);
