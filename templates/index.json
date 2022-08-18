@@ -1,11 +1,9 @@
 {
   "sections": {
-    "166016143562e648f7": {
-      "type": "featured-video",
+    "166077867707fcfa32": {
+      "type": "video-autoplay",
       "settings": {
-        "title": "",
-        "video_url": "https:\/\/vimeo.com\/670401974",
-        "divider": false
+        "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/47615a41439f4eae8231a21a248b51c9.mp4"
       }
     },
     "featured-collection": {
@@ -22,7 +20,7 @@
     }
   },
   "order": [
-    "166016143562e648f7",
+    "166077867707fcfa32",
     "featured-collection"
   ]
 }

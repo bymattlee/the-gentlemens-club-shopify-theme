@@ -5868,6 +5868,34 @@ lazySizesConfig.expFactor = 4;
     return videoSection;
   })();
   
+  theme.VideoAutoplay = (function() {
+    function VideoAutoplay(container) {
+      this.container = container;
+      this.init();
+    }
+  
+    VideoAutoplay.prototype = Object.assign({}, VideoAutoplay.prototype, {
+      init: function() {
+        var video = this.container.querySelector('.video-autoplay__video');
+
+        if (!video) return;
+
+        var soundToggle = this.container.querySelector('.video-autoplay__sound-toggle');
+
+        soundToggle.addEventListener('click', function(evt) {
+          if (soundToggle.classList.contains('is-unmuted')) {
+            video.muted = true;
+          } else {
+            video.muted = false;
+          }
+          soundToggle.classList.toggle('is-unmuted');
+        });
+      }
+    });
+  
+    return VideoAutoplay;
+  })();
+  
 
   theme.BackgroundImage = (function() {
   
@@ -8102,6 +8130,7 @@ lazySizesConfig.expFactor = 4;
     theme.sections.register('background-image', theme.BackgroundImage);
     theme.sections.register('testimonials', theme.Testimonials);
     theme.sections.register('video-section', theme.VideoSection);
+    theme.sections.register('video-autoplay', theme.VideoAutoplay);
     theme.sections.register('map', theme.Maps);
     theme.sections.register('footer-section', theme.FooterSection);
     theme.sections.register('store-availability', theme.StoreAvailability);
