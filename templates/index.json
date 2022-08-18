@@ -10,7 +10,7 @@
       "type": "featured-collection",
       "settings": {
         "title": "Summer 2022",
-        "home_featured_products": "2022-drop-1",
+        "home_featured_products": "2022-summer",
         "per_row": 4,
         "rows": 10,
         "mobile_scrollable": false,
