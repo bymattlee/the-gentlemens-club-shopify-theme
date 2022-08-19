@@ -3,77 +3,10 @@
     "main": {
       "type": "main-page-full-width",
       "settings": {
-        "page_title": "Summer 2022"
-      }
-    },
-    "16608876689ce149e0": {
-      "type": "lookbook-scroller",
-      "blocks": {
-        "a7a5b5a2-c791-45e8-ad14-d80fb8fb4706": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/044600_044600-R1-1_5b207c9a-aa02-475d-9e34-e96900eb03d5.jpg"
-          }
-        },
-        "4f51f627-ed17-456a-a34d-5b6ce014a667": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/044600_044600-R1-14_349e0848-132b-4c1e-93d1-292fa599d429.jpg"
-          }
-        },
-        "408948ce-71ee-4c0c-9ad4-e30a10c1c026": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/044600_044600-R1-16_2d5f1fb4-9db8-4ae0-ab24-139c2d758280.jpg"
-          }
-        },
-        "e279ea82-7c9e-4db9-b4f8-7e87d795dede": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/044600_044600-R1-25_89f484f6-2eac-49a6-906d-9d1a957dcf5e.jpg"
-          }
-        },
-        "c7a78d70-f193-4996-9ba2-00e56f44cb83": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/044600_044600-R1-36_7b3d9236-7ef1-43eb-8b48-543f2200cde5.jpg"
-          }
-        },
-        "b3971bc9-304a-458e-a698-9e7865a32a46": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/044700_044700-R1-17_bbf7662a-eec5-41f9-bdd0-e6707444d570.jpg"
-          }
-        },
-        "45a4501d-c124-4445-af0b-bae41fb3383f": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/044800_044800-R1-16A_aafe8a7c-97c0-430a-8f9f-42c50ae9bf95.jpg"
-          }
-        },
-        "d7418d05-eb7a-4b37-aede-be10fa9f0f3e": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/044800_044800-R1-29A_378a8873-323e-4f1d-b060-449d2fb3379b.jpg"
-          }
-        }
-      },
-      "block_order": [
-        "a7a5b5a2-c791-45e8-ad14-d80fb8fb4706",
-        "4f51f627-ed17-456a-a34d-5b6ce014a667",
-        "408948ce-71ee-4c0c-9ad4-e30a10c1c026",
-        "e279ea82-7c9e-4db9-b4f8-7e87d795dede",
-        "c7a78d70-f193-4996-9ba2-00e56f44cb83",
-        "b3971bc9-304a-458e-a698-9e7865a32a46",
-        "45a4501d-c124-4445-af0b-bae41fb3383f",
-        "d7418d05-eb7a-4b37-aede-be10fa9f0f3e"
-      ],
-      "settings": {
       }
     }
   },
   "order": [
-    "main",
-    "16608876689ce149e0"
+    "main"
   ]
 }
