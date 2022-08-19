@@ -2,7 +2,26 @@
   class="lookbook-scroller"
   data-section-id="{{ section.id }}"
   data-section-type="lookbook-scroller">
+  <div class="lookbook-scroller__scroll-container">
+    <div class="lookbook-scroller__container">
 
+      {%- for block in section.blocks -%}
+        {%- if block.settings.image != blank -%}
+          <div class="lookbook-scroller__photo-wrapper">
+            {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+            <img class="lookbook-scroller__photo lazyload"
+              data-src="{{ img_url }}"
+              data-widths="[180, 360, 540, 750, 900, 1080]"
+              data-aspectratio="{{ block.settings.image.aspect_ratio }}"
+              data-sizes="auto"
+              alt="{{ block.settings.image.alt }}"
+              role="presentation">
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+
+    </div>
+  </div>
 </section>
 
 {% schema %}

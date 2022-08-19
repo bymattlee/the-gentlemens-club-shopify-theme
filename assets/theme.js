@@ -5896,6 +5896,28 @@ lazySizesConfig.expFactor = 4;
     return VideoAutoplay;
   })();
   
+  theme.LookbookScroller = (function() {
+    function LookbookScroller(container) {
+      this.container = container;
+      this.init();
+    }
+  
+    LookbookScroller.prototype = Object.assign({}, LookbookScroller.prototype, {
+      init: function() {
+        var scrollContainer = this.container.querySelector('.lookbook-scroller__scroll-container');
+
+        if (!scrollContainer) return;
+
+        scrollContainer.addEventListener('wheel', (evt) => {
+          evt.preventDefault();
+          scrollContainer.scrollLeft += evt.deltaY;
+        });
+      }
+    });
+  
+    return LookbookScroller;
+  })();
+  
 
   theme.BackgroundImage = (function() {
   
@@ -8131,6 +8153,7 @@ lazySizesConfig.expFactor = 4;
     theme.sections.register('testimonials', theme.Testimonials);
     theme.sections.register('video-section', theme.VideoSection);
     theme.sections.register('video-autoplay', theme.VideoAutoplay);
+    theme.sections.register('lookbook-scroller', theme.LookbookScroller);
     theme.sections.register('map', theme.Maps);
     theme.sections.register('footer-section', theme.FooterSection);
     theme.sections.register('store-availability', theme.StoreAvailability);

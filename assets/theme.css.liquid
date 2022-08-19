@@ -12479,3 +12479,39 @@ html[dir=rtl] .product-single__meta .rte{
 .video-autoplay__sound-toggle-svg--on {
   display: none;
 }
+
+.lookbook-scroller {
+  height: calc(100vh - 133px);
+}
+
+@media only screen and (max-width:768px) {
+  .lookbook-scroller {
+    height: calc(100vh - 124px);
+  }
+}
+
+.lookbook-scroller__scroll-container {
+  height: 100%;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.lookbook-scroller__scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.lookbook-scroller__container {
+  height: 100%;
+  display: flex;
+}
+
+.lookbook-scroller__photo-wrapper {
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.lookbook-scroller__photo {
+  height: 100%;
+  width: auto !important;
+}
