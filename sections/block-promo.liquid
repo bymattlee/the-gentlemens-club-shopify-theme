@@ -1,0 +1,142 @@
+<section
+  class="block-promo"
+  data-section-id="{{ section.id }}"
+  data-section-type="block-promo">
+  <div class="page-width">
+    <div class="block-promo__container">
+
+      {%- for block in section.blocks -%}
+        <div class="block-promo__item small--one-whole one-half">
+          {%- case block.type -%}
+            {%- when 'image' -%}
+              {%- if block.settings.image != blank -%}
+                <div class="block-promo__photo-wrapper">
+                  {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                  <img class="block-promo__photo lazyload"
+                    data-src="{{ img_url }}"
+                    data-widths="[180, 360, 540, 750, 900, 1080]"
+                    data-aspectratio="{{ block.settings.image.aspect_ratio }}"
+                    data-sizes="auto"
+                    alt="{{ block.settings.image.alt }}"
+                    role="presentation">
+                </div>
+              {%- endif -%}
+            {%- when 'form' -%}
+              <div class="block-promo__signup-block">
+                <div class="block-promo__signup-content">
+
+                <div class="block-promo__signup-main-text">
+                  {%- if block.settings.main_message != blank -%}
+                    <div class="block-promo__signup-main-message">
+                      {{ block.settings.main_message }}
+                    </div>
+                  {%- endif -%}
+
+                  {%- if block.settings.countdown != blank -%}
+                    <div class="block-promo__signup-main-countdown" data-countdown="{{ block.settings.countdown }}">Counting Down...</div>
+                  {%- endif -%}
+                </div>
+
+                {%- if block.settings.show_attentive_signup != blank -%}
+                  <div class="block-promo__signup-form">
+                    <form class="mobile-number-form">
+
+                      {% unless block.settings.capture_message == blank %}
+                        <div class="mobile-number-form__heading">{{ block.settings.capture_message }}</div>
+                      {% endunless %}
+
+                      <div class="mobile-number-form__fieldset">
+                        <input class="mobile-number-form__input input-group-field" autocomplete="tel" pattern="(\+1)?\(?\d{3}\)?[ -]?\d{3}[ -]?\d{4}" type="tel"  placeholder="(XXX) XXX - XXXX" required>
+                        <button type="submit" class="mobile-number-form__submit">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 13" xml:space="preserve">
+                            <path d="m6 6.6-.4-.4L1.1 1 0 1.9l4 4.7-4 4.7 1.1 1 4.5-5.2.4-.5z"/>
+                          </svg>
+                        </button>
+                      </div>
+
+                      {% unless block.settings.disclaimer_message == blank %}
+                        <label class="mobile-number-form__disclaimer" for="mobile-number-form__disclaimer-checkbox">
+                          <div class="mobile-number-form__disclaimer-checkbox-container">
+                            <input type="checkbox" id="mobile-number-form__disclaimer-checkbox" class="mobile-number-form__disclaimer-checkbox" required>
+                            <span class="mobile-number-form__disclaimer-checkbox-ui"></span>
+                          </div>
+                          <div class="mobile-number-form__disclaimer-message">
+                            {{ block.settings.disclaimer_message }}
+                          </div>
+                        </label>
+                      {% endunless %}
+                      <div class="mobile-number-form__response-message"></div>
+                    </form>
+                  </div>
+                {%- endif -%}
+
+                </div>
+              </div>
+          {%- endcase -%}
+        </div>
+      {%- endfor -%}
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Block promo",
+  "class": "block-promo-section",
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    },
+    {
+      "type": "form",
+      "name": "Signup form",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "main_message",
+          "label": "Main message",
+          "default": "<p>Season One</p>"
+        },
+        {
+          "type": "text",
+          "id": "countdown",
+          "label": "Countdown",
+          "info": "Format: YYYY-MM-DD HH:MM (24-hour time)"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_attentive_signup",
+          "label": "Show Attentive signup",
+          "default": true
+        },
+        {
+          "type": "richtext",
+          "id": "capture_message",
+          "label": "Capture message",
+          "default": "<p>Enter your mobile number to be the first to know about the next collection release.</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "disclaimer_message",
+          "label": "Disclaimer message",
+          "default": "<p>Agree to <a href=\"http://attn.tv/4hunnid/terms.html\" target=\"blank\">Terms</a> & <a href=\"https://attnl.tv/p/g4j\" target=\"blank\">Privacy</a>.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Block promo"
+    }
+  ]
+}
+{% endschema %}
