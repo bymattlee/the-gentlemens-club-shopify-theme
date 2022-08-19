@@ -1,17 +1,24 @@
-<div class="page-full page-content">
-  {%- render 'breadcrumbs' -%}
+<div class="page-width">
   <header class="section-header">
-    <h1 class="section-header__title">{{ page.title | escape }}</h1>
+    {%- if section.settings.page_title != blank -%}
+      <h1 class="section-header__title">{{ section.settings.page_title }}</h1>
+    {%- else -%}
+      <h1 class="section-header__title">{{ page.title }}</h1>
+    {%- endif -%}
   </header>
-
-  <div class="rte rte--nomargin">
-    {{ page.content }}
-  </div>
 </div>
 
 {% schema %}
 {
   "name": "t:sections.main-page-full-width.name",
-  "tag": "section"
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "page_title",
+      "label": "Page title",
+      "info": "Overwrite current page title"
+    }
+  ]
 }
 {% endschema %}

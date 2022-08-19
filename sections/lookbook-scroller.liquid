@@ -2,29 +2,13 @@
   class="lookbook-scroller"
   data-section-id="{{ section.id }}"
   data-section-type="lookbook-scroller">
-  <div class="page-width">
-    <header class="section-header">
-      {%- if section.settings.page_title != blank -%}
-        <h1 class="section-header__title">{{ section.settings.page_title }}</h1>
-      {%- else -%}
-        <h1 class="section-header__title">{{ page.title }}</h1>
-      {%- endif -%}
-    </header>
-  </div>
+
 </section>
 
 {% schema %}
 {
   "name": "Lookbook scroller",
   "class": "lookbook-scroller-section",
-  "settings": [
-    {
-      "type": "text",
-      "id": "page_title",
-      "label": "Page title",
-      "info": "Overwrite current page title"
-    }
-  ],
   "blocks": [
     {
       "type": "image",
