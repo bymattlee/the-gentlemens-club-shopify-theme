@@ -1,11 +1,5 @@
 {
   "sections": {
-    "main": {
-      "type": "main-page-full-width",
-      "settings": {
-        "page_title": "Summer 2022"
-      }
-    },
     "166088957612ca892a": {
       "type": "lookbook-scroller",
       "blocks": {
@@ -94,7 +88,6 @@
     }
   },
   "order": [
-    "main",
     "166088957612ca892a"
   ]
 }

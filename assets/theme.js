@@ -5910,13 +5910,17 @@ lazySizesConfig.expFactor = 4;
 
         var mainContainer = this.container.querySelector('.lookbook-scroller__container');
         var photos = this.container.querySelectorAll('.lookbook-scroller__photo-wrapper');
-        var lastPhoto = photos[photos.length - 1];
+
+        var scrollInterval = setInterval(function() {
+          scrollContainer.scrollLeft += 0.5;
+        }, 1);
 
         scrollContainer.addEventListener('wheel', (evt) => {
           evt.preventDefault();
+          clearInterval(scrollInterval);
+
           var scrollContainerWidth = scrollContainer.scrollWidth;
           var mainContainerWidth = mainContainer.offsetWidth;
-          var lastPhotoWidth = lastPhoto.offsetWidth;
 
           if (scrollContainer.scrollLeft <= 0) {
             if (evt.deltaY < 0) {
