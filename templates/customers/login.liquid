@@ -1,6 +1,6 @@
-<div class="page-width page-width--tiny page-content">
+<div class="page-width page-width--tiny page-content page-content--more-vertical-spacing">
   <header class="section-header">
-    <h1 class="section-header__title">{{ 'customer.login.title' | t }}</h1>
+    <h1 class="section-header__title section-header--small">{{ 'customer.login.title' | t }}</h1>
   </header>
 
   <div class="note note--success hide" id="ResetSuccess">
@@ -12,31 +12,24 @@
 
       {{ form.errors | default_errors }}
 
-      <label for="CustomerEmail">{{ 'customer.login.email' | t }}</label>
-      <input type="email" name="customer[email]" id="CustomerEmail" class="input-full{% if form.errors contains 'email' %} error{% endif %}" autocorrect="off" autocapitalize="off" autofocus>
+      <input type="email" name="customer[email]" id="CustomerEmail" class="input-full{% if form.errors contains 'email' %} error{% endif %}" autocorrect="off" autocapitalize="off" autofocus placeholder="{{ 'customer.login.email' | t }}">
 
       {%- if form.password_needed -%}
-        <div class="grid">
-          <div class="grid__item one-half">
-            <label for="CustomerPassword">{{ 'customer.login.password' | t }}</label>
-          </div>
-          <div class="grid__item one-half text-right">
-            <small class="label-info">
-              <a href="#recover" id="RecoverPassword">
-                {{ 'customer.login.forgot_password' | t }}
-              </a>
-            </small>
-          </div>
-        </div>
-        <input type="password" value="" name="customer[password]" id="CustomerPassword" class="input-full{% if form.errors contains 'password' %} error{% endif %}">
+        <input type="password" value="" name="customer[password]" id="CustomerPassword" class="input-full{% if form.errors contains 'password' %} error{% endif %}" placeholder="{{ 'customer.login.password' | t }}">
       {%- endif -%}
 
       <p>
-        <button type="submit" class="btn btn--full">
+        <button type="submit" class="btn btn--full btn--secondary">
           {{ 'customer.login.sign_in' | t }}
         </button>
       </p>
-      <p>{{ 'layout.customer.create_account' | t | customer_register_link }}</p>
+      <div class="form-vertical__footer">
+        <a href="#recover" id="RecoverPassword">
+          {{ 'customer.login.forgot_password' | t }}
+        </a>
+        <br />
+        {{ 'layout.customer.create_account' | t | customer_register_link }}
+      </div>
 
     {%- endform -%}
   </div>
@@ -54,8 +47,7 @@
           <span class="hide reset-password-success"></span>
         {%- endif -%}
 
-        <label for="RecoverEmail">{{ 'customer.recover_password.email' | t }}</label>
-        <input type="email" value="" name="email" id="RecoverEmail" class="input-full" autocorrect="off" autocapitalize="off">
+        <input type="email" value="" name="email" id="RecoverEmail" class="input-full" autocorrect="off" autocapitalize="off" placeholder="{{ 'customer.recover_password.email' | t }}">
 
         <p>
           <button type="submit" class="btn">

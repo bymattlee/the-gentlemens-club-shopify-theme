@@ -1,4 +1,4 @@
-<div class="page-width page-width--tiny page-content">
+<div class="page-width page-width--tiny page-content page-content--more-vertical-spacing">
   <header class="section-header">
     <h1 class="section-header__title">{{ 'customer.register.title' | t }}</h1>
   </header>
@@ -8,20 +8,16 @@
 
       {{ form.errors | default_errors }}
 
-      <label for="FirstName">{{ 'customer.register.first_name' | t }}</label>
-      <input type="text" name="customer[first_name]" id="FirstName" class="input-full"{% if form.first_name %} value="{{ form.first_name }}"{% endif %} autocapitalize="words" autofocus>
+      <input type="text" name="customer[first_name]" id="FirstName" class="input-full"{% if form.first_name %} value="{{ form.first_name }}"{% endif %} autocapitalize="words" autofocus placeholder="{{ 'customer.register.first_name' | t }}">
 
-      <label for="LastName">{{ 'customer.register.last_name' | t }}</label>
-      <input type="text" name="customer[last_name]" id="LastName" class="input-full"{% if form.last_name %} value="{{ form.last_name }}"{% endif %} autocapitalize="words">
+      <input type="text" name="customer[last_name]" id="LastName" class="input-full"{% if form.last_name %} value="{{ form.last_name }}"{% endif %} autocapitalize="words" placeholder="{{ 'customer.register.last_name' | t }}">
 
-      <label for="Email">{{ 'customer.register.email' | t }}</label>
-      <input type="email" name="customer[email]" id="Email" class="input-full{% if form.errors contains 'email' %} error{% endif %}"{% if form.email %} value="{{ form.email }}"{% endif %} autocorrect="off" autocapitalize="off">
+      <input type="email" name="customer[email]" id="Email" class="input-full{% if form.errors contains 'email' %} error{% endif %}"{% if form.email %} value="{{ form.email }}"{% endif %} autocorrect="off" autocapitalize="off" placeholder="{{ 'customer.register.email' | t }}">
 
-      <label for="CreatePassword">{{ 'customer.register.password' | t }}</label>
-      <input type="password" name="customer[password]" id="CreatePassword" class="input-full{% if form.errors contains 'password' %} error{% endif %}">
+      <input type="password" name="customer[password]" id="CreatePassword" class="input-full{% if form.errors contains 'password' %} error{% endif %}" placeholder="{{ 'customer.register.password' | t }}">
 
       <p>
-        <input type="submit" value="{{ 'customer.register.submit' | t }}" class="btn btn--full">
+        <input type="submit" value="{{ 'customer.register.submit' | t }}" class="btn btn--full btn--secondary">
       </p>
 
     {%- endform -%}

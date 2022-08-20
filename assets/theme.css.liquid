@@ -1434,6 +1434,11 @@ body,html{
   padding-top:0;
 }
 
+.page-content--more-vertical-spacing {
+  padding-top: 128px;
+  padding-bottom: 128px;
+}
+
 .main-content{
   display:block;
   min-height:300px
@@ -2071,9 +2076,10 @@ button[disabled],html input[disabled]{
   color:{{ settings.color_body_text | default: "#1c1d1d" }};
   color:var(--colorTextBody);
   border:1px solid;
-  border-color:{{ settings.color_borders | default: "#1c1d1d" }};
-  border-color:var(--colorBorder);
-  background-color:transparent
+  border-color:{{ settings.color_body_text | default: "#1c1d1d" }};
+  border-color:var(--colorTextBody);
+  background-color:transparent;
+  font-weight: 400;
 }
 
 [data-button_style=angled] .btn--secondary,[data-button_style=angled] .rte .btn--secondary{
@@ -2696,6 +2702,10 @@ form{
     text-align:left;
   }
 
+.form-vertical__footer {
+  margin-top: 32px;
+}
+
 .inline{
   display:inline;
 }
@@ -2840,7 +2850,8 @@ label[for]{
 
 .form-vertical input,.form-vertical select,.form-vertical textarea{
     display:block;
-    margin-bottom:30px;
+    margin-bottom:8px;
+    text-align: center;
   }
 
 .form-vertical .btn,.form-vertical input[type=checkbox],.form-vertical input[type=radio]{
@@ -4947,7 +4958,8 @@ form+.footer__social{
     height:16px;
   }
 
-.section-header{
+.section-header,
+.shopify-policy__title {
   margin-bottom:24px
 }
 
@@ -4957,12 +4969,13 @@ form+.footer__social{
 
 @media only screen and (min-width:769px){
 
-.section-header{
+.section-header,
+.shopify-policy__title {
     margin-bottom:32px
 }
 
 .section-header--small {
-  margin-bottom:32px
+  margin-bottom:24px
 }
   }
 
