@@ -3795,8 +3795,9 @@ tool-tip[data-tool-tip-open=true] .tool-tip__inner{
   /* border-bottom: 1px solid var(--color-grey); */
 }
 
-.site-footer__signup-form .mobile-number-form__disclaimer {
-  justify-content: flex-start;
+.site-footer__signup-form {
+  max-width: 300px;
+  margin: 0 auto;
 }
 
 @media only screen and (min-width:769px){
@@ -3804,16 +3805,6 @@ tool-tip[data-tool-tip-open=true] .tool-tip__inner{
   .site-footer__main {
     padding-top:48px;
     padding-bottom:48px
-  }
-
-  .site-footer__signup-form {
-    max-width: 300px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .site-footer__signup-form .mobile-number-form__disclaimer {
-    justify-content: center;
   }
 }
 
@@ -3853,6 +3844,20 @@ tool-tip[data-tool-tip-open=true] .tool-tip__inner{
       .site-footer .grid__item:last-child:after{
         display:none;
       }
+
+    .site-footer__main .footer__item--1494301487049,
+    .site-footer__main .footer__item--c121f1cd-3fff-4ded-8626-2ce0d7531b34 {
+      display: none;
+    }
+
+    .site-footer__main .grid {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .site-footer__main .footer__item--6447d789-e2ac-4a34-8a78-82294e775b82 {
+      order: 1;
+    }
   }
 
 .site-footer a{
@@ -5021,6 +5026,10 @@ form+.footer__social{
 
 .section-header__title{
   margin-bottom:0
+}
+
+.section-header__title--right {
+  text-align: right;
 }
 
 .section-header--with-link .section-header__title{
@@ -12141,6 +12150,7 @@ html[dir=rtl] .product-single__meta .rte{
 
 .mobile-number-form {
   position: relative;
+  text-align: center;
 }
 
 .mobile-number-form__heading {
