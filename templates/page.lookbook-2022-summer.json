@@ -33,6 +33,12 @@
             "image": "shopify:\/\/shop_images\/Photo_1.jpg"
           }
         },
+        "b60452ff-2ba5-4aae-a105-603a159444f0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/The_Flame_Flyer_b46503d0-6692-4fe7-bb71-db550e5e7de0.jpg"
+          }
+        },
         "9d84ecc1-b0b2-4f15-9f28-09cd984da775": {
           "type": "image",
           "settings": {
@@ -76,6 +82,7 @@
         "ac49f5c0-5522-405c-abdb-3fb99a7fbe2e",
         "6c624f6e-3821-4d6a-ac70-b88d7d0f2b3d",
         "b5b8b9f5-ab7a-45a2-8f62-f89aa01c6626",
+        "b60452ff-2ba5-4aae-a105-603a159444f0",
         "9d84ecc1-b0b2-4f15-9f28-09cd984da775",
         "b19398f5-c60b-4b2f-8859-fc2b239ce1e1",
         "93251048-8f8c-40c6-8133-e29ff2729960",
