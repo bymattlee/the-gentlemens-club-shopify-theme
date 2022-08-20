@@ -5911,22 +5911,38 @@ lazySizesConfig.expFactor = 4;
         var mainContainer = this.container.querySelector('.lookbook-scroller__container');
         var photos = this.container.querySelectorAll('.lookbook-scroller__photo-wrapper');
 
-        var scrollInterval = setInterval(function() {
-          scrollContainer.scrollLeft += 0.5;
-        }, 1);
+        var scrollInterval = null;
+
+        window.addEventListener('load', (event) => {
+          scrollInterval = setInterval(function() {
+            scrollContainer.scrollLeft += 0.5;
+          }, 1);
+        });
 
         scrollContainer.addEventListener('wheel', (evt) => {
           evt.preventDefault();
+
           clearInterval(scrollInterval);
 
           var scrollContainerWidth = scrollContainer.scrollWidth;
           var mainContainerWidth = mainContainer.offsetWidth;
+          var yScrollWidth = mainContainer.scrollWidth - window.innerWidth - 1;
 
           if (scrollContainer.scrollLeft <= 0) {
             if (evt.deltaY < 0) {
               document.documentElement.scrollTop += evt.deltaY;
             } else if (evt.deltaY > 0) {
               scrollContainer.scrollLeft += evt.deltaY;
+            }
+          } else if (scrollContainer.scrollLeft >= yScrollWidth) {
+            if (evt.deltaY < 0) {
+              if (document.documentElement.scrollTop > 0) {
+                document.documentElement.scrollTop += evt.deltaY;
+              } else {
+                scrollContainer.scrollLeft += evt.deltaY;
+              }
+            } else if (evt.deltaY > 0) {
+              document.documentElement.scrollTop += evt.deltaY;
             }
           } else {
             scrollContainer.scrollLeft += evt.deltaY;
