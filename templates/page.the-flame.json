@@ -14,14 +14,44 @@
           "settings": {
             "main_message": "<p>The Flame<br\/>Available 9.07.22<\/p>",
             "countdown": "2022-09-07 09:00",
+            "show_attentive_signup": true,
             "capture_message": "<p>Enter your mobile number to be the first to know about The Flame release.<\/p>",
-            "disclaimer_message": "<p>Agree to <a href=\"http:\/\/attn.tv\/4hunnid\/terms.html\">Terms<\/a> & <a href=\"https:\/\/attnl.tv\/p\/g4j\">Privacy<\/a>.<\/p>"
+            "disclaimer_message": "<p>Agree to <a href=\"http:\/\/attn.tv\/4hunnid\/terms.html\" target=\"_blank\">Terms<\/a> & <a href=\"https:\/\/attnl.tv\/p\/g4j\" target=\"_blank\">Privacy<\/a>.<\/p>",
+            "background_image": "shopify:\/\/shop_images\/Sign_Up_Form_BG.jpg"
+          }
+        },
+        "d7c64174-2425-4991-8019-9a7771b4c6c5": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/THE_BLOCK_RUNNER_WHITE_RED_-_1_9fa7520c-c67d-40b5-8da1-9344878ec06b.jpg"
+          }
+        },
+        "b32f4a08-fc3d-4860-ad7b-ec1dc83d5877": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/THE_BLOCK_RUNNER_WHITE_RED_-_2_9904e066-1908-4647-a1b5-975b7a9bc91c.jpg"
+          }
+        },
+        "7c264ea6-981e-4479-94e5-06e21ebc8ed5": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/THE_BLOCK_RUNNER_WHITE_RED_-_3_06bc6c84-308d-4548-89e0-6da07d2914bc.jpg"
+          }
+        },
+        "238fc86a-d080-40de-8714-d15702a3d6ed": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/THE_BLOCK_RUNNER_WHITE_RED_-_4_e05bc192-a3e8-47ee-97df-4ca157ab7c2d.jpg"
           }
         }
       },
       "block_order": [
         "da8df5c6-e3d5-416e-baba-0943502720ea",
-        "107945d0-ce6e-4bbe-a86f-2c2fe6d24300"
+        "107945d0-ce6e-4bbe-a86f-2c2fe6d24300",
+        "d7c64174-2425-4991-8019-9a7771b4c6c5",
+        "b32f4a08-fc3d-4860-ad7b-ec1dc83d5877",
+        "7c264ea6-981e-4479-94e5-06e21ebc8ed5",
+        "238fc86a-d080-40de-8714-d15702a3d6ed"
       ],
       "settings": {
       }

@@ -22,7 +22,7 @@
                 </div>
               {%- endif -%}
             {%- when 'form' -%}
-              <div class="block-promo__signup-block">
+              <div class="block-promo__signup-block"{%- if block.settings.background_image != blank -%} style="background-image: url('{{ block.settings.background_image | img_url: 'master' }}');"{%- endif -%}>
                 <div class="block-promo__signup-content">
 
                 <div class="block-promo__signup-main-text">
@@ -99,6 +99,7 @@
     {
       "type": "form",
       "name": "Signup form",
+      "limit": 1,
       "settings": [
         {
           "type": "richtext",
@@ -129,6 +130,11 @@
           "id": "disclaimer_message",
           "label": "Disclaimer message",
           "default": "<p>Agree to <a href=\"http://attn.tv/4hunnid/terms.html\" target=\"blank\">Terms</a> & <a href=\"https://attnl.tv/p/g4j\" target=\"blank\">Privacy</a>.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "background_image",
+          "label": "Background image"
         }
       ]
     }

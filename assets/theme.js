@@ -5308,41 +5308,16 @@ lazySizesConfig.expFactor = 4;
   theme.PasswordImageSplash = (function() {
     function PasswordImageSplash(container) {
       this.container = container;
-      this.countdown = container.querySelector('.password-image-splash__main-countdown');
       this.init();
     }
   
     PasswordImageSplash.prototype = Object.assign({}, PasswordImageSplash.prototype, {
       init: function() {
         var signUpEl = this.container.querySelector('.password-image-splash__signup-form');
+        var countdownEl = this.container.querySelector('.password-image-splash__main-countdown');
+
         if (signUpEl) theme.mobileNumberForm(signUpEl);
-
-        if (this.countdown) {
-          var countdownDateTime = this.countdown.dataset.countdown;
-          var DateTime = luxon.DateTime;
-          var countdownObj = DateTime.fromFormat(countdownDateTime, 'yyyy-MM-dd HH:mm').setZone('America/Los_Angeles');
-
-          this.displayCountdown(countdownObj);
-        }
-      },
-
-      displayCountdown: function(countdownObj) {
-        var interval = setInterval(function() {
-          var diff = countdownObj.diffNow(['days', 'hours', 'minutes', 'seconds']);
-          var seconds = Math.floor(diff.seconds) === 60 ? 0 : Math.floor(diff.seconds) ;
-          var countdownDisplay = this.padWithZero(diff.days) + ':' + this.padWithZero(diff.hours) + ':' + this.padWithZero(diff.minutes) + ':' + this.padWithZero(seconds);
-          
-          if (seconds < 0) {
-            clearInterval(interval);
-            return;
-          }
-
-          this.countdown.textContent = countdownDisplay;
-        }.bind(this), 1000);
-      },
-
-      padWithZero: function(num) {
-        return String(num).padStart(2, '0');
+        if (countdownEl) theme.countdown(countdownEl);
       }
     });
   
@@ -5952,6 +5927,25 @@ lazySizesConfig.expFactor = 4;
     });
   
     return LookbookScroller;
+  })();
+  
+  theme.BlockPromo = (function() {
+    function BlockPromo(container) {
+      this.container = container;
+      this.init();
+    }
+  
+    BlockPromo.prototype = Object.assign({}, BlockPromo.prototype, {
+      init: function() {
+        var signUpEl = this.container.querySelector('.block-promo__signup-form');
+        var countdownEl = this.container.querySelector('.block-promo__signup-main-countdown');
+
+        if (signUpEl) theme.mobileNumberForm(signUpEl);
+        if (countdownEl) theme.countdown(countdownEl);
+      }
+    });
+  
+    return BlockPromo;
   })();
   
 
@@ -8082,9 +8076,38 @@ lazySizesConfig.expFactor = 4;
         }
 
         responseMessage.textContent = message;
+        input.value = '';
       });
     });
+  };
 
+  theme.countdown = function(countdownEl) {
+    if (!countdownEl) return;
+
+    function padWithZero(num) {
+      return String(num).padStart(2, '0');
+    }
+
+    function displayCountdown(countdownObj) {
+      var interval = setInterval(function() {
+        var diff = countdownObj.diffNow(['days', 'hours', 'minutes', 'seconds']);
+        var seconds = Math.floor(diff.seconds) === 60 ? 0 : Math.floor(diff.seconds) ;
+        var countdownDisplay = padWithZero(diff.days) + ':' + padWithZero(diff.hours) + ':' + padWithZero(diff.minutes) + ':' + padWithZero(seconds);
+        
+        if (seconds < 0) {
+          clearInterval(interval);
+          return;
+        }
+
+        countdownEl.textContent = countdownDisplay;
+      }.bind(this), 1000);
+    }
+
+    var countdownDateTime = countdownEl.dataset.countdown;
+    var DateTime = luxon.DateTime;
+    var countdownObj = DateTime.fromFormat(countdownDateTime, 'yyyy-MM-dd HH:mm').setZone('America/Los_Angeles');
+
+    displayCountdown(countdownObj);
   };
 
   theme.isStorageSupported = function(type) {
@@ -8190,6 +8213,7 @@ lazySizesConfig.expFactor = 4;
     theme.sections.register('video-section', theme.VideoSection);
     theme.sections.register('video-autoplay', theme.VideoAutoplay);
     theme.sections.register('lookbook-scroller', theme.LookbookScroller);
+    theme.sections.register('block-promo', theme.BlockPromo);
     theme.sections.register('map', theme.Maps);
     theme.sections.register('footer-section', theme.FooterSection);
     theme.sections.register('store-availability', theme.StoreAvailability);
