@@ -1979,7 +1979,8 @@ button[disabled],html input[disabled]{
 .btn.disabled,.btn[disabled],.rte .btn.disabled,.rte .btn[disabled],.shopify-payment-button .shopify-payment-button__button--unbranded.disabled,.shopify-payment-button .shopify-payment-button__button--unbranded[disabled],.spr-container .spr-button.disabled,.spr-container .spr-button[disabled],.spr-container .spr-summary-actions a.disabled,.spr-container .spr-summary-actions a[disabled]{
     cursor:default;
     color:#b6b6b6;
-    background-color:#f6f6f6
+    background-color:#f6f6f6;
+    pointer-events: none;
   }
 
 .btn.disabled:hover,.btn[disabled]:hover,.rte .btn.disabled:hover,.rte .btn[disabled]:hover,.shopify-payment-button .shopify-payment-button__button--unbranded.disabled:hover,.shopify-payment-button .shopify-payment-button__button--unbranded[disabled]:hover,.spr-container .spr-button.disabled:hover,.spr-container .spr-button[disabled]:hover,.spr-container .spr-summary-actions a.disabled:hover,.spr-container .spr-summary-actions a[disabled]:hover{
@@ -8226,7 +8227,7 @@ label.tag__checkbox-wrapper{
       color:var(--colorBorder);
     }
 
-.variant-input-wrap label.disabled:after{
+/* .variant-input-wrap label.disabled:after{
       position:absolute;
       content:"";
       left:50%;
@@ -8236,7 +8237,7 @@ label.tag__checkbox-wrapper{
       border-color:{{ settings.color_borders | default: "#1c1d1d" }};
       border-color:var(--colorBorder);
       transform:rotate(45deg);
-    }
+    } */
 
 .variant-input-wrap input[type=radio]:focus+label{
     /* border-color:{{ settings.color_body_text | default: "#1c1d1d" | color_modify: "alpha", 0.05 }};
