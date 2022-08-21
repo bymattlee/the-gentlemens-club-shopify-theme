@@ -27,8 +27,8 @@
         type="button"
         class="site-nav__link site-nav__link--icon site-nav__link--menu js-drawer-open-nav{% if section.settings.main_menu_alignment == 'left' or section.settings.main_menu_alignment == 'left-center' or section.settings.main_menu_alignment == 'right-center' %} medium-up--hide{% endif %}"
         aria-controls="NavDrawer">
-        <!-- <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-hamburger" viewBox="0 0 64 64"><path d="M7 15h51M7 32h43M7 49h51"/></svg> -->
-        Menu
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-hamburger medium-up--hide" viewBox="0 0 64 64"><path d="M7 15h51M7 32h51M7 49h51"/></svg>
+        <span class="small--hide">Menu</span>
         <span class="icon__fallback-text">{{ 'general.drawers.navigation' | t }}</span>
       </button>
     {%- endif -%}
@@ -36,7 +36,8 @@
     <a href="{{ routes.cart_url }}" class="site-nav__link site-nav__link--icon site-nav__link--bag js-drawer-open-cart" aria-controls="CartDrawer" data-icon="{{ settings.cart_icon }}">
       <span class="cart-link">
         {%- if settings.cart_icon == 'text' -%}
-          <span class="cart-link__text">Bag (<span class="cart-link__text-quantity">{{ cart.item_count }}</span>)</span>
+          <span class="cart-link__text small--hide">Bag (<span class="cart-link__text-quantity">{{ cart.item_count }}</span>)</span>
+          <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-bag medium-up--hide" viewBox="0 0 64 64"><g fill="none" stroke="#000" stroke-width="2"><path d="M25 26c0-15.79 3.57-20 8-20s8 4.21 8 20"/><path d="M14.74 18h36.51l3.59 36.73h-43.7z"/></g></svg>
         {%- elsif settings.cart_icon == 'cart' -%}
           <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-cart" viewBox="0 0 64 64"><path fill="none" d="M14 17.44h46.79l-7.94 25.61H20.96l-9.65-35.1H3"/><circle cx="27" cy="53" r="2"/><circle cx="47" cy="53" r="2"/></svg>
         {%- elsif settings.cart_icon == 'bag-minimal' -%}
