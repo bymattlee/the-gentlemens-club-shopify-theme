@@ -70,6 +70,7 @@
   --color-red: #ED1C24;
   --color-black: #000;
   --color-white: #fff;
+  --color-off-white: #F6F5F0;
   --color-grey: #D3D3D3;
 }
 
@@ -10796,8 +10797,8 @@ newsletter-reminder .newsletter-reminder__message{
       left:0;
       z-index:-1;
       background-color:{{ settings.color_body_text | default: "#1c1d1d" }};
-      background-color:var(--colorTextBody);
-      opacity:0.03;
+      background-color:var(--color-off-white);
+      /* opacity:0.03; */
     }
 }
 
@@ -10941,6 +10942,30 @@ newsletter-reminder .newsletter-reminder__message{
     text-transform:none;
     letter-spacing:0;
   }
+
+.cart__route {
+  border-top: 1px solid;
+  border-top-color:{{ settings.color_drawer_border | default: "#343535" }};
+  border-top-color:var(--colorDrawerBorder);
+  padding: 8px 0;
+}
+
+.cart__route--cart-page {
+  border: none;
+  padding: 0;
+}
+
+.cart__route .route-widget {
+  color: var(--color-body-text);
+}
+
+.cart__route .route-widget .rw-contents .rw-right .rw-checkbox-span.rw-checked {
+  background-color: var(--color-body-text);
+}
+
+.cart__route .route-widget .rw-contents .rw-center .rw-text-top .rw-info {
+  border-color: var(--color-body-text) !important;
+}
 
 /* .cart__checkout-wrapper{
   margin-top:20px
