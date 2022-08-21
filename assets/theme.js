@@ -5898,7 +5898,7 @@ lazySizesConfig.expFactor = 4;
         scrollContainer.addEventListener('wheel', (evt) => {
           evt.preventDefault();
 
-          // clearInterval(scrollInterval);
+          clearInterval(scrollInterval);
 
           var scrollContainerWidth = scrollContainer.scrollWidth;
           var mainContainerWidth = mainContainer.offsetWidth;
