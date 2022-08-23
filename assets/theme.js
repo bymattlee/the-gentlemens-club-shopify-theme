@@ -5900,6 +5900,7 @@ lazySizesConfig.expFactor = 4;
           setTimeout(function() {
             setInterval(function() {
               scrollContainer.scrollLeft += 0.5;
+              console.log('hi')
             }, 1);
           }, 1000);
         });
