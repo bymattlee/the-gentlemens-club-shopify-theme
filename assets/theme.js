@@ -5899,7 +5899,7 @@ lazySizesConfig.expFactor = 4;
         window.addEventListener('load', (event) => {
           setInterval(function() {
             scrollContainer.scrollLeft += 1;
-          }, 2);
+          }, 50);
         });
 
         scrollContainer.addEventListener('wheel', (evt) => {
