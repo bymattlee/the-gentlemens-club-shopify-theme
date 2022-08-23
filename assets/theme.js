@@ -8108,6 +8108,7 @@ lazySizesConfig.expFactor = 4;
         
         if (seconds < 0) {
           clearInterval(interval);
+          countdownEl.textContent = '00:00:00:00';
           return;
         }
 
