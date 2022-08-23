@@ -4,7 +4,7 @@
 {%- unless section.settings.full_width -%}
   <div class="page-width">
 {%- endunless -%}
-  <div class="custom-content">
+  <div class="custom-content{% if section.settings.center_content %} custom-content--center{% endif %}">
   {%- for block in section.blocks -%}
     {%- liquid
       case block.settings.width
@@ -100,6 +100,12 @@
       "type": "checkbox",
       "id": "space_around",
       "label": "t:sections.advanced-content.settings.space_around.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "center_content",
+      "label": "Center content",
       "default": true
     }
   ],
