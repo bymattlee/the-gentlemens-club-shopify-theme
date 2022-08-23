@@ -3001,7 +3001,8 @@ lazySizesConfig.expFactor = 4;
     var selectors = {
       input: '.js-qty__num',
       plus: '.js-qty__adjust--plus',
-      minus: '.js-qty__adjust--minus'
+      minus: '.js-qty__adjust--minus',
+      delete: '.cart__remove a'
     };
   
     function QtySelector(el, options) {
@@ -3010,6 +3011,7 @@ lazySizesConfig.expFactor = 4;
       this.minus = el.querySelector(selectors.minus);
       this.input = el.querySelector(selectors.input);
       this.minValue = this.input.getAttribute('min') || 1;
+      this.delete = el.nextElementSibling;
   
       var defaults = {
         namespace: null,
@@ -3036,6 +3038,12 @@ lazySizesConfig.expFactor = 4;
   
         this.input.addEventListener('change', function(evt) {
           this._change(this._getQty());
+        }.bind(this));
+  
+        this.delete.addEventListener('click', function(evt) {
+          evt.preventDefault();
+          var qty = this._getQty();
+          this._change(0);
         }.bind(this));
       },
   
