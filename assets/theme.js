@@ -5931,6 +5931,10 @@ lazySizesConfig.expFactor = 4;
             scrollContainer.scrollLeft += evt.deltaY;
           }
         });
+
+        scrollContainer.addEventListener('touchstart', () => {
+          clearInterval(scrollInterval);
+        });
       }
     });
   
