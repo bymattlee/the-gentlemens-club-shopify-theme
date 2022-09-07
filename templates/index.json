@@ -2,13 +2,13 @@
   "sections": {
     "166077867707fcfa32": {
       "type": "video-autoplay",
+      "disabled": true,
       "settings": {
         "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/a7702701a8a94213ab0353c822b7387f.mp4"
       }
     },
     "1662520040b5d6ac56": {
       "type": "advanced-content",
-      "disabled": true,
       "blocks": {
         "1662520040042ae600-0": {
           "type": "image",
