@@ -6,6 +6,49 @@
         "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/a7702701a8a94213ab0353c822b7387f.mp4"
       }
     },
+    "1662520040b5d6ac56": {
+      "type": "advanced-content",
+      "disabled": true,
+      "blocks": {
+        "1662520040042ae600-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/THE_BLOCK_RUNNER_WHITE_RED_-_5_eb39fd33-baf1-4dab-bcc2-3c2086c1bdee.jpg",
+            "link": "",
+            "width": "33%",
+            "alignment": "center"
+          }
+        },
+        "b5c7fb64-22b5-404f-9815-c0e62f686c72": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/THE_BLOCK_RUNNER_WHITE_RED_-_1_7a3e8bfe-4536-497d-a677-6f1a7c65a219.jpg",
+            "link": "",
+            "width": "33%",
+            "alignment": "center"
+          }
+        },
+        "3b7a5cc7-f448-489b-876a-5b77138f9d09": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/THE_BLOCK_RUNNER_WHITE_RED_-_4_d933105b-6f11-4cd0-b6ce-1f98c999064f.jpg",
+            "link": "",
+            "width": "33%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "1662520040042ae600-0",
+        "b5c7fb64-22b5-404f-9815-c0e62f686c72",
+        "3b7a5cc7-f448-489b-876a-5b77138f9d09"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": false,
+        "center_content": true
+      }
+    },
     "featured-collection": {
       "type": "featured-collection",
       "settings": {
@@ -46,12 +89,14 @@
       ],
       "settings": {
         "full_width": false,
-        "space_around": true
+        "space_around": true,
+        "center_content": true
       }
     }
   },
   "order": [
     "166077867707fcfa32",
+    "1662520040b5d6ac56",
     "featured-collection",
     "1660881047c7a0864a"
   ]
