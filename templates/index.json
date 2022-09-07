@@ -14,7 +14,7 @@
           "type": "image",
           "settings": {
             "image": "shopify:\/\/shop_images\/THE_BLOCK_RUNNER_WHITE_RED_-_5_eb39fd33-baf1-4dab-bcc2-3c2086c1bdee.jpg",
-            "link": "",
+            "link": "shopify:\/\/products\/the-block-runner-white-red",
             "width": "33%",
             "alignment": "center"
           }
@@ -23,7 +23,7 @@
           "type": "image",
           "settings": {
             "image": "shopify:\/\/shop_images\/THE_BLOCK_RUNNER_WHITE_RED_-_1_7a3e8bfe-4536-497d-a677-6f1a7c65a219.jpg",
-            "link": "",
+            "link": "shopify:\/\/products\/the-block-runner-white-red",
             "width": "33%",
             "alignment": "center"
           }
@@ -32,7 +32,7 @@
           "type": "image",
           "settings": {
             "image": "shopify:\/\/shop_images\/THE_BLOCK_RUNNER_WHITE_RED_-_4_d933105b-6f11-4cd0-b6ce-1f98c999064f.jpg",
-            "link": "",
+            "link": "shopify:\/\/products\/the-block-runner-white-red",
             "width": "33%",
             "alignment": "center"
           }
