@@ -4,8 +4,8 @@
     "theme_name": "Impulse",
     "theme_author": "Archetype Themes",
     "theme_version": "6.0.1",
-    "theme_documentation_url": "https:\/\/archetypethemes.co\/blogs\/impulse",
-    "theme_support_url": "https:\/\/archetypethemes.co\/pages\/support#impulse"
+    "theme_documentation_url": "https://archetypethemes.co/blogs/impulse",
+    "theme_support_url": "https://archetypethemes.co/pages/support#impulse"
   },
   {
     "name": "t:settings_schema.colors.name",
@@ -880,6 +880,20 @@
         "type": "page",
         "id": "cart_terms_conditions_page",
         "label": "t:settings_schema.cart.settings.cart_terms_conditions_page.label"
+      },
+      {
+        "type": "header",
+        "content": "Upsell items"
+      },
+      {
+        "type": "product",
+        "id": "upsell_product_1",
+        "label": "Upsell product 1"
+      },
+      {
+        "type": "product",
+        "id": "upsell_product_2",
+        "label": "Upsell product 2"
       }
     ]
   },
