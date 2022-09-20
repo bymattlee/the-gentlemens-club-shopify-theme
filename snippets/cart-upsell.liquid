@@ -1,16 +1,18 @@
-<div class="cart-upsell{% if small_top_margin != blank %} cart-upsell--small-top-margin{% endif %}" data-section-type="cart-upsell">
-  <div class="cart-upsell__container">
-    <h4 class="cart-upsell__heading">You May Also Like</h4>
-    <div class="cart-upsell__products">
+{%- if settings.upsell_product_1 != blank or settings.upsell_product_2 != blank -%}
+  <div class="cart-upsell{% if small_top_margin != blank %} cart-upsell--small-top-margin{% endif %}" data-section-type="cart-upsell">
+    <div class="cart-upsell__container">
+      <h4 class="cart-upsell__heading">You May Also Like</h4>
+      <div class="cart-upsell__products">
 
-      {%- if settings.upsell_product_1 != blank -%}
-        {%- render 'cart-upsell-product', product: settings.upsell_product_1 -%}
-      {%- endif -%}
+        {%- if settings.upsell_product_1 != blank -%}
+          {%- render 'cart-upsell-product', product: settings.upsell_product_1 -%}
+        {%- endif -%}
 
-      {%- if settings.upsell_product_2 != blank -%}
-        {%- render 'cart-upsell-product', product: settings.upsell_product_2 -%}
-      {%- endif -%}
+        {%- if settings.upsell_product_2 != blank -%}
+          {%- render 'cart-upsell-product', product: settings.upsell_product_2 -%}
+        {%- endif -%}
 
+      </div>
     </div>
   </div>
-</div>
+{%- endif -%}
