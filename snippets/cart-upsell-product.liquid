@@ -1,0 +1,51 @@
+{%- liquid
+  assign preview_image = product.featured_media.preview_image
+  assign img_url = preview_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.'
+  assign current_variant = product.selected_or_first_available_variant
+-%}
+
+<div class="cart-upsell__product" data-section-type="cart-upsell-product" data-product-id="{{ product.id }}">
+  <a href="{{ product.url }}" class="cart-upsell__product-image">
+    <div class="image-wrap"
+      style="height: 0; padding-bottom: {{ 100 | divided_by: preview_image.aspect_ratio }}%;"
+      >
+      <img class="lazyload"
+          data-src="{{ img_url }}"
+          data-widths="[360, 540, 720, 900, 1080]"
+          data-aspectratio="{{ preview_image.aspect_ratio }}"
+          data-sizes="auto"
+          alt="{{ preview_image.alt | escape }}"
+          role="presentation">
+      <noscript>
+        <img class="lazyloaded"
+          src="{{ preview_image | img_url: '400x' }}"
+          alt="{{ preview_image.alt | escape }}"
+          role="presentation">
+      </noscript>
+    </div>
+  </a>
+  <a href="{{ product.url }}" class="cart-upsell__product-title">
+    {{ product.title }} - {{ product.price | money }}
+  </a>
+  {%- unless product.has_only_default_variant -%}
+    <div class="cart-upsell__product-variants">
+      {%- for option in product.options_with_values -%}
+        {%- render 'variant-button',
+          product: product,
+          form_id: form_id,
+          section_id: section_id,
+          option: option,
+          forloop: forloop
+        -%}
+      {%- endfor -%}
+    </div>
+  {%- endunless -%}
+  <div class="cart-upsell__button-row">
+    <button
+      data-variant-id="{{ product.variants[0].id }}"
+      type="button"
+      class="btn btn--full add-to-cart">
+      Add to Cart
+    </button>
+  </div>
+</div>
