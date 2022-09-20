@@ -8887,9 +8887,77 @@ lazySizesConfig.expFactor = 4;
     return Testimonials;
   })();
 
+  theme.CartUpsell = (function () {
+    function CartUpsell(container) {
+      this.container = container;
+      this.init();
+    }
+
+    CartUpsell.prototype = Object.assign({}, CartUpsell.prototype, {
+      init: function () {
+        this.cartCheck();
+        document.addEventListener(
+          'ajaxProduct:added',
+          function (evt) {
+            this.cartCheck();
+          }.bind(this)
+        );
+        document.addEventListener(
+          'cart:updated',
+          function (evt) {
+            this.cartCheck();
+          }.bind(this)
+        );
+      },
+
+      cartCheck: async function () {
+        var cart = await theme.cart.getCart();
+        var upsellProducts = document.querySelectorAll(
+          '[data-section-type="cart-upsell-product"]'
+        );
+
+        var idsInCart = cart.items.map(function (item) {
+          return item.product_id;
+        });
+
+        var upsellIds = Array.from(upsellProducts).map(function (product) {
+          return parseInt(product.dataset.productId);
+        });
+
+        upsellProducts.forEach(function (product) {
+          product.style.display = 'block';
+        });
+
+        idsInCart.forEach(
+          function (product) {
+            if (upsellIds.includes(product)) {
+              this.hideProduct(product);
+            }
+          }.bind(this)
+        );
+
+        if (upsellIds.every((item) => idsInCart.includes(item))) {
+          this.container.style.display = 'none';
+        } else {
+          this.container.style.display = 'block';
+        }
+      },
+
+      hideProduct: function (product) {
+        const upsellProduct = document.querySelector(
+          `[data-section-type="cart-upsell-product"][data-product-id="${product}"]`
+        );
+        upsellProduct.style.display = 'none';
+      },
+    });
+
+    return CartUpsell;
+  })();
+
   theme.CartUpsellProduct = (function () {
     function CartUpsellProduct(container) {
       this.container = container;
+      this.addToCartButton = this.container.querySelector('.add-to-cart');
       this.init();
     }
 
@@ -8901,7 +8969,6 @@ lazySizesConfig.expFactor = 4;
           var variants = this.container.querySelector(
             '.cart-upsell__product-variants'
           );
-          var addToCart = this.container.querySelector('.add-to-cart');
 
           if (variants) {
             // Ensure the first variant is selected
@@ -8911,7 +8978,7 @@ lazySizesConfig.expFactor = 4;
             checkedRadio.nextSibling.click();
           }
 
-          addToCart.addEventListener(
+          this.addToCartButton.addEventListener(
             'click',
             function (e) {
               var variantId = 0;
@@ -8923,9 +8990,87 @@ lazySizesConfig.expFactor = 4;
               } else {
                 variantId = e.target.dataset.variantId;
               }
-              console.log(variantId);
+
+              this.addToCart(variantId);
             }.bind(this)
           );
+        },
+
+        addToCart: function (variantId) {
+          // Loading indicator on add to cart button
+          this.addToCartButton.classList.add('btn--loading');
+
+          var data = new URLSearchParams({ id: variantId }).toString();
+
+          fetch(theme.routes.cartAdd, {
+            method: 'POST',
+            body: data,
+            credentials: 'same-origin',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+              'X-Requested-With': 'XMLHttpRequest',
+            },
+          })
+            .then((response) => response.json())
+            .then(
+              function (data) {
+                if (data.status === 422) {
+                  this.addError(data);
+                } else {
+                  var product = data;
+                  this.addSuccess(product);
+                }
+
+                this.addToCartButton.classList.remove('btn--loading');
+              }.bind(this)
+            );
+        },
+
+        addSuccess: function (product) {
+          document.dispatchEvent(
+            new CustomEvent('ajaxProduct:added', {
+              detail: {
+                product: product,
+                addToCartBtn: this.addToCartButton,
+              },
+            })
+          );
+
+          if (this.args && this.args.scopedEventId) {
+            document.dispatchEvent(
+              new CustomEvent('ajaxProduct:added:' + this.args.scopedEventId, {
+                detail: {
+                  product: product,
+                  addToCartBtn: this.addToCartButton,
+                },
+              })
+            );
+          }
+        },
+
+        addError: function (error) {
+          if (!error.description) {
+            console.warn(error);
+            return;
+          }
+
+          document.dispatchEvent(
+            new CustomEvent('ajaxProduct:error', {
+              detail: {
+                errorMessage: error.description,
+              },
+            })
+          );
+
+          if (this.args && this.args.scopedEventId) {
+            document.dispatchEvent(
+              new CustomEvent('ajaxProduct:error:' + this.args.scopedEventId, {
+                detail: {
+                  errorMessage: error.description,
+                },
+              })
+            );
+          }
         },
       }
     );
@@ -9222,6 +9367,7 @@ lazySizesConfig.expFactor = 4;
     theme.sections.register('newsletter-popup', theme.NewsletterPopup);
     theme.sections.register('collection-header', theme.CollectionHeader);
     theme.sections.register('collection-grid', theme.Collection);
+    theme.sections.register('cart-upsell', theme.CartUpsell);
     theme.sections.register('cart-upsell-product', theme.CartUpsellProduct);
 
     theme.initGlobals();
