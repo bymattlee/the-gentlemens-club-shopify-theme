@@ -49,6 +49,29 @@
         "center_content": true
       }
     },
+    "1664727604d088c9e6": {
+      "type": "advanced-content",
+      "disabled": true,
+      "blocks": {
+        "16647276041e97baa1-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4H-BANNER-1.jpg",
+            "link": "",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "16647276041e97baa1-0"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": false,
+        "center_content": false
+      }
+    },
     "featured-collection": {
       "type": "featured-collection",
       "settings": {
@@ -97,6 +120,7 @@
   "order": [
     "166077867707fcfa32",
     "1662520040b5d6ac56",
+    "1664727604d088c9e6",
     "featured-collection",
     "1660881047c7a0864a"
   ]
