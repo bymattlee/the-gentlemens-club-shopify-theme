@@ -7,31 +7,9 @@
         "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/a7702701a8a94213ab0353c822b7387f.mp4"
       }
     },
-    "1664903802b41fe288": {
-      "type": "advanced-content",
-      "disabled": true,
-      "blocks": {
-        "16649038026416c14c-0": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/4H-BANNER-2.jpg",
-            "link": "",
-            "width": "100%",
-            "alignment": "center"
-          }
-        }
-      },
-      "block_order": [
-        "16649038026416c14c-0"
-      ],
-      "settings": {
-        "full_width": false,
-        "space_around": false,
-        "center_content": false
-      }
-    },
     "1662520040b5d6ac56": {
       "type": "advanced-content",
+      "disabled": true,
       "blocks": {
         "1662520040042ae600-0": {
           "type": "image",
@@ -72,11 +50,33 @@
         "center_content": true
       }
     },
+    "1664903802b41fe288": {
+      "type": "advanced-content",
+      "blocks": {
+        "16649038026416c14c-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4H-BANNER-2.jpg",
+            "link": "",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "16649038026416c14c-0"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": false,
+        "center_content": false
+      }
+    },
     "featured-collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Summer 2022",
-        "home_featured_products": "2022-summer",
+        "title": "",
+        "home_featured_products": "2022-i-got-issues-collection",
         "per_row": 4,
         "rows": 10,
         "mobile_scrollable": false,
@@ -86,6 +86,7 @@
     },
     "1660881047c7a0864a": {
       "type": "advanced-content",
+      "disabled": true,
       "blocks": {
         "166088104720c5a5f6-0": {
           "type": "image",
@@ -119,8 +120,8 @@
   },
   "order": [
     "166077867707fcfa32",
-    "1664903802b41fe288",
     "1662520040b5d6ac56",
+    "1664903802b41fe288",
     "featured-collection",
     "1660881047c7a0864a"
   ]
