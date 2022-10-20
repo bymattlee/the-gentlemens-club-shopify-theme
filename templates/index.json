@@ -7,32 +7,32 @@
         "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/a7702701a8a94213ab0353c822b7387f.mp4"
       }
     },
-    "1662520040b5d6ac56": {
+    "7bcf1d28-e5ee-49a9-96ea-750057e52e44": {
       "type": "advanced-content",
       "disabled": true,
       "blocks": {
-        "1662520040042ae600-0": {
+        "template--14945423032364__7bcf1d28-e5ee-49a9-96ea-750057e52e44-1666286472da29b4b6-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/THE_BLOCK_RUNNER_FORREST_GUMP_-_5.jpg",
+            "image": "shopify:\/\/shop_images\/Email_Blast_-_Top.jpg",
             "link": "shopify:\/\/collections\/shoes",
             "width": "33%",
             "alignment": "center"
           }
         },
-        "b5c7fb64-22b5-404f-9815-c0e62f686c72": {
+        "eacc0035-6bf5-46e2-8fbc-bd3bcf9cd161": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/THE_BLOCK_RUNNER_PURPLE_GOLD_-_1.jpg",
+            "image": "shopify:\/\/shop_images\/Email_Blast_-_Bottom_Left.jpg",
             "link": "shopify:\/\/collections\/shoes",
             "width": "33%",
             "alignment": "center"
           }
         },
-        "3b7a5cc7-f448-489b-876a-5b77138f9d09": {
+        "74a17b03-8a30-4837-be8d-2a3a5ca57911": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/THE_BLOCK_RUNNER_FORREST_GUMP_-_4.jpg",
+            "image": "shopify:\/\/shop_images\/Email_Blast_-_Bottom_Right.jpg",
             "link": "shopify:\/\/collections\/shoes",
             "width": "33%",
             "alignment": "center"
@@ -40,9 +40,9 @@
         }
       },
       "block_order": [
-        "1662520040042ae600-0",
-        "b5c7fb64-22b5-404f-9815-c0e62f686c72",
-        "3b7a5cc7-f448-489b-876a-5b77138f9d09"
+        "template--14945423032364__7bcf1d28-e5ee-49a9-96ea-750057e52e44-1666286472da29b4b6-0",
+        "eacc0035-6bf5-46e2-8fbc-bd3bcf9cd161",
+        "74a17b03-8a30-4837-be8d-2a3a5ca57911"
       ],
       "settings": {
         "full_width": false,
@@ -120,7 +120,7 @@
   },
   "order": [
     "166077867707fcfa32",
-    "1662520040b5d6ac56",
+    "7bcf1d28-e5ee-49a9-96ea-750057e52e44",
     "1664903802b41fe288",
     "featured-collection",
     "1660881047c7a0864a"
