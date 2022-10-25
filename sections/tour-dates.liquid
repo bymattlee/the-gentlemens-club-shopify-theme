@@ -1,0 +1,118 @@
+<section
+  class="tour-dates"
+  data-section-id="{{ section.id }}"
+  data-section-type="tour-dates">
+  <div class="page-width">
+
+    {%- if section.settings.tour_flyer != blank -%}
+      <div class="tour-dates__flyer">
+        <div class="tour-dates__flyer-wrapper">
+          {%- assign img_url = section.settings.tour_flyer | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+          <img class="tour-dates__flyer-image lazyload"
+            data-src="{{ img_url }}"
+            data-widths="[180, 360, 540, 750, 900, 1080]"
+            data-aspectratio="{{ section.settings.tour_flyer.aspect_ratio }}"
+            data-sizes="auto"
+            alt="{{ section.settings.tour_flyer.alt }}"
+            role="presentation">
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.title != blank -%}
+      <div class="tour-dates__title">
+        <header class="section-header">
+          <h1 class="section-header__title">{{ section.settings.title }}</h1>
+        </header>
+      </div>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="tour-dates__dates">
+
+        {%- for block in section.blocks -%}
+            <div class="tour-dates__date">
+
+              {%- if block.settings.title != blank -%}
+                <div class="tour-dates__date-date">
+                  {{ block.settings.title }}
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.location != blank -%}
+                <div class="tour-dates__date-location">
+                  {{ block.settings.location }}
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.venue != blank -%}
+                <div class="tour-dates__date-venue">
+                  {{ block.settings.venue }}
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.tickets_url != blank -%}
+                <div class="tour-dates__date-button">
+                  <a href="{{ block.settings.tickets_url}}" class="btn btn--secondary" target="_blank">Buy Tickets</a>
+                </div>
+              {%- endif -%}
+
+            </div>
+        {%- endfor -%}
+
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Tour dates",
+  "class": "tour-dates-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "tour_flyer",
+      "label": "Tour flyer"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tour_date",
+      "name": "Tour date",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Date"
+        },
+        {
+          "type": "text",
+          "id": "location",
+          "label": "Location"
+        },
+        {
+          "type": "text",
+          "id": "venue",
+          "label": "Venue"
+        },
+        {
+          "type": "url",
+          "id": "tickets_url",
+          "label": "Tickets url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tour dates"
+    }
+  ]
+}
+{% endschema %}
