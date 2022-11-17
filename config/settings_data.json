@@ -15,7 +15,7 @@
     "color_large_image_bg": "#0f0f0f",
     "color_header": "#ffffff",
     "color_header_text": "#ed1c24",
-    "color_announcement": "#000000",
+    "color_announcement": "#ed1c24",
     "color_announcement_text": "#ffffff",
     "color_footer": "#ffffff",
     "color_footer_text": "#ed1c24",
@@ -93,10 +93,19 @@
               "desktop_logo_width": 170,
               "mobile_logo_width": 130
             }
+          },
+          "0effe654-7713-4755-9d7d-eae2ff7335f5": {
+            "type": "announcement",
+            "settings": {
+              "text": "Free Shipping",
+              "link_text": "USA orders over $100 \/ International orders over $150",
+              "link": ""
+            }
           }
         },
         "block_order": [
-          "1524770014057"
+          "1524770014057",
+          "0effe654-7713-4755-9d7d-eae2ff7335f5"
         ],
         "settings": {
           "main_menu_link_list": "main-menu",
