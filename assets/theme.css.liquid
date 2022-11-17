@@ -9603,7 +9603,7 @@ html[dir=rtl] .background-media-text__text{
 }
 
 .announcement-bar{
-  font-size:calc(var(--typeBaseSize)*0.75);
+/*   font-size:calc(var(--typeBaseSize)*0.75); */
   position:relative;
   text-align:center;
   background-color:{{ settings.color_announcement | default: "#1c1d1d" }};
@@ -9612,13 +9612,14 @@ html[dir=rtl] .background-media-text__text{
   color:var(--colorAnnouncementText);
   padding:10px 0;
   border-bottom-color:{{ settings.color_borders | default: "#1c1d1d" }};
-  border-bottom-color:var(--colorBorder)
+  border-bottom-color:var(--colorBorder);
+  margin-bottom: 24px;
 }
 
 @media only screen and (min-width:769px){
 
 .announcement-bar{
-    font-size:calc(var(--typeBaseSize)*0.85)
+/*     font-size:calc(var(--typeBaseSize)*0.85) */
 }
   }
 
@@ -9654,8 +9655,8 @@ html[dir=rtl] .background-media-text__text{
   font-weight:700;
   display:block;
   text-transform:uppercase;
-  letter-spacing:0.2em;
-  font-size:0.9em;
+/*   letter-spacing:0.2em; */
+  font-size:12px;
 }
 
 .announcement-link-text{
