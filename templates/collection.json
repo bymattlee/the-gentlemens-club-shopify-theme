@@ -10,28 +10,6 @@
         "collection_menu_link_list": "collection-menu"
       }
     },
-    "e3505e82-476c-4b9c-93ce-6e62834b7000": {
-      "type": "advanced-content",
-      "blocks": {
-        "template--14945423130668__e3505e82-476c-4b9c-93ce-6e62834b7000-1669059439359f1592-0": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/50OFF-B1.jpg",
-            "link": "",
-            "width": "100%",
-            "alignment": "center"
-          }
-        }
-      },
-      "block_order": [
-        "template--14945423130668__e3505e82-476c-4b9c-93ce-6e62834b7000-1669059439359f1592-0"
-      ],
-      "settings": {
-        "full_width": false,
-        "space_around": true,
-        "center_content": true
-      }
-    },
     "main-collection": {
       "type": "main-collection",
       "blocks": {
@@ -59,7 +37,6 @@
   },
   "order": [
     "collection-header",
-    "e3505e82-476c-4b9c-93ce-6e62834b7000",
     "main-collection"
   ]
 }
