@@ -95,6 +95,14 @@
               "mobile_logo_width": 130
             }
           },
+          "4ab3c4b4-0fed-4bb7-99a0-b7258d079412": {
+            "type": "announcement",
+            "settings": {
+              "text": "50% Off",
+              "link_text": "All Apparel - Site-Wide - Excluding Shoes",
+              "link": ""
+            }
+          },
           "0effe654-7713-4755-9d7d-eae2ff7335f5": {
             "type": "announcement",
             "settings": {
@@ -106,6 +114,7 @@
         },
         "block_order": [
           "1524770014057",
+          "4ab3c4b4-0fed-4bb7-99a0-b7258d079412",
           "0effe654-7713-4755-9d7d-eae2ff7335f5"
         ],
         "settings": {
