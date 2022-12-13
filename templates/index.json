@@ -56,9 +56,9 @@
         "16649038026416c14c-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Sim_400_-_Rest_in_Power.jpg",
+            "image": "shopify:\/\/shop_images\/Slim400_Banner.jpg",
             "link": "",
-            "width": "33%",
+            "width": "100%",
             "alignment": "center"
           }
         }
