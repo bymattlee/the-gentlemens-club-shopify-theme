@@ -19,16 +19,6 @@
             "vip_url": "https:\/\/www.ticketmaster.com\/event\/1E005D55DE96373E"
           }
         },
-        "8328be7f-54f2-4fb9-a7a4-c1e1f4e43698": {
-          "type": "tour_date",
-          "settings": {
-            "title": "01\/22",
-            "location": "Salt Lake City, UT",
-            "venue": "The Great SaltAir",
-            "tickets_url": "https:\/\/www.ticketmaster.com\/event\/1E005D5685680EB5",
-            "vip_url": "https:\/\/www.ticketmaster.com\/yg-the-red-cup-tour-magna-utah-01-22-2023\/event\/1E005D5685680EB5"
-          }
-        },
         "bd198469-d606-4a2e-b1b3-a027b485ff25": {
           "type": "tour_date",
           "settings": {
@@ -49,16 +39,6 @@
             "vip_url": "https:\/\/www.ticketmaster.com\/yg-the-red-cup-tour-seattle-washington-01-26-2023\/event\/0F005D54A49F1A4C"
           }
         },
-        "186b2d61-b618-4a37-8988-de2b62e468ea": {
-          "type": "tour_date",
-          "settings": {
-            "title": "01\/28",
-            "location": "Vancouver, BC",
-            "venue": "PNE Forum",
-            "tickets_url": "https:\/\/www.ticketleader.ca\/events\/detail\/yg-the-red-cup-tour",
-            "vip_url": "https:\/\/www.ticketleader.ca\/events\/detail\/yg-the-red-cup-tour"
-          }
-        },
         "2f776059-b912-447d-8360-a13525bf527b": {
           "type": "tour_date",
           "settings": {
@@ -67,16 +47,6 @@
             "venue": "Theater Of The Clouds",
             "tickets_url": "https:\/\/www.ticketmaster.com\/event\/0F005D52D34F2413",
             "vip_url": "https:\/\/www.ticketmaster.com\/yg-the-red-cup-tour-portland-oregon-01-29-2023\/event\/0F005D52D34F2413"
-          }
-        },
-        "aa94739c-e984-4cb8-873e-962bc9391e6a": {
-          "type": "tour_date",
-          "settings": {
-            "title": "01\/31",
-            "location": "Reno, NV",
-            "venue": "Reno Events Center",
-            "tickets_url": "https:\/\/www.ticketmaster.com\/event\/17005D53DD9B5D05",
-            "vip_url": "https:\/\/www.ticketmaster.com\/yg-the-red-cup-tour-reno-nevada-01-31-2023\/event\/17005D53DD9B5D05"
           }
         },
         "147b5226-f16b-4e05-87f6-454ba371ef4a": {
@@ -119,26 +89,6 @@
             "vip_url": "https:\/\/www.ticketmaster.com\/event\/19005D52F3B239FB"
           }
         },
-        "0400937c-23b8-4d71-9078-191405ac52f1": {
-          "type": "tour_date",
-          "settings": {
-            "title": "02\/15",
-            "location": "Minneapolis, MN",
-            "venue": "The Armory",
-            "tickets_url": "https:\/\/www.ticketmaster.com\/event\/06005D541A0F7394",
-            "vip_url": "https:\/\/www.ticketmaster.com\/event\/06005D541A0F7394"
-          }
-        },
-        "e9b603bf-5464-4af2-8de2-5c8d34c2aadf": {
-          "type": "tour_date",
-          "settings": {
-            "title": "02\/17",
-            "location": "Detroit, MI",
-            "venue": "The Fillmore Detroit",
-            "tickets_url": "https:\/\/www.ticketmaster.com\/event\/08005D54BE422664",
-            "vip_url": "https:\/\/www.ticketmaster.com\/event\/08005D54BE422664"
-          }
-        },
         "8e2ba667-2307-4e1f-9bd5-1e1d5371db58": {
           "type": "tour_date",
           "settings": {
@@ -147,26 +97,6 @@
             "venue": "HISTORY",
             "tickets_url": "https:\/\/www.ticketmaster.ca\/event\/10005D54C00C1E23",
             "vip_url": "https:\/\/www.ticketmaster.ca\/event\/10005D54C00C1E23"
-          }
-        },
-        "89792a5b-cfaf-4d80-a259-9582dae01275": {
-          "type": "tour_date",
-          "settings": {
-            "title": "02\/19",
-            "location": "Queens, NY",
-            "venue": "Knockdown Center",
-            "tickets_url": "https:\/\/dice.fm\/event\/6356b5224c7cb800010e34d9",
-            "vip_url": "https:\/\/dice.fm\/event\/xnl3k-yg-the-red-cup-tour-19th-feb-knockdown-center-new-york-tickets"
-          }
-        },
-        "8da6eaa0-a104-4000-b1ed-8e7d6a7103e1": {
-          "type": "tour_date",
-          "settings": {
-            "title": "02\/20",
-            "location": "Boston, MA",
-            "venue": "MGM Music Hall at Fenway",
-            "tickets_url": "https:\/\/www.ticketmaster.com\/event\/01005D53B2842806",
-            "vip_url": "https:\/\/www.ticketmaster.com\/event\/01005D53B2842806"
           }
         },
         "caaa2971-2ed2-49b7-81df-68ae1e36e1b1": {
@@ -182,25 +112,18 @@
       },
       "block_order": [
         "a8023cff-883a-412f-96d9-1ad4e68bdf01",
-        "8328be7f-54f2-4fb9-a7a4-c1e1f4e43698",
         "bd198469-d606-4a2e-b1b3-a027b485ff25",
         "5cb2000b-c03c-4089-b050-74c84e968176",
-        "186b2d61-b618-4a37-8988-de2b62e468ea",
         "2f776059-b912-447d-8360-a13525bf527b",
-        "aa94739c-e984-4cb8-873e-962bc9391e6a",
         "147b5226-f16b-4e05-87f6-454ba371ef4a",
         "6619f861-6c78-443e-8cab-f3e00f56853c",
         "e47b15ea-6e6f-454c-959f-f4b7e06b258e",
         "344a11cf-e6bb-47d8-84bc-ab0ee0b96c19",
-        "0400937c-23b8-4d71-9078-191405ac52f1",
-        "e9b603bf-5464-4af2-8de2-5c8d34c2aadf",
         "8e2ba667-2307-4e1f-9bd5-1e1d5371db58",
-        "89792a5b-cfaf-4d80-a259-9582dae01275",
-        "8da6eaa0-a104-4000-b1ed-8e7d6a7103e1",
         "caaa2971-2ed2-49b7-81df-68ae1e36e1b1"
       ],
       "settings": {
-        "tour_flyer": "shopify:\/\/shop_images\/The_Red_Cup_Tour_2022_084545fb-17c9-4652-9965-4613f3ceb9be.jpg",
+        "tour_flyer": "shopify:\/\/shop_images\/123312312123.jpg",
         "title": "General and VIP Tickets On Sale Now!"
       }
     }
