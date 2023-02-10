@@ -52,14 +52,13 @@
     },
     "1664903802b41fe288": {
       "type": "advanced-content",
-      "disabled": true,
       "blocks": {
         "16649038026416c14c-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Slim400_Banner.jpg",
+            "image": "shopify:\/\/shop_images\/4Hunnid0144_268f8105-79e3-46dc-9eb1-ae8a2eb352c7.jpg",
             "link": "",
-            "width": "100%",
+            "width": "33%",
             "alignment": "center"
           }
         }
@@ -76,9 +75,9 @@
     "featured-collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "",
-        "home_featured_products": "2022-slim-400-rest-in-peace-collection",
-        "per_row": 3,
+        "title": "Good Sex Collection",
+        "home_featured_products": "2023-good-sex-collection",
+        "per_row": 4,
         "rows": 10,
         "mobile_scrollable": false,
         "view_all": false,
