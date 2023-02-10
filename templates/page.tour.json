@@ -11,6 +11,7 @@
       "blocks": {
         "a8023cff-883a-412f-96d9-1ad4e68bdf01": {
           "type": "tour_date",
+          "disabled": true,
           "settings": {
             "title": "01\/20",
             "location": "Denver, CO",
@@ -21,6 +22,7 @@
         },
         "bd198469-d606-4a2e-b1b3-a027b485ff25": {
           "type": "tour_date",
+          "disabled": true,
           "settings": {
             "title": "01\/24",
             "location": "Garden City, ID",
@@ -31,6 +33,7 @@
         },
         "5cb2000b-c03c-4089-b050-74c84e968176": {
           "type": "tour_date",
+          "disabled": true,
           "settings": {
             "title": "01\/26",
             "location": "Seattle, WA",
@@ -41,6 +44,7 @@
         },
         "2f776059-b912-447d-8360-a13525bf527b": {
           "type": "tour_date",
+          "disabled": true,
           "settings": {
             "title": "01\/29",
             "location": "Portland, OR",
@@ -51,6 +55,7 @@
         },
         "147b5226-f16b-4e05-87f6-454ba371ef4a": {
           "type": "tour_date",
+          "disabled": true,
           "settings": {
             "title": "02\/01",
             "location": "Oakland, CA",
@@ -61,6 +66,7 @@
         },
         "6619f861-6c78-443e-8cab-f3e00f56853c": {
           "type": "tour_date",
+          "disabled": true,
           "settings": {
             "title": "02\/02",
             "location": "Los Angeles, CA",
@@ -71,6 +77,7 @@
         },
         "e47b15ea-6e6f-454c-959f-f4b7e06b258e": {
           "type": "tour_date",
+          "disabled": true,
           "settings": {
             "title": "02\/04",
             "location": "San Diego, CA",
@@ -81,6 +88,7 @@
         },
         "344a11cf-e6bb-47d8-84bc-ab0ee0b96c19": {
           "type": "tour_date",
+          "disabled": true,
           "settings": {
             "title": "02\/06",
             "location": "Phoenix, AZ",
