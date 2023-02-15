@@ -9,102 +9,16 @@
     "2429f650-ca90-47f3-8b2b-6f537102b674": {
       "type": "tour-dates",
       "blocks": {
-        "a8023cff-883a-412f-96d9-1ad4e68bdf01": {
-          "type": "tour_date",
-          "disabled": true,
-          "settings": {
-            "title": "01\/20",
-            "location": "Denver, CO",
-            "venue": "Fillmore Auditorium",
-            "tickets_url": "https:\/\/www.ticketmaster.com\/event\/1E005D55DE96373E",
-            "vip_url": "https:\/\/www.ticketmaster.com\/event\/1E005D55DE96373E"
-          }
-        },
-        "bd198469-d606-4a2e-b1b3-a027b485ff25": {
-          "type": "tour_date",
-          "disabled": true,
-          "settings": {
-            "title": "01\/24",
-            "location": "Garden City, ID",
-            "venue": "Revolution Concert House",
-            "tickets_url": "https:\/\/www.ticketmaster.com\/event\/1E005D55CB092DA6",
-            "vip_url": "https:\/\/www.ticketmaster.com\/yg-the-red-cup-tour-garden-city-idaho-01-24-2023\/event\/1E005D55CB092DA6"
-          }
-        },
-        "5cb2000b-c03c-4089-b050-74c84e968176": {
-          "type": "tour_date",
-          "disabled": true,
-          "settings": {
-            "title": "01\/26",
-            "location": "Seattle, WA",
-            "venue": "WAMU Theater",
-            "tickets_url": "https:\/\/www.ticketmaster.com\/event\/0F005D54A49F1A4C",
-            "vip_url": "https:\/\/www.ticketmaster.com\/yg-the-red-cup-tour-seattle-washington-01-26-2023\/event\/0F005D54A49F1A4C"
-          }
-        },
-        "2f776059-b912-447d-8360-a13525bf527b": {
-          "type": "tour_date",
-          "disabled": true,
-          "settings": {
-            "title": "01\/29",
-            "location": "Portland, OR",
-            "venue": "Theater Of The Clouds",
-            "tickets_url": "https:\/\/www.ticketmaster.com\/event\/0F005D52D34F2413",
-            "vip_url": "https:\/\/www.ticketmaster.com\/yg-the-red-cup-tour-portland-oregon-01-29-2023\/event\/0F005D52D34F2413"
-          }
-        },
-        "147b5226-f16b-4e05-87f6-454ba371ef4a": {
-          "type": "tour_date",
-          "disabled": true,
-          "settings": {
-            "title": "02\/01",
-            "location": "Oakland, CA",
-            "venue": "Oakland Arena",
-            "tickets_url": "https:\/\/www.ticketmaster.com\/event\/1C005D52D7874C9E",
-            "vip_url": "https:\/\/www.ticketmaster.com\/yg-the-red-cup-tour-oakland-california-02-01-2023\/event\/1C005D52D7874C9E"
-          }
-        },
-        "6619f861-6c78-443e-8cab-f3e00f56853c": {
-          "type": "tour_date",
-          "disabled": true,
-          "settings": {
-            "title": "02\/02",
-            "location": "Los Angeles, CA",
-            "venue": "The Kia Forum",
-            "tickets_url": "https:\/\/www.ticketmaster.com\/event\/09005D55E8A061AC",
-            "vip_url": "https:\/\/www.ticketmaster.com\/yg-the-red-cup-tour-inglewood-california-02-02-2023\/event\/09005D55E8A061AC"
-          }
-        },
-        "e47b15ea-6e6f-454c-959f-f4b7e06b258e": {
-          "type": "tour_date",
-          "disabled": true,
-          "settings": {
-            "title": "02\/04",
-            "location": "San Diego, CA",
-            "venue": "Viejas Arena",
-            "tickets_url": "https:\/\/www.ticketmaster.com\/event\/0A005D549F7B2229",
-            "vip_url": "https:\/\/www.ticketmaster.com\/event\/0A005D549F7B2229"
-          }
-        },
-        "344a11cf-e6bb-47d8-84bc-ab0ee0b96c19": {
-          "type": "tour_date",
-          "disabled": true,
-          "settings": {
-            "title": "02\/06",
-            "location": "Phoenix, AZ",
-            "venue": "Arizona Financial Theatre",
-            "tickets_url": "https:\/\/www.ticketmaster.com\/event\/19005D52F3B239FB",
-            "vip_url": "https:\/\/www.ticketmaster.com\/event\/19005D52F3B239FB"
-          }
-        },
         "8e2ba667-2307-4e1f-9bd5-1e1d5371db58": {
           "type": "tour_date",
           "settings": {
             "title": "02\/18",
             "location": "Toronto, ON",
             "venue": "HISTORY",
-            "tickets_url": "https:\/\/www.ticketmaster.ca\/event\/10005D54C00C1E23",
-            "vip_url": "https:\/\/www.ticketmaster.ca\/event\/10005D54C00C1E23"
+            "button_1_text": "Tickets",
+            "button_1_url": "https:\/\/www.ticketmaster.ca\/event\/10005D54C00C1E23",
+            "button_2_text": "VIP",
+            "button_2_url": "https:\/\/www.ticketmaster.ca\/event\/10005D54C00C1E23"
           }
         },
         "caaa2971-2ed2-49b7-81df-68ae1e36e1b1": {
@@ -113,31 +27,84 @@
             "title": "02\/23",
             "location": "Honolulu, HI",
             "venue": "Neal S. Blaisdell Center",
-            "tickets_url": "https:\/\/www.ticketmaster.com\/event\/0A005D290ADE65D7",
-            "vip_url": "https:\/\/www.ticketmaster.com\/yg-the-red-cup-tour-honolulu-hawaii-02-23-2023\/event\/0A005D290ADE65D7"
+            "button_1_text": "Tickets",
+            "button_1_url": "https:\/\/www.ticketmaster.com\/event\/0A005D290ADE65D7",
+            "button_2_text": "VIP",
+            "button_2_url": "https:\/\/www.ticketmaster.com\/event\/0A005D290ADE65D7"
+          }
+        },
+        "2607f514-9e02-459e-a70e-cbe034a70580": {
+          "type": "tour_date",
+          "settings": {
+            "title": "03\/10",
+            "location": "Santa Ana, CA",
+            "venue": "The Observatory",
+            "button_1_text": "Tickets",
+            "button_1_url": "https:\/\/www.ticketmaster.com\/event\/09005E4EDBAC4224",
+            "button_2_text": "VIP Dinner",
+            "button_2_url": "https:\/\/www.ticketmaster.com\/event\/09005E4EDBAC4224"
+          }
+        },
+        "af51cda5-8b50-4ba2-9a07-da623b5e6746": {
+          "type": "tour_date",
+          "settings": {
+            "title": "03\/12",
+            "location": "Santa Ana, CA",
+            "venue": "The Observatory",
+            "button_1_text": "Tickets",
+            "button_1_url": "https:\/\/www.ticketmaster.com\/event\/09005E4EDDAC4298",
+            "button_2_text": "VIP Dinner",
+            "button_2_url": "https:\/\/www.ticketmaster.com\/event\/09005E4EDDAC4298"
           }
         }
       },
       "block_order": [
-        "a8023cff-883a-412f-96d9-1ad4e68bdf01",
-        "bd198469-d606-4a2e-b1b3-a027b485ff25",
-        "5cb2000b-c03c-4089-b050-74c84e968176",
-        "2f776059-b912-447d-8360-a13525bf527b",
-        "147b5226-f16b-4e05-87f6-454ba371ef4a",
-        "6619f861-6c78-443e-8cab-f3e00f56853c",
-        "e47b15ea-6e6f-454c-959f-f4b7e06b258e",
-        "344a11cf-e6bb-47d8-84bc-ab0ee0b96c19",
         "8e2ba667-2307-4e1f-9bd5-1e1d5371db58",
-        "caaa2971-2ed2-49b7-81df-68ae1e36e1b1"
+        "caaa2971-2ed2-49b7-81df-68ae1e36e1b1",
+        "2607f514-9e02-459e-a70e-cbe034a70580",
+        "af51cda5-8b50-4ba2-9a07-da623b5e6746"
       ],
       "settings": {
         "tour_flyer": "shopify:\/\/shop_images\/123312312123.jpg",
         "title": "General and VIP Tickets On Sale Now!"
       }
+    },
+    "2b7dfe82-60b8-4326-a827-d34748239cf4": {
+      "type": "advanced-content",
+      "blocks": {
+        "template--15229098786860__2b7dfe82-60b8-4326-a827-d34748239cf4-1676436187310dba07-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2023_B-Day_Celebration_-_Flyer_f4bb165f-3f26-4013-81e9-39e532ea4c5e.jpg",
+            "link": "",
+            "width": "50%",
+            "alignment": "center"
+          }
+        },
+        "4ccf4e94-1588-4944-97b3-b4444939e486": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2023_B-Day_Celebration_-_Meet_and_Greet_bd644b54-6595-4d2d-ae91-056aa3d6cf82.jpg",
+            "link": "",
+            "width": "50%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "template--15229098786860__2b7dfe82-60b8-4326-a827-d34748239cf4-1676436187310dba07-0",
+        "4ccf4e94-1588-4944-97b3-b4444939e486"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "center_content": true
+      }
     }
   },
   "order": [
     "main",
-    "2429f650-ca90-47f3-8b2b-6f537102b674"
+    "2429f650-ca90-47f3-8b2b-6f537102b674",
+    "2b7dfe82-60b8-4326-a827-d34748239cf4"
   ]
 }

@@ -51,15 +51,15 @@
                 </div>
               {%- endif -%}
 
-              {%- if block.settings.tickets_url != blank or block.settings.vip_url != blank -%}
+              {%- if block.settings.button_1_text != blank or block.settings.button_1_url != blank or block.settings.button_2_text != blank or block.settings.button_2_url != blank -%}
                 <div class="tour-dates__date-buttons">
 
-                  {%- if block.settings.tickets_url != blank -%}
-                    <a href="{{ block.settings.tickets_url}}" class="btn btn--secondary" target="_blank">Tickets</a>
+                  {%- if block.settings.button_1_text != blank or block.settings.button_1_url != blank -%}
+                    <a href="{{ block.settings.button_1_url }}" class="btn btn--secondary" target="_blank">{{ block.settings.button_1_text }}</a>
                   {%- endif -%}
 
-                  {%- if block.settings.vip_url != blank -%}
-                    <a href="{{ block.settings.vip_url}}" class="btn btn--secondary" target="_blank">VIP</a>
+                  {%- if block.settings.button_2_text != blank or block.settings.button_2_url != blank -%}
+                    <a href="{{ block.settings.button_2_url }}" class="btn btn--secondary" target="_blank">{{ block.settings.button_2_text }}</a>
                   {%- endif -%}
 
                 </div>
@@ -110,14 +110,24 @@
           "label": "Venue"
         },
         {
-          "type": "url",
-          "id": "tickets_url",
-          "label": "Tickets URL"
+          "type": "text",
+          "id": "button_1_text",
+          "label": "Button 1 text"
         },
         {
           "type": "url",
-          "id": "vip_url",
-          "label": "VIP URL"
+          "id": "button_1_url",
+          "label": "Button 1 URL"
+        },
+        {
+          "type": "text",
+          "id": "button_2_text",
+          "label": "Button 2 text"
+        },
+        {
+          "type": "url",
+          "id": "button_2_url",
+          "label": "Button 2 URL"
         }
       ]
     }
