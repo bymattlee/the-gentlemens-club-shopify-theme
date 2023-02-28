@@ -9,30 +9,6 @@
     "2429f650-ca90-47f3-8b2b-6f537102b674": {
       "type": "tour-dates",
       "blocks": {
-        "8e2ba667-2307-4e1f-9bd5-1e1d5371db58": {
-          "type": "tour_date",
-          "settings": {
-            "title": "02\/18",
-            "location": "Toronto, ON",
-            "venue": "HISTORY",
-            "button_1_text": "Tickets",
-            "button_1_url": "https:\/\/www.ticketmaster.ca\/event\/10005D54C00C1E23",
-            "button_2_text": "VIP",
-            "button_2_url": "https:\/\/www.ticketmaster.ca\/event\/10005D54C00C1E23"
-          }
-        },
-        "caaa2971-2ed2-49b7-81df-68ae1e36e1b1": {
-          "type": "tour_date",
-          "settings": {
-            "title": "02\/23",
-            "location": "Honolulu, HI",
-            "venue": "Neal S. Blaisdell Center",
-            "button_1_text": "Tickets",
-            "button_1_url": "https:\/\/www.ticketmaster.com\/event\/0A005D290ADE65D7",
-            "button_2_text": "VIP",
-            "button_2_url": "https:\/\/www.ticketmaster.com\/event\/0A005D290ADE65D7"
-          }
-        },
         "2607f514-9e02-459e-a70e-cbe034a70580": {
           "type": "tour_date",
           "settings": {
@@ -59,28 +35,17 @@
         }
       },
       "block_order": [
-        "8e2ba667-2307-4e1f-9bd5-1e1d5371db58",
-        "caaa2971-2ed2-49b7-81df-68ae1e36e1b1",
         "2607f514-9e02-459e-a70e-cbe034a70580",
         "af51cda5-8b50-4ba2-9a07-da623b5e6746"
       ],
       "settings": {
-        "tour_flyer": "shopify:\/\/shop_images\/123312312123.jpg",
-        "title": "General and VIP Tickets On Sale Now!"
+        "tour_flyer": "shopify:\/\/shop_images\/2023_B-Day_Celebration_-_Flyer_f4bb165f-3f26-4013-81e9-39e532ea4c5e.jpg",
+        "title": "YG Birthday Celebration"
       }
     },
     "2b7dfe82-60b8-4326-a827-d34748239cf4": {
       "type": "advanced-content",
       "blocks": {
-        "template--15229098786860__2b7dfe82-60b8-4326-a827-d34748239cf4-1676436187310dba07-0": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/2023_B-Day_Celebration_-_Flyer_f4bb165f-3f26-4013-81e9-39e532ea4c5e.jpg",
-            "link": "",
-            "width": "50%",
-            "alignment": "center"
-          }
-        },
         "4ccf4e94-1588-4944-97b3-b4444939e486": {
           "type": "image",
           "settings": {
@@ -92,7 +57,6 @@
         }
       },
       "block_order": [
-        "template--15229098786860__2b7dfe82-60b8-4326-a827-d34748239cf4-1676436187310dba07-0",
         "4ccf4e94-1588-4944-97b3-b4444939e486"
       ],
       "settings": {
