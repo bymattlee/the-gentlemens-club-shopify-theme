@@ -6,6 +6,38 @@
       "settings": {
       }
     },
+    "2b7dfe82-60b8-4326-a827-d34748239cf4": {
+      "type": "advanced-content",
+      "blocks": {
+        "22826016-3f7f-40b7-afda-02c9709696d1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2023_B-Day_Celebration_-_Flyer_f4bb165f-3f26-4013-81e9-39e532ea4c5e.jpg",
+            "link": "",
+            "width": "50%",
+            "alignment": "center"
+          }
+        },
+        "4ccf4e94-1588-4944-97b3-b4444939e486": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2023_B-Day_Celebration_-_Meet_and_Greet_bd644b54-6595-4d2d-ae91-056aa3d6cf82.jpg",
+            "link": "",
+            "width": "50%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "22826016-3f7f-40b7-afda-02c9709696d1",
+        "4ccf4e94-1588-4944-97b3-b4444939e486"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": false,
+        "center_content": true
+      }
+    },
     "2429f650-ca90-47f3-8b2b-6f537102b674": {
       "type": "tour-dates",
       "blocks": {
@@ -39,36 +71,13 @@
         "af51cda5-8b50-4ba2-9a07-da623b5e6746"
       ],
       "settings": {
-        "tour_flyer": "shopify:\/\/shop_images\/2023_B-Day_Celebration_-_Flyer_f4bb165f-3f26-4013-81e9-39e532ea4c5e.jpg",
-        "title": "YG Birthday Celebration"
-      }
-    },
-    "2b7dfe82-60b8-4326-a827-d34748239cf4": {
-      "type": "advanced-content",
-      "blocks": {
-        "4ccf4e94-1588-4944-97b3-b4444939e486": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/2023_B-Day_Celebration_-_Meet_and_Greet_bd644b54-6595-4d2d-ae91-056aa3d6cf82.jpg",
-            "link": "",
-            "width": "50%",
-            "alignment": "center"
-          }
-        }
-      },
-      "block_order": [
-        "4ccf4e94-1588-4944-97b3-b4444939e486"
-      ],
-      "settings": {
-        "full_width": false,
-        "space_around": true,
-        "center_content": true
+        "title": "YG Live In Concert + Birthday Celebration"
       }
     }
   },
   "order": [
     "main",
-    "2429f650-ca90-47f3-8b2b-6f537102b674",
-    "2b7dfe82-60b8-4326-a827-d34748239cf4"
+    "2b7dfe82-60b8-4326-a827-d34748239cf4",
+    "2429f650-ca90-47f3-8b2b-6f537102b674"
   ]
 }
