@@ -11,6 +11,9 @@
   });
 */
 
+if (!['4hunnid.com', 'myshopify.com'].includes(window.location.hostname))
+  window.location = 'https://4hunnid.com'
+
 window.theme = window.theme || {}
 window.Shopify = window.Shopify || {}
 
