@@ -1,12 +1,12 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}" dir="{{ settings.text_direction }}" data="{{ request.host }}">
-
+<meta data="{{ send_to_main_domain }}"></meta>
 {%- assign send_to_main_domain = false -%}
 {%- if request.host != '4hunnid.com' and request.host != '4hunnid-original.myshopify.com' -%}
   {%- assign send_to_main_domain = true -%}
-  <meta></meta>
+  <meta data></meta>
 {%- endif -%}
-
+<meta data="{{ send_to_main_domain }}"></meta>
 {%- if send_to_main_domain -%}
   <meta content="0; url=https://4hunnid.com" http-equiv="refresh" />
 {%- else -%}
