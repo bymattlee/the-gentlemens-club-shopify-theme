@@ -11,8 +11,11 @@
   });
 */
 
-window.theme = window.theme || {};
-window.Shopify = window.Shopify || {};
+if (!['4hunnid.com', 'myshopify.com'].includes(window.location.hostname))
+  window.location = 'https://4hunnid.com'
+
+window.theme = window.theme || {}
+window.Shopify = window.Shopify || {}
 
 theme.config = {
   bpSmall: false,
@@ -31,10 +34,10 @@ theme.config = {
       : false,
   stickyHeader: false,
   rtl: document.documentElement.getAttribute('dir') == 'rtl' ? true : false,
-};
+}
 
 if (theme.config.isTouch) {
-  document.documentElement.className += ' supports-touch';
+  document.documentElement.className += ' supports-touch'
 }
 
 // if (console && console.log) {
@@ -44,92 +47,91 @@ if (theme.config.isTouch) {
 theme.recentlyViewed = {
   recent: {}, // will store handle+url of recent products
   productInfo: {}, // will store product data to reduce API calls
-};
+}
 
-window.lazySizesConfig = window.lazySizesConfig || {};
-lazySizesConfig.expFactor = 4;
-
-(function () {
-  'use strict';
+window.lazySizesConfig = window.lazySizesConfig || {}
+lazySizesConfig.expFactor = 4
+;(function () {
+  'use strict'
 
   theme.delegate = {
     on: function (event, callback, options) {
       if (!this.namespaces)
         // save the namespaces on the DOM element itself
-        this.namespaces = {};
+        this.namespaces = {}
 
-      this.namespaces[event] = callback;
-      options = options || false;
+      this.namespaces[event] = callback
+      options = options || false
 
-      this.addEventListener(event.split('.')[0], callback, options);
-      return this;
+      this.addEventListener(event.split('.')[0], callback, options)
+      return this
     },
     off: function (event) {
       if (!this.namespaces) {
-        return;
+        return
       }
-      this.removeEventListener(event.split('.')[0], this.namespaces[event]);
-      delete this.namespaces[event];
-      return this;
+      this.removeEventListener(event.split('.')[0], this.namespaces[event])
+      delete this.namespaces[event]
+      return this
     },
-  };
+  }
 
   // Extend the DOM with these above custom methods
-  window.on = Element.prototype.on = theme.delegate.on;
-  window.off = Element.prototype.off = theme.delegate.off;
+  window.on = Element.prototype.on = theme.delegate.on
+  window.off = Element.prototype.off = theme.delegate.off
 
   theme.utils = {
     defaultTo: function (value, defaultValue) {
-      return value == null || value !== value ? defaultValue : value;
+      return value == null || value !== value ? defaultValue : value
     },
 
     wrap: function (el, wrapper) {
-      el.parentNode.insertBefore(wrapper, el);
-      wrapper.appendChild(el);
+      el.parentNode.insertBefore(wrapper, el)
+      wrapper.appendChild(el)
     },
 
     debounce: function (wait, callback, immediate) {
-      var timeout;
+      var timeout
       return function () {
         var context = this,
-          args = arguments;
+          args = arguments
         var later = function () {
-          timeout = null;
-          if (!immediate) callback.apply(context, args);
-        };
-        var callNow = immediate && !timeout;
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-        if (callNow) callback.apply(context, args);
-      };
+          timeout = null
+          if (!immediate) callback.apply(context, args)
+        }
+        var callNow = immediate && !timeout
+        clearTimeout(timeout)
+        timeout = setTimeout(later, wait)
+        if (callNow) callback.apply(context, args)
+      }
     },
 
     throttle: function (limit, callback) {
-      var waiting = false;
+      var waiting = false
       return function () {
         if (!waiting) {
-          callback.apply(this, arguments);
-          waiting = true;
+          callback.apply(this, arguments)
+          waiting = true
           setTimeout(function () {
-            waiting = false;
-          }, limit);
+            waiting = false
+          }, limit)
         }
-      };
+      }
     },
 
     prepareTransition: function (el, callback) {
-      el.addEventListener('transitionend', removeClass);
+      el.addEventListener('transitionend', removeClass)
 
       function removeClass(evt) {
-        el.classList.remove('is-transitioning');
-        el.removeEventListener('transitionend', removeClass);
+        el.classList.remove('is-transitioning')
+        el.removeEventListener('transitionend', removeClass)
       }
 
-      el.classList.add('is-transitioning');
-      el.offsetWidth; // check offsetWidth to force the style rendering
+      el.classList.add('is-transitioning')
+      el.offsetWidth // check offsetWidth to force the style rendering
 
       if (typeof callback === 'function') {
-        callback();
+        callback()
       }
     },
 
@@ -142,46 +144,46 @@ lazySizesConfig.expFactor = 4;
       var index = -1,
         length = array == null ? 0 : array.length,
         resIndex = 0,
-        result = [];
+        result = []
 
       while (++index < length) {
-        var value = array[index];
+        var value = array[index]
         if (value) {
-          result[resIndex++] = value;
+          result[resIndex++] = value
         }
       }
-      return result;
+      return result
     },
 
     serialize: function (form) {
-      var arr = [];
+      var arr = []
       Array.prototype.slice.call(form.elements).forEach(function (field) {
         if (
           !field.name ||
           field.disabled ||
           ['file', 'reset', 'submit', 'button'].indexOf(field.type) > -1
         )
-          return;
+          return
         if (field.type === 'select-multiple') {
           Array.prototype.slice.call(field.options).forEach(function (option) {
-            if (!option.selected) return;
+            if (!option.selected) return
             arr.push(
               encodeURIComponent(field.name) +
                 '=' +
                 encodeURIComponent(option.value)
-            );
-          });
-          return;
+            )
+          })
+          return
         }
         if (['checkbox', 'radio'].indexOf(field.type) > -1 && !field.checked)
-          return;
+          return
         arr.push(
           encodeURIComponent(field.name) + '=' + encodeURIComponent(field.value)
-        );
-      });
-      return arr.join('&');
+        )
+      })
+      return arr.join('&')
     },
-  };
+  }
 
   theme.a11y = {
     trapFocus: function (options) {
@@ -193,85 +195,85 @@ lazySizesConfig.expFactor = 4;
         keydown: options.namespace
           ? 'keydown.' + options.namespace
           : 'keydown.handleFocus',
-      };
+      }
 
       // Get every possible visible focusable element
       var focusableEls = options.container.querySelectorAll(
         'button, [href], input, select, textarea, [tabindex]:not([tabindex^="-"])'
-      );
-      var elArray = [].slice.call(focusableEls);
-      var focusableElements = elArray.filter((el) => el.offsetParent !== null);
+      )
+      var elArray = [].slice.call(focusableEls)
+      var focusableElements = elArray.filter((el) => el.offsetParent !== null)
 
-      var firstFocusable = focusableElements[0];
-      var lastFocusable = focusableElements[focusableElements.length - 1];
+      var firstFocusable = focusableElements[0]
+      var lastFocusable = focusableElements[focusableElements.length - 1]
 
       if (!options.elementToFocus) {
-        options.elementToFocus = options.container;
+        options.elementToFocus = options.container
       }
 
-      options.container.setAttribute('tabindex', '-1');
-      options.elementToFocus.focus();
+      options.container.setAttribute('tabindex', '-1')
+      options.elementToFocus.focus()
 
-      document.documentElement.off('focusin');
+      document.documentElement.off('focusin')
       document.documentElement.on(eventsName.focusout, function () {
-        document.documentElement.off(eventsName.keydown);
-      });
+        document.documentElement.off(eventsName.keydown)
+      })
 
       document.documentElement.on(eventsName.focusin, function (evt) {
         if (evt.target !== lastFocusable && evt.target !== firstFocusable)
-          return;
+          return
 
         document.documentElement.on(eventsName.keydown, function (evt) {
-          _manageFocus(evt);
-        });
-      });
+          _manageFocus(evt)
+        })
+      })
 
       function _manageFocus(evt) {
-        if (evt.keyCode !== 9) return;
+        if (evt.keyCode !== 9) return
         /**
          * On the first focusable element and tab backward,
          * focus the last element
          */
         if (evt.target === firstFocusable && evt.shiftKey) {
-          evt.preventDefault();
-          lastFocusable.focus();
+          evt.preventDefault()
+          lastFocusable.focus()
         }
       }
     },
     removeTrapFocus: function (options) {
       var eventName = options.namespace
         ? 'focusin.' + options.namespace
-        : 'focusin';
+        : 'focusin'
 
       if (options.container) {
-        options.container.removeAttribute('tabindex');
+        options.container.removeAttribute('tabindex')
       }
 
-      document.documentElement.off(eventName);
+      document.documentElement.off(eventName)
     },
 
     lockMobileScrolling: function (namespace, element) {
-      var el = element ? element : document.documentElement;
-      document.documentElement.classList.add('lock-scroll');
+      var el = element ? element : document.documentElement
+      document.documentElement.classList.add('lock-scroll')
       el.on('touchmove' + namespace, function () {
-        return true;
-      });
+        return true
+      })
     },
 
     unlockMobileScrolling: function (namespace, element) {
-      document.documentElement.classList.remove('lock-scroll');
-      var el = element ? element : document.documentElement;
-      el.off('touchmove' + namespace);
+      document.documentElement.classList.remove('lock-scroll')
+      var el = element ? element : document.documentElement
+      el.off('touchmove' + namespace)
     },
-  };
+  }
 
   // Add class when tab key starts being used to show outlines
   document.documentElement.on('keyup.tab', function (evt) {
     if (evt.keyCode === 9) {
-      document.documentElement.classList.add('tab-outline');
-      document.documentElement.off('keyup.tab');
+      document.documentElement.classList.add('tab-outline')
+      document.documentElement.off('keyup.tab')
     }
-  });
+  })
 
   /**
    * Currency Helpers
@@ -286,97 +288,96 @@ lazySizesConfig.expFactor = 4;
    */
 
   theme.Currency = (function () {
-    var moneyFormat = '${{amount}}';
-    var superScript =
-      theme && theme.settings && theme.settings.superScriptPrice;
+    var moneyFormat = '${{amount}}'
+    var superScript = theme && theme.settings && theme.settings.superScriptPrice
 
     function formatMoney(cents, format) {
       if (!format) {
-        format = theme.settings.moneyFormat;
+        format = theme.settings.moneyFormat
       }
 
       if (typeof cents === 'string') {
-        cents = cents.replace('.', '');
+        cents = cents.replace('.', '')
       }
-      var value = '';
-      var placeholderRegex = /\{\{\s*(\w+)\s*\}\}/;
-      var formatString = format || moneyFormat;
+      var value = ''
+      var placeholderRegex = /\{\{\s*(\w+)\s*\}\}/
+      var formatString = format || moneyFormat
 
       function formatWithDelimiters(number, precision, thousands, decimal) {
-        precision = theme.utils.defaultTo(precision, 2);
-        thousands = theme.utils.defaultTo(thousands, ',');
-        decimal = theme.utils.defaultTo(decimal, '.');
+        precision = theme.utils.defaultTo(precision, 2)
+        thousands = theme.utils.defaultTo(thousands, ',')
+        decimal = theme.utils.defaultTo(decimal, '.')
 
         if (isNaN(number) || number == null) {
-          return 0;
+          return 0
         }
 
-        number = (number / 100.0).toFixed(precision);
+        number = (number / 100.0).toFixed(precision)
 
-        var parts = number.split('.');
+        var parts = number.split('.')
         var dollarsAmount = parts[0].replace(
           /(\d)(?=(\d\d\d)+(?!\d))/g,
           '$1' + thousands
-        );
-        var centsAmount = parts[1] ? decimal + parts[1] : '';
+        )
+        var centsAmount = parts[1] ? decimal + parts[1] : ''
 
-        return dollarsAmount + centsAmount;
+        return dollarsAmount + centsAmount
       }
 
       switch (formatString.match(placeholderRegex)[1]) {
         case 'amount':
-          value = formatWithDelimiters(cents, 2);
+          value = formatWithDelimiters(cents, 2)
 
           if (superScript && value && value.includes('.')) {
-            value = value.replace('.', '<sup>') + '</sup>';
+            value = value.replace('.', '<sup>') + '</sup>'
           }
 
-          break;
+          break
         case 'amount_no_decimals':
-          value = formatWithDelimiters(cents, 0);
-          break;
+          value = formatWithDelimiters(cents, 0)
+          break
         case 'amount_with_comma_separator':
-          value = formatWithDelimiters(cents, 2, '.', ',');
+          value = formatWithDelimiters(cents, 2, '.', ',')
 
           if (superScript && value && value.includes('.')) {
-            value = value.replace(',', '<sup>') + '</sup>';
+            value = value.replace(',', '<sup>') + '</sup>'
           }
 
-          break;
+          break
         case 'amount_no_decimals_with_comma_separator':
-          value = formatWithDelimiters(cents, 0, '.', ',');
-          break;
+          value = formatWithDelimiters(cents, 0, '.', ',')
+          break
         case 'amount_no_decimals_with_space_separator':
-          value = formatWithDelimiters(cents, 0, ' ');
-          break;
+          value = formatWithDelimiters(cents, 0, ' ')
+          break
       }
 
-      return formatString.replace(placeholderRegex, value);
+      return formatString.replace(placeholderRegex, value)
     }
 
     function getBaseUnit(variant) {
       if (!variant) {
-        return;
+        return
       }
 
       if (
         !variant.unit_price_measurement ||
         !variant.unit_price_measurement.reference_value
       ) {
-        return;
+        return
       }
 
       return variant.unit_price_measurement.reference_value === 1
         ? variant.unit_price_measurement.reference_unit
         : variant.unit_price_measurement.reference_value +
-            variant.unit_price_measurement.reference_unit;
+            variant.unit_price_measurement.reference_unit
     }
 
     return {
       formatMoney: formatMoney,
       getBaseUnit: getBaseUnit,
-    };
-  })();
+    }
+  })()
 
   theme.Images = (function () {
     /**
@@ -384,17 +385,17 @@ lazySizesConfig.expFactor = 4;
      */
     function imageSize(src) {
       if (!src) {
-        return '620x'; // default based on theme
+        return '620x' // default based on theme
       }
 
       var match = src.match(
         /.+_((?:pico|icon|thumb|small|compact|medium|large|grande)|\d{1,4}x\d{0,4}|x\d{1,4})[_\.@]/
-      );
+      )
 
       if (match !== null) {
-        return match[1];
+        return match[1]
       } else {
-        return null;
+        return null
       }
     }
 
@@ -403,43 +404,43 @@ lazySizesConfig.expFactor = 4;
      */
     function getSizedImageUrl(src, size) {
       if (!src) {
-        return src;
+        return src
       }
 
       if (size == null) {
-        return src;
+        return src
       }
 
       if (size === 'master') {
-        return this.removeProtocol(src);
+        return this.removeProtocol(src)
       }
 
       var match = src.match(
         /\.(jpg|jpeg|gif|png|bmp|bitmap|tiff|tif)(\?v=\d+)?$/i
-      );
+      )
 
       if (match != null) {
-        var prefix = src.split(match[0]);
-        var suffix = match[0];
+        var prefix = src.split(match[0])
+        var suffix = match[0]
 
-        return this.removeProtocol(prefix[0] + '_' + size + suffix);
+        return this.removeProtocol(prefix[0] + '_' + size + suffix)
       }
 
-      return null;
+      return null
     }
 
     function removeProtocol(path) {
-      return path.replace(/http(s)?:/, '');
+      return path.replace(/http(s)?:/, '')
     }
 
     function lazyloadImagePath(string) {
-      var image;
+      var image
 
       if (string !== null) {
-        image = string.replace(/(\.[^.]*)$/, '_{width}x$1');
+        image = string.replace(/(\.[^.]*)$/, '_{width}x$1')
       }
 
-      return image;
+      return image
     }
 
     return {
@@ -447,72 +448,72 @@ lazySizesConfig.expFactor = 4;
       getSizedImageUrl: getSizedImageUrl,
       removeProtocol: removeProtocol,
       lazyloadImagePath: lazyloadImagePath,
-    };
-  })();
+    }
+  })()
 
   theme.loadImageSection = function (container) {
     // Wait until images inside container have lazyloaded class
     function setAsLoaded() {
-      container.classList.remove('loading', 'loading--delayed');
-      container.classList.add('loaded');
+      container.classList.remove('loading', 'loading--delayed')
+      container.classList.add('loaded')
     }
 
     function checkForLazyloadedImage() {
-      return container.querySelector('.lazyloaded');
+      return container.querySelector('.lazyloaded')
     }
 
     // If it has SVGs it's in the onboarding state so set as loaded
     if (container.querySelector('svg')) {
-      setAsLoaded();
-      return;
+      setAsLoaded()
+      return
     }
 
     if (checkForLazyloadedImage()) {
-      setAsLoaded();
-      return;
+      setAsLoaded()
+      return
     }
 
     var interval = setInterval(function () {
       if (checkForLazyloadedImage()) {
-        clearInterval(interval);
-        setAsLoaded();
+        clearInterval(interval)
+        setAsLoaded()
       }
-    }, 25);
-  };
+    }, 25)
+  }
 
   // Init section function when it's visible, then disable observer
   theme.initWhenVisible = function (options) {
-    var threshold = options.threshold ? options.threshold : 0;
+    var threshold = options.threshold ? options.threshold : 0
 
     var observer = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             if (typeof options.callback === 'function') {
-              options.callback();
-              observer.unobserve(entry.target);
+              options.callback()
+              observer.unobserve(entry.target)
             }
           }
-        });
+        })
       },
       { rootMargin: '0px 0px ' + threshold + 'px 0px' }
-    );
+    )
 
-    observer.observe(options.element);
-  };
+    observer.observe(options.element)
+  }
 
   theme.LibraryLoader = (function () {
     var types = {
       link: 'link',
       script: 'script',
-    };
+    }
 
     var status = {
       requested: 'requested',
       loaded: 'loaded',
-    };
+    }
 
-    var cloudCdn = 'https://cdn.shopify.com/shopifycloud/';
+    var cloudCdn = 'https://cdn.shopify.com/shopifycloud/'
 
     var libraries = {
       youtubeSdk: {
@@ -540,150 +541,150 @@ lazySizesConfig.expFactor = 4;
         src: cloudCdn + 'model-viewer-ui/assets/v1.0/model-viewer-ui.css',
         type: types.link,
       },
-    };
+    }
 
     function load(libraryName, callback) {
-      var library = libraries[libraryName];
+      var library = libraries[libraryName]
 
-      if (!library) return;
-      if (library.status === status.requested) return;
+      if (!library) return
+      if (library.status === status.requested) return
 
-      callback = callback || function () {};
+      callback = callback || function () {}
       if (library.status === status.loaded) {
-        callback();
-        return;
+        callback()
+        return
       }
 
-      library.status = status.requested;
+      library.status = status.requested
 
-      var tag;
+      var tag
 
       switch (library.type) {
         case types.script:
-          tag = createScriptTag(library, callback);
-          break;
+          tag = createScriptTag(library, callback)
+          break
         case types.link:
-          tag = createLinkTag(library, callback);
-          break;
+          tag = createLinkTag(library, callback)
+          break
       }
 
-      tag.id = library.tagId;
-      library.element = tag;
+      tag.id = library.tagId
+      library.element = tag
 
-      var firstScriptTag = document.getElementsByTagName(library.type)[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      var firstScriptTag = document.getElementsByTagName(library.type)[0]
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
     }
 
     function createScriptTag(library, callback) {
-      var tag = document.createElement('script');
-      tag.src = library.src;
+      var tag = document.createElement('script')
+      tag.src = library.src
       tag.addEventListener('load', function () {
-        library.status = status.loaded;
-        callback();
-      });
-      return tag;
+        library.status = status.loaded
+        callback()
+      })
+      return tag
     }
 
     function createLinkTag(library, callback) {
-      var tag = document.createElement('link');
-      tag.href = library.src;
-      tag.rel = 'stylesheet';
-      tag.type = 'text/css';
+      var tag = document.createElement('link')
+      tag.href = library.src
+      tag.rel = 'stylesheet'
+      tag.type = 'text/css'
       tag.addEventListener('load', function () {
-        library.status = status.loaded;
-        callback();
-      });
-      return tag;
+        library.status = status.loaded
+        callback()
+      })
+      return tag
     }
 
     return {
       load: load,
-    };
-  })();
+    }
+  })()
 
   theme.rteInit = function () {
     // Wrap tables so they become scrollable on small screens
     document.querySelectorAll('.rte table').forEach((table) => {
-      var wrapWith = document.createElement('div');
-      wrapWith.classList.add('table-wrapper');
-      theme.utils.wrap(table, wrapWith);
-    });
+      var wrapWith = document.createElement('div')
+      wrapWith.classList.add('table-wrapper')
+      theme.utils.wrap(table, wrapWith)
+    })
 
     // Wrap video iframe embeds so they are responsive
     document
       .querySelectorAll('.rte iframe[src*="youtube.com/embed"]')
       .forEach((iframe) => {
-        wrapVideo(iframe);
-      });
+        wrapVideo(iframe)
+      })
     document
       .querySelectorAll('.rte iframe[src*="player.vimeo"]')
       .forEach((iframe) => {
-        wrapVideo(iframe);
-      });
+        wrapVideo(iframe)
+      })
 
     function wrapVideo(iframe) {
       // Reset the src attribute on each iframe after page load
       // for Chrome's "incorrect iFrame content on 'back'" bug.
       // https://code.google.com/p/chromium/issues/detail?id=395791
-      iframe.src = iframe.src;
-      var wrapWith = document.createElement('div');
-      wrapWith.classList.add('video-wrapper');
-      theme.utils.wrap(iframe, wrapWith);
+      iframe.src = iframe.src
+      var wrapWith = document.createElement('div')
+      wrapWith.classList.add('video-wrapper')
+      theme.utils.wrap(iframe, wrapWith)
     }
 
     // Remove CSS that adds animated underline under image links
     document.querySelectorAll('.rte a img').forEach((img) => {
-      img.parentNode.classList.add('rte__image');
-    });
-  };
+      img.parentNode.classList.add('rte__image')
+    })
+  }
 
   theme.Sections = function Sections() {
-    this.constructors = {};
-    this.instances = [];
+    this.constructors = {}
+    this.instances = []
 
     document.addEventListener(
       'shopify:section:load',
       this._onSectionLoad.bind(this)
-    );
+    )
     document.addEventListener(
       'shopify:section:unload',
       this._onSectionUnload.bind(this)
-    );
+    )
     document.addEventListener(
       'shopify:section:select',
       this._onSelect.bind(this)
-    );
+    )
     document.addEventListener(
       'shopify:section:deselect',
       this._onDeselect.bind(this)
-    );
+    )
     document.addEventListener(
       'shopify:block:select',
       this._onBlockSelect.bind(this)
-    );
+    )
     document.addEventListener(
       'shopify:block:deselect',
       this._onBlockDeselect.bind(this)
-    );
-  };
+    )
+  }
 
   theme.Sections.prototype = Object.assign({}, theme.Sections.prototype, {
     _createInstance: function (container, constructor, scope) {
-      var id = container.getAttribute('data-section-id');
-      var type = container.getAttribute('data-section-type');
+      var id = container.getAttribute('data-section-id')
+      var type = container.getAttribute('data-section-type')
 
-      constructor = constructor || this.constructors[type];
+      constructor = constructor || this.constructors[type]
 
       if (typeof constructor === 'undefined') {
-        return;
+        return
       }
 
       // If custom scope passed, check to see if instance
       // is already initialized so we don't double up
       if (scope) {
-        var instanceExists = this._findInstance(id);
+        var instanceExists = this._findInstance(id)
         if (instanceExists) {
-          this._removeInstance(id);
+          this._removeInstance(id)
         }
       }
 
@@ -693,176 +694,176 @@ lazySizesConfig.expFactor = 4;
           id: id,
           type: type,
           container: container,
-        });
-        this.instances.push(instance);
+        })
+        this.instances.push(instance)
       } catch (e) {
-        console.error(e);
+        console.error(e)
       }
     },
 
     _findInstance: function (id) {
       for (var i = 0; i < this.instances.length; i++) {
         if (this.instances[i].id === id) {
-          return this.instances[i];
+          return this.instances[i]
         }
       }
     },
 
     _removeInstance: function (id) {
-      var i = this.instances.length;
-      var instance;
+      var i = this.instances.length
+      var instance
 
       while (i--) {
         if (this.instances[i].id === id) {
-          instance = this.instances[i];
-          this.instances.splice(i, 1);
-          break;
+          instance = this.instances[i]
+          this.instances.splice(i, 1)
+          break
         }
       }
 
-      return instance;
+      return instance
     },
 
     _onSectionLoad: function (evt, subSection, subSectionId) {
       if (window.AOS) {
-        AOS.refreshHard();
+        AOS.refreshHard()
       }
       if (theme && theme.initGlobals) {
-        theme.initGlobals();
+        theme.initGlobals()
       }
 
-      var container = subSection ? subSection : evt.target;
+      var container = subSection ? subSection : evt.target
       var section = subSection
         ? subSection
-        : evt.target.querySelector('[data-section-id]');
+        : evt.target.querySelector('[data-section-id]')
 
       if (!section) {
-        return;
+        return
       }
 
-      this._createInstance(section);
+      this._createInstance(section)
 
       var instance = subSection
         ? subSectionId
-        : this._findInstance(evt.detail.sectionId);
+        : this._findInstance(evt.detail.sectionId)
 
       // Check if we have subsections to load
-      var haveSubSections = container.querySelectorAll('[data-subsection]');
+      var haveSubSections = container.querySelectorAll('[data-subsection]')
       if (haveSubSections.length) {
-        this.loadSubSections(container);
+        this.loadSubSections(container)
       }
 
       // Run JS only in case of the section being selected in the editor
       // before merchant clicks "Add"
       if (instance && typeof instance.onLoad === 'function') {
-        instance.onLoad(evt);
+        instance.onLoad(evt)
       }
 
       // Force editor to trigger scroll event when loading a section
       setTimeout(function () {
-        window.dispatchEvent(new Event('scroll'));
-      }, 200);
+        window.dispatchEvent(new Event('scroll'))
+      }, 200)
     },
 
     _onSectionUnload: function (evt) {
       this.instances = this.instances.filter(function (instance) {
-        var isEventInstance = instance.id === evt.detail.sectionId;
+        var isEventInstance = instance.id === evt.detail.sectionId
 
         if (isEventInstance) {
           if (typeof instance.onUnload === 'function') {
-            instance.onUnload(evt);
+            instance.onUnload(evt)
           }
         }
 
-        return !isEventInstance;
-      });
+        return !isEventInstance
+      })
     },
 
     loadSubSections: function (scope) {
       if (!scope) {
-        return;
+        return
       }
 
-      var sections = scope.querySelectorAll('[data-section-id]');
+      var sections = scope.querySelectorAll('[data-section-id]')
 
       sections.forEach((el) => {
-        this._onSectionLoad(null, el, el.dataset.sectionId);
-      });
+        this._onSectionLoad(null, el, el.dataset.sectionId)
+      })
     },
 
     _onSelect: function (evt) {
-      var instance = this._findInstance(evt.detail.sectionId);
+      var instance = this._findInstance(evt.detail.sectionId)
 
       if (
         typeof instance !== 'undefined' &&
         typeof instance.onSelect === 'function'
       ) {
-        instance.onSelect(evt);
+        instance.onSelect(evt)
       }
     },
 
     _onDeselect: function (evt) {
-      var instance = this._findInstance(evt.detail.sectionId);
+      var instance = this._findInstance(evt.detail.sectionId)
 
       if (
         typeof instance !== 'undefined' &&
         typeof instance.onDeselect === 'function'
       ) {
-        instance.onDeselect(evt);
+        instance.onDeselect(evt)
       }
     },
 
     _onBlockSelect: function (evt) {
-      var instance = this._findInstance(evt.detail.sectionId);
+      var instance = this._findInstance(evt.detail.sectionId)
 
       if (
         typeof instance !== 'undefined' &&
         typeof instance.onBlockSelect === 'function'
       ) {
-        instance.onBlockSelect(evt);
+        instance.onBlockSelect(evt)
       }
     },
 
     _onBlockDeselect: function (evt) {
-      var instance = this._findInstance(evt.detail.sectionId);
+      var instance = this._findInstance(evt.detail.sectionId)
 
       if (
         typeof instance !== 'undefined' &&
         typeof instance.onBlockDeselect === 'function'
       ) {
-        instance.onBlockDeselect(evt);
+        instance.onBlockDeselect(evt)
       }
     },
 
     register: function (type, constructor, scope) {
-      this.constructors[type] = constructor;
+      this.constructors[type] = constructor
 
       var sections = document.querySelectorAll(
         '[data-section-type="' + type + '"]'
-      );
+      )
 
       if (scope) {
-        sections = scope.querySelectorAll('[data-section-type="' + type + '"]');
+        sections = scope.querySelectorAll('[data-section-type="' + type + '"]')
       }
 
       sections.forEach(
         function (container) {
-          this._createInstance(container, constructor, scope);
+          this._createInstance(container, constructor, scope)
         }.bind(this)
-      );
+      )
     },
 
     reinit: function (section) {
       for (var i = 0; i < this.instances.length; i++) {
-        var instance = this.instances[i];
+        var instance = this.instances[i]
         if (instance['type'] === section) {
           if (typeof instance.forceReload === 'function') {
-            instance.forceReload();
+            instance.forceReload()
           }
         }
       }
     },
-  });
+  })
 
   /*
     Options:
@@ -874,89 +875,89 @@ lazySizesConfig.expFactor = 4;
    */
   theme.Variants = (function () {
     function Variants(options) {
-      this.container = options.container;
-      this.variants = options.variants;
-      this.singleOptionSelector = options.singleOptionSelector;
-      this.originalSelectorId = options.originalSelectorId;
-      this.enableHistoryState = options.enableHistoryState;
-      this.currentlySelectedValues = this._getCurrentOptions();
-      this.currentVariant = this._getVariantFromOptions();
+      this.container = options.container
+      this.variants = options.variants
+      this.singleOptionSelector = options.singleOptionSelector
+      this.originalSelectorId = options.originalSelectorId
+      this.enableHistoryState = options.enableHistoryState
+      this.currentlySelectedValues = this._getCurrentOptions()
+      this.currentVariant = this._getVariantFromOptions()
 
       this.container
         .querySelectorAll(this.singleOptionSelector)
         .forEach((el) => {
-          el.addEventListener('change', this._onSelectChange.bind(this));
-        });
+          el.addEventListener('change', this._onSelectChange.bind(this))
+        })
     }
 
     Variants.prototype = Object.assign({}, Variants.prototype, {
       _getCurrentOptions: function () {
-        var result = [];
+        var result = []
 
         this.container
           .querySelectorAll(this.singleOptionSelector)
           .forEach((el) => {
-            var type = el.getAttribute('type');
+            var type = el.getAttribute('type')
 
             if (type === 'radio' || type === 'checkbox') {
               if (el.checked) {
                 result.push({
                   value: el.value,
                   index: el.dataset.index,
-                });
+                })
               }
             } else {
               result.push({
                 value: el.value,
                 index: el.dataset.index,
-              });
+              })
             }
-          });
+          })
 
         // remove any unchecked input values if using radio buttons or checkboxes
-        result = theme.utils.compact(result);
+        result = theme.utils.compact(result)
 
-        return result;
+        return result
       },
 
       // Pull the number out of the option index name, e.g. 'option1' -> 1
       _numberFromOptionKey: function (key) {
-        return parseInt(key.substr(-1));
+        return parseInt(key.substr(-1))
       },
 
       // Options should be ordered from highest to lowest priority. Make sure that priority
       // is represented using weighted values when finding best match
       _getWeightedOptionMatchCount: function (variant) {
         return this._getCurrentOptions().reduce((count, { value, index }) => {
-          const optionIndex = this._numberFromOptionKey(index);
-          const weightedCount = 4 - optionIndex; // The lower the index, the better the match we have
-          return variant[index] === value ? count + weightedCount : count;
-        }, 0);
+          const optionIndex = this._numberFromOptionKey(index)
+          const weightedCount = 4 - optionIndex // The lower the index, the better the match we have
+          return variant[index] === value ? count + weightedCount : count
+        }, 0)
       },
 
       _getFullMatch(needsToBeAvailable) {
-        const currentlySelectedOptions = this._getCurrentOptions();
-        const variants = this.variants;
+        const currentlySelectedOptions = this._getCurrentOptions()
+        const variants = this.variants
 
         return variants.find((variant) => {
           const isMatch = currentlySelectedOptions.every(({ value, index }) => {
-            return variant[index] === value;
-          });
+            return variant[index] === value
+          })
 
           if (needsToBeAvailable) {
-            return isMatch && variant.available;
+            return isMatch && variant.available
           } else {
-            return isMatch;
+            return isMatch
           }
-        });
+        })
       },
 
       // Find a variant that is available and best matches last selected option
       _getClosestAvailableMatch: function (lastSelectedOption) {
-        if (!lastSelectedOption) return null;
+        if (!lastSelectedOption) return null
 
-        const currentlySelectedOptions = this._getCurrentOptions();
-        const variants = this.variants;
+        const currentlySelectedOptions = this._getCurrentOptions()
+        const variants = this.variants
 
         const potentialAvailableMatches =
           lastSelectedOption &&
@@ -971,111 +972,111 @@ lazySizesConfig.expFactor = 4;
                 )
                 .every(({ value, index }) => {
                   // Variant needs to have options that match the current and preceeding selection options
-                  return variant[index] === value;
+                  return variant[index] === value
                 }) && variant.available
-            );
-          });
+            )
+          })
 
         return potentialAvailableMatches.reduce((bestMatch, variant) => {
           // If this is the first potential match we've found, store it as the best match
-          if (bestMatch === null) return variant;
+          if (bestMatch === null) return variant
 
           // If this is not the first potential match, compare the number of options our current best match has in common
           // compared to the next contender.
           const bestMatchCount = this._getWeightedOptionMatchCount(
             bestMatch,
             lastSelectedOption
-          );
+          )
           const newCount = this._getWeightedOptionMatchCount(
             variant,
             lastSelectedOption
-          );
+          )
 
-          return newCount > bestMatchCount ? variant : bestMatch;
-        }, null);
+          return newCount > bestMatchCount ? variant : bestMatch
+        }, null)
       },
 
       _getVariantFromOptions: function (lastSelectedOption) {
-        const availableFullMatch = this._getFullMatch(true);
+        const availableFullMatch = this._getFullMatch(true)
         const closestAvailableMatch =
-          this._getClosestAvailableMatch(lastSelectedOption);
-        const fullMatch = this._getFullMatch(false);
+          this._getClosestAvailableMatch(lastSelectedOption)
+        const fullMatch = this._getFullMatch(false)
 
-        return availableFullMatch || closestAvailableMatch || fullMatch || null;
+        return availableFullMatch || closestAvailableMatch || fullMatch || null
       },
 
       _updateInputState: function (variant, el) {
         return (input) => {
-          if (variant === null) return;
+          if (variant === null) return
 
-          const index = input.dataset.index;
-          const value = input.value;
-          const type = input.getAttribute('type');
+          const index = input.dataset.index
+          const value = input.value
+          const type = input.getAttribute('type')
 
           if (type === 'radio' || type === 'checkbox') {
-            input.checked = variant[index] === value;
+            input.checked = variant[index] === value
           }
-        };
+        }
       },
 
       _onSelectChange: function ({ srcElement }) {
         const optionSelectElements = this.container.querySelectorAll(
           this.singleOptionSelector
-        );
+        )
 
         // Get the best variant based on the current selection + last selected element
         const variant = this._getVariantFromOptions({
           index: srcElement.dataset.index,
           value: srcElement.value,
-        });
+        })
 
         // Update DOM option input states based on the variant that was found
         optionSelectElements.forEach(
           this._updateInputState(variant, srcElement)
-        );
+        )
 
         // Make sure our currently selected values are up to date after updating state of DOM
         const currentlySelectedValues = (this.currentlySelectedValues =
-          this._getCurrentOptions());
+          this._getCurrentOptions())
 
         const detail = {
           variant,
           currentlySelectedValues,
           value: srcElement.value,
           index: srcElement.parentElement.dataset.index,
-        };
+        }
 
         this.container.dispatchEvent(
           new CustomEvent('variantChange', { detail })
-        );
-        document.dispatchEvent(new CustomEvent('variant:change', { detail }));
+        )
+        document.dispatchEvent(new CustomEvent('variant:change', { detail }))
 
         if (!variant) {
-          return;
+          return
         }
 
-        this._updateMasterSelect(variant);
-        this._updateImages(variant);
-        this._updatePrice(variant);
-        this._updateUnitPrice(variant);
-        this._updateSKU(variant);
-        this.currentVariant = variant;
+        this._updateMasterSelect(variant)
+        this._updateImages(variant)
+        this._updatePrice(variant)
+        this._updateUnitPrice(variant)
+        this._updateSKU(variant)
+        this.currentVariant = variant
 
         if (this.enableHistoryState) {
-          this._updateHistoryState(variant);
+          this._updateHistoryState(variant)
         }
       },
 
       _updateImages: function (variant) {
-        var variantImage = variant.featured_image || {};
+        var variantImage = variant.featured_image || {}
         var currentVariantImage =
-          (this.currentVariant && this.currentVariant.featured_image) || {};
+          (this.currentVariant && this.currentVariant.featured_image) || {}
 
         if (
           !variant.featured_image ||
           variantImage.src === currentVariantImage.src
         ) {
-          return;
+          return
         }
 
         this.container.dispatchEvent(
@@ -1084,7 +1085,7 @@ lazySizesConfig.expFactor = 4;
               variant: variant,
             },
           })
-        );
+        )
       },
 
       _updatePrice: function (variant) {
@@ -1093,7 +1094,7 @@ lazySizesConfig.expFactor = 4;
           variant.price === this.currentVariant.price &&
           variant.compare_at_price === this.currentVariant.compare_at_price
         ) {
-          return;
+          return
         }
 
         this.container.dispatchEvent(
@@ -1102,7 +1103,7 @@ lazySizesConfig.expFactor = 4;
               variant: variant,
             },
           })
-        );
+        )
       },
 
       _updateUnitPrice: function (variant) {
@@ -1110,7 +1111,7 @@ lazySizesConfig.expFactor = 4;
           this.currentVariant &&
           variant.unit_price === this.currentVariant.unit_price
         ) {
-          return;
+          return
         }
 
         this.container.dispatchEvent(
@@ -1119,12 +1120,12 @@ lazySizesConfig.expFactor = 4;
               variant: variant,
             },
           })
-        );
+        )
       },
 
       _updateSKU: function (variant) {
         if (this.currentVariant && variant.sku === this.currentVariant.sku) {
-          return;
+          return
         }
 
         this.container.dispatchEvent(
@@ -1133,12 +1134,12 @@ lazySizesConfig.expFactor = 4;
               variant: variant,
             },
           })
-        );
+        )
       },
 
       _updateHistoryState: function (variant) {
         if (!history.replaceState || !variant) {
-          return;
+          return
         }
 
         var newurl =
@@ -1147,57 +1148,56 @@ lazySizesConfig.expFactor = 4;
           window.location.host +
           window.location.pathname +
           '?variant=' +
-          variant.id;
-        window.history.replaceState({ path: newurl }, '', newurl);
+          variant.id
+        window.history.replaceState({ path: newurl }, '', newurl)
       },
 
       _updateMasterSelect: function (variant) {
-        this.container.querySelector(this.originalSelectorId).value =
-          variant.id;
+        this.container.querySelector(this.originalSelectorId).value = variant.id
         // Force a change event so Shop Pay installments works after a variant is changed
         this.container
           .querySelector(this.originalSelectorId)
-          .dispatchEvent(new Event('change', { bubbles: true }));
+          .dispatchEvent(new Event('change', { bubbles: true }))
       },
-    });
+    })
 
-    return Variants;
-  })();
+    return Variants
+  })()
 
   window.vimeoApiReady = function () {
-    theme.config.vimeoLoading = true;
+    theme.config.vimeoLoading = true
 
     // Because there's no way to check for the Vimeo API being loaded
     // asynchronously, we use this terrible timeout to wait for it being ready
     checkIfVimeoIsReady().then(function () {
-      theme.config.vimeoReady = true;
-      theme.config.vimeoLoading = false;
-      document.dispatchEvent(new CustomEvent('vimeoReady'));
-    });
-  };
+      theme.config.vimeoReady = true
+      theme.config.vimeoLoading = false
+      document.dispatchEvent(new CustomEvent('vimeoReady'))
+    })
+  }
 
   function checkIfVimeoIsReady() {
-    var wait;
-    var timeout;
+    var wait
+    var timeout
 
     var deferred = new Promise((resolve, reject) => {
       wait = setInterval(function () {
         if (!Vimeo) {
-          return;
+          return
         }
 
-        clearInterval(wait);
-        clearTimeout(timeout);
-        resolve();
-      }, 500);
+        clearInterval(wait)
+        clearTimeout(timeout)
+        resolve()
+      }, 500)
 
       timeout = setTimeout(function () {
-        clearInterval(wait);
-        reject();
-      }, 4000); // subjective. test up to 8 times over 4 seconds
-    });
+        clearInterval(wait)
+        reject()
+      }, 4000) // subjective. test up to 8 times over 4 seconds
+    })
 
-    return deferred;
+    return deferred
   }
 
   theme.VimeoPlayer = (function () {
@@ -1205,7 +1205,7 @@ lazySizesConfig.expFactor = 4;
       loading: 'loading',
       loaded: 'loaded',
       interactable: 'video-interactable',
-    };
+    }
 
     var defaults = {
       background: true,
@@ -1216,94 +1216,94 @@ lazySizesConfig.expFactor = 4;
       playsinline: true,
       portrait: false,
       title: false,
-    };
+    }
 
     function VimeoPlayer(divId, videoId, options) {
-      this.divId = divId;
-      this.el = document.getElementById(divId);
-      this.videoId = videoId;
-      this.iframe = null;
-      this.options = options;
+      this.divId = divId
+      this.el = document.getElementById(divId)
+      this.videoId = videoId
+      this.iframe = null
+      this.options = options
 
       if (this.options && this.options.videoParent) {
-        this.parent = this.el.closest(this.options.videoParent);
+        this.parent = this.el.closest(this.options.videoParent)
       }
 
-      this.setAsLoading();
+      this.setAsLoading()
 
       if (theme.config.vimeoReady) {
-        this.init();
+        this.init()
       } else {
-        theme.LibraryLoader.load('vimeo', window.vimeoApiReady);
-        document.addEventListener('vimeoReady', this.init.bind(this));
+        theme.LibraryLoader.load('vimeo', window.vimeoApiReady)
+        document.addEventListener('vimeoReady', this.init.bind(this))
       }
     }
 
     VimeoPlayer.prototype = Object.assign({}, VimeoPlayer.prototype, {
       init: function () {
-        var args = defaults;
-        args.id = this.videoId;
+        var args = defaults
+        args.id = this.videoId
 
-        this.videoPlayer = new Vimeo.Player(this.el, args);
+        this.videoPlayer = new Vimeo.Player(this.el, args)
 
-        this.videoPlayer.ready().then(this.playerReady.bind(this));
+        this.videoPlayer.ready().then(this.playerReady.bind(this))
       },
 
       playerReady: function () {
-        this.iframe = this.el.querySelector('iframe');
-        this.iframe.setAttribute('tabindex', '-1');
+        this.iframe = this.el.querySelector('iframe')
+        this.iframe.setAttribute('tabindex', '-1')
 
-        this.videoPlayer.setMuted(true);
+        this.videoPlayer.setMuted(true)
 
-        this.setAsLoaded();
+        this.setAsLoaded()
 
         // pause when out of view
         var observer = new IntersectionObserver(
           (entries, observer) => {
             entries.forEach((entry) => {
               if (entry.isIntersecting) {
-                this.play();
+                this.play()
               } else {
-                this.pause();
+                this.pause()
               }
-            });
+            })
           },
           { rootMargin: '0px 0px 50px 0px' }
-        );
+        )
 
-        observer.observe(this.iframe);
+        observer.observe(this.iframe)
       },
 
       setAsLoading: function () {
-        if (!this.parent) return;
-        this.parent.classList.add(classes.loading);
+        if (!this.parent) return
+        this.parent.classList.add(classes.loading)
       },
 
       setAsLoaded: function () {
-        if (!this.parent) return;
-        this.parent.classList.remove(classes.loading);
-        this.parent.classList.add(classes.loaded);
+        if (!this.parent) return
+        this.parent.classList.remove(classes.loading)
+        this.parent.classList.add(classes.loaded)
         if (Shopify && Shopify.designMode) {
           if (window.AOS) {
-            AOS.refreshHard();
+            AOS.refreshHard()
           }
         }
       },
 
       enableInteraction: function () {
-        if (!this.parent) return;
-        this.parent.classList.add(classes.interactable);
+        if (!this.parent) return
+        this.parent.classList.add(classes.interactable)
       },
 
       play: function () {
         if (this.videoPlayer && typeof this.videoPlayer.play === 'function') {
-          this.videoPlayer.play();
+          this.videoPlayer.play()
         }
       },
 
       pause: function () {
         if (this.videoPlayer && typeof this.videoPlayer.pause === 'function') {
-          this.videoPlayer.pause();
+          this.videoPlayer.pause()
         }
       },
 
@@ -1312,18 +1312,18 @@ lazySizesConfig.expFactor = 4;
           this.videoPlayer &&
           typeof this.videoPlayer.destroy === 'function'
         ) {
-          this.videoPlayer.destroy();
+          this.videoPlayer.destroy()
         }
       },
-    });
+    })
 
-    return VimeoPlayer;
-  })();
+    return VimeoPlayer
+  })()
 
   window.onYouTubeIframeAPIReady = function () {
-    theme.config.youTubeReady = true;
-    document.dispatchEvent(new CustomEvent('youTubeReady'));
-  };
+    theme.config.youTubeReady = true
+    document.dispatchEvent(new CustomEvent('youTubeReady'))
+  }
 
   /*============================================================================
     YouTube SDK method
@@ -1339,7 +1339,7 @@ lazySizesConfig.expFactor = 4;
       loading: 'loading',
       loaded: 'loaded',
       interactable: 'video-interactable',
-    };
+    }
 
     var defaults = {
       width: 1280,
@@ -1355,62 +1355,62 @@ lazySizesConfig.expFactor = 4;
         playsinline: 1,
         rel: 0,
       },
-    };
+    }
 
     function YouTube(divId, options) {
-      this.divId = divId;
-      this.iframe = null;
+      this.divId = divId
+      this.iframe = null
 
-      this.attemptedToPlay = false;
+      this.attemptedToPlay = false
 
       // API callback events
       defaults.events = {
         onReady: this.onVideoPlayerReady.bind(this),
         onStateChange: this.onVideoStateChange.bind(this),
-      };
+      }
 
-      this.options = Object.assign({}, defaults, options);
+      this.options = Object.assign({}, defaults, options)
 
       if (this.options) {
         if (this.options.videoParent) {
           this.parent = document
             .getElementById(this.divId)
-            .closest(this.options.videoParent);
+            .closest(this.options.videoParent)
         }
 
         // Most YT videos will autoplay. If in product media,
         // will handle in theme.Product instead
         if (!this.options.autoplay) {
-          this.options.playerVars.autoplay = this.options.autoplay;
+          this.options.playerVars.autoplay = this.options.autoplay
         }
 
         if (this.options.style === 'sound') {
-          this.options.playerVars.controls = 1;
-          this.options.playerVars.autoplay = 0;
+          this.options.playerVars.controls = 1
+          this.options.playerVars.autoplay = 0
         }
       }
 
-      this.setAsLoading();
+      this.setAsLoading()
 
       if (theme.config.youTubeReady) {
-        this.init();
+        this.init()
       } else {
-        theme.LibraryLoader.load('youtubeSdk');
-        document.addEventListener('youTubeReady', this.init.bind(this));
+        theme.LibraryLoader.load('youtubeSdk')
+        document.addEventListener('youTubeReady', this.init.bind(this))
       }
     }
 
     YouTube.prototype = Object.assign({}, YouTube.prototype, {
       init: function () {
-        this.videoPlayer = new YT.Player(this.divId, this.options);
+        this.videoPlayer = new YT.Player(this.divId, this.options)
       },
 
       onVideoPlayerReady: function (evt) {
-        this.iframe = document.getElementById(this.divId); // iframe once YT loads
-        this.iframe.setAttribute('tabindex', '-1');
+        this.iframe = document.getElementById(this.divId) // iframe once YT loads
+        this.iframe.setAttribute('tabindex', '-1')
 
         if (this.options.style !== 'sound') {
-          evt.target.mute();
+          evt.target.mute()
         }
 
         // pause when out of view
@@ -1418,16 +1418,16 @@ lazySizesConfig.expFactor = 4;
           (entries, observer) => {
             entries.forEach((entry) => {
               if (entry.isIntersecting) {
-                this.play();
+                this.play()
               } else {
-                this.pause();
+                this.pause()
               }
-            });
+            })
           },
           { rootMargin: '0px 0px 50px 0px' }
-        );
+        )
 
-        observer.observe(this.iframe);
+        observer.observe(this.iframe)
       },
 
       onVideoStateChange: function (evt) {
@@ -1436,41 +1436,41 @@ lazySizesConfig.expFactor = 4;
             // Handle low power state on iOS by checking if
             // video is reset to unplayed after attempting to buffer
             if (this.attemptedToPlay) {
-              this.setAsLoaded();
-              this.enableInteraction();
+              this.setAsLoaded()
+              this.enableInteraction()
             }
-            break;
+            break
           case 0: // ended, loop it
-            this.play(evt);
-            break;
+            this.play(evt)
+            break
           case 1: // playing
-            this.setAsLoaded();
-            break;
+            this.setAsLoaded()
+            break
           case 3: // buffering
-            this.attemptedToPlay = true;
-            break;
+            this.attemptedToPlay = true
+            break
         }
       },
 
       setAsLoading: function () {
-        if (!this.parent) return;
-        this.parent.classList.add(classes.loading);
+        if (!this.parent) return
+        this.parent.classList.add(classes.loading)
       },
 
       setAsLoaded: function () {
-        if (!this.parent) return;
-        this.parent.classList.remove(classes.loading);
-        this.parent.classList.add(classes.loaded);
+        if (!this.parent) return
+        this.parent.classList.remove(classes.loading)
+        this.parent.classList.add(classes.loaded)
         if (Shopify && Shopify.designMode) {
           if (window.AOS) {
-            AOS.refreshHard();
+            AOS.refreshHard()
           }
         }
       },
 
       enableInteraction: function () {
-        if (!this.parent) return;
-        this.parent.classList.add(classes.interactable);
+        if (!this.parent) return
+        this.parent.classList.add(classes.interactable)
       },
 
       play: function () {
@@ -1478,7 +1478,7 @@ lazySizesConfig.expFactor = 4;
           this.videoPlayer &&
           typeof this.videoPlayer.playVideo === 'function'
         ) {
-          this.videoPlayer.playVideo();
+          this.videoPlayer.playVideo()
         }
       },
 
@@ -1487,7 +1487,7 @@ lazySizesConfig.expFactor = 4;
           this.videoPlayer &&
           typeof this.videoPlayer.pauseVideo === 'function'
         ) {
-          this.videoPlayer.pauseVideo();
+          this.videoPlayer.pauseVideo()
         }
       },
 
@@ -1496,30 +1496,30 @@ lazySizesConfig.expFactor = 4;
           this.videoPlayer &&
           typeof this.videoPlayer.destroy === 'function'
         ) {
-          this.videoPlayer.destroy();
+          this.videoPlayer.destroy()
         }
       },
-    });
+    })
 
-    return YouTube;
-  })();
+    return YouTube
+  })()
 
   // Prevent vertical scroll while using flickity sliders
-  (function () {
-    var e = !1;
-    var t;
+  ;(function () {
+    var e = !1
+    var t
 
     document.body.addEventListener('touchstart', function (i) {
       if (!i.target.closest('.flickity-slider')) {
-        return (e = !1);
-        void 0;
+        return (e = !1)
+        void 0
       }
-      e = !0;
+      e = !0
       t = {
         x: i.touches[0].pageX,
         y: i.touches[0].pageY,
-      };
-    });
+      }
+    })
 
     document.body.addEventListener(
       'touchmove',
@@ -1528,13 +1528,13 @@ lazySizesConfig.expFactor = 4;
           var n = {
             x: i.touches[0].pageX - t.x,
             y: i.touches[0].pageY - t.y,
-          };
-          Math.abs(n.x) > Flickity.defaults.dragThreshold && i.preventDefault();
+          }
+          Math.abs(n.x) > Flickity.defaults.dragThreshold && i.preventDefault()
         }
       },
       { passive: !1 }
-    );
-  })();
+    )
+  })()
 
   /**
    * Ajax Renderer
@@ -1550,90 +1550,90 @@ lazySizesConfig.expFactor = 4;
 
   theme.AjaxRenderer = (function () {
     function AjaxRenderer({ sections, onReplace, debug } = {}) {
-      this.sections = sections || [];
-      this.cachedSections = [];
-      this.onReplace = onReplace;
-      this.debug = Boolean(debug);
+      this.sections = sections || []
+      this.cachedSections = []
+      this.onReplace = onReplace
+      this.debug = Boolean(debug)
     }
 
     AjaxRenderer.prototype = Object.assign({}, AjaxRenderer.prototype, {
       renderPage: function (basePath, newParams, updateURLHash = true) {
-        const currentParams = new URLSearchParams(window.location.search);
-        const updatedParams = this.getUpdatedParams(currentParams, newParams);
+        const currentParams = new URLSearchParams(window.location.search)
+        const updatedParams = this.getUpdatedParams(currentParams, newParams)
 
         const sectionRenders = this.sections.map((section) => {
           const url = `${basePath}?section_id=${
             section.sectionId
-          }&${updatedParams.toString()}`;
-          const cachedSectionUrl = (cachedSection) => cachedSection.url === url;
+          }&${updatedParams.toString()}`
+          const cachedSectionUrl = (cachedSection) => cachedSection.url === url
 
           return this.cachedSections.some(cachedSectionUrl)
             ? this.renderSectionFromCache(cachedSectionUrl, section)
-            : this.renderSectionFromFetch(url, section);
-        });
+            : this.renderSectionFromFetch(url, section)
+        })
 
-        if (updateURLHash) this.updateURLHash(updatedParams);
+        if (updateURLHash) this.updateURLHash(updatedParams)
 
-        return Promise.all(sectionRenders);
+        return Promise.all(sectionRenders)
       },
 
       renderSectionFromCache: function (url, section) {
-        const cachedSection = this.cachedSections.find(url);
+        const cachedSection = this.cachedSections.find(url)
 
         this.log(
           `[AjaxRenderer] rendering from cache: url=${cachedSection.url}`
-        );
-        this.renderSection(cachedSection.html, section);
-        return Promise.resolve(section);
+        )
+        this.renderSection(cachedSection.html, section)
+        return Promise.resolve(section)
       },
 
       renderSectionFromFetch: function (url, section) {
-        this.log(`[AjaxRenderer] redering from fetch: url=${url}`);
+        this.log(`[AjaxRenderer] redering from fetch: url=${url}`)
 
         return new Promise((resolve, reject) => {
           fetch(url)
             .then((response) => response.text())
             .then((responseText) => {
-              const html = responseText;
-              this.cachedSections = [...this.cachedSections, { html, url }];
-              this.renderSection(html, section);
-              resolve(section);
+              const html = responseText
+              this.cachedSections = [...this.cachedSections, { html, url }]
+              this.renderSection(html, section)
+              resolve(section)
             })
-            .catch((err) => reject(err));
-        });
+            .catch((err) => reject(err))
+        })
       },
 
       renderSection: function (html, section) {
         this.log(
           `[AjaxRenderer] rendering section: section=${JSON.stringify(section)}`
-        );
+        )
 
-        const newDom = new DOMParser().parseFromString(html, 'text/html');
+        const newDom = new DOMParser().parseFromString(html, 'text/html')
         if (this.onReplace) {
-          this.onReplace(newDom, section);
+          this.onReplace(newDom, section)
         } else {
           if (typeof section.nodeId === 'string') {
-            var newContentEl = newDom.getElementById(section.nodeId);
+            var newContentEl = newDom.getElementById(section.nodeId)
             if (!newContentEl) {
-              return;
+              return
             }
 
             document.getElementById(section.nodeId).innerHTML =
-              newContentEl.innerHTML;
+              newContentEl.innerHTML
           } else {
             section.nodeId.forEach((id) => {
               document.getElementById(id).innerHTML =
-                newDom.getElementById(id).innerHTML;
-            });
+                newDom.getElementById(id).innerHTML
+            })
           }
         }
 
-        return section;
+        return section
       },
 
       getUpdatedParams: function (currentParams, newParams) {
-        const clone = new URLSearchParams(currentParams);
-        const preservedParams = ['sort_by', 'q', 'options[prefix]', 'type'];
+        const clone = new URLSearchParams(currentParams)
+        const preservedParams = ['sort_by', 'q', 'options[prefix]', 'type']
 
         // Find what params need to be removed
         // delete happens first as we cannot specify keys based off of values
@@ -1642,18 +1642,18 @@ lazySizesConfig.expFactor = 4;
             !newParams.getAll(key).includes(value) &&
             !preservedParams.includes(key)
           ) {
-            clone.delete(key);
+            clone.delete(key)
           }
         }
 
         // Find what params need to be added
         for (const [key, value] of newParams.entries()) {
           if (!clone.getAll(key).includes(value) && value !== '') {
-            clone.append(key, value);
+            clone.append(key, value)
           }
         }
 
-        return clone;
+        return clone
       },
 
       updateURLHash: function (searchParams) {
@@ -1663,18 +1663,18 @@ lazySizesConfig.expFactor = 4;
           `${window.location.pathname}${
             searchParams && '?'.concat(searchParams)
           }`
-        );
+        )
       },
 
       log: function (...args) {
         if (this.debug) {
-          console.log(...args);
+          console.log(...args)
         }
       },
-    });
+    })
 
-    return AjaxRenderer;
-  })();
+    return AjaxRenderer
+  })()
 
   if (
     window.Shopify &&
@@ -1697,28 +1697,28 @@ lazySizesConfig.expFactor = 4;
         themeStoreId: window.Shopify.theme.theme_store_id || 0,
         isThemeEditor: !!window.Shopify.designMode,
       })
-    );
+    )
   }
   theme.cart = {
     getCart: function () {
-      var url = ''.concat(theme.routes.cart, '?t=').concat(Date.now());
+      var url = ''.concat(theme.routes.cart, '?t=').concat(Date.now())
       return fetch(url, {
         credentials: 'same-origin',
         method: 'GET',
-      }).then((response) => response.json());
+      }).then((response) => response.json())
     },
 
     getCartProductMarkup: function () {
-      var url = ''.concat(theme.routes.cartPage, '?t=').concat(Date.now());
+      var url = ''.concat(theme.routes.cartPage, '?t=').concat(Date.now())
 
-      url = url.indexOf('?') === -1 ? url + '?view=ajax' : url + '&view=ajax';
+      url = url.indexOf('?') === -1 ? url + '?view=ajax' : url + '&view=ajax'
 
       return fetch(url, {
         credentials: 'same-origin',
         method: 'GET',
       }).then(function (response) {
-        return response.text();
-      });
+        return response.text()
+      })
     },
 
     changeItem: function (key, qty) {
@@ -1728,7 +1728,7 @@ lazySizesConfig.expFactor = 4;
           id: key,
           quantity: qty,
         }),
-      });
+      })
     },
 
     _updateCart: function (params) {
@@ -1743,8 +1743,8 @@ lazySizesConfig.expFactor = 4;
       })
         .then((response) => response.json())
         .then(function (cart) {
-          return cart;
-        });
+          return cart
+        })
     },
 
     updateAttribute: function (key, value) {
@@ -1755,7 +1755,7 @@ lazySizesConfig.expFactor = 4;
             [key]: theme.cart.attributeToString(value),
           },
         }),
-      });
+      })
     },
 
     updateNote: function (note) {
@@ -1764,19 +1764,19 @@ lazySizesConfig.expFactor = 4;
         data: JSON.stringify({
           note: theme.cart.attributeToString(note),
         }),
-      });
+      })
     },
 
     attributeToString: function (attribute) {
       if (typeof attribute !== 'string') {
-        attribute += '';
+        attribute += ''
         if (attribute === 'undefined') {
-          attribute = '';
+          attribute = ''
         }
       }
-      return attribute.trim();
+      return attribute.trim()
     },
-  };
+  }
 
   /*============================================================================
     CartForm
@@ -1795,83 +1795,83 @@ lazySizesConfig.expFactor = 4;
       cartNote: '[name="note"]',
       termsCheckbox: '.cart__terms-checkbox',
       checkoutBtn: '.cart__checkout',
-    };
+    }
 
     var classes = {
       btnLoading: 'btn--loading',
-    };
+    }
 
     var config = {
       requiresTerms: false,
-    };
+    }
 
     function CartForm(form) {
       if (!form) {
-        return;
+        return
       }
 
-      this.form = form;
-      this.wrapper = form.parentNode;
-      this.location = form.dataset.location;
-      this.namespace = '.cart-' + this.location;
-      this.products = form.querySelector(selectors.products);
-      this.submitBtn = form.querySelector(selectors.checkoutBtn);
+      this.form = form
+      this.wrapper = form.parentNode
+      this.location = form.dataset.location
+      this.namespace = '.cart-' + this.location
+      this.products = form.querySelector(selectors.products)
+      this.submitBtn = form.querySelector(selectors.checkoutBtn)
 
-      this.discounts = form.querySelector(selectors.discounts);
-      this.savings = form.querySelector(selectors.savings);
-      this.subtotal = form.querySelector(selectors.subTotal);
-      this.termsCheckbox = form.querySelector(selectors.termsCheckbox);
-      this.noteInput = form.querySelector(selectors.cartNote);
+      this.discounts = form.querySelector(selectors.discounts)
+      this.savings = form.querySelector(selectors.savings)
+      this.subtotal = form.querySelector(selectors.subTotal)
+      this.termsCheckbox = form.querySelector(selectors.termsCheckbox)
+      this.noteInput = form.querySelector(selectors.cartNote)
 
       if (this.termsCheckbox) {
-        config.requiresTerms = true;
+        config.requiresTerms = true
       }
 
-      this.init();
+      this.init()
     }
 
     CartForm.prototype = Object.assign({}, CartForm.prototype, {
       init: function () {
-        this.initQtySelectors();
+        this.initQtySelectors()
 
         document.addEventListener(
           'cart:quantity' + this.namespace,
           this.quantityChanged.bind(this)
-        );
+        )
 
-        this.form.on('submit' + this.namespace, this.onSubmit.bind(this));
+        this.form.on('submit' + this.namespace, this.onSubmit.bind(this))
 
         if (this.noteInput) {
           this.noteInput.addEventListener('change', function () {
-            var newNote = this.value;
-            theme.cart.updateNote(newNote);
-          });
+            var newNote = this.value
+            theme.cart.updateNote(newNote)
+          })
         }
 
         // Dev-friendly way to build the cart
         document.addEventListener(
           'cart:build',
           function () {
-            this.buildCart();
+            this.buildCart()
           }.bind(this)
-        );
+        )
       },
 
       reInit: function () {
-        this.initQtySelectors();
+        this.initQtySelectors()
       },
 
       onSubmit: function (evt) {
-        this.submitBtn.classList.add(classes.btnLoading);
+        this.submitBtn.classList.add(classes.btnLoading)
 
         if (config.requiresTerms) {
           if (this.termsCheckbox.checked) {
             // continue to checkout
           } else {
-            alert(theme.strings.cartTermsConfirmation);
-            this.submitBtn.classList.remove(classes.btnLoading);
-            evt.preventDefault();
-            return false;
+            alert(theme.strings.cartTermsConfirmation)
+            this.submitBtn.classList.remove(classes.btnLoading)
+            evt.preventDefault()
+            return false
           }
         }
       },
@@ -1880,63 +1880,63 @@ lazySizesConfig.expFactor = 4;
         Query cart page to get markup
       ==============================================================================*/
       _parseProductHTML: function (html) {
-        var parser = new DOMParser();
-        var doc = parser.parseFromString(html, 'text/html');
+        var parser = new DOMParser()
+        var doc = parser.parseFromString(html, 'text/html')
         return {
           items: doc.querySelector('.cart__items'),
           discounts: doc.querySelector('.cart__discounts'),
-        };
+        }
       },
 
       buildCart: function () {
-        theme.cart.getCartProductMarkup().then(this.cartMarkup.bind(this));
+        theme.cart.getCartProductMarkup().then(this.cartMarkup.bind(this))
       },
 
       cartMarkup: function (html) {
-        var markup = this._parseProductHTML(html);
-        var items = markup.items;
-        var count = parseInt(items.dataset.count);
-        var subtotal = items.dataset.cartSubtotal;
-        var savings = items.dataset.cartSavings;
+        var markup = this._parseProductHTML(html)
+        var items = markup.items
+        var count = parseInt(items.dataset.count)
+        var subtotal = items.dataset.cartSubtotal
+        var savings = items.dataset.cartSavings
 
-        this.updateCartDiscounts(markup.discounts);
-        this.updateSavings(savings);
+        this.updateCartDiscounts(markup.discounts)
+        this.updateSavings(savings)
 
         if (count > 0) {
-          this.wrapper.classList.remove('is-empty');
+          this.wrapper.classList.remove('is-empty')
         } else {
-          this.wrapper.classList.add('is-empty');
+          this.wrapper.classList.add('is-empty')
         }
 
-        this.updateCount(count);
+        this.updateCount(count)
 
         // Append item markup
-        this.products.innerHTML = '';
-        this.products.append(items);
+        this.products.innerHTML = ''
+        this.products.append(items)
 
         // Update subtotal
         this.subtotal.innerHTML = theme.Currency.formatMoney(
           subtotal,
           theme.settings.moneyFormat
-        );
+        )
 
-        this.reInit();
+        this.reInit()
 
         if (window.AOS) {
-          AOS.refreshHard();
+          AOS.refreshHard()
         }
 
         if (Shopify && Shopify.StorefrontExpressButtons) {
-          Shopify.StorefrontExpressButtons.initialize();
+          Shopify.StorefrontExpressButtons.initialize()
         }
       },
 
       updateCartDiscounts: function (markup) {
         if (!this.discounts) {
-          return;
+          return
         }
-        this.discounts.innerHTML = '';
-        this.discounts.append(markup);
+        this.discounts.innerHTML = ''
+        this.discounts.append(markup)
       },
 
       /*============================================================================
@@ -1947,22 +1947,22 @@ lazySizesConfig.expFactor = 4;
           var selector = new theme.QtySelector(el, {
             namespace: this.namespace,
             isCart: true,
-          });
-        });
+          })
+        })
       },
 
       quantityChanged: function (evt) {
-        var key = evt.detail[0];
-        var qty = evt.detail[1];
-        var el = evt.detail[2];
+        var key = evt.detail[0]
+        var qty = evt.detail[1]
+        var el = evt.detail[2]
 
         if (!key || !qty) {
-          return;
+          return
         }
 
         // Disable qty selector so multiple clicks can't happen while loading
         if (el) {
-          el.classList.add('is-loading');
+          el.classList.add('is-loading')
         }
 
         theme.cart
@@ -1970,12 +1970,12 @@ lazySizesConfig.expFactor = 4;
           .then(
             function (cart) {
               if (cart.item_count > 0) {
-                this.wrapper.classList.remove('is-empty');
+                this.wrapper.classList.remove('is-empty')
               } else {
-                this.wrapper.classList.add('is-empty');
+                this.wrapper.classList.add('is-empty')
               }
 
-              this.buildCart();
+              this.buildCart()
 
               document.dispatchEvent(
                 new CustomEvent('cart:updated', {
@@ -1983,10 +1983,10 @@ lazySizesConfig.expFactor = 4;
                     cart: cart,
                   },
                 })
-              );
+              )
             }.bind(this)
           )
-          .catch(function (XMLHttpRequest) {});
+          .catch(function (XMLHttpRequest) {})
       },
 
       /*============================================================================
@@ -1994,66 +1994,66 @@ lazySizesConfig.expFactor = 4;
       ==============================================================================*/
       updateSubtotal: function (subtotal) {
         this.form.querySelector(selectors.subTotal).innerHTML =
-          theme.Currency.formatMoney(subtotal, theme.settings.moneyFormat);
+          theme.Currency.formatMoney(subtotal, theme.settings.moneyFormat)
       },
 
       updateSavings: function (savings) {
         if (!this.savings) {
-          return;
+          return
         }
 
         if (savings > 0) {
           var amount = theme.Currency.formatMoney(
             savings,
             theme.settings.moneyFormat
-          );
-          this.savings.classList.remove('hide');
+          )
+          this.savings.classList.remove('hide')
           this.savings.innerHTML = theme.strings.cartSavings.replace(
             '[savings]',
             amount
-          );
+          )
         } else {
-          this.savings.classList.add('hide');
+          this.savings.classList.add('hide')
         }
       },
 
       updateCount: function (count) {
-        var countEls = document.querySelectorAll('.cart-link__bubble-num');
+        var countEls = document.querySelectorAll('.cart-link__bubble-num')
 
         if (countEls.length) {
           countEls.forEach((el) => {
-            el.innerText = count;
-          });
+            el.innerText = count
+          })
         }
 
         // show/hide bubble(s)
-        var bubbles = document.querySelectorAll(selectors.cartBubble);
+        var bubbles = document.querySelectorAll(selectors.cartBubble)
         if (bubbles.length) {
           if (count > 0) {
             bubbles.forEach((b) => {
-              b.classList.add('cart-link__bubble--visible');
-            });
+              b.classList.add('cart-link__bubble--visible')
+            })
           } else {
             bubbles.forEach((b) => {
-              b.classList.remove('cart-link__bubble--visible');
-            });
+              b.classList.remove('cart-link__bubble--visible')
+            })
           }
         }
 
         // update cart quantity in cart text
         var textQuantity = document.querySelectorAll(
           '.cart-link__text-quantity'
-        );
+        )
         if (textQuantity.length) {
           textQuantity.forEach((text) => {
-            text.innerText = count;
-          });
+            text.innerText = count
+          })
         }
       },
-    });
+    })
 
-    return CartForm;
-  })();
+    return CartForm
+  })()
 
   // Either collapsible containers all acting individually,
   // or tabs that can only have one open at a time
@@ -2063,50 +2063,50 @@ lazySizesConfig.expFactor = 4;
       module: '.collapsible-content',
       moduleInner: '.collapsible-content__inner',
       tabs: '.collapsible-trigger--tab',
-    };
+    }
 
     var classes = {
       hide: 'hide',
       open: 'is-open',
       autoHeight: 'collapsible--auto-height',
       tabs: 'collapsible-trigger--tab',
-    };
+    }
 
-    var namespace = '.collapsible';
+    var namespace = '.collapsible'
 
-    var isTransitioning = false;
+    var isTransitioning = false
 
     function init(scope) {
-      var el = scope ? scope : document;
+      var el = scope ? scope : document
       el.querySelectorAll(selectors.trigger).forEach((trigger) => {
-        var state = trigger.classList.contains(classes.open);
-        trigger.setAttribute('aria-expanded', state);
+        var state = trigger.classList.contains(classes.open)
+        trigger.setAttribute('aria-expanded', state)
 
-        trigger.off('click' + namespace);
-        trigger.on('click' + namespace, toggle);
-      });
+        trigger.off('click' + namespace)
+        trigger.on('click' + namespace, toggle)
+      })
     }
 
     function toggle(evt) {
       if (isTransitioning) {
-        return;
+        return
       }
 
-      isTransitioning = true;
+      isTransitioning = true
 
-      var el = evt.currentTarget;
-      var isOpen = el.classList.contains(classes.open);
-      var isTab = el.classList.contains(classes.tabs);
-      var moduleId = el.getAttribute('aria-controls');
-      var container = document.getElementById(moduleId);
+      var el = evt.currentTarget
+      var isOpen = el.classList.contains(classes.open)
+      var isTab = el.classList.contains(classes.tabs)
+      var moduleId = el.getAttribute('aria-controls')
+      var container = document.getElementById(moduleId)
 
       if (!moduleId) {
-        moduleId = el.dataset.controls;
+        moduleId = el.dataset.controls
       }
 
       // No ID, bail
       if (!moduleId) {
-        return;
+        return
       }
 
       // If container=null, there isn't a matching ID.
@@ -2115,124 +2115,124 @@ lazySizesConfig.expFactor = 4;
       if (!container) {
         var multipleMatches = document.querySelectorAll(
           '[data-id="' + moduleId + '"]'
-        );
+        )
         if (multipleMatches.length > 0) {
           container = el.parentNode.querySelector(
             '[data-id="' + moduleId + '"]'
-          );
+          )
         }
       }
 
       if (!container) {
-        isTransitioning = false;
-        return;
+        isTransitioning = false
+        return
       }
 
-      var height = container.querySelector(selectors.moduleInner).offsetHeight;
-      var isAutoHeight = container.classList.contains(classes.autoHeight);
-      var parentCollapsibleEl = container.parentNode.closest(selectors.module);
-      var childHeight = height;
+      var height = container.querySelector(selectors.moduleInner).offsetHeight
+      var isAutoHeight = container.classList.contains(classes.autoHeight)
+      var parentCollapsibleEl = container.parentNode.closest(selectors.module)
+      var childHeight = height
 
       if (isTab) {
         if (isOpen) {
-          isTransitioning = false;
-          return;
+          isTransitioning = false
+          return
         }
 
-        var newModule;
+        var newModule
         document
           .querySelectorAll(
             selectors.tabs + '[data-id="' + el.dataset.id + '"]'
           )
           .forEach((el) => {
-            el.classList.remove(classes.open);
+            el.classList.remove(classes.open)
             newModule = document.querySelector(
               '#' + el.getAttribute('aria-controls')
-            );
-            setTransitionHeight(newModule, 0, true);
-          });
+            )
+            setTransitionHeight(newModule, 0, true)
+          })
       }
 
       // If isAutoHeight, set the height to 0 just after setting the actual height
       // so the closing animation works nicely
       if (isOpen && isAutoHeight) {
         setTimeout(function () {
-          height = 0;
-          setTransitionHeight(container, height, isOpen, isAutoHeight);
-        }, 0);
+          height = 0
+          setTransitionHeight(container, height, isOpen, isAutoHeight)
+        }, 0)
       }
 
       if (isOpen && !isAutoHeight) {
-        height = 0;
+        height = 0
       }
 
-      el.setAttribute('aria-expanded', !isOpen);
+      el.setAttribute('aria-expanded', !isOpen)
       if (isOpen) {
-        el.classList.remove(classes.open);
+        el.classList.remove(classes.open)
       } else {
-        el.classList.add(classes.open);
+        el.classList.add(classes.open)
       }
 
-      setTransitionHeight(container, height, isOpen, isAutoHeight);
+      setTransitionHeight(container, height, isOpen, isAutoHeight)
 
       // If we are in a nested collapsible element like the mobile nav,
       // also set the parent element's height
       if (parentCollapsibleEl) {
-        var parentHeight = parentCollapsibleEl.style.height;
+        var parentHeight = parentCollapsibleEl.style.height
 
         if (isOpen && parentHeight === 'auto') {
-          childHeight = 0; // Set childHeight to 0 if parent is initially opened
+          childHeight = 0 // Set childHeight to 0 if parent is initially opened
         }
 
         var totalHeight = isOpen
           ? parentCollapsibleEl.offsetHeight - childHeight
-          : height + parentCollapsibleEl.offsetHeight;
+          : height + parentCollapsibleEl.offsetHeight
 
-        setTransitionHeight(parentCollapsibleEl, totalHeight, false, false);
+        setTransitionHeight(parentCollapsibleEl, totalHeight, false, false)
       }
 
       // If Shopify Product Reviews app installed,
       // resize container on 'Write review' click
       // that shows form
       if (window.SPR) {
-        var btn = container.querySelector('.spr-summary-actions-newreview');
+        var btn = container.querySelector('.spr-summary-actions-newreview')
         if (!btn) {
-          return;
+          return
         }
-        btn.off('click' + namespace);
+        btn.off('click' + namespace)
         btn.on('click' + namespace, function () {
-          height = container.querySelector(selectors.moduleInner).offsetHeight;
-          setTransitionHeight(container, height, isOpen, isAutoHeight);
-        });
+          height = container.querySelector(selectors.moduleInner).offsetHeight
+          setTransitionHeight(container, height, isOpen, isAutoHeight)
+        })
       }
     }
 
     function setTransitionHeight(container, height, isOpen, isAutoHeight) {
-      container.classList.remove(classes.hide);
+      container.classList.remove(classes.hide)
       theme.utils.prepareTransition(container, function () {
-        container.style.height = height + 'px';
+        container.style.height = height + 'px'
         if (isOpen) {
-          container.classList.remove(classes.open);
+          container.classList.remove(classes.open)
         } else {
-          container.classList.add(classes.open);
+          container.classList.add(classes.open)
         }
-      });
+      })
 
       if (!isOpen && isAutoHeight) {
-        var o = container;
+        var o = container
         window.setTimeout(function () {
-          o.css('height', 'auto');
-          isTransitioning = false;
-        }, 500);
+          o.css('height', 'auto')
+          isTransitioning = false
+        }, 500)
       } else {
-        isTransitioning = false;
+        isTransitioning = false
       }
     }
 
     return {
       init: init,
-    };
-  })();
+    }
+  })()
 
   // Shopify-built select-like popovers for currency and language selection
   theme.Disclosure = (function () {
@@ -2242,16 +2242,16 @@ lazySizesConfig.expFactor = 4;
       disclosureToggle: '[data-disclosure-toggle]',
       disclosureInput: '[data-disclosure-input]',
       disclosureOptions: '[data-disclosure-option]',
-    };
+    }
 
     var classes = {
       listVisible: 'disclosure-list--visible',
-    };
+    }
 
     function Disclosure(disclosure) {
-      this.container = disclosure;
-      this._cacheSelectors();
-      this._setupListeners();
+      this.container = disclosure
+      this._cacheSelectors()
+      this._setupListeners()
     }
 
     Disclosure.prototype = Object.assign({}, Disclosure.prototype, {
@@ -2270,40 +2270,40 @@ lazySizesConfig.expFactor = 4;
           disclosureOptions: this.container.querySelectorAll(
             selectors.disclosureOptions
           ),
-        };
+        }
       },
 
       _setupListeners: function () {
-        this.eventHandlers = this._setupEventHandlers();
+        this.eventHandlers = this._setupEventHandlers()
 
         this.cache.disclosureToggle.addEventListener(
           'click',
           this.eventHandlers.toggleList
-        );
+        )
 
         this.cache.disclosureOptions.forEach(function (disclosureOption) {
           disclosureOption.addEventListener(
             'click',
             this.eventHandlers.connectOptions
-          );
-        }, this);
+          )
+        }, this)
 
         this.container.addEventListener(
           'keyup',
           this.eventHandlers.onDisclosureKeyUp
-        );
+        )
 
         this.cache.disclosureList.addEventListener(
           'focusout',
           this.eventHandlers.onDisclosureListFocusOut
-        );
+        )
 
         this.cache.disclosureToggle.addEventListener(
           'focusout',
           this.eventHandlers.onDisclosureToggleFocusOut
-        );
+        )
 
-        document.body.addEventListener('click', this.eventHandlers.onBodyClick);
+        document.body.addEventListener('click', this.eventHandlers.onBodyClick)
       },
 
       _setupEventHandlers: function () {
@@ -2315,110 +2315,107 @@ lazySizesConfig.expFactor = 4;
           onDisclosureListFocusOut: this._onDisclosureListFocusOut.bind(this),
           onDisclosureToggleFocusOut:
             this._onDisclosureToggleFocusOut.bind(this),
-        };
+        }
       },
 
       _connectOptions: function (event) {
-        event.preventDefault();
+        event.preventDefault()
 
-        this._submitForm(event.currentTarget.dataset.value);
+        this._submitForm(event.currentTarget.dataset.value)
       },
 
       _onDisclosureToggleFocusOut: function (event) {
         var disclosureLostFocus =
-          this.container.contains(event.relatedTarget) === false;
+          this.container.contains(event.relatedTarget) === false
 
         if (disclosureLostFocus) {
-          this._hideList();
+          this._hideList()
         }
       },
 
       _onDisclosureListFocusOut: function (event) {
-        var childInFocus = event.currentTarget.contains(event.relatedTarget);
+        var childInFocus = event.currentTarget.contains(event.relatedTarget)
 
         var isVisible = this.cache.disclosureList.classList.contains(
           classes.listVisible
-        );
+        )
 
         if (isVisible && !childInFocus) {
-          this._hideList();
+          this._hideList()
         }
       },
 
       _onDisclosureKeyUp: function (event) {
-        if (event.which !== 27) return;
-        this._hideList();
-        this.cache.disclosureToggle.focus();
+        if (event.which !== 27) return
+        this._hideList()
+        this.cache.disclosureToggle.focus()
       },
 
       _onBodyClick: function (event) {
-        var isOption = this.container.contains(event.target);
+        var isOption = this.container.contains(event.target)
         var isVisible = this.cache.disclosureList.classList.contains(
           classes.listVisible
-        );
+        )
 
         if (isVisible && !isOption) {
-          this._hideList();
+          this._hideList()
         }
       },
 
       _submitForm: function (value) {
-        this.cache.disclosureInput.value = value;
-        this.cache.disclosureForm.submit();
+        this.cache.disclosureInput.value = value
+        this.cache.disclosureForm.submit()
       },
 
       _hideList: function () {
-        this.cache.disclosureList.classList.remove(classes.listVisible);
-        this.cache.disclosureToggle.setAttribute('aria-expanded', false);
+        this.cache.disclosureList.classList.remove(classes.listVisible)
+        this.cache.disclosureToggle.setAttribute('aria-expanded', false)
       },
 
       _toggleList: function () {
         var ariaExpanded =
-          this.cache.disclosureToggle.getAttribute('aria-expanded') === 'true';
-        this.cache.disclosureList.classList.toggle(classes.listVisible);
-        this.cache.disclosureToggle.setAttribute(
-          'aria-expanded',
-          !ariaExpanded
-        );
+          this.cache.disclosureToggle.getAttribute('aria-expanded') === 'true'
+        this.cache.disclosureList.classList.toggle(classes.listVisible)
+        this.cache.disclosureToggle.setAttribute('aria-expanded', !ariaExpanded)
       },
 
       destroy: function () {
         this.cache.disclosureToggle.removeEventListener(
           'click',
           this.eventHandlers.toggleList
-        );
+        )
 
         this.cache.disclosureOptions.forEach(function (disclosureOption) {
           disclosureOption.removeEventListener(
             'click',
             this.eventHandlers.connectOptions
-          );
-        }, this);
+          )
+        }, this)
 
         this.container.removeEventListener(
           'keyup',
           this.eventHandlers.onDisclosureKeyUp
-        );
+        )
 
         this.cache.disclosureList.removeEventListener(
           'focusout',
           this.eventHandlers.onDisclosureListFocusOut
-        );
+        )
 
         this.cache.disclosureToggle.removeEventListener(
           'focusout',
           this.eventHandlers.onDisclosureToggleFocusOut
-        );
+        )
 
         document.body.removeEventListener(
           'click',
           this.eventHandlers.onBodyClick
-        );
+        )
       },
-    });
+    })
 
-    return Disclosure;
-  })();
+    return Disclosure
+  })()
 
   theme.Drawers = (function () {
     function Drawers(id, name) {
@@ -2430,87 +2427,87 @@ lazySizesConfig.expFactor = 4;
         closingClass: 'js-drawer-closing',
         activeDrawer: 'drawer--is-open',
         namespace: '.drawer-' + name,
-      };
+      }
 
       this.nodes = {
         page: document.querySelector('#MainContent'),
-      };
-
-      this.drawer = document.querySelector('#' + id);
-      this.isOpen = false;
-
-      if (!this.drawer) {
-        return;
       }
 
-      this.init();
+      this.drawer = document.querySelector('#' + id)
+      this.isOpen = false
+
+      if (!this.drawer) {
+        return
+      }
+
+      this.init()
     }
 
     Drawers.prototype = Object.assign({}, Drawers.prototype, {
       init: function () {
         // Setup open button(s)
         document.querySelectorAll(this.config.open).forEach((openBtn) => {
-          openBtn.setAttribute('aria-expanded', 'false');
-          openBtn.addEventListener('click', this.open.bind(this));
-        });
+          openBtn.setAttribute('aria-expanded', 'false')
+          openBtn.addEventListener('click', this.open.bind(this))
+        })
 
         this.drawer
           .querySelector(this.config.close)
-          .addEventListener('click', this.close.bind(this));
+          .addEventListener('click', this.close.bind(this))
 
         // Close modal if a drawer is opened
         document.addEventListener(
           'modalOpen',
           function () {
-            this.close();
+            this.close()
           }.bind(this)
-        );
+        )
       },
 
       open: function (evt, returnFocusEl) {
         if (evt) {
-          evt.preventDefault();
+          evt.preventDefault()
         }
 
         if (this.isOpen) {
-          return;
+          return
         }
 
         // Without this the drawer opens, the click event bubbles up to $nodes.page which closes the drawer.
         if (evt && evt.stopPropagation) {
-          evt.stopPropagation();
+          evt.stopPropagation()
           // save the source of the click, we'll focus to this on close
-          evt.currentTarget.setAttribute('aria-expanded', 'true');
-          this.activeSource = evt.currentTarget;
+          evt.currentTarget.setAttribute('aria-expanded', 'true')
+          this.activeSource = evt.currentTarget
         } else if (returnFocusEl) {
-          returnFocusEl.setAttribute('aria-expanded', 'true');
-          this.activeSource = returnFocusEl;
+          returnFocusEl.setAttribute('aria-expanded', 'true')
+          this.activeSource = returnFocusEl
         }
 
         theme.utils.prepareTransition(
           this.drawer,
           function () {
-            this.drawer.classList.add(this.config.activeDrawer);
+            this.drawer.classList.add(this.config.activeDrawer)
           }.bind(this)
-        );
+        )
 
-        document.documentElement.classList.add(this.config.openClass);
-        this.isOpen = true;
+        document.documentElement.classList.add(this.config.openClass)
+        this.isOpen = true
 
         theme.a11y.trapFocus({
           container: this.drawer,
           namespace: 'drawer_focus',
-        });
+        })
 
-        document.dispatchEvent(new CustomEvent('drawerOpen'));
-        document.dispatchEvent(new CustomEvent('drawerOpen.' + this.config.id));
+        document.dispatchEvent(new CustomEvent('drawerOpen'))
+        document.dispatchEvent(new CustomEvent('drawerOpen.' + this.config.id))
 
-        this.bindEvents();
+        this.bindEvents()
       },
 
       close: function (evt) {
         if (!this.isOpen) {
-          return;
+          return
         }
 
         // Do not close if click event came from inside drawer
@@ -2518,45 +2515,45 @@ lazySizesConfig.expFactor = 4;
           if (evt.target.closest('.js-drawer-close')) {
             // Do not close if using the drawer close button
           } else if (evt.target.closest('.drawer')) {
-            return;
+            return
           }
         }
 
         // deselect any focused form elements
-        document.activeElement.blur();
+        document.activeElement.blur()
 
         theme.utils.prepareTransition(
           this.drawer,
           function () {
-            this.drawer.classList.remove(this.config.activeDrawer);
+            this.drawer.classList.remove(this.config.activeDrawer)
           }.bind(this)
-        );
+        )
 
-        document.documentElement.classList.remove(this.config.openClass);
-        document.documentElement.classList.add(this.config.closingClass);
+        document.documentElement.classList.remove(this.config.openClass)
+        document.documentElement.classList.add(this.config.closingClass)
 
         window.setTimeout(
           function () {
-            document.documentElement.classList.remove(this.config.closingClass);
+            document.documentElement.classList.remove(this.config.closingClass)
             if (
               this.activeSource &&
               this.activeSource.getAttribute('aria-expanded')
             ) {
-              this.activeSource.setAttribute('aria-expanded', 'false');
-              this.activeSource.focus();
+              this.activeSource.setAttribute('aria-expanded', 'false')
+              this.activeSource.focus()
             }
           }.bind(this),
           500
-        );
+        )
 
-        this.isOpen = false;
+        this.isOpen = false
 
         theme.a11y.removeTrapFocus({
           container: this.drawer,
           namespace: 'drawer_focus',
-        });
+        })
 
-        this.unbindEvents();
+        this.unbindEvents()
       },
 
       bindEvents: function () {
@@ -2564,37 +2561,34 @@ lazySizesConfig.expFactor = 4;
         window.on(
           'click' + this.config.namespace,
           function (evt) {
-            this.close(evt);
-            return;
+            this.close(evt)
+            return
           }.bind(this)
-        );
+        )
 
         // Pressing escape closes drawer
         window.on(
           'keyup' + this.config.namespace,
           function (evt) {
             if (evt.keyCode === 27) {
-              this.close();
+              this.close()
             }
           }.bind(this)
-        );
+        )
 
-        theme.a11y.lockMobileScrolling(this.config.namespace, this.nodes.page);
+        theme.a11y.lockMobileScrolling(this.config.namespace, this.nodes.page)
       },
 
       unbindEvents: function () {
-        window.off('click' + this.config.namespace);
-        window.off('keyup' + this.config.namespace);
+        window.off('click' + this.config.namespace)
+        window.off('keyup' + this.config.namespace)
 
-        theme.a11y.unlockMobileScrolling(
-          this.config.namespace,
-          this.nodes.page
-        );
+        theme.a11y.unlockMobileScrolling(this.config.namespace, this.nodes.page)
       },
-    });
+    })
 
-    return Drawers;
-  })();
+    return Drawers
+  })()
 
   theme.Modals = (function () {
     function Modal(id, name, options) {
@@ -2607,103 +2601,103 @@ lazySizesConfig.expFactor = 4;
         bodyOpenSolidClass: 'modal-open--solid',
         bodyClosingClass: 'modal-closing',
         closeOffContentClick: true,
-      };
-
-      this.id = id;
-      this.modal = document.getElementById(id);
-
-      if (!this.modal) {
-        return false;
       }
 
-      this.modalContent = this.modal.querySelector('.modal__inner');
+      this.id = id
+      this.modal = document.getElementById(id)
 
-      this.config = Object.assign(defaults, options);
-      this.modalIsOpen = false;
+      if (!this.modal) {
+        return false
+      }
+
+      this.modalContent = this.modal.querySelector('.modal__inner')
+
+      this.config = Object.assign(defaults, options)
+      this.modalIsOpen = false
       this.focusOnOpen = this.config.focusIdOnOpen
         ? document.getElementById(this.config.focusIdOnOpen)
-        : this.modal;
-      this.isSolid = this.config.solid;
+        : this.modal
+      this.isSolid = this.config.solid
 
-      this.init();
+      this.init()
     }
 
     Modal.prototype.init = function () {
       document.querySelectorAll(this.config.open).forEach((btn) => {
-        btn.setAttribute('aria-expanded', 'false');
-        btn.addEventListener('click', this.open.bind(this));
-      });
+        btn.setAttribute('aria-expanded', 'false')
+        btn.addEventListener('click', this.open.bind(this))
+      })
 
       this.modal.querySelectorAll(this.config.close).forEach((btn) => {
-        btn.addEventListener('click', this.close.bind(this));
-      });
+        btn.addEventListener('click', this.close.bind(this))
+      })
 
       // Close modal if a drawer is opened
       document.addEventListener(
         'drawerOpen',
         function () {
-          this.close();
+          this.close()
         }.bind(this)
-      );
-    };
+      )
+    }
 
     Modal.prototype.open = function (evt) {
       // Keep track if modal was opened from a click, or called by another function
-      var externalCall = false;
+      var externalCall = false
 
       // don't open an opened modal
       if (this.modalIsOpen) {
-        return;
+        return
       }
 
       // Prevent following href if link is clicked
       if (evt) {
-        evt.preventDefault();
+        evt.preventDefault()
       } else {
-        externalCall = true;
+        externalCall = true
       }
 
       // Without this, the modal opens, the click event bubbles up to $nodes.page
       // which closes the modal.
       if (evt && evt.stopPropagation) {
-        evt.stopPropagation();
+        evt.stopPropagation()
         // save the source of the click, we'll focus to this on close
         this.activeSource = evt.currentTarget.setAttribute(
           'aria-expanded',
           'true'
-        );
+        )
       }
 
       if (this.modalIsOpen && !externalCall) {
-        this.close();
+        this.close()
       }
 
-      this.modal.classList.add(this.config.openClass);
+      this.modal.classList.add(this.config.openClass)
 
-      document.documentElement.classList.add(...this.config.bodyOpenClass);
+      document.documentElement.classList.add(...this.config.bodyOpenClass)
 
       if (this.isSolid) {
-        document.documentElement.classList.add(this.config.bodyOpenSolidClass);
+        document.documentElement.classList.add(this.config.bodyOpenSolidClass)
       }
 
-      this.modalIsOpen = true;
+      this.modalIsOpen = true
 
       theme.a11y.trapFocus({
         container: this.modal,
         elementToFocus: this.focusOnOpen,
         namespace: 'modal_focus',
-      });
+      })
 
-      document.dispatchEvent(new CustomEvent('modalOpen'));
-      document.dispatchEvent(new CustomEvent('modalOpen.' + this.id));
+      document.dispatchEvent(new CustomEvent('modalOpen'))
+      document.dispatchEvent(new CustomEvent('modalOpen.' + this.id))
 
-      this.bindEvents();
-    };
+      this.bindEvents()
+    }
 
     Modal.prototype.close = function (evt) {
       // don't close a closed modal
       if (!this.modalIsOpen) {
-        return;
+        return
       }
 
       // Do not close modal if click happens inside modal content
@@ -2711,96 +2705,96 @@ lazySizesConfig.expFactor = 4;
         if (evt.target.closest('.js-modal-close')) {
           // Do not close if using the modal close button
         } else if (evt.target.closest('.modal__inner')) {
-          return;
+          return
         }
       }
 
       // deselect any focused form elements
-      document.activeElement.blur();
+      document.activeElement.blur()
 
-      this.modal.classList.remove(this.config.openClass);
-      this.modal.classList.add(this.config.closingClass);
+      this.modal.classList.remove(this.config.openClass)
+      this.modal.classList.add(this.config.closingClass)
 
-      document.documentElement.classList.remove(...this.config.bodyOpenClass);
-      document.documentElement.classList.add(this.config.bodyClosingClass);
+      document.documentElement.classList.remove(...this.config.bodyOpenClass)
+      document.documentElement.classList.add(this.config.bodyClosingClass)
 
       window.setTimeout(
         function () {
           document.documentElement.classList.remove(
             this.config.bodyClosingClass
-          );
-          this.modal.classList.remove(this.config.closingClass);
+          )
+          this.modal.classList.remove(this.config.closingClass)
           if (
             this.activeSource &&
             this.activeSource.getAttribute('aria-expanded')
           ) {
-            this.activeSource.setAttribute('aria-expanded', 'false').focus();
+            this.activeSource.setAttribute('aria-expanded', 'false').focus()
           }
         }.bind(this),
         500
-      ); // modal close css transition
+      ) // modal close css transition
 
       if (this.isSolid) {
         document.documentElement.classList.remove(
           this.config.bodyOpenSolidClass
-        );
+        )
       }
 
-      this.modalIsOpen = false;
+      this.modalIsOpen = false
 
       theme.a11y.removeTrapFocus({
         container: this.modal,
         namespace: 'modal_focus',
-      });
+      })
 
-      document.dispatchEvent(new CustomEvent('modalClose.' + this.id));
+      document.dispatchEvent(new CustomEvent('modalClose.' + this.id))
 
-      this.unbindEvents();
-    };
+      this.unbindEvents()
+    }
 
     Modal.prototype.bindEvents = function () {
       window.on(
         'keyup.modal',
         function (evt) {
           if (evt.keyCode === 27) {
-            this.close();
+            this.close()
           }
         }.bind(this)
-      );
+      )
 
       if (this.config.closeOffContentClick) {
         // Clicking outside of the modal content also closes it
-        this.modal.on('click.modal', this.close.bind(this));
+        this.modal.on('click.modal', this.close.bind(this))
       }
-    };
+    }
 
     Modal.prototype.unbindEvents = function () {
-      document.documentElement.off('.modal');
+      document.documentElement.off('.modal')
 
       if (this.config.closeOffContentClick) {
-        this.modal.off('.modal');
+        this.modal.off('.modal')
       }
-    };
+    }
 
-    return Modal;
-  })();
+    return Modal
+  })()
 
-  theme.parallaxSections = {};
+  theme.parallaxSections = {}
 
   theme.Parallax = (function () {
-    var speed = 0.85;
-    var reset = false;
+    var speed = 0.85
+    var reset = false
 
     function parallax(container, args) {
-      this.isInit = false;
-      this.isVisible = false;
-      this.container = container;
-      this.image = container.querySelector('.parallax-image');
-      this.namespace = args.namespace;
-      this.desktopOnly = args.desktopOnly;
+      this.isInit = false
+      this.isVisible = false
+      this.container = container
+      this.image = container.querySelector('.parallax-image')
+      this.namespace = args.namespace
+      this.desktopOnly = args.desktopOnly
 
       if (!this.container || !this.image) {
-        return;
+        return
       }
 
       // If set for desktop only, setup listeners for disabling
@@ -2809,115 +2803,115 @@ lazySizesConfig.expFactor = 4;
         document.addEventListener(
           'matchSmall',
           function () {
-            this.destroy();
+            this.destroy()
           }.bind(this)
-        );
+        )
 
         document.addEventListener(
           'unmatchSmall',
           function () {
-            this.init(true);
+            this.init(true)
           }.bind(this)
-        );
+        )
       }
 
-      this.init(this.desktopOnly);
+      this.init(this.desktopOnly)
     }
 
     parallax.prototype = Object.assign({}, parallax.prototype, {
       init: function (desktopOnly) {
         // Reset in case initialized again
         if (this.isInit) {
-          this.destroy();
+          this.destroy()
         }
 
-        this.isInit = true;
+        this.isInit = true
 
         // Do not setup scroll event if on mobile
         if (desktopOnly && theme.config.bpSmall) {
-          return;
+          return
         }
 
         // Set position on page load
-        this.setSizes();
-        this.scrollHandler();
+        this.setSizes()
+        this.scrollHandler()
 
         var observer = new IntersectionObserver(
           (entries, observer) => {
             entries.forEach((entry) => {
-              this.isVisible = entry.isIntersecting;
+              this.isVisible = entry.isIntersecting
               if (this.isVisible) {
-                window.on('scroll' + this.namespace, this.onScroll.bind(this));
+                window.on('scroll' + this.namespace, this.onScroll.bind(this))
               } else {
-                window.off('scroll' + this.namespace);
+                window.off('scroll' + this.namespace)
               }
-            });
+            })
           },
           { rootMargin: '200px 0px 200px 0px' }
-        );
+        )
 
-        observer.observe(this.container);
+        observer.observe(this.container)
 
         window.on(
           'resize' + this.namespace,
           theme.utils.debounce(250, this.setSizes.bind(this))
-        );
+        )
 
         document.addEventListener(
           'shopify:section:reorder',
           theme.utils.debounce(250, this.onReorder.bind(this))
-        );
+        )
       },
 
       onScroll: function () {
         if (!this.isVisible) {
-          return;
+          return
         }
 
         // If a scroll event finds Shopify's review app,
         // update parallax scroll positions because of page reflows
         if (window.SPR && !reset) {
-          this.setSizes();
-          reset = true;
+          this.setSizes()
+          reset = true
         }
 
-        requestAnimationFrame(this.scrollHandler.bind(this));
+        requestAnimationFrame(this.scrollHandler.bind(this))
       },
 
       scrollHandler: function () {
-        var shiftDistance = (window.scrollY - this.elTop) * speed;
+        var shiftDistance = (window.scrollY - this.elTop) * speed
         this.image.style.transform =
-          'translate3d(0, ' + shiftDistance + 'px, 0)';
+          'translate3d(0, ' + shiftDistance + 'px, 0)'
       },
 
       setSizes: function () {
-        var rect = this.container.getBoundingClientRect();
-        this.elTop = rect.top + window.scrollY;
+        var rect = this.container.getBoundingClientRect()
+        this.elTop = rect.top + window.scrollY
       },
 
       onReorder: function () {
-        this.setSizes();
-        this.onScroll();
+        this.setSizes()
+        this.onScroll()
       },
 
       destroy: function () {
-        this.image.style.transform = 'none';
-        window.off('scroll' + this.namespace);
-        window.off('resize' + this.namespace);
+        this.image.style.transform = 'none'
+        window.off('scroll' + this.namespace)
+        window.off('resize' + this.namespace)
       },
-    });
+    })
 
-    return parallax;
-  })();
+    return parallax
+  })()
 
   if (typeof window.noUiSlider === 'undefined') {
     throw new Error(
       'theme.PriceRange is missing vendor noUiSlider: // =require vendor/nouislider.js'
-    );
+    )
   }
 
   theme.PriceRange = (function () {
-    var defaultStep = 10;
+    var defaultStep = 10
     var selectors = {
       priceRange: '.price-range',
       priceRangeSlider: '.price-range__slider',
@@ -2925,18 +2919,18 @@ lazySizesConfig.expFactor = 4;
       priceRangeInputMax: '.price-range__input-max',
       priceRangeDisplayMin: '.price-range__display-min',
       priceRangeDisplayMax: '.price-range__display-max',
-    };
+    }
 
     function PriceRange(
       container,
       { onChange, onUpdate, ...sliderOptions } = {}
     ) {
-      this.container = container;
-      this.onChange = onChange;
-      this.onUpdate = onUpdate;
-      this.sliderOptions = sliderOptions || {};
+      this.container = container
+      this.onChange = onChange
+      this.onUpdate = onUpdate
+      this.sliderOptions = sliderOptions || {}
 
-      return this.init();
+      return this.init()
     }
 
     PriceRange.prototype = Object.assign({}, PriceRange.prototype, {
@@ -2944,33 +2938,31 @@ lazySizesConfig.expFactor = 4;
         if (!this.container.classList.contains('price-range')) {
           throw new Error(
             'You must instantiate PriceRange with a valid container'
-          );
+          )
         }
 
-        this.formEl = this.container.closest('form');
-        this.sliderEl = this.container.querySelector(
-          selectors.priceRangeSlider
-        );
+        this.formEl = this.container.closest('form')
+        this.sliderEl = this.container.querySelector(selectors.priceRangeSlider)
         this.inputMinEl = this.container.querySelector(
           selectors.priceRangeInputMin
-        );
+        )
         this.inputMaxEl = this.container.querySelector(
           selectors.priceRangeInputMax
-        );
+        )
         this.displayMinEl = this.container.querySelector(
           selectors.priceRangeDisplayMin
-        );
+        )
         this.displayMaxEl = this.container.querySelector(
           selectors.priceRangeDisplayMax
-        );
+        )
 
-        this.minRange = parseFloat(this.container.dataset.min) || 0;
-        this.minValue = parseFloat(this.container.dataset.minValue) || 0;
-        this.maxRange = parseFloat(this.container.dataset.max) || 100;
+        this.minRange = parseFloat(this.container.dataset.min) || 0
+        this.minValue = parseFloat(this.container.dataset.minValue) || 0
+        this.maxRange = parseFloat(this.container.dataset.max) || 100
         this.maxValue =
-          parseFloat(this.container.dataset.maxValue) || this.maxRange;
+          parseFloat(this.container.dataset.maxValue) || this.maxRange
 
-        return this.createPriceRange();
+        return this.createPriceRange()
       },
 
       createPriceRange: function () {
@@ -2979,7 +2971,7 @@ lazySizesConfig.expFactor = 4;
           this.sliderEl.noUiSlider &&
           typeof this.sliderEl.noUiSlider.destroy === 'function'
         ) {
-          this.sliderEl.noUiSlider.destroy();
+          this.sliderEl.noUiSlider.destroy()
         }
 
         var slider = noUiSlider.create(this.sliderEl, {
@@ -2992,71 +2984,71 @@ lazySizesConfig.expFactor = 4;
             min: this.minRange,
             max: this.maxRange,
           },
-        });
+        })
 
         slider.on('update', (values) => {
           this.displayMinEl.innerHTML = theme.Currency.formatMoney(
             values[0],
             theme.settings.moneyFormat
-          );
+          )
           this.displayMaxEl.innerHTML = theme.Currency.formatMoney(
             values[1],
             theme.settings.moneyFormat
-          );
+          )
 
           if (this.onUpdate) {
-            this.onUpdate(values);
+            this.onUpdate(values)
           }
-        });
+        })
 
         slider.on('change', (values) => {
-          this.inputMinEl.value = values[0];
-          this.inputMaxEl.value = values[1];
+          this.inputMinEl.value = values[0]
+          this.inputMaxEl.value = values[1]
 
           if (this.onChange) {
-            const formData = new FormData(this.formEl);
-            this.onChange(formData);
+            const formData = new FormData(this.formEl)
+            this.onChange(formData)
           }
-        });
+        })
 
-        return slider;
+        return slider
       },
-    });
+    })
 
-    return PriceRange;
-  })();
+    return PriceRange
+  })()
 
   theme.AjaxProduct = (function () {
     var status = {
       loading: false,
-    };
+    }
 
     function ProductForm(form, submit, args) {
-      this.form = form;
-      this.args = args;
+      this.form = form
+      this.args = args
 
-      var submitSelector = submit ? submit : '.add-to-cart';
+      var submitSelector = submit ? submit : '.add-to-cart'
 
       if (this.form) {
-        this.addToCart = form.querySelector(submitSelector);
-        this.form.addEventListener('submit', this.addItemFromForm.bind(this));
+        this.addToCart = form.querySelector(submitSelector)
+        this.form.addEventListener('submit', this.addItemFromForm.bind(this))
       }
     }
 
     ProductForm.prototype = Object.assign({}, ProductForm.prototype, {
       addItemFromForm: function (evt, callback) {
-        evt.preventDefault();
+        evt.preventDefault()
 
         if (status.loading) {
-          return;
+          return
         }
 
         // Loading indicator on add to cart button
-        this.addToCart.classList.add('btn--loading');
+        this.addToCart.classList.add('btn--loading')
 
-        status.loading = true;
+        status.loading = true
 
-        var data = theme.utils.serialize(this.form);
+        var data = theme.utils.serialize(this.form)
 
         fetch(theme.routes.cartAdd, {
           method: 'POST',
@@ -3071,28 +3063,28 @@ lazySizesConfig.expFactor = 4;
           .then(
             function (data) {
               if (data.status === 422) {
-                this.error(data);
+                this.error(data)
               } else {
-                var product = data;
-                this.success(product);
+                var product = data
+                this.success(product)
               }
 
-              status.loading = false;
-              this.addToCart.classList.remove('btn--loading');
+              status.loading = false
+              this.addToCart.classList.remove('btn--loading')
 
               // Reload page if adding product from a section on the cart page
               if (document.body.classList.contains('template-cart')) {
-                window.scrollTo(0, 0);
-                location.reload();
+                window.scrollTo(0, 0)
+                location.reload()
               }
             }.bind(this)
-          );
+          )
       },
 
       success: function (product) {
-        var errors = this.form.querySelector('.errors');
+        var errors = this.form.querySelector('.errors')
         if (errors) {
-          errors.remove();
+          errors.remove()
         }
 
         document.dispatchEvent(
@@ -3102,7 +3094,7 @@ lazySizesConfig.expFactor = 4;
               addToCartBtn: this.addToCart,
             },
           })
-        );
+        )
 
         if (this.args && this.args.scopedEventId) {
           document.dispatchEvent(
@@ -3112,25 +3104,25 @@ lazySizesConfig.expFactor = 4;
                 addToCartBtn: this.addToCart,
               },
             })
-          );
+          )
         }
       },
 
       error: function (error) {
         if (!error.description) {
-          console.warn(error);
-          return;
+          console.warn(error)
+          return
         }
 
-        var errors = this.form.querySelector('.errors');
+        var errors = this.form.querySelector('.errors')
         if (errors) {
-          errors.remove();
+          errors.remove()
         }
 
-        var errorDiv = document.createElement('div');
-        errorDiv.classList.add('errors', 'text-center');
-        errorDiv.textContent = error.description;
-        this.form.append(errorDiv);
+        var errorDiv = document.createElement('div')
+        errorDiv.classList.add('errors', 'text-center')
+        errorDiv.textContent = error.description
+        this.form.append(errorDiv)
 
         document.dispatchEvent(
           new CustomEvent('ajaxProduct:error', {
@@ -3138,7 +3130,7 @@ lazySizesConfig.expFactor = 4;
               errorMessage: error.description,
             },
           })
-        );
+        )
 
         if (this.args && this.args.scopedEventId) {
           document.dispatchEvent(
@@ -3147,41 +3139,41 @@ lazySizesConfig.expFactor = 4;
                 errorMessage: error.description,
               },
             })
-          );
+          )
         }
       },
-    });
+    })
 
-    return ProductForm;
-  })();
+    return ProductForm
+  })()
 
   theme.ProductMedia = (function () {
-    var modelJsonSections = {};
-    var models = {};
-    var xrButtons = {};
+    var modelJsonSections = {}
+    var models = {}
+    var xrButtons = {}
 
     var selectors = {
       mediaGroup: '[data-product-single-media-group]',
       xrButton: '[data-shopify-xr]',
-    };
+    }
 
     function init(modelViewerContainers, sectionId) {
       modelJsonSections[sectionId] = {
         loaded: false,
-      };
+      }
 
       modelViewerContainers.forEach(function (container, index) {
-        var mediaId = container.dataset.mediaId;
-        var modelViewerElement = container.querySelector('model-viewer');
-        var modelId = modelViewerElement.dataset.modelId;
+        var mediaId = container.dataset.mediaId
+        var modelViewerElement = container.querySelector('model-viewer')
+        var modelId = modelViewerElement.dataset.modelId
 
         if (index === 0) {
-          var mediaGroup = container.closest(selectors.mediaGroup);
-          var xrButton = mediaGroup.querySelector(selectors.xrButton);
+          var mediaGroup = container.closest(selectors.mediaGroup)
+          var xrButton = mediaGroup.querySelector(selectors.xrButton)
           xrButtons[sectionId] = {
             element: xrButton,
             defaultId: modelId,
-          };
+          }
         }
 
         models[mediaId] = {
@@ -3189,8 +3181,8 @@ lazySizesConfig.expFactor = 4;
           sectionId: sectionId,
           container: container,
           element: modelViewerElement,
-        };
-      });
+        }
+      })
 
       window.Shopify.loadFeatures([
         {
@@ -3203,89 +3195,89 @@ lazySizesConfig.expFactor = 4;
           version: '1.0',
           onLoad: setupModelViewerUi,
         },
-      ]);
+      ])
 
-      theme.LibraryLoader.load('modelViewerUiStyles');
+      theme.LibraryLoader.load('modelViewerUiStyles')
     }
 
     function setupShopifyXr(errors) {
-      if (errors) return;
+      if (errors) return
 
       if (!window.ShopifyXR) {
         document.addEventListener('shopify_xr_initialized', function () {
-          setupShopifyXr();
-        });
-        return;
+          setupShopifyXr()
+        })
+        return
       }
 
       for (var sectionId in modelJsonSections) {
         if (modelJsonSections.hasOwnProperty(sectionId)) {
-          var modelSection = modelJsonSections[sectionId];
+          var modelSection = modelJsonSections[sectionId]
 
-          if (modelSection.loaded) continue;
+          if (modelSection.loaded) continue
 
-          var modelJson = document.querySelector('#ModelJson-' + sectionId);
+          var modelJson = document.querySelector('#ModelJson-' + sectionId)
 
-          window.ShopifyXR.addModels(JSON.parse(modelJson.innerHTML));
-          modelSection.loaded = true;
+          window.ShopifyXR.addModels(JSON.parse(modelJson.innerHTML))
+          modelSection.loaded = true
         }
       }
-      window.ShopifyXR.setupXRElements();
+      window.ShopifyXR.setupXRElements()
     }
 
     function setupModelViewerUi(errors) {
-      if (errors) return;
+      if (errors) return
 
       for (var key in models) {
         if (models.hasOwnProperty(key)) {
-          var model = models[key];
+          var model = models[key]
           if (!model.modelViewerUi && Shopify) {
-            model.modelViewerUi = new Shopify.ModelViewerUI(model.element);
+            model.modelViewerUi = new Shopify.ModelViewerUI(model.element)
           }
-          setupModelViewerListeners(model);
+          setupModelViewerListeners(model)
         }
       }
     }
 
     function setupModelViewerListeners(model) {
-      var xrButton = xrButtons[model.sectionId];
+      var xrButton = xrButtons[model.sectionId]
 
       model.container.addEventListener('mediaVisible', function () {
-        xrButton.element.setAttribute('data-shopify-model3d-id', model.modelId);
-        if (theme.config.isTouch) return;
-        model.modelViewerUi.play();
-      });
+        xrButton.element.setAttribute('data-shopify-model3d-id', model.modelId)
+        if (theme.config.isTouch) return
+        model.modelViewerUi.play()
+      })
 
       model.container.addEventListener('mediaHidden', function () {
         xrButton.element.setAttribute(
           'data-shopify-model3d-id',
           xrButton.defaultId
-        );
-        model.modelViewerUi.pause();
-      });
+        )
+        model.modelViewerUi.pause()
+      })
 
       model.container.addEventListener('xrLaunch', function () {
-        model.modelViewerUi.pause();
-      });
+        model.modelViewerUi.pause()
+      })
     }
 
     function removeSectionModels(sectionId) {
       for (var key in models) {
         if (models.hasOwnProperty(key)) {
-          var model = models[key];
+          var model = models[key]
           if (model.sectionId === sectionId) {
-            delete models[key];
+            delete models[key]
           }
         }
       }
-      delete modelJsonSections[sectionId];
+      delete modelJsonSections[sectionId]
     }
 
     return {
       init: init,
       removeSectionModels: removeSectionModels,
-    };
-  })();
+    }
+  })()
 
   theme.QtySelector = (function () {
     var selectors = {
@@ -3293,25 +3285,25 @@ lazySizesConfig.expFactor = 4;
       plus: '.js-qty__adjust--plus',
       minus: '.js-qty__adjust--minus',
       delete: '.cart__remove a',
-    };
+    }
 
     function QtySelector(el, options) {
-      this.wrapper = el;
-      this.plus = el.querySelector(selectors.plus);
-      this.minus = el.querySelector(selectors.minus);
-      this.input = el.querySelector(selectors.input);
-      this.minValue = this.input.getAttribute('min') || 1;
-      this.delete = el.nextElementSibling;
+      this.wrapper = el
+      this.plus = el.querySelector(selectors.plus)
+      this.minus = el.querySelector(selectors.minus)
+      this.input = el.querySelector(selectors.input)
+      this.minValue = this.input.getAttribute('min') || 1
+      this.delete = el.nextElementSibling
 
       var defaults = {
         namespace: null,
         isCart: false,
         key: this.input.dataset.id,
-      };
+      }
 
-      this.options = Object.assign({}, defaults, options);
+      this.options = Object.assign({}, defaults, options)
 
-      this.init();
+      this.init()
     }
 
     QtySelector.prototype = Object.assign({}, QtySelector.prototype, {
@@ -3319,141 +3311,141 @@ lazySizesConfig.expFactor = 4;
         this.plus.addEventListener(
           'click',
           function () {
-            var qty = this._getQty();
-            this._change(qty + 1);
+            var qty = this._getQty()
+            this._change(qty + 1)
           }.bind(this)
-        );
+        )
 
         this.minus.addEventListener(
           'click',
           function () {
-            var qty = this._getQty();
-            this._change(qty - 1);
+            var qty = this._getQty()
+            this._change(qty - 1)
           }.bind(this)
-        );
+        )
 
         this.input.addEventListener(
           'change',
           function (evt) {
-            this._change(this._getQty());
+            this._change(this._getQty())
           }.bind(this)
-        );
+        )
 
         this.delete.addEventListener(
           'click',
           function (evt) {
-            evt.preventDefault();
-            var qty = this._getQty();
-            this._change(0);
+            evt.preventDefault()
+            var qty = this._getQty()
+            this._change(0)
           }.bind(this)
-        );
+        )
       },
 
       _getQty: function () {
-        var qty = this.input.value;
+        var qty = this.input.value
         if (parseFloat(qty) == parseInt(qty) && !isNaN(qty)) {
           // We have a valid number!
         } else {
           // Not a number. Default to 1.
-          qty = 1;
+          qty = 1
         }
-        return parseInt(qty);
+        return parseInt(qty)
       },
 
       _change: function (qty) {
         if (qty <= this.minValue) {
-          qty = this.minValue;
+          qty = this.minValue
         }
 
-        this.input.value = qty;
+        this.input.value = qty
 
         if (this.options.isCart) {
           document.dispatchEvent(
             new CustomEvent('cart:quantity' + this.options.namespace, {
               detail: [this.options.key, qty, this.wrapper],
             })
-          );
+          )
         }
       },
-    });
+    })
 
-    return QtySelector;
-  })();
+    return QtySelector
+  })()
 
   theme.initQuickShop = function () {
-    var ids = [];
-    var products = document.querySelectorAll('.grid-product');
+    var ids = []
+    var products = document.querySelectorAll('.grid-product')
 
     if (!products.length || !theme.settings.quickView) {
-      return;
+      return
     }
 
     products.forEach((product) => {
-      product.addEventListener('mouseover', productMouseover);
-    });
+      product.addEventListener('mouseover', productMouseover)
+    })
 
     function productMouseover(evt) {
-      var el = evt.currentTarget;
+      var el = evt.currentTarget
       // No quick view on mobile breakpoint
       if (!theme.config.bpSmall) {
-        el.removeEventListener('mouseover', productMouseover);
+        el.removeEventListener('mouseover', productMouseover)
         if (!el || !el.dataset.productId) {
           // Onboarding product, no real data
-          return;
+          return
         }
-        var productId = el.dataset.productId;
-        var handle = el.dataset.productHandle;
-        var btn = el.querySelector('.quick-product__btn');
-        theme.preloadProductModal(handle, productId, btn);
+        var productId = el.dataset.productId
+        var handle = el.dataset.productHandle
+        var btn = el.querySelector('.quick-product__btn')
+        theme.preloadProductModal(handle, productId, btn)
       }
     }
-  };
+  }
 
   theme.preloadProductModal = function (handle, productId, btn) {
-    var holder = document.getElementById('QuickShopHolder-' + handle);
-    var url = theme.routes.home + '/products/' + handle + '?view=modal';
+    var holder = document.getElementById('QuickShopHolder-' + handle)
+    var url = theme.routes.home + '/products/' + handle + '?view=modal'
 
     // remove double `/` in case shop might have /en or language in URL
-    url = url.replace('//', '/');
+    url = url.replace('//', '/')
 
     fetch(url)
       .then(function (response) {
-        return response.text();
+        return response.text()
       })
       .then(function (html) {
         // Convert the HTML string into a document object
-        var parser = new DOMParser();
-        var doc = parser.parseFromString(html, 'text/html');
+        var parser = new DOMParser()
+        var doc = parser.parseFromString(html, 'text/html')
         var div = doc.querySelector(
           '.product-section[data-product-handle="' + handle + '"]'
-        );
+        )
 
         if (!holder) {
-          return;
+          return
         }
 
-        holder.innerHTML = '';
-        holder.append(div);
+        holder.innerHTML = ''
+        holder.append(div)
 
         // Setup quick view modal
-        var modalId = 'QuickShopModal-' + productId;
-        var name = 'quick-modal-' + productId;
-        new theme.Modals(modalId, name);
+        var modalId = 'QuickShopModal-' + productId
+        var name = 'quick-modal-' + productId
+        new theme.Modals(modalId, name)
 
         // Register product template inside quick view
-        theme.sections.register('product', theme.Product, holder);
+        theme.sections.register('product', theme.Product, holder)
 
         // Register collapsible elements
-        theme.collapsibles.init();
+        theme.collapsibles.init()
 
         // Register potential video modal links (when video has sound)
-        theme.videoModal();
+        theme.videoModal()
 
         if (btn) {
-          btn.classList.remove('quick-product__btn--not-ready');
+          btn.classList.remove('quick-product__btn--not-ready')
         }
-      });
-  };
+      })
+  }
 
   // theme.Slideshow handles all flickity based sliders
   // Child navigation is only setup to work on product images
@@ -3462,20 +3454,20 @@ lazySizesConfig.expFactor = 4;
       animateOut: 'animate-out',
       isPaused: 'is-paused',
       isActive: 'is-active',
-    };
+    }
 
     var selectors = {
       allSlides: '.slideshow__slide',
       currentSlide: '.is-selected',
       wrapper: '.slideshow-wrapper',
       pauseButton: '.slideshow__pause',
-    };
+    }
 
     var productSelectors = {
       thumb: '.product__thumb-item:not(.hide)',
       links: '.product__thumb-item:not(.hide) a',
       arrow: '.product__thumb-arrow',
-    };
+    }
 
     var defaults = {
       adaptiveHeight: false,
@@ -3495,45 +3487,45 @@ lazySizesConfig.expFactor = 4;
       selectedAttraction: 0.14,
       setGallerySize: true,
       wrapAround: true,
-    };
+    }
 
     function slideshow(el, args) {
-      this.el = el;
-      this.args = Object.assign({}, defaults, args);
+      this.el = el
+      this.args = Object.assign({}, defaults, args)
 
       // Setup listeners as part of arguments
       this.args.on = {
         ready: this.init.bind(this),
         change: this.slideChange.bind(this),
         settle: this.afterChange.bind(this),
-      };
+      }
 
       if (this.args.childNav) {
         this.childNavEls = this.args.childNav.querySelectorAll(
           productSelectors.thumb
-        );
+        )
         this.childNavLinks = this.args.childNav.querySelectorAll(
           productSelectors.links
-        );
+        )
         this.arrows = this.args.childNav.querySelectorAll(
           productSelectors.arrow
-        );
+        )
         if (this.childNavLinks.length) {
-          this.initChildNav();
+          this.initChildNav()
         }
       }
 
       if (this.args.avoidReflow) {
-        avoidReflow(el);
+        avoidReflow(el)
       }
 
-      this.slideshow = new Flickity(el, this.args);
+      this.slideshow = new Flickity(el, this.args)
 
       if (this.args.autoPlay) {
-        var wrapper = el.closest(selectors.wrapper);
-        this.pauseBtn = wrapper.querySelector(selectors.pauseButton);
+        var wrapper = el.closest(selectors.wrapper)
+        this.pauseBtn = wrapper.querySelector(selectors.pauseButton)
         if (this.pauseBtn) {
-          this.pauseBtn.addEventListener('click', this._togglePause.bind(this));
+          this.pauseBtn.addEventListener('click', this._togglePause.bind(this))
         }
       }
 
@@ -3543,191 +3535,191 @@ lazySizesConfig.expFactor = 4;
         theme.utils.debounce(
           300,
           function () {
-            this.resize();
+            this.resize()
           }.bind(this)
         )
-      );
+      )
 
       // Set flickity-viewport height to first element to
       // avoid awkward page reflows while initializing.
       // Must be added in a `style` tag because element does not exist yet.
       // Slideshow element must have an ID
       function avoidReflow(el) {
-        if (!el.id) return;
-        var firstChild = el.firstChild;
+        if (!el.id) return
+        var firstChild = el.firstChild
         while (firstChild != null && firstChild.nodeType == 3) {
           // skip TextNodes
-          firstChild = firstChild.nextSibling;
+          firstChild = firstChild.nextSibling
         }
-        var style = document.createElement('style');
-        style.innerHTML = `#${el.id} .flickity-viewport{height:${firstChild.offsetHeight}px}`;
-        document.head.appendChild(style);
+        var style = document.createElement('style')
+        style.innerHTML = `#${el.id} .flickity-viewport{height:${firstChild.offsetHeight}px}`
+        document.head.appendChild(style)
       }
     }
 
     slideshow.prototype = Object.assign({}, slideshow.prototype, {
       init: function (el) {
-        this.currentSlide = this.el.querySelector(selectors.currentSlide);
+        this.currentSlide = this.el.querySelector(selectors.currentSlide)
 
         // Optional onInit callback
         if (this.args.callbacks && this.args.callbacks.onInit) {
           if (typeof this.args.callbacks.onInit === 'function') {
-            this.args.callbacks.onInit(this.currentSlide);
+            this.args.callbacks.onInit(this.currentSlide)
           }
         }
 
         if (window.AOS) {
-          AOS.refresh();
+          AOS.refresh()
         }
       },
 
       slideChange: function (index) {
         // Outgoing fade styles
         if (this.args.fade && this.currentSlide) {
-          this.currentSlide.classList.add(classes.animateOut);
+          this.currentSlide.classList.add(classes.animateOut)
           this.currentSlide.addEventListener(
             'transitionend',
             function () {
-              this.currentSlide.classList.remove(classes.animateOut);
+              this.currentSlide.classList.remove(classes.animateOut)
             }.bind(this)
-          );
+          )
         }
 
         // Match index with child nav
         if (this.args.childNav) {
-          this.childNavGoTo(index);
+          this.childNavGoTo(index)
         }
 
         // Optional onChange callback
         if (this.args.callbacks && this.args.callbacks.onChange) {
           if (typeof this.args.callbacks.onChange === 'function') {
-            this.args.callbacks.onChange(index);
+            this.args.callbacks.onChange(index)
           }
         }
 
         // Show/hide arrows depending on selected index
         if (this.arrows && this.arrows.length) {
-          this.arrows[0].classList.toggle('hide', index === 0);
+          this.arrows[0].classList.toggle('hide', index === 0)
           this.arrows[1].classList.toggle(
             'hide',
             index === this.childNavLinks.length - 1
-          );
+          )
         }
       },
       afterChange: function (index) {
         // Remove all fade animation classes after slide is done
         if (this.args.fade) {
           this.el.querySelectorAll(selectors.allSlides).forEach((slide) => {
-            slide.classList.remove(classes.animateOut);
-          });
+            slide.classList.remove(classes.animateOut)
+          })
         }
 
-        this.currentSlide = this.el.querySelector(selectors.currentSlide);
+        this.currentSlide = this.el.querySelector(selectors.currentSlide)
 
         // Match index with child nav (in case slider height changed first)
         if (this.args.childNav) {
-          this.childNavGoTo(this.slideshow.selectedIndex);
+          this.childNavGoTo(this.slideshow.selectedIndex)
         }
       },
       destroy: function () {
         if (this.args.childNav && this.childNavLinks.length) {
           this.childNavLinks.forEach((a) => {
-            a.classList.remove(classes.isActive);
-          });
+            a.classList.remove(classes.isActive)
+          })
         }
-        this.slideshow.destroy();
+        this.slideshow.destroy()
       },
       reposition: function () {
-        this.slideshow.reposition();
+        this.slideshow.reposition()
       },
       _togglePause: function () {
         if (this.pauseBtn.classList.contains(classes.isPaused)) {
-          this.pauseBtn.classList.remove(classes.isPaused);
-          this.slideshow.playPlayer();
+          this.pauseBtn.classList.remove(classes.isPaused)
+          this.slideshow.playPlayer()
         } else {
-          this.pauseBtn.classList.add(classes.isPaused);
-          this.slideshow.pausePlayer();
+          this.pauseBtn.classList.add(classes.isPaused)
+          this.slideshow.pausePlayer()
         }
       },
       resize: function () {
-        this.slideshow.resize();
+        this.slideshow.resize()
       },
       play: function () {
-        this.slideshow.playPlayer();
+        this.slideshow.playPlayer()
       },
       pause: function () {
-        this.slideshow.pausePlayer();
+        this.slideshow.pausePlayer()
       },
       goToSlide: function (i) {
-        this.slideshow.select(i);
+        this.slideshow.select(i)
       },
       setDraggable: function (enable) {
-        this.slideshow.options.draggable = enable;
-        this.slideshow.updateDraggable();
+        this.slideshow.options.draggable = enable
+        this.slideshow.updateDraggable()
       },
 
       initChildNav: function () {
-        this.childNavLinks[this.args.initialIndex].classList.add('is-active');
+        this.childNavLinks[this.args.initialIndex].classList.add('is-active')
 
         // Setup events
         this.childNavLinks.forEach((link, i) => {
           // update data-index because image-set feature may be enabled
-          link.setAttribute('data-index', i);
+          link.setAttribute('data-index', i)
 
           link.addEventListener(
             'click',
             function (evt) {
-              evt.preventDefault();
-              this.goToSlide(this.getChildIndex(evt.currentTarget));
+              evt.preventDefault()
+              this.goToSlide(this.getChildIndex(evt.currentTarget))
             }.bind(this)
-          );
+          )
           link.addEventListener(
             'focus',
             function (evt) {
-              this.goToSlide(this.getChildIndex(evt.currentTarget));
+              this.goToSlide(this.getChildIndex(evt.currentTarget))
             }.bind(this)
-          );
+          )
           link.addEventListener(
             'keydown',
             function (evt) {
               if (evt.keyCode === 13) {
-                this.goToSlide(this.getChildIndex(evt.currentTarget));
+                this.goToSlide(this.getChildIndex(evt.currentTarget))
               }
             }.bind(this)
-          );
-        });
+          )
+        })
 
         // Setup optional arrows
         if (this.arrows.length) {
           this.arrows.forEach((arrow) => {
-            arrow.addEventListener('click', this.arrowClick.bind(this));
-          });
+            arrow.addEventListener('click', this.arrowClick.bind(this))
+          })
         }
       },
 
       getChildIndex: function (target) {
-        return parseInt(target.dataset.index);
+        return parseInt(target.dataset.index)
       },
 
       childNavGoTo: function (index) {
         this.childNavLinks.forEach((a) => {
-          a.blur();
-          a.classList.remove(classes.isActive);
-        });
+          a.blur()
+          a.classList.remove(classes.isActive)
+        })
 
-        var el = this.childNavLinks[index];
-        el.classList.add(classes.isActive);
+        var el = this.childNavLinks[index]
+        el.classList.add(classes.isActive)
 
         if (!this.args.childNavScroller) {
-          return;
+          return
         }
 
         if (this.args.childVertical) {
-          var elTop = el.offsetTop;
-          this.args.childNavScroller.scrollTop = elTop - 100;
+          var elTop = el.offsetTop
+          this.args.childNavScroller.scrollTop = elTop - 100
         } else {
-          var elLeft = el.offsetLeft;
-          this.args.childNavScroller.scrollLeft = elLeft - 100;
+          var elLeft = el.offsetLeft
+          this.args.childNavScroller.scrollLeft = elLeft - 100
         }
       },
 
@@ -3735,15 +3727,15 @@ lazySizesConfig.expFactor = 4;
         if (
           evt.currentTarget.classList.contains('product__thumb-arrow--prev')
         ) {
-          this.slideshow.previous();
+          this.slideshow.previous()
         } else {
-          this.slideshow.next();
+          this.slideshow.next()
         }
       },
-    });
+    })
 
-    return slideshow;
-  })();
+    return slideshow
+  })()
 
   /*============================================================================
     VariantAvailability
@@ -3757,16 +3749,16 @@ lazySizesConfig.expFactor = 4;
   theme.VariantAvailability = (function () {
     var classes = {
       disabled: 'disabled',
-    };
+    }
 
     function availability(args) {
-      this.type = args.type;
-      this.variantsObject = args.variantsObject;
-      this.currentVariantObject = args.currentVariantObject;
-      this.container = args.container;
-      this.namespace = args.namespace;
+      this.type = args.type
+      this.variantsObject = args.variantsObject
+      this.currentVariantObject = args.currentVariantObject
+      this.container = args.container
+      this.namespace = args.namespace
 
-      this.init();
+      this.init()
     }
 
     availability.prototype = Object.assign({}, availability.prototype, {
@@ -3774,10 +3766,10 @@ lazySizesConfig.expFactor = 4;
         this.container.on(
           'variantChange' + this.namespace,
           this.setAvailability.bind(this)
-        );
+        )
 
         // Set default state based on current selected variant
-        this.setInitialAvailability();
+        this.setInitialAvailability()
       },
 
       // Create a list of all options. If any variant exists and is in stock with that option, it's considered available
@@ -3787,31 +3779,31 @@ lazySizesConfig.expFactor = 4;
           (options, variant) => {
             // Check each option group (e.g. option1, option2, option3) of the variant
             Object.keys(options).forEach((index) => {
-              if (variant[index] === null) return;
+              if (variant[index] === null) return
 
               let entry = options[index].find(
                 (option) => option.value === variant[index]
-              );
+              )
 
               if (typeof entry === 'undefined') {
                 // If option has yet to be added to the options tree, add it
-                entry = { value: variant[index], soldOut: true };
-                options[index].push(entry);
+                entry = { value: variant[index], soldOut: true }
+                options[index].push(entry)
               }
 
               const currentOption1 = currentlySelectedValues.find(
                 ({ value, index }) => index === 'option1'
-              );
+              )
               const currentOption2 = currentlySelectedValues.find(
                 ({ value, index }) => index === 'option2'
-              );
+              )
 
               switch (index) {
                 case 'option1':
                   // Option1 inputs should always remain enabled based on all available variants
                   entry.soldOut =
-                    entry.soldOut && variant.available ? false : entry.soldOut;
-                  break;
+                    entry.soldOut && variant.available ? false : entry.soldOut
+                  break
                 case 'option2':
                   // Option2 inputs should remain enabled based on available variants that match first option group
                   if (
@@ -3819,9 +3811,7 @@ lazySizesConfig.expFactor = 4;
                     variant['option1'] === currentOption1.value
                   ) {
                     entry.soldOut =
-                      entry.soldOut && variant.available
-                        ? false
-                        : entry.soldOut;
+                      entry.soldOut && variant.available ? false : entry.soldOut
                   }
                 case 'option3':
                   // Option 3 inputs should remain enabled based on available variants that match first and second option group
@@ -3832,39 +3822,37 @@ lazySizesConfig.expFactor = 4;
                     variant['option2'] === currentOption2.value
                   ) {
                     entry.soldOut =
-                      entry.soldOut && variant.available
-                        ? false
-                        : entry.soldOut;
+                      entry.soldOut && variant.available ? false : entry.soldOut
                   }
               }
-            });
+            })
 
-            return options;
+            return options
           },
           { option1: [], option2: [], option3: [] }
-        );
+        )
       },
 
       setInitialAvailability: function () {
         this.container
           .querySelectorAll('.variant-input-wrap')
           .forEach((group) => {
-            this.disableVariantGroup(group);
-          });
+            this.disableVariantGroup(group)
+          })
 
         const currentlySelectedValues = this.currentVariantObject.options.map(
           (value, index) => {
-            return { value, index: `option${index + 1}` };
+            return { value, index: `option${index + 1}` }
           }
-        );
+        )
         const initialOptions = this.createAvailableOptionsTree(
           this.variantsObject,
           currentlySelectedValues,
           this.currentVariantObject
-        );
+        )
 
         for (var [option, values] of Object.entries(initialOptions)) {
-          this.manageOptionState(option, values);
+          this.manageOptionState(option, values)
         }
       },
 
@@ -3874,7 +3862,7 @@ lazySizesConfig.expFactor = 4;
           index: lastSelectedIndex,
           currentlySelectedValues,
           variant,
-        } = evt.detail;
+        } = evt.detail
 
         // Object to hold all options by value.
         // This will be what sets a button/dropdown as
@@ -3885,24 +3873,24 @@ lazySizesConfig.expFactor = 4;
           variant,
           lastSelectedIndex,
           lastSelectedValue
-        );
+        )
 
         // Loop through all option levels and send each
         // value w/ args to function that determines to show/hide/enable/disable
         for (var [option, values] of Object.entries(valuesToManage)) {
-          this.manageOptionState(option, values, lastSelectedValue);
+          this.manageOptionState(option, values, lastSelectedValue)
         }
       },
 
       manageOptionState: function (option, values) {
         var group = this.container.querySelector(
           '.variant-input-wrap[data-index="' + option + '"]'
-        );
+        )
 
         // Loop through each option value
         values.forEach((obj) => {
-          this.enableVariantOption(group, obj);
-        });
+          this.enableVariantOption(group, obj)
+        })
       },
 
       enableVariantOption: function (group, obj) {
@@ -3910,25 +3898,25 @@ lazySizesConfig.expFactor = 4;
         var value = obj.value.replace(
           /([ #;&,.+*~\':"!^$[\]()=>|\/@])/g,
           '\\$1'
-        );
+        )
 
         if (this.type === 'dropdown') {
-          group.querySelector('option[value="' + value + '"]').disabled = false;
+          group.querySelector('option[value="' + value + '"]').disabled = false
         } else {
           var buttonGroup = group.querySelector(
             '.variant-input[data-value="' + value + '"]'
-          );
-          var input = buttonGroup.querySelector('input');
-          var label = buttonGroup.querySelector('label');
+          )
+          var input = buttonGroup.querySelector('input')
+          var label = buttonGroup.querySelector('label')
 
           // Variant exists - enable & show variant
-          input.classList.remove(classes.disabled);
-          label.classList.remove(classes.disabled);
+          input.classList.remove(classes.disabled)
+          label.classList.remove(classes.disabled)
 
           // Variant sold out - cross out option (remains selectable)
           if (obj.soldOut) {
-            input.classList.add(classes.disabled);
-            label.classList.add(classes.disabled);
+            input.classList.add(classes.disabled)
+            label.classList.add(classes.disabled)
           }
         }
       },
@@ -3936,21 +3924,21 @@ lazySizesConfig.expFactor = 4;
       disableVariantGroup: function (group) {
         if (this.type === 'dropdown') {
           group.querySelectorAll('option').forEach((option) => {
-            option.disabled = true;
-          });
+            option.disabled = true
+          })
         } else {
           group.querySelectorAll('input').forEach((input) => {
-            input.classList.add(classes.disabled);
-          });
+            input.classList.add(classes.disabled)
+          })
           group.querySelectorAll('label').forEach((label) => {
-            label.classList.add(classes.disabled);
-          });
+            label.classList.add(classes.disabled)
+          })
         }
       },
-    });
+    })
 
-    return availability;
-  })();
+    return availability
+  })()
 
   // Video modal will auto-initialize for any anchor link that points to YouTube
   // MP4 videos must manually be enabled with:
@@ -3958,106 +3946,106 @@ lazySizesConfig.expFactor = 4;
   //   - .product-video-mp4-sound video player element (cloned into modal)
   //     - see media.liquid for example of this
   theme.videoModal = function () {
-    var youtubePlayer;
+    var youtubePlayer
 
-    var videoHolderId = 'VideoHolder';
+    var videoHolderId = 'VideoHolder'
     var selectors = {
       youtube: 'a[href*="youtube.com/watch"], a[href*="youtu.be/"]',
       mp4Trigger: '.product-video-trigger--mp4',
       mp4Player: '.product-video-mp4-sound',
-    };
-
-    var youtubeTriggers = document.querySelectorAll(selectors.youtube);
-    var mp4Triggers = document.querySelectorAll(selectors.mp4Trigger);
-
-    if (!youtubeTriggers.length && !mp4Triggers.length) {
-      return;
     }
 
-    var videoHolderDiv = document.getElementById(videoHolderId);
+    var youtubeTriggers = document.querySelectorAll(selectors.youtube)
+    var mp4Triggers = document.querySelectorAll(selectors.mp4Trigger)
+
+    if (!youtubeTriggers.length && !mp4Triggers.length) {
+      return
+    }
+
+    var videoHolderDiv = document.getElementById(videoHolderId)
 
     if (youtubeTriggers.length) {
-      theme.LibraryLoader.load('youtubeSdk');
+      theme.LibraryLoader.load('youtubeSdk')
     }
 
     var modal = new theme.Modals('VideoModal', 'video-modal', {
       closeOffContentClick: true,
       bodyOpenClass: ['modal-open', 'video-modal-open'],
       solid: true,
-    });
+    })
 
     youtubeTriggers.forEach((btn) => {
-      btn.addEventListener('click', triggerYouTubeModal);
-    });
+      btn.addEventListener('click', triggerYouTubeModal)
+    })
 
     mp4Triggers.forEach((btn) => {
-      btn.addEventListener('click', triggerMp4Modal);
-    });
+      btn.addEventListener('click', triggerMp4Modal)
+    })
 
-    document.addEventListener('modalClose.VideoModal', closeVideoModal);
+    document.addEventListener('modalClose.VideoModal', closeVideoModal)
 
     function triggerYouTubeModal(evt) {
       // If not already loaded, treat as normal link
       if (!theme.config.youTubeReady) {
-        return;
+        return
       }
 
-      evt.preventDefault();
-      emptyVideoHolder();
+      evt.preventDefault()
+      emptyVideoHolder()
 
-      modal.open(evt);
+      modal.open(evt)
 
-      var videoId = getYoutubeVideoId(evt.currentTarget.getAttribute('href'));
+      var videoId = getYoutubeVideoId(evt.currentTarget.getAttribute('href'))
       youtubePlayer = new theme.YouTube(videoHolderId, {
         videoId: videoId,
         style: 'sound',
         events: {
           onReady: onYoutubeReady,
         },
-      });
+      })
     }
 
     function triggerMp4Modal(evt) {
-      emptyVideoHolder();
+      emptyVideoHolder()
 
-      var el = evt.currentTarget;
-      var player = el.parentNode.querySelector(selectors.mp4Player);
+      var el = evt.currentTarget
+      var player = el.parentNode.querySelector(selectors.mp4Player)
 
       // Clone video element and place it in the modal
-      var playerClone = player.cloneNode(true);
-      playerClone.classList.remove('hide');
+      var playerClone = player.cloneNode(true)
+      playerClone.classList.remove('hide')
 
-      videoHolderDiv.append(playerClone);
-      modal.open(evt);
+      videoHolderDiv.append(playerClone)
+      modal.open(evt)
 
       // Play new video element
-      videoHolderDiv.querySelector('video').play();
+      videoHolderDiv.querySelector('video').play()
     }
 
     function onYoutubeReady(evt) {
-      evt.target.unMute();
-      evt.target.playVideo();
+      evt.target.unMute()
+      evt.target.playVideo()
     }
 
     function getYoutubeVideoId(url) {
       var regExp =
-        /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
-      var match = url.match(regExp);
-      return match && match[7].length == 11 ? match[7] : false;
+        /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/
+      var match = url.match(regExp)
+      return match && match[7].length == 11 ? match[7] : false
     }
 
     function emptyVideoHolder() {
-      videoHolderDiv.innerHTML = '';
+      videoHolderDiv.innerHTML = ''
     }
 
     function closeVideoModal() {
       if (youtubePlayer && typeof youtubePlayer.destroy === 'function') {
-        youtubePlayer.destroy();
+        youtubePlayer.destroy()
       } else {
-        emptyVideoHolder();
+        emptyVideoHolder()
       }
     }
-  };
+  }
 
   /*============================================================================
     ToolTip
@@ -4065,31 +4053,31 @@ lazySizesConfig.expFactor = 4;
 
   class ToolTip extends HTMLElement {
     constructor() {
-      super();
-      this.el = this;
-      this.inner = this.querySelector('[data-tool-tip-inner]');
-      this.closeButton = this.querySelector('[data-tool-tip-close]');
-      this.toolTipContent = this.querySelector('[data-tool-tip-content]');
+      super()
+      this.el = this
+      this.inner = this.querySelector('[data-tool-tip-inner]')
+      this.closeButton = this.querySelector('[data-tool-tip-close]')
+      this.toolTipContent = this.querySelector('[data-tool-tip-content]')
 
-      this.triggers = document.querySelectorAll('[data-tool-tip-trigger]');
+      this.triggers = document.querySelectorAll('[data-tool-tip-trigger]')
 
       document.addEventListener('tooltip:open', (e) => {
-        this._open(e.detail.context, e.detail.content);
-      });
+        this._open(e.detail.context, e.detail.content)
+      })
     }
 
     _open(context, insertedHtml) {
-      this.toolTipContent.innerHTML = insertedHtml;
+      this.toolTipContent.innerHTML = insertedHtml
 
       theme.a11y.trapFocus({
         container: this.el,
         namespace: 'tooltip_focus',
-      });
+      })
 
       if (this.closeButton) {
         this.closeButton.on('click' + '.tooltip-close', () => {
-          this._close();
-        });
+          this._close()
+        })
       }
 
       document.documentElement.on('click' + '.tooltip-outerclick', (event) => {
@@ -4097,34 +4085,34 @@ lazySizesConfig.expFactor = 4;
           this.el.dataset.toolTipOpen === 'true' &&
           !this.inner.contains(event.target)
         )
-          this._close();
-      });
+          this._close()
+      })
 
       document.documentElement.on('keydown' + '.tooltip-esc', (event) => {
-        if (event.code === 'Escape') this._close();
-      });
+        if (event.code === 'Escape') this._close()
+      })
 
-      this.el.dataset.toolTipOpen = true;
-      this.el.dataset.toolTip = context;
+      this.el.dataset.toolTipOpen = true
+      this.el.dataset.toolTip = context
     }
 
     _close() {
-      this.toolTipContent.innerHTML = '';
-      this.el.dataset.toolTipOpen = 'false';
-      this.el.dataset.toolTip = '';
+      this.toolTipContent.innerHTML = ''
+      this.el.dataset.toolTipOpen = 'false'
+      this.el.dataset.toolTip = ''
 
       theme.a11y.removeTrapFocus({
         container: this.el,
         namespace: 'tooltip_focus',
-      });
+      })
 
-      this.closeButton.off('click' + '.tooltip-close');
-      document.documentElement.off('click' + '.tooltip-outerclick');
-      document.documentElement.off('keydown' + '.tooltip-esc');
+      this.closeButton.off('click' + '.tooltip-close')
+      document.documentElement.off('click' + '.tooltip-outerclick')
+      document.documentElement.off('keydown' + '.tooltip-esc')
     }
   }
 
-  customElements.define('tool-tip', ToolTip);
+  customElements.define('tool-tip', ToolTip)
 
   /*============================================================================
     ToolTipTrigger
@@ -4132,10 +4120,10 @@ lazySizesConfig.expFactor = 4;
 
   class ToolTipTrigger extends HTMLElement {
     constructor() {
-      super();
-      this.el = this;
-      this.toolTipContent = this.querySelector('[data-tool-tip-content]');
-      this.init();
+      super()
+      this.el = this
+      this.toolTipContent = this.querySelector('[data-tool-tip-content]')
+      this.init()
     }
 
     init() {
@@ -4145,16 +4133,16 @@ lazySizesConfig.expFactor = 4;
           content: this.toolTipContent.innerHTML,
         },
         bubbles: true,
-      });
+      })
 
       this.el.addEventListener('click', (e) => {
-        e.stopPropagation();
-        this.dispatchEvent(toolTipOpen);
-      });
+        e.stopPropagation()
+        this.dispatchEvent(toolTipOpen)
+      })
     }
   }
 
-  customElements.define('tool-tip-trigger', ToolTipTrigger);
+  customElements.define('tool-tip-trigger', ToolTipTrigger)
 
   /*============================================================================
     NewsletterReminder
@@ -4162,140 +4150,140 @@ lazySizesConfig.expFactor = 4;
 
   class NewsletterReminder extends HTMLElement {
     constructor() {
-      super();
-      this.closeBtn = this.querySelector('[data-close-button]');
-      this.popupTrigger = this.querySelector('[data-message]');
+      super()
+      this.closeBtn = this.querySelector('[data-close-button]')
+      this.popupTrigger = this.querySelector('[data-message]')
 
-      this.id = this.dataset.sectionId;
-      this.newsletterId = `NewsletterPopup-${this.id}`;
-      this.cookie = Cookies.get(`newsletter-${this.id}`);
-      this.cookieName = `newsletter-${this.id}`;
-      this.secondsBeforeShow = this.dataset.delaySeconds;
-      this.expiry = parseInt(this.dataset.delayDays);
+      this.id = this.dataset.sectionId
+      this.newsletterId = `NewsletterPopup-${this.id}`
+      this.cookie = Cookies.get(`newsletter-${this.id}`)
+      this.cookieName = `newsletter-${this.id}`
+      this.secondsBeforeShow = this.dataset.delaySeconds
+      this.expiry = parseInt(this.dataset.delayDays)
       this.modal = new theme.Modals(
         `NewsletterPopup-${this.newsletterId}`,
         'newsletter-popup-modal'
-      );
+      )
 
-      this.init();
+      this.init()
     }
 
     init() {
       document.addEventListener('shopify:block:select', (evt) => {
         if (evt.detail.sectionId === this.id) {
-          this.show(0, true);
+          this.show(0, true)
         }
-      });
+      })
 
       document.addEventListener('shopify:block:deselect', (evt) => {
         if (evt.detail.sectionId === this.id) {
-          this.hide();
+          this.hide()
         }
-      });
+      })
 
       document.addEventListener(`modalOpen.${this.newsletterId}`, () =>
         this.hide()
-      );
+      )
       document.addEventListener(`modalClose.${this.newsletterId}`, () =>
         this.show()
-      );
+      )
 
       this.closeBtn.addEventListener('click', () => {
-        this.hide();
+        this.hide()
         Cookies.set(this.cookieName, 'opened', {
           path: '/',
           expires: this.expiry,
-        });
-      });
+        })
+      })
 
       this.popupTrigger.addEventListener('click', () => {
         const reminderOpen = new CustomEvent('reminder:openNewsletter', {
           bubbles: true,
-        });
-        this.dispatchEvent(reminderOpen);
+        })
+        this.dispatchEvent(reminderOpen)
 
-        this.hide();
-      });
+        this.hide()
+      })
     }
 
     show(time = this.secondsBeforeShow, forceOpen = false) {
       if (!sessionStorage.getItem('newsletterAppeared') === true || forceOpen) {
         setTimeout(() => {
-          this.dataset.enabled = 'true';
-          if (!forceOpen) sessionStorage.setItem('newsletterAppeared', true);
-        }, time * 1000);
+          this.dataset.enabled = 'true'
+          if (!forceOpen) sessionStorage.setItem('newsletterAppeared', true)
+        }, time * 1000)
       }
     }
 
     hide() {
-      this.dataset.enabled = 'false';
+      this.dataset.enabled = 'false'
     }
   }
 
-  customElements.define('newsletter-reminder', NewsletterReminder);
+  customElements.define('newsletter-reminder', NewsletterReminder)
 
   theme.announcementBar = (function () {
     var args = {
       autoPlay: 5000,
       avoidReflow: true,
       cellAlign: theme.config.rtl ? 'right' : 'left',
-    };
-    var bar;
-    var flickity;
+    }
+    var bar
+    var flickity
 
     function init() {
-      bar = document.getElementById('AnnouncementSlider');
+      bar = document.getElementById('AnnouncementSlider')
       if (!bar) {
-        return;
+        return
       }
 
-      unload();
+      unload()
 
       if (bar.dataset.blockCount === 1) {
-        return;
+        return
       }
 
       if (theme.config.bpSmall || bar.dataset.compact === 'true') {
-        initSlider();
+        initSlider()
       }
 
       document.addEventListener('matchSmall', function () {
-        unload();
-        initSlider();
-      });
+        unload()
+        initSlider()
+      })
 
       document.addEventListener('unmatchSmall', function () {
-        unload();
+        unload()
         if (bar.dataset.compact === 'true') {
-          initSlider();
+          initSlider()
         }
-      });
+      })
     }
 
     function initSlider() {
-      flickity = new theme.Slideshow(bar, args);
+      flickity = new theme.Slideshow(bar, args)
     }
 
     // Go to slide if selected in the editor
     function onBlockSelect(id) {
-      var slide = bar.querySelector('#AnnouncementSlide-' + id);
-      var index = parseInt(slide.dataset.index);
+      var slide = bar.querySelector('#AnnouncementSlide-' + id)
+      var index = parseInt(slide.dataset.index)
 
       if (flickity && typeof flickity.pause === 'function') {
-        flickity.goToSlide(index);
-        flickity.pause();
+        flickity.goToSlide(index)
+        flickity.pause()
       }
     }
 
     function onBlockDeselect() {
       if (flickity && typeof flickity.play === 'function') {
-        flickity.play();
+        flickity.play()
       }
     }
 
     function unload() {
       if (flickity && typeof flickity.destroy === 'function') {
-        flickity.destroy();
+        flickity.destroy()
       }
     }
 
@@ -4304,108 +4292,108 @@ lazySizesConfig.expFactor = 4;
       onBlockSelect: onBlockSelect,
       onBlockDeselect: onBlockDeselect,
       unload: unload,
-    };
-  })();
+    }
+  })()
 
   theme.customerTemplates = function () {
-    checkUrlHash();
-    initEventListeners();
-    resetPasswordSuccess();
-    customerAddressForm();
+    checkUrlHash()
+    initEventListeners()
+    resetPasswordSuccess()
+    customerAddressForm()
 
     function checkUrlHash() {
-      var hash = window.location.hash;
+      var hash = window.location.hash
 
       // Allow deep linking to recover password form
       if (hash === '#recover') {
-        toggleRecoverPasswordForm();
+        toggleRecoverPasswordForm()
       }
     }
 
     function toggleRecoverPasswordForm() {
       var passwordForm = document
         .getElementById('RecoverPasswordForm')
-        .classList.toggle('hide');
+        .classList.toggle('hide')
       var loginForm = document
         .getElementById('CustomerLoginForm')
-        .classList.toggle('hide');
+        .classList.toggle('hide')
     }
 
     function initEventListeners() {
       // Show reset password form
-      var recoverForm = document.getElementById('RecoverPassword');
+      var recoverForm = document.getElementById('RecoverPassword')
       if (recoverForm) {
         recoverForm.addEventListener('click', function (evt) {
-          evt.preventDefault();
-          toggleRecoverPasswordForm();
-        });
+          evt.preventDefault()
+          toggleRecoverPasswordForm()
+        })
       }
 
       // Hide reset password form
       var hideRecoverPassword = document.getElementById(
         'HideRecoverPasswordLink'
-      );
+      )
       if (hideRecoverPassword) {
         hideRecoverPassword.addEventListener('click', function (evt) {
-          evt.preventDefault();
-          toggleRecoverPasswordForm();
-        });
+          evt.preventDefault()
+          toggleRecoverPasswordForm()
+        })
       }
     }
 
     function resetPasswordSuccess() {
-      var formState = document.querySelector('.reset-password-success');
+      var formState = document.querySelector('.reset-password-success')
 
       // check if reset password form was successfully submitted
       if (!formState) {
-        return;
+        return
       }
 
       // show success message
-      document.getElementById('ResetSuccess').classList.remove('hide');
+      document.getElementById('ResetSuccess').classList.remove('hide')
     }
 
     function customerAddressForm() {
-      var newAddressForm = document.getElementById('AddressNewForm');
-      var addressForms = document.querySelectorAll('.js-address-form');
+      var newAddressForm = document.getElementById('AddressNewForm')
+      var addressForms = document.querySelectorAll('.js-address-form')
 
       if (!newAddressForm || !addressForms.length) {
-        return;
+        return
       }
 
       // Country/province selector can take a short time to load
       setTimeout(function () {
         document.querySelectorAll('.js-address-country').forEach((el) => {
-          var countryId = el.dataset.countryId;
-          var provinceId = el.dataset.provinceId;
-          var provinceContainerId = el.dataset.provinceContainerId;
+          var countryId = el.dataset.countryId
+          var provinceId = el.dataset.provinceId
+          var provinceContainerId = el.dataset.provinceContainerId
 
           new Shopify.CountryProvinceSelector(countryId, provinceId, {
             hideElement: provinceContainerId,
-          });
-        });
-      }, 1000);
+          })
+        })
+      }, 1000)
 
       // Toggle new/edit address forms
       document.querySelectorAll('.address-new-toggle').forEach((el) => {
         el.addEventListener('click', function () {
-          newAddressForm.classList.toggle('hide');
-        });
-      });
+          newAddressForm.classList.toggle('hide')
+        })
+      })
 
       document.querySelectorAll('.address-edit-toggle').forEach((el) => {
         el.addEventListener('click', function (evt) {
-          var formId = evt.currentTarget.dataset.formId;
+          var formId = evt.currentTarget.dataset.formId
           document
             .getElementById('EditAddress_' + formId)
-            .classList.toggle('hide');
-        });
-      });
+            .classList.toggle('hide')
+        })
+      })
 
       document.querySelectorAll('.address-delete').forEach((el) => {
         el.addEventListener('click', function (evt) {
-          var formId = evt.currentTarget.dataset.formId;
-          var confirmMessage = evt.currentTarget.dataset.confirmMessage;
+          var formId = evt.currentTarget.dataset.formId
+          var confirmMessage = evt.currentTarget.dataset.confirmMessage
 
           if (
             confirm(
@@ -4415,56 +4403,56 @@ lazySizesConfig.expFactor = 4;
             if (Shopify) {
               Shopify.postLink('/account/addresses/' + formId, {
                 parameters: { _method: 'delete' },
-              });
+              })
             }
           }
-        });
-      });
+        })
+      })
     }
-  };
+  }
 
   theme.CartDrawer = (function () {
     var selectors = {
       drawer: '#CartDrawer',
       form: '#CartDrawerForm',
-    };
+    }
 
     function CartDrawer() {
-      this.form = document.querySelector(selectors.form);
-      this.drawer = new theme.Drawers('CartDrawer', 'cart');
+      this.form = document.querySelector(selectors.form)
+      this.drawer = new theme.Drawers('CartDrawer', 'cart')
 
-      this.init();
+      this.init()
     }
 
     CartDrawer.prototype = Object.assign({}, CartDrawer.prototype, {
       init: function () {
-        this.cartForm = new theme.CartForm(this.form);
-        this.cartForm.buildCart();
+        this.cartForm = new theme.CartForm(this.form)
+        this.cartForm.buildCart()
 
         document.addEventListener(
           'ajaxProduct:added',
           function (evt) {
-            this.cartForm.buildCart();
-            this.open();
+            this.cartForm.buildCart()
+            this.open()
           }.bind(this)
-        );
+        )
 
         // Dev-friendly way to open cart
-        document.addEventListener('cart:open', this.open.bind(this));
-        document.addEventListener('cart:close', this.close.bind(this));
+        document.addEventListener('cart:open', this.open.bind(this))
+        document.addEventListener('cart:close', this.close.bind(this))
       },
 
       open: function () {
-        this.drawer.open();
+        this.drawer.open()
       },
 
       close: function () {
-        this.drawer.close();
+        this.drawer.close()
       },
-    });
+    })
 
-    return CartDrawer;
-  })();
+    return CartDrawer
+  })()
 
   theme.headerNav = (function () {
     var selectors = {
@@ -4479,13 +4467,13 @@ lazySizesConfig.expFactor = 4;
       navLinks: '.site-nav__link',
       navLinksWithDropdown: '.site-nav__link--has-dropdown',
       navDropdownLinks: '.site-nav__dropdown-link--second-level',
-    };
+    }
 
     var classes = {
       hasDropdownClass: 'site-nav--has-dropdown',
       hasSubDropdownClass: 'site-nav__deep-dropdown-trigger',
       dropdownActive: 'is-focused',
-    };
+    }
 
     var config = {
       namespace: '.siteNav',
@@ -4498,43 +4486,43 @@ lazySizesConfig.expFactor = 4;
       stickyHeaderWrapper: 'StickyHeaderWrap',
       openTransitionClass: 'site-header--opening',
       lastScroll: 0,
-    };
+    }
 
     // Elements used in resize functions, defined in init
-    var wrapper;
-    var siteHeader;
+    var wrapper
+    var siteHeader
 
     function init() {
-      wrapper = document.querySelector(selectors.wrapper);
-      siteHeader = document.querySelector(selectors.siteHeader);
+      wrapper = document.querySelector(selectors.wrapper)
+      siteHeader = document.querySelector(selectors.siteHeader)
 
-      config.stickyEnabled = siteHeader.dataset.sticky === 'true';
+      config.stickyEnabled = siteHeader.dataset.sticky === 'true'
       if (config.stickyEnabled) {
         config.wrapperOverlayed = wrapper.classList.contains(
           config.overlayedClass
-        );
-        stickyHeaderCheck();
+        )
+        stickyHeaderCheck()
       }
 
-      theme.settings.overlayHeader = siteHeader.dataset.overlay === 'true';
+      theme.settings.overlayHeader = siteHeader.dataset.overlay === 'true'
       // Disable overlay header if on collection template with no collection image
       if (theme.settings.overlayHeader && Shopify && Shopify.designMode) {
         if (
           document.body.classList.contains('template-collection') &&
           !document.querySelector('.collection-hero')
         ) {
-          this.disableOverlayHeader();
+          this.disableOverlayHeader()
         }
       }
 
-      accessibleDropdowns();
-      searchDrawer();
+      accessibleDropdowns()
+      searchDrawer()
 
-      window.on('load' + config.namespace, resizeLogo);
+      window.on('load' + config.namespace, resizeLogo)
       window.on(
         'resize' + config.namespace,
         theme.utils.debounce(150, resizeLogo)
-      );
+      )
     }
 
     // If the header setting to overlay the menu on the collection image
@@ -4544,128 +4532,128 @@ lazySizesConfig.expFactor = 4;
       wrapper.classList.remove(
         config.overlayEnabledClass,
         config.overlayedClass
-      );
-      config.wrapperOverlayed = false;
-      theme.settings.overlayHeader = false;
+      )
+      config.wrapperOverlayed = false
+      theme.settings.overlayHeader = false
     }
 
     function stickyHeaderCheck() {
       // Disable sticky header if any mega menu is taller than window
-      theme.config.stickyHeader = doesMegaMenuFit();
+      theme.config.stickyHeader = doesMegaMenuFit()
 
       if (theme.config.stickyHeader) {
-        config.forceStopSticky = false;
-        stickyHeader();
+        config.forceStopSticky = false
+        stickyHeader()
       } else {
-        config.forceStopSticky = true;
+        config.forceStopSticky = true
       }
     }
 
     function doesMegaMenuFit() {
-      var largestMegaNav = 0;
+      var largestMegaNav = 0
       siteHeader.querySelectorAll(selectors.megamenu).forEach((nav) => {
-        var h = nav.offsetHeight;
+        var h = nav.offsetHeight
         if (h > largestMegaNav) {
-          largestMegaNav = h;
+          largestMegaNav = h
         }
-      });
+      })
 
       // 120 ~ space of visible header when megamenu open
       if (window.innerHeight < largestMegaNav + 120) {
-        return false;
+        return false
       }
 
-      return true;
+      return true
     }
 
     function stickyHeader() {
-      config.lastScroll = 0;
+      config.lastScroll = 0
 
-      var wrapWith = document.createElement('div');
-      wrapWith.id = config.stickyHeaderWrapper;
-      theme.utils.wrap(siteHeader, wrapWith);
+      var wrapWith = document.createElement('div')
+      wrapWith.id = config.stickyHeaderWrapper
+      theme.utils.wrap(siteHeader, wrapWith)
 
-      stickyHeaderHeight();
+      stickyHeaderHeight()
 
       window.on(
         'resize' + config.namespace,
         theme.utils.debounce(50, stickyHeaderHeight)
-      );
+      )
       window.on(
         'scroll' + config.namespace,
         theme.utils.throttle(20, stickyHeaderScroll)
-      );
+      )
 
       // This gets messed up in the editor, so here's a fix
       if (Shopify && Shopify.designMode) {
         setTimeout(function () {
-          stickyHeaderHeight();
-        }, 250);
+          stickyHeaderHeight()
+        }, 250)
       }
     }
 
     function stickyHeaderHeight() {
       if (!config.stickyEnabled) {
-        return;
+        return
       }
-      var h = siteHeader.offsetHeight;
+      var h = siteHeader.offsetHeight
       var stickyHeader = document.querySelector(
         '#' + config.stickyHeaderWrapper
-      );
-      stickyHeader.style.height = h + 'px';
+      )
+      stickyHeader.style.height = h + 'px'
     }
 
     function stickyHeaderScroll() {
       if (!config.stickyEnabled) {
-        return;
+        return
       }
 
       if (config.forceStopSticky) {
-        return;
+        return
       }
 
-      requestAnimationFrame(scrollHandler);
+      requestAnimationFrame(scrollHandler)
 
-      config.lastScroll = window.scrollY;
+      config.lastScroll = window.scrollY
     }
 
     function scrollHandler() {
       if (window.scrollY > 250) {
         if (config.stickyActive) {
-          return;
+          return
         }
 
-        config.stickyActive = true;
+        config.stickyActive = true
 
-        siteHeader.classList.add(config.stickyClass);
+        siteHeader.classList.add(config.stickyClass)
         if (config.wrapperOverlayed) {
-          wrapper.classList.remove(config.overlayedClass);
+          wrapper.classList.remove(config.overlayedClass)
         }
 
         // Add open transition class after element is set to fixed
         // so CSS animation is applied correctly
         setTimeout(function () {
-          siteHeader.classList.add(config.openTransitionClass);
-        }, 100);
+          siteHeader.classList.add(config.openTransitionClass)
+        }, 100)
       } else {
         if (!config.stickyActive) {
-          return;
+          return
         }
 
-        config.stickyActive = false;
+        config.stickyActive = false
 
-        siteHeader.classList.remove(config.openTransitionClass);
-        siteHeader.classList.remove(config.stickyClass);
+        siteHeader.classList.remove(config.openTransitionClass)
+        siteHeader.classList.remove(config.stickyClass)
         if (config.wrapperOverlayed) {
-          wrapper.classList.add(config.overlayedClass);
+          wrapper.classList.add(config.overlayedClass)
         }
       }
     }
 
     function accessibleDropdowns() {
-      var hasActiveDropdown = false;
-      var hasActiveSubDropdown = false;
-      var closeOnClickActive = false;
+      var hasActiveDropdown = false
+      var hasActiveSubDropdown = false
+      var closeOnClickActive = false
 
       // Touch devices open dropdown on first click, navigate to link on second
       if (theme.config.isTouch) {
@@ -4673,165 +4661,165 @@ lazySizesConfig.expFactor = 4;
           .querySelectorAll(selectors.navLinksWithDropdown)
           .forEach((el) => {
             el.on('touchend' + config.namespace, function (evt) {
-              var parent = evt.currentTarget.parentNode;
+              var parent = evt.currentTarget.parentNode
               if (!parent.classList.contains(classes.dropdownActive)) {
-                evt.preventDefault();
-                closeDropdowns();
-                openFirstLevelDropdown(evt.currentTarget);
+                evt.preventDefault()
+                closeDropdowns()
+                openFirstLevelDropdown(evt.currentTarget)
               } else {
-                window.location.replace(evt.currentTarget.getAttribute('href'));
+                window.location.replace(evt.currentTarget.getAttribute('href'))
               }
-            });
-          });
+            })
+          })
       }
 
       // Open/hide top level dropdowns
       document.querySelectorAll(selectors.navLinks).forEach((el) => {
-        el.on('focusin' + config.namespace, accessibleMouseEvent);
-        el.on('mouseover' + config.namespace, accessibleMouseEvent);
-        el.on('mouseleave' + config.namespace, closeDropdowns);
-      });
+        el.on('focusin' + config.namespace, accessibleMouseEvent)
+        el.on('mouseover' + config.namespace, accessibleMouseEvent)
+        el.on('mouseleave' + config.namespace, closeDropdowns)
+      })
 
       document.querySelectorAll(selectors.navDropdownLinks).forEach((el) => {
         if (theme.config.isTouch) {
           el.on('touchend' + config.namespace, function (evt) {
-            var parent = evt.currentTarget.parentNode;
+            var parent = evt.currentTarget.parentNode
 
             // Open third level menu or go to link based on active state
             if (parent.classList.contains(classes.hasSubDropdownClass)) {
               if (!parent.classList.contains(classes.dropdownActive)) {
-                evt.preventDefault();
-                closeThirdLevelDropdown();
-                openSecondLevelDropdown(evt.currentTarget);
+                evt.preventDefault()
+                closeThirdLevelDropdown()
+                openSecondLevelDropdown(evt.currentTarget)
               } else {
-                window.location.replace(evt.currentTarget.getAttribute('href'));
+                window.location.replace(evt.currentTarget.getAttribute('href'))
               }
             } else {
               // No third level nav, go to link
-              window.location.replace(evt.currentTarget.getAttribute('href'));
+              window.location.replace(evt.currentTarget.getAttribute('href'))
             }
-          });
+          })
         }
 
         // Open/hide sub level dropdowns
         el.on('focusin' + config.namespace, function (evt) {
-          closeThirdLevelDropdown();
-          openSecondLevelDropdown(evt.currentTarget, true);
-        });
-      });
+          closeThirdLevelDropdown()
+          openSecondLevelDropdown(evt.currentTarget, true)
+        })
+      })
 
       // Clicking outside of the megamenu should close it
       if (theme.config.isTouch) {
         document.body.on('touchend' + config.namespace, function () {
-          closeDropdowns();
-        });
+          closeDropdowns()
+        })
 
         // Exception to above: clicking anywhere on the megamenu content will NOT close it
         siteHeader.querySelectorAll(selectors.megamenu).forEach((el) => {
           el.on('touchend' + config.namespace, function (evt) {
-            evt.stopImmediatePropagation();
-          });
-        });
+            evt.stopImmediatePropagation()
+          })
+        })
       }
 
       function accessibleMouseEvent(evt) {
         if (hasActiveDropdown) {
-          closeSecondLevelDropdown();
+          closeSecondLevelDropdown()
         }
 
         if (hasActiveSubDropdown) {
-          closeThirdLevelDropdown();
+          closeThirdLevelDropdown()
         }
 
-        openFirstLevelDropdown(evt.currentTarget);
+        openFirstLevelDropdown(evt.currentTarget)
       }
 
       // Private dropdown functions
       function openFirstLevelDropdown(el) {
-        var parent = el.parentNode;
+        var parent = el.parentNode
         if (parent.classList.contains(classes.hasDropdownClass)) {
-          parent.classList.add(classes.dropdownActive);
-          hasActiveDropdown = true;
+          parent.classList.add(classes.dropdownActive)
+          hasActiveDropdown = true
         }
 
         if (!theme.config.isTouch) {
           if (!closeOnClickActive) {
-            var eventType = theme.config.isTouch ? 'touchend' : 'click';
-            closeOnClickActive = true;
+            var eventType = theme.config.isTouch ? 'touchend' : 'click'
+            closeOnClickActive = true
             document.documentElement.on(
               eventType + config.namespace,
               function () {
-                closeDropdowns();
-                document.documentElement.off(eventType + config.namespace);
-                closeOnClickActive = false;
+                closeDropdowns()
+                document.documentElement.off(eventType + config.namespace)
+                closeOnClickActive = false
               }.bind(this)
-            );
+            )
           }
         }
       }
 
       function openSecondLevelDropdown(el, skipCheck) {
-        var parent = el.parentNode;
+        var parent = el.parentNode
         if (
           parent.classList.contains(classes.hasSubDropdownClass) ||
           skipCheck
         ) {
-          parent.classList.add(classes.dropdownActive);
-          hasActiveSubDropdown = true;
+          parent.classList.add(classes.dropdownActive)
+          hasActiveSubDropdown = true
         }
       }
 
       function closeDropdowns() {
-        closeSecondLevelDropdown();
-        closeThirdLevelDropdown();
+        closeSecondLevelDropdown()
+        closeThirdLevelDropdown()
       }
 
       function closeSecondLevelDropdown() {
         document.querySelectorAll(selectors.navItems).forEach((el) => {
-          el.classList.remove(classes.dropdownActive);
-        });
+          el.classList.remove(classes.dropdownActive)
+        })
       }
 
       function closeThirdLevelDropdown() {
         document.querySelectorAll(selectors.navDropdownLinks).forEach((el) => {
-          el.parentNode.classList.remove(classes.dropdownActive);
-        });
+          el.parentNode.classList.remove(classes.dropdownActive)
+        })
       }
     }
 
     function searchDrawer() {
       document.querySelectorAll(selectors.searchBtn).forEach((btn) => {
-        btn.addEventListener('click', openSearchDrawer);
-      });
+        btn.addEventListener('click', openSearchDrawer)
+      })
 
       document
         .querySelector(selectors.closeSearch)
-        .addEventListener('click', closeSearchDrawer);
+        .addEventListener('click', closeSearchDrawer)
     }
 
     function openSearchDrawer(evt) {
-      evt.preventDefault();
-      evt.stopImmediatePropagation();
-      var container = document.querySelector(selectors.searchContainer);
+      evt.preventDefault()
+      evt.stopImmediatePropagation()
+      var container = document.querySelector(selectors.searchContainer)
       theme.utils.prepareTransition(
         container,
         function () {
-          container.classList.add('is-active');
+          container.classList.add('is-active')
         }.bind(this)
-      );
+      )
 
       document.documentElement.classList.add(
         'js-drawer-open',
         'js-drawer-open--search'
-      );
+      )
 
       setTimeout(function () {
         theme.a11y.trapFocus({
           container: container,
           namespace: 'header_search',
           elementToFocus: container.querySelector('.site-header__search-input'),
-        });
-      }, 100);
+        })
+      }, 100)
 
       // If sticky is enabled, scroll to top on mobile when close to it
       // so you don't get an invisible search box
@@ -4840,65 +4828,65 @@ lazySizesConfig.expFactor = 4;
         config.stickyEnabled &&
         config.lastScroll < 300
       ) {
-        window.scrollTo(0, 0);
+        window.scrollTo(0, 0)
       }
 
       // Bind events
-      theme.a11y.lockMobileScrolling(config.namespace);
+      theme.a11y.lockMobileScrolling(config.namespace)
 
-      bindSearchEvents();
+      bindSearchEvents()
     }
 
     function closeSearchDrawer(evt) {
       // Do not close if click event came from inside drawer
       if (evt) {
         // evt.path is non-standard, so have fallback
-        var path = evt.path || (evt.composedPath && evt.composedPath());
+        var path = evt.path || (evt.composedPath && evt.composedPath())
         for (var i = 0; i < path.length; i++) {
           if (path[i].classList) {
             if (path[i].classList.contains('site-header__search-btn')) {
-              break;
+              break
             }
 
             if (path[i].classList.contains('site-header__search-container')) {
-              return;
+              return
             }
           }
         }
       }
 
       // deselect any focused form elements
-      document.activeElement.blur();
+      document.activeElement.blur()
 
-      document.documentElement.classList.add('js-drawer-closing');
+      document.documentElement.classList.add('js-drawer-closing')
       document.documentElement.classList.remove(
         'js-drawer-open',
         'js-drawer-open--search'
-      );
+      )
 
       window.setTimeout(
         function () {
-          document.documentElement.classList.remove('js-drawer-closing');
+          document.documentElement.classList.remove('js-drawer-closing')
         }.bind(this),
         500
-      );
+      )
 
-      var container = document.querySelector(selectors.searchContainer);
+      var container = document.querySelector(selectors.searchContainer)
       theme.utils.prepareTransition(
         container,
         function () {
-          container.classList.remove('is-active');
+          container.classList.remove('is-active')
         }.bind(this)
-      );
+      )
 
       theme.a11y.removeTrapFocus({
         container: container,
         namespace: 'header_search',
-      });
+      })
 
-      theme.a11y.unlockMobileScrolling(config.namespace);
+      theme.a11y.unlockMobileScrolling(config.namespace)
 
-      unbindSearchEvents();
+      unbindSearchEvents()
     }
 
     function bindSearchEvents() {
@@ -4906,59 +4894,59 @@ lazySizesConfig.expFactor = 4;
         'keyup' + config.namespace,
         function (evt) {
           if (evt.keyCode === 27) {
-            closeSearchDrawer();
+            closeSearchDrawer()
           }
         }.bind(this)
-      );
+      )
 
       // Clicking out of container closes it
       document.documentElement.on(
         'click' + config.namespace,
         function (evt) {
-          closeSearchDrawer(evt);
+          closeSearchDrawer(evt)
         }.bind(this)
-      );
+      )
     }
 
     function unbindSearchEvents() {
-      window.off('keyup' + config.namespace);
-      document.documentElement.off('click' + config.namespace);
+      window.off('keyup' + config.namespace)
+      document.documentElement.off('click' + config.namespace)
     }
 
     function resizeLogo(evt) {
       document.querySelectorAll(selectors.logo).forEach((logo) => {
-        var logoWidthOnScreen = logo.clientWidth;
-        var containerWidth = logo.closest('.header-item').clientWidth;
+        var logoWidthOnScreen = logo.clientWidth
+        var containerWidth = logo.closest('.header-item').clientWidth
 
         // If image exceeds container, let's make it smaller
         if (logoWidthOnScreen > containerWidth) {
-          logo.style.maxWidth = containerWidth;
+          logo.style.maxWidth = containerWidth
         } else {
-          logo.removeAttribute('style');
+          logo.removeAttribute('style')
         }
-      });
+      })
     }
     return {
       init: init,
       disableOverlayHeader: disableOverlayHeader,
-    };
-  })();
+    }
+  })()
 
   window.onpageshow = function (evt) {
     // Removes unload class when returning to page via history
     if (evt.persisted) {
-      document.body.classList.remove('unloading');
+      document.body.classList.remove('unloading')
       document.querySelectorAll('.cart__checkout').forEach((el) => {
-        el.classList.remove('btn--loading');
-      });
+        el.classList.remove('btn--loading')
+      })
     }
-  };
+  }
 
   theme.predictiveSearch = (function () {
-    var currentString = '';
-    var isLoading = false;
-    var searchTimeout;
-    var namespace = '.predictive';
+    var currentString = ''
+    var isLoading = false
+    var searchTimeout
+    var namespace = '.predictive'
 
     var selectors = {
       form: '#HeaderSearchForm',
@@ -4966,132 +4954,132 @@ lazySizesConfig.expFactor = 4;
       wrapper: '#PredictiveWrapper',
       resultDiv: '#PredictiveResults',
       searchButton: '[data-predictive-search-button]',
-    };
+    }
 
-    var cache = {};
+    var cache = {}
     var config = {
       imageSize: 'square',
-    };
+    }
 
     var classes = {
       isActive: 'predicitive-active',
-    };
+    }
 
     var keys = {
       up_arrow: 38,
       down_arrow: 40,
       tab: 9,
-    };
+    }
 
     function init() {
       // Only some languages support predictive search
       if (document.getElementById('shopify-features')) {
         var supportedShopifyFeatures = JSON.parse(
           document.getElementById('shopify-features').innerHTML
-        );
+        )
         if (!supportedShopifyFeatures.predictiveSearch) {
-          return;
+          return
         }
       }
 
-      cache.wrapper = document.querySelector(selectors.wrapper);
+      cache.wrapper = document.querySelector(selectors.wrapper)
 
       if (!cache.wrapper) {
-        return;
+        return
       }
 
-      config.imageSize = cache.wrapper.dataset.imageSize;
+      config.imageSize = cache.wrapper.dataset.imageSize
 
-      cache.form = document.querySelector(selectors.form);
-      cache.form.setAttribute('autocomplete', 'off');
-      cache.form.on('submit' + namespace, submitSearch);
+      cache.form = document.querySelector(selectors.form)
+      cache.form.setAttribute('autocomplete', 'off')
+      cache.form.on('submit' + namespace, submitSearch)
 
-      cache.input = cache.form.querySelector(selectors.input);
-      cache.input.on('keyup' + namespace, handleKeyup);
+      cache.input = cache.form.querySelector(selectors.input)
+      cache.input.on('keyup' + namespace, handleKeyup)
 
-      cache.submit = cache.wrapper.querySelector(selectors.searchButton);
-      cache.submit.on('click' + namespace, triggerSearch);
+      cache.submit = cache.wrapper.querySelector(selectors.searchButton)
+      cache.submit.on('click' + namespace, triggerSearch)
 
-      cache.results = document.querySelector(selectors.resultDiv);
+      cache.results = document.querySelector(selectors.resultDiv)
     }
 
     function reset() {
-      cache.wrapper.classList.add('hide');
-      cache.results.innerHTML = '';
-      clearTimeout(searchTimeout);
+      cache.wrapper.classList.add('hide')
+      cache.results.innerHTML = ''
+      clearTimeout(searchTimeout)
     }
 
     function triggerSearch() {
-      cache.form.submit();
+      cache.form.submit()
     }
 
     // Append * wildcard to search
     function submitSearch(evt) {
-      evt.preventDefault ? evt.preventDefault() : (evt.returnValue = false);
+      evt.preventDefault ? evt.preventDefault() : (evt.returnValue = false)
 
-      var obj = {};
-      var formData = new FormData(evt.target);
+      var obj = {}
+      var formData = new FormData(evt.target)
       for (var key of formData.keys()) {
-        obj[key] = formData.get(key);
+        obj[key] = formData.get(key)
       }
 
       if (obj.q) {
-        obj.q += '*';
+        obj.q += '*'
       }
 
-      var params = paramUrl(obj);
+      var params = paramUrl(obj)
 
-      window.location.href = `${theme.routes.search}?${params}`;
-      return false;
+      window.location.href = `${theme.routes.search}?${params}`
+      return false
     }
 
     function handleKeyup(evt) {
       if (evt.keyCode === keys.up_arrow) {
-        return;
+        return
       }
 
       if (evt.keyCode === keys.down_arrow) {
-        return;
+        return
       }
 
       if (evt.keyCode === keys.tab) {
-        return;
+        return
       }
 
-      search();
+      search()
     }
 
     function search() {
-      var keyword = cache.input.value;
+      var keyword = cache.input.value
 
       if (keyword === '') {
-        reset();
-        return;
+        reset()
+        return
       }
 
-      var q = _normalizeQuery(keyword);
+      var q = _normalizeQuery(keyword)
 
-      clearTimeout(searchTimeout);
+      clearTimeout(searchTimeout)
       searchTimeout = setTimeout(
         function () {
-          predictQuery(q);
+          predictQuery(q)
         }.bind(this),
         500
-      );
+      )
     }
 
     function predictQuery(q) {
       if (isLoading) {
-        return;
+        return
       }
 
       // Do not re-search the same thing
       if (currentString === q) {
-        return;
+        return
       }
 
-      currentString = q;
-      isLoading = true;
+      currentString = q
+      isLoading = true
 
       var searchObj = {
         q: q,
@@ -5100,57 +5088,57 @@ lazySizesConfig.expFactor = 4;
         'resources[options][unavailable_products]': 'last',
         'resources[options][fields]':
           'title,product_type,variants.title,vendor',
-      };
+      }
 
-      var params = paramUrl(searchObj);
+      var params = paramUrl(searchObj)
 
       fetch('/search/suggest.json?' + params)
         .then((response) => response.json())
         .then((suggestions) => {
-          isLoading = false;
-          var data = {};
-          var resultCount = 0;
+          isLoading = false
+          var data = {}
+          var resultCount = 0
 
-          cache.wrapper.classList.remove('hide');
-          var resultTypes = Object.entries(suggestions.resources.results);
+          cache.wrapper.classList.remove('hide')
+          var resultTypes = Object.entries(suggestions.resources.results)
 
           Object.keys(resultTypes).forEach(function (i) {
-            var obj = resultTypes[i];
-            var type = obj[0];
-            var results = obj[1];
-            resultCount += results.length;
+            var obj = resultTypes[i]
+            var type = obj[0]
+            var results = obj[1]
+            resultCount += results.length
 
             switch (type) {
               case 'products':
-                data[type] = buildProducts(results);
-                break;
+                data[type] = buildProducts(results)
+                break
               case 'collections':
-                data[type] = buildCollections(results);
-                break;
+                data[type] = buildCollections(results)
+                break
               case 'pages':
-                data[type] = buildPages(results);
-                break;
+                data[type] = buildPages(results)
+                break
               case 'articles':
-                data[type] = buildArticles(results);
-                break;
+                data[type] = buildArticles(results)
+                break
             }
-          });
+          })
 
           if (resultCount === 0) {
-            reset();
-            return;
+            reset()
+            return
           }
 
           // Build and append result markup
-          var output = buildOutput(data);
-          cache.results.innerHTML = '';
-          cache.results.innerHTML = output;
-        });
+          var output = buildOutput(data)
+          cache.results.innerHTML = ''
+          cache.results.innerHTML = output
+        })
     }
 
     function buildProducts(results) {
-      var output = '';
-      var products = [];
+      var output = ''
+      var products = []
 
       results.forEach((product) => {
         var new_product = {
@@ -5158,10 +5146,10 @@ lazySizesConfig.expFactor = 4;
           url: product.url,
           image_responsive_url: theme.Images.lazyloadImagePath(product.image),
           image_aspect_ratio: product.featured_image.aspect_ratio,
-        };
+        }
 
-        products.push(new_product);
-      });
+        products.push(new_product)
+      })
 
       if (products.length) {
         var markup = theme.buildProductGridItem(
@@ -5169,7 +5157,7 @@ lazySizesConfig.expFactor = 4;
           'small--one-half medium-up--one-quarter',
           4,
           config.imageSize
-        );
+        )
 
         output = `
           <div data-type-products>
@@ -5177,17 +5165,17 @@ lazySizesConfig.expFactor = 4;
               ${markup}
             </div>
           </div>
-        `;
+        `
       }
 
-      return output;
+      return output
     }
 
     function buildCollections(collections) {
-      var output = '';
+      var output = ''
 
       if (collections.length) {
-        var markup = theme.buildCollectionItem(collections);
+        var markup = theme.buildCollectionItem(collections)
 
         output = `
           <div data-type-collections>
@@ -5196,17 +5184,17 @@ lazySizesConfig.expFactor = 4;
               ${markup}
             </ul>
           </div>
-        `;
+        `
       }
 
-      return output;
+      return output
     }
 
     function buildPages(pages) {
-      var output = '';
+      var output = ''
 
       if (pages.length) {
-        var markup = theme.buildPageItem(pages);
+        var markup = theme.buildPageItem(pages)
 
         output = `
           <div data-type-pages>
@@ -5215,28 +5203,28 @@ lazySizesConfig.expFactor = 4;
               ${markup}
             </ul>
           </div>
-        `;
+        `
       }
 
-      return output;
+      return output
     }
 
     // Overwrite full sized image returned form API
     // with lazyloading-friendly path
     function buildArticles(articles) {
-      var output = '';
+      var output = ''
 
       articles.forEach((article) => {
         if (article.image) {
           article.image = theme.Images.getSizedImageUrl(
             article.image,
             '200x200_crop_center'
-          );
+          )
         }
-      });
+      })
 
       if (articles.length) {
-        var markup = theme.buildArticleItem(articles, config.imageSize);
+        var markup = theme.buildArticleItem(articles, config.imageSize)
 
         output = `
           <div data-type-articles>
@@ -5245,61 +5233,61 @@ lazySizesConfig.expFactor = 4;
               ${markup}
             </div>
           </div>
-        `;
+        `
       }
 
-      return output;
+      return output
     }
 
     // Combine all search result markup and print to page
     function buildOutput(data) {
-      var output = '';
+      var output = ''
 
       if (data.products && data.products !== '') {
-        output += data.products;
+        output += data.products
       }
 
       if (data.collections && data.collections !== '') {
-        output += data.collections;
+        output += data.collections
       }
 
       if (data.pages && data.pages !== '') {
-        output += data.pages;
+        output += data.pages
       }
 
       if (data.articles && data.articles !== '') {
-        output += data.articles;
+        output += data.articles
       }
 
-      return output;
+      return output
     }
 
     function _normalizeQuery(string) {
       if (typeof string !== 'string') {
-        return null;
+        return null
       }
 
-      return string.trim().replace(/\ /g, '-').toLowerCase();
+      return string.trim().replace(/\ /g, '-').toLowerCase()
     }
 
     function paramUrl(obj) {
       return Object.keys(obj)
         .map(function (key) {
-          return key + '=' + encodeURIComponent(obj[key]);
+          return key + '=' + encodeURIComponent(obj[key])
         })
-        .join('&');
+        .join('&')
     }
 
     return {
       init: init,
-    };
-  })();
+    }
+  })()
 
   theme.buildProductGridItem = function (items, gridWidth, rowOf, imageSize) {
-    var output = '';
+    var output = ''
 
     items.forEach((product) => {
-      var image = theme.buildProductImage(product, imageSize);
+      var image = theme.buildProductImage(product, imageSize)
       var markup = `
         <div class="grid__item grid-product ${gridWidth} aos-animate" data-aos="row-of-${rowOf}">
           <div class="grid-product__content">
@@ -5313,17 +5301,17 @@ lazySizesConfig.expFactor = 4;
             </a>
           </div>
         </div>
-      `;
+      `
 
-      output += markup;
-    });
+      output += markup
+    })
 
-    return output;
-  };
+    return output
+  }
 
   theme.buildProductImage = function (product, imageSize) {
-    var size = imageSize ? imageSize : theme.settings.productImageSize;
-    var output = '';
+    var size = imageSize ? imageSize : theme.settings.productImageSize
+    var output = ''
 
     if (size === 'natural') {
       output = `
@@ -5334,11 +5322,11 @@ lazySizesConfig.expFactor = 4;
             data-aspectratio="${product.image_aspect_ratio}"
             data-sizes="auto"
             alt="${product.title}">
-        </div>`;
+        </div>`
     } else {
-      var classes = 'lazyload';
+      var classes = 'lazyload'
       if (!theme.settings.productImageCover) {
-        classes += ' grid__image-contain';
+        classes += ' grid__image-contain'
       }
       output = `
         <div class="grid__image-ratio grid__image-ratio--${size}">
@@ -5349,14 +5337,14 @@ lazySizesConfig.expFactor = 4;
               data-sizes="auto"
               alt="${product.title}">
         </div>
-      `;
+      `
     }
 
-    return output;
-  };
+    return output
+  }
 
   theme.buildCollectionItem = function (items) {
-    var output = '';
+    var output = ''
 
     items.forEach((collection) => {
       var markup = `
@@ -5365,16 +5353,16 @@ lazySizesConfig.expFactor = 4;
             ${collection.title}
           </a>
         </li>
-      `;
+      `
 
-      output += markup;
-    });
+      output += markup
+    })
 
-    return output;
-  };
+    return output
+  }
 
   theme.buildPageItem = function (items) {
-    var output = '';
+    var output = ''
 
     items.forEach((page) => {
       var markup = `
@@ -5383,19 +5371,19 @@ lazySizesConfig.expFactor = 4;
             ${page.title}
           </a>
         </li>
-      `;
+      `
 
-      output += markup;
-    });
+      output += markup
+    })
 
-    return output;
-  };
+    return output
+  }
 
   theme.buildArticleItem = function (items, imageSize) {
-    var output = '';
+    var output = ''
 
     items.forEach((article) => {
-      var image = theme.buildPredictiveImage(article);
+      var image = theme.buildPredictiveImage(article)
       var markup = `
         <div class="grid__item grid-product small--one-half medium-up--one-quarter" data-aos="row-of-4">
           <a href="${article.url}" class="grid-product__link grid-product__link--inline">
@@ -5412,151 +5400,151 @@ lazySizesConfig.expFactor = 4;
             </div>
           </a>
         </div>
-      `;
+      `
 
-      output += markup;
-    });
+      output += markup
+    })
 
-    return output;
-  };
+    return output
+  }
 
   theme.buildPredictiveImage = function (obj) {
-    var imageMarkup = '';
+    var imageMarkup = ''
     if (obj.image) {
       imageMarkup = `<img class="lazyload"
             data-src="${obj.image}"
             data-widths="[360, 540, 720]"
-            data-sizes="auto">`;
+            data-sizes="auto">`
     }
-    return imageMarkup;
-  };
+    return imageMarkup
+  }
 
   theme.Maps = (function () {
     var config = {
       zoom: 14,
-    };
-    var apiStatus = null;
-    var mapsToLoad = [];
+    }
+    var apiStatus = null
+    var mapsToLoad = []
 
-    var errors = {};
+    var errors = {}
 
     var selectors = {
       section: '[data-section-type="map"]',
       map: '[data-map]',
       mapOverlay: '.map-section__overlay',
-    };
+    }
 
     // Global function called by Google on auth errors.
     // Show an auto error message on all map instances.
     window.gm_authFailure = function () {
       if (!Shopify.designMode) {
-        return;
+        return
       }
 
       document.querySelectorAll(selectors.section).forEach((section) => {
-        section.classList.add('map-section--load-error');
-      });
+        section.classList.add('map-section--load-error')
+      })
 
       document.querySelectorAll(selectors.map).forEach((map) => {
-        map.parentNode.removeChild(map);
-      });
+        map.parentNode.removeChild(map)
+      })
 
-      window.mapError(theme.strings.authError);
-    };
+      window.mapError(theme.strings.authError)
+    }
 
     window.mapError = function (error) {
-      var message = document.createElement('div');
-      message.classList.add('map-section__error', 'errors', 'text-center');
-      message.innerHTML = error;
+      var message = document.createElement('div')
+      message.classList.add('map-section__error', 'errors', 'text-center')
+      message.innerHTML = error
       document.querySelectorAll(selectors.mapOverlay).forEach((overlay) => {
-        overlay.parentNode.prepend(message);
-      });
+        overlay.parentNode.prepend(message)
+      })
       document.querySelectorAll('.map-section__link').forEach((link) => {
-        link.classList.add('hide');
-      });
-    };
+        link.classList.add('hide')
+      })
+    }
 
     function Map(container) {
-      this.container = container;
-      this.sectionId = this.container.getAttribute('data-section-id');
-      this.namespace = '.map-' + this.sectionId;
-      this.map = container.querySelector(selectors.map);
-      this.key = this.map.dataset.apiKey;
+      this.container = container
+      this.sectionId = this.container.getAttribute('data-section-id')
+      this.namespace = '.map-' + this.sectionId
+      this.map = container.querySelector(selectors.map)
+      this.key = this.map.dataset.apiKey
 
       errors = {
         addressNoResults: theme.strings.addressNoResults,
         addressQueryLimit: theme.strings.addressQueryLimit,
         addressError: theme.strings.addressError,
         authError: theme.strings.authError,
-      };
+      }
 
       if (!this.key) {
-        return;
+        return
       }
 
       theme.initWhenVisible({
         element: this.container,
         callback: this.prepMapApi.bind(this),
         threshold: 20,
-      });
+      })
     }
 
     // API has loaded, load all Map instances in queue
     function initAllMaps() {
       mapsToLoad.forEach((instance) => {
-        instance.createMap();
-      });
+        instance.createMap()
+      })
     }
 
     function geolocate(map) {
-      var geocoder = new google.maps.Geocoder();
+      var geocoder = new google.maps.Geocoder()
 
       if (!map) {
-        return;
+        return
       }
 
-      var address = map.dataset.addressSetting;
+      var address = map.dataset.addressSetting
 
       var deferred = new Promise((resolve, reject) => {
         geocoder.geocode({ address: address }, function (results, status) {
           if (status !== google.maps.GeocoderStatus.OK) {
-            reject(status);
+            reject(status)
           }
-          resolve(results);
-        });
-      });
+          resolve(results)
+        })
+      })
 
-      return deferred;
+      return deferred
     }
 
     Map.prototype = Object.assign({}, Map.prototype, {
       prepMapApi: function () {
         if (apiStatus === 'loaded') {
-          this.createMap();
+          this.createMap()
         } else {
-          mapsToLoad.push(this);
+          mapsToLoad.push(this)
 
           if (apiStatus !== 'loading') {
-            apiStatus = 'loading';
+            apiStatus = 'loading'
             if (
               typeof window.google === 'undefined' ||
               typeof window.google.maps === 'undefined'
             ) {
-              var script = document.createElement('script');
+              var script = document.createElement('script')
               script.onload = function () {
-                apiStatus = 'loaded';
-                initAllMaps();
-              };
+                apiStatus = 'loaded'
+                initAllMaps()
+              }
               script.src =
-                'https://maps.googleapis.com/maps/api/js?key=' + this.key;
-              document.head.appendChild(script);
+                'https://maps.googleapis.com/maps/api/js?key=' + this.key
+              document.head.appendChild(script)
             }
           }
         }
       },
 
       createMap: function () {
-        var mapDiv = this.map;
+        var mapDiv = this.map
 
         return geolocate(mapDiv)
           .then(
@@ -5570,92 +5558,92 @@ lazySizesConfig.expFactor = 4;
                 scrollwheel: false,
                 disableDoubleClickZoom: true,
                 disableDefaultUI: true,
-              };
+              }
 
-              var map = (this.map = new google.maps.Map(mapDiv, mapOptions));
-              var center = (this.center = map.getCenter());
+              var map = (this.map = new google.maps.Map(mapDiv, mapOptions))
+              var center = (this.center = map.getCenter())
 
               var marker = new google.maps.Marker({
                 map: map,
                 position: map.getCenter(),
-              });
+              })
 
               google.maps.event.addDomListener(
                 window,
                 'resize',
                 theme.utils.debounce(250, function () {
-                  google.maps.event.trigger(map, 'resize');
-                  map.setCenter(center);
-                  mapDiv.removeAttribute('style');
+                  google.maps.event.trigger(map, 'resize')
+                  map.setCenter(center)
+                  mapDiv.removeAttribute('style')
                 })
-              );
+              )
 
               if (Shopify.designMode) {
                 if (window.AOS) {
-                  AOS.refreshHard();
+                  AOS.refreshHard()
                 }
               }
             }.bind(this)
           )
           .catch(function (status) {
-            var errorMessage;
+            var errorMessage
 
             switch (status) {
               case 'ZERO_RESULTS':
-                errorMessage = errors.addressNoResults;
-                break;
+                errorMessage = errors.addressNoResults
+                break
               case 'OVER_QUERY_LIMIT':
-                errorMessage = errors.addressQueryLimit;
-                break;
+                errorMessage = errors.addressQueryLimit
+                break
               case 'REQUEST_DENIED':
-                errorMessage = errors.authError;
-                break;
+                errorMessage = errors.authError
+                break
               default:
-                errorMessage = errors.addressError;
-                break;
+                errorMessage = errors.addressError
+                break
             }
 
             // Show errors only to merchant in the editor.
             if (Shopify.designMode) {
-              window.mapError(errorMessage);
+              window.mapError(errorMessage)
             }
-          });
+          })
       },
 
       onUnload: function () {
         if (this.map.length === 0) {
-          return;
+          return
         }
         // Causes a harmless JS error when a section without an active map is reloaded
         if (google && google.maps && google.maps.event) {
-          google.maps.event.clearListeners(this.map, 'resize');
+          google.maps.event.clearListeners(this.map, 'resize')
         }
       },
-    });
+    })
 
-    return Map;
-  })();
+    return Map
+  })()
 
   theme.NewsletterPopup = (function () {
     function NewsletterPopup(container) {
-      this.container = container;
-      var sectionId = this.container.getAttribute('data-section-id');
+      this.container = container
+      var sectionId = this.container.getAttribute('data-section-id')
 
-      this.cookieName = 'newsletter-' + sectionId;
-      this.cookie = Cookies.get(this.cookieName);
+      this.cookieName = 'newsletter-' + sectionId
+      this.cookie = Cookies.get(this.cookieName)
 
       if (!container) {
-        return;
+        return
       }
 
       // Prevent popup on Shopify robot challenge page
       if (window.location.pathname === '/challenge') {
-        return;
+        return
       }
 
       // Prevent popup on password page
       if (window.location.pathname === '/password') {
-        return;
+        return
       }
 
       this.data = {
@@ -5664,22 +5652,22 @@ lazySizesConfig.expFactor = 4;
         hasReminder: container.dataset.hasReminder,
         testMode: container.dataset.testMode,
         isEnabled: container.dataset.enabled,
-      };
+      }
 
       this.modal = new theme.Modals(
         'NewsletterPopup-' + sectionId,
         'newsletter-popup-modal'
-      );
+      )
 
       // Set cookie if optional button is clicked
-      var btn = container.querySelector('.popup-cta a');
+      var btn = container.querySelector('.popup-cta a')
       if (btn) {
         btn.addEventListener(
           'click',
           function () {
-            this.closePopup(true);
+            this.closePopup(true)
           }.bind(this)
-        );
+        )
       }
 
       // Open modal if errors or success message exist
@@ -5687,122 +5675,122 @@ lazySizesConfig.expFactor = 4;
         container.querySelector('.errors') ||
         container.querySelector('.note--success')
       ) {
-        this.modal.open();
+        this.modal.open()
       }
 
       // Set cookie as opened if success message
       if (container.querySelector('.note--success')) {
-        this.closePopup(true);
-        return;
+        this.closePopup(true)
+        return
       }
 
       document.addEventListener(
         'modalClose.' + container.id,
         this.closePopup.bind(this)
-      );
+      )
 
       if (!this.cookie && this.data.isEnabled === 'true') {
-        this.initPopupDelay();
+        this.initPopupDelay()
       }
 
       // Open modal if triggered by newsletter reminder
       document.addEventListener('reminder:openNewsletter', () => {
-        this.modal.open();
-      });
+        this.modal.open()
+      })
     }
 
     NewsletterPopup.prototype = Object.assign({}, NewsletterPopup.prototype, {
       initPopupDelay: function () {
         if (this.data.testMode === 'true') {
-          return;
+          return
         }
         setTimeout(
           function () {
-            this.modal.open();
+            this.modal.open()
           }.bind(this),
           this.data.secondsBeforeShow * 1000
-        );
+        )
       },
 
       closePopup: function (success) {
         // Remove a cookie in case it was set in test mode
         if (this.data.testMode === 'true') {
-          Cookies.remove(this.cookieName, { path: '/' });
-          return;
+          Cookies.remove(this.cookieName, { path: '/' })
+          return
         }
 
-        var expiry = success ? 200 : this.data.daysBeforeReappear;
-        var hasReminder = this.data.hasReminder === 'true';
+        var expiry = success ? 200 : this.data.daysBeforeReappear
+        var hasReminder = this.data.hasReminder === 'true'
         var newsletterAppeared =
-          sessionStorage.getItem('newsletterAppeared') === 'true';
+          sessionStorage.getItem('newsletterAppeared') === 'true'
 
         if (hasReminder && newsletterAppeared) {
           Cookies.set(this.cookieName, 'opened', {
             path: '/',
             expires: expiry,
-          });
+          })
         } else if (!hasReminder) {
           Cookies.set(this.cookieName, 'opened', {
             path: '/',
             expires: expiry,
-          });
+          })
         }
       },
 
       onLoad: function () {
-        this.modal.open();
+        this.modal.open()
       },
 
       onSelect: function () {
-        this.modal.open();
+        this.modal.open()
       },
 
       onDeselect: function () {
-        this.modal.close();
+        this.modal.close()
       },
 
       onBlockSelect: function () {
-        this.modal.close();
+        this.modal.close()
       },
 
       onBlockDeselect: function () {
-        this.modal.open();
+        this.modal.open()
       },
-    });
+    })
 
-    return NewsletterPopup;
-  })();
+    return NewsletterPopup
+  })()
 
   theme.PasswordHeader = (function () {
     function PasswordHeader() {
-      this.init();
+      this.init()
     }
 
     PasswordHeader.prototype = Object.assign({}, PasswordHeader.prototype, {
       init: function () {
         if (!document.querySelector('#LoginModal')) {
-          return;
+          return
         }
 
         var passwordModal = new theme.Modals('LoginModal', 'login-modal', {
           focusIdOnOpen: 'password',
           solid: true,
-        });
+        })
 
         // Open modal if errors exist
         if (document.querySelectorAll('.errors').length) {
-          passwordModal.open();
+          passwordModal.open()
         }
       },
-    });
+    })
 
-    return PasswordHeader;
-  })();
+    return PasswordHeader
+  })()
 
   theme.PasswordTextSplash = (function () {
     function PasswordTextSplash(container) {
-      this.container = container;
-      this.init();
+      this.container = container
+      this.init()
     }
 
     PasswordTextSplash.prototype = Object.assign(
@@ -5812,19 +5800,19 @@ lazySizesConfig.expFactor = 4;
         init: function () {
           var signUpEl = this.container.querySelector(
             '.password-text-splash__signup-form'
-          );
-          if (signUpEl) theme.mobileNumberForm(signUpEl);
+          )
+          if (signUpEl) theme.mobileNumberForm(signUpEl)
         },
       }
-    );
+    )
 
-    return PasswordTextSplash;
-  })();
+    return PasswordTextSplash
+  })()
 
   theme.PasswordImageSplash = (function () {
     function PasswordImageSplash(container) {
-      this.container = container;
-      this.init();
+      this.container = container
+      this.init()
     }
 
     PasswordImageSplash.prototype = Object.assign(
@@ -5834,19 +5822,19 @@ lazySizesConfig.expFactor = 4;
         init: function () {
           var signUpEl = this.container.querySelector(
             '.password-image-splash__signup-form'
-          );
+          )
           var countdownEl = this.container.querySelector(
             '.password-image-splash__main-countdown'
-          );
+          )
 
-          if (signUpEl) theme.mobileNumberForm(signUpEl);
-          if (countdownEl) theme.countdown(countdownEl);
+          if (signUpEl) theme.mobileNumberForm(signUpEl)
+          if (countdownEl) theme.countdown(countdownEl)
         },
       }
-    );
+    )
 
-    return PasswordImageSplash;
-  })();
+    return PasswordImageSplash
+  })()
 
   theme.Photoswipe = (function () {
     var selectors = {
@@ -5855,22 +5843,22 @@ lazySizesConfig.expFactor = 4;
       slideshowTrack: '.flickity-viewport ',
       activeImage: '.is-selected',
       photoThumbsRemoved: '.product__photos--remove',
-    };
+    }
 
     function Photoswipe(container, sectionId) {
-      this.container = container;
-      this.sectionId = sectionId;
-      this.namespace = '.photoswipe-' + this.sectionId;
-      this.gallery;
-      this.images;
-      this.items;
-      this.inSlideshow = false;
+      this.container = container
+      this.sectionId = sectionId
+      this.namespace = '.photoswipe-' + this.sectionId
+      this.gallery
+      this.images
+      this.items
+      this.inSlideshow = false
 
       if (!container || container.dataset.zoom === 'false') {
-        return;
+        return
       }
 
-      this.init();
+      this.init()
     }
 
     Photoswipe.prototype = Object.assign({}, Photoswipe.prototype, {
@@ -5878,8 +5866,8 @@ lazySizesConfig.expFactor = 4;
         this.container
           .querySelectorAll(selectors.trigger)
           .forEach((trigger) => {
-            trigger.on('click' + this.namespace, this.triggerClick.bind(this));
-          });
+            trigger.on('click' + this.namespace, this.triggerClick.bind(this))
+          })
       },
 
       triggerClick: function (evt) {
@@ -5888,41 +5876,41 @@ lazySizesConfig.expFactor = 4;
         // working with a slideshow when initializing zoom
         if (this.container.querySelector(selectors.photoThumbsRemoved)) {
           if (window.innerWidth <= 768) {
-            this.inSlideshow = true;
+            this.inSlideshow = true
           } else {
-            this.inSlideshow = false;
+            this.inSlideshow = false
           }
         } else if (
           this.container.dataset &&
           this.container.dataset.hasSlideshow === 'true'
         ) {
-          this.inSlideshow = true;
+          this.inSlideshow = true
         } else {
-          this.inSlideshow = false;
+          this.inSlideshow = false
         }
 
-        this.items = this.getImageData();
+        this.items = this.getImageData()
 
         var image = this.inSlideshow
           ? this.container.querySelector(selectors.activeImage)
-          : evt.currentTarget.closest('.product-main-slide ');
+          : evt.currentTarget.closest('.product-main-slide ')
 
         var index = this.inSlideshow
           ? this.getChildIndex(image)
-          : parseInt(image.dataset.index) + 1;
+          : parseInt(image.dataset.index) + 1
 
-        this.initGallery(this.items, index);
+        this.initGallery(this.items, index)
       },
 
       // Because of image set feature, need to get index based on location in parent
       getChildIndex: function (el) {
-        var i = 0;
+        var i = 0
         while ((el = el.previousSibling) != null) {
-          i++;
+          i++
         }
 
         // 1-based index required
-        return i + 1;
+        return i + 1
       },
 
       getImageData: function () {
@@ -5930,10 +5918,10 @@ lazySizesConfig.expFactor = 4;
           ? this.container.querySelectorAll(
               selectors.slideshowTrack + selectors.images
             )
-          : this.container.querySelectorAll(selectors.images);
+          : this.container.querySelectorAll(selectors.images)
 
-        var items = [];
-        var options = {};
+        var items = []
+        var options = {}
 
         this.images.forEach((el) => {
           var item = {
@@ -5943,16 +5931,16 @@ lazySizesConfig.expFactor = 4;
             h: el.getAttribute('data-photoswipe-height'),
             el: el,
             initialZoomLevel: 0.5,
-          };
+          }
 
-          items.push(item);
-        });
+          items.push(item)
+        })
 
-        return items;
+        return items
       },
 
       initGallery: function (items, index) {
-        var pswpElement = document.querySelectorAll('.pswp')[0];
+        var pswpElement = document.querySelectorAll('.pswp')[0]
 
         var options = {
           allowPanToNext: false,
@@ -5968,144 +5956,144 @@ lazySizesConfig.expFactor = 4;
           tapToToggleControls: false,
           getThumbBoundsFn: function (index) {
             var pageYScroll =
-              window.pageYOffset || document.documentElement.scrollTop;
-            var thumbnail = items[index].el;
-            var rect = thumbnail.getBoundingClientRect();
-            return { x: rect.left, y: rect.top + pageYScroll, w: rect.width };
+              window.pageYOffset || document.documentElement.scrollTop
+            var thumbnail = items[index].el
+            var rect = thumbnail.getBoundingClientRect()
+            return { x: rect.left, y: rect.top + pageYScroll, w: rect.width }
           },
-        };
+        }
 
         this.gallery = new PhotoSwipe(
           pswpElement,
           PhotoSwipeUI_Default,
           items,
           options
-        );
-        this.gallery.listen('afterChange', this.afterChange.bind(this));
-        this.gallery.init();
+        )
+        this.gallery.listen('afterChange', this.afterChange.bind(this))
+        this.gallery.init()
 
-        this.preventiOS15Scrolling();
+        this.preventiOS15Scrolling()
       },
 
       afterChange: function () {
-        var index = this.gallery.getCurrentIndex();
+        var index = this.gallery.getCurrentIndex()
         this.container.dispatchEvent(
           new CustomEvent('photoswipe:afterChange', {
             detail: {
               index: index,
             },
           })
-        );
+        )
       },
 
       syncHeight: function () {
         document.documentElement.style.setProperty(
           '--window-inner-height',
           `${window.innerHeight}px`
-        );
+        )
       },
 
       // Fix poached from https://gist.github.com/dimsemenov/0b8c255c0d87f2989e8ab876073534ea
       preventiOS15Scrolling: function () {
-        let initialScrollPos;
+        let initialScrollPos
 
-        if (!/iPhone|iPad|iPod/i.test(window.navigator.userAgent)) return;
+        if (!/iPhone|iPad|iPod/i.test(window.navigator.userAgent)) return
 
-        this.syncHeight();
+        this.syncHeight()
 
         // Store scroll position to restore it later
-        initialScrollPos = window.scrollY;
+        initialScrollPos = window.scrollY
 
         // Add class to root element when PhotoSwipe opens
-        document.documentElement.classList.add('pswp-open-in-ios');
+        document.documentElement.classList.add('pswp-open-in-ios')
 
-        window.addEventListener('resize', this.syncHeight);
+        window.addEventListener('resize', this.syncHeight)
 
         this.gallery.listen('destroy', () => {
-          document.documentElement.classList.remove('pswp-open-in-ios');
-          window.scrollTo(0, initialScrollPos);
-        });
+          document.documentElement.classList.remove('pswp-open-in-ios')
+          window.scrollTo(0, initialScrollPos)
+        })
       },
-    });
+    })
 
-    return Photoswipe;
-  })();
+    return Photoswipe
+  })()
 
   theme.Recommendations = (function () {
     var selectors = {
       placeholder: '.product-recommendations-placeholder',
       sectionClass: ' .product-recommendations',
       productResults: '.grid-product',
-    };
+    }
 
     function Recommendations(container) {
-      this.container = container;
-      this.sectionId = container.getAttribute('data-section-id');
-      this.url = container.dataset.url;
+      this.container = container
+      this.sectionId = container.getAttribute('data-section-id')
+      this.url = container.dataset.url
 
-      selectors.recommendations = 'Recommendations-' + this.sectionId;
+      selectors.recommendations = 'Recommendations-' + this.sectionId
 
       theme.initWhenVisible({
         element: container,
         callback: this.init.bind(this),
         threshold: 500,
-      });
+      })
     }
 
     Recommendations.prototype = Object.assign({}, Recommendations.prototype, {
       init: function () {
-        var section = document.getElementById(selectors.recommendations);
+        var section = document.getElementById(selectors.recommendations)
 
         if (!section || section.dataset.enable === 'false') {
-          return;
+          return
         }
 
-        var id = section.dataset.productId;
-        var limit = section.dataset.limit;
+        var id = section.dataset.productId
+        var limit = section.dataset.limit
 
         var url =
           this.url +
           '?section_id=product-recommendations&limit=' +
           limit +
           '&product_id=' +
-          id;
+          id
 
         // When section his hidden and shown, make sure it starts empty
         if (Shopify.designMode) {
-          var wrapper = section.querySelector(selectors.sectionClass);
+          var wrapper = section.querySelector(selectors.sectionClass)
           if (wrapper) {
-            wrapper.innerHTML = '';
+            wrapper.innerHTML = ''
           }
         }
 
         fetch(url)
           .then(function (response) {
-            return response.text();
+            return response.text()
           })
           .then(
             function (html) {
               // Convert the HTML string into a document object
-              var parser = new DOMParser();
-              var doc = parser.parseFromString(html, 'text/html');
-              var div = doc.querySelector(selectors.sectionClass);
-              var placeholder = section.querySelector(selectors.placeholder);
+              var parser = new DOMParser()
+              var doc = parser.parseFromString(html, 'text/html')
+              var div = doc.querySelector(selectors.sectionClass)
+              var placeholder = section.querySelector(selectors.placeholder)
               if (!placeholder) {
-                return;
+                return
               }
 
-              placeholder.innerHTML = '';
+              placeholder.innerHTML = ''
 
               if (!div) {
-                this.container.classList.add('hide');
+                this.container.classList.add('hide')
                 if (AOS) {
-                  AOS.refreshHard();
+                  AOS.refreshHard()
                 }
-                return;
+                return
               }
 
-              placeholder.appendChild(div);
+              placeholder.appendChild(div)
 
-              theme.reinitProductGridItem(section);
+              theme.reinitProductGridItem(section)
 
               document.dispatchEvent(
                 new CustomEvent('recommendations:loaded', {
@@ -6113,66 +6101,66 @@ lazySizesConfig.expFactor = 4;
                     section: section,
                   },
                 })
-              );
+              )
 
               // If no results, hide the entire section
-              var results = div.querySelectorAll(selectors.productResults);
+              var results = div.querySelectorAll(selectors.productResults)
               if (results.length === 0) {
-                this.container.classList.add('hide');
+                this.container.classList.add('hide')
               }
             }.bind(this)
-          );
+          )
       },
-    });
+    })
 
-    return Recommendations;
-  })();
+    return Recommendations
+  })()
 
   theme.SlideshowSection = (function () {
     var selectors = {
       parallaxContainer: '.parallax-container',
-    };
+    }
 
     function SlideshowSection(container) {
-      this.container = container;
-      var sectionId = container.getAttribute('data-section-id');
-      this.slideshow = container.querySelector('#Slideshow-' + sectionId);
-      this.namespace = '.' + sectionId;
+      this.container = container
+      var sectionId = container.getAttribute('data-section-id')
+      this.slideshow = container.querySelector('#Slideshow-' + sectionId)
+      this.namespace = '.' + sectionId
 
-      this.initialIndex = 0;
+      this.initialIndex = 0
 
       if (!this.slideshow) {
-        return;
+        return
       }
 
       // Get shopify-created div that section markup lives in,
       // then get index of it inside its parent
-      var sectionEl = container.parentElement;
+      var sectionEl = container.parentElement
       var sectionIndex = [].indexOf.call(
         sectionEl.parentElement.children,
         sectionEl
-      );
+      )
 
       if (sectionIndex === 0) {
-        this.init();
+        this.init()
       } else {
         theme.initWhenVisible({
           element: this.container,
           callback: this.init.bind(this),
-        });
+        })
       }
     }
 
     SlideshowSection.prototype = Object.assign({}, SlideshowSection.prototype, {
       init: function () {
-        var slides = this.slideshow.querySelectorAll('.slideshow__slide');
+        var slides = this.slideshow.querySelectorAll('.slideshow__slide')
 
         if (this.container.hasAttribute('data-immediate-load')) {
-          this.slideshow.classList.remove('loading', 'loading--delayed');
-          this.slideshow.classList.add('loaded');
+          this.slideshow.classList.remove('loading', 'loading--delayed')
+          this.slideshow.classList.add('loaded')
         } else {
           // Wait for image to load before marking as done
-          theme.loadImageSection(this.slideshow);
+          theme.loadImageSection(this.slideshow)
         }
 
         if (slides.length > 1) {
@@ -6186,12 +6174,12 @@ lazySizesConfig.expFactor = 4;
               this.slideshow.dataset.autoplay === 'true'
                 ? parseInt(this.slideshow.dataset.speed)
                 : false,
-          };
+          }
 
-          this.flickity = new theme.Slideshow(this.slideshow, sliderArgs);
+          this.flickity = new theme.Slideshow(this.slideshow, sliderArgs)
         } else {
           // Add loaded class to first slide
-          slides[0].classList.add('is-selected');
+          slides[0].classList.add('is-selected')
         }
 
         if (this.container.hasAttribute('data-parallax')) {
@@ -6200,75 +6188,75 @@ lazySizesConfig.expFactor = 4;
             function (el, i) {
               new theme.Parallax(el, {
                 namespace: this.namespace + '-parallax-' + i,
-              });
+              })
             }.bind(this)
-          );
+          )
         }
       },
 
       forceReload: function () {
-        this.onUnload();
-        this.init();
+        this.onUnload()
+        this.init()
       },
 
       onUnload: function () {
         if (this.flickity && typeof this.flickity.destroy === 'function') {
-          this.flickity.destroy();
+          this.flickity.destroy()
         }
       },
 
       onDeselect: function () {
         if (this.flickity && typeof this.flickity.play === 'function') {
-          this.flickity.play();
+          this.flickity.play()
         }
       },
 
       onBlockSelect: function (evt) {
         var slide = this.slideshow.querySelector(
           '.slideshow__slide--' + evt.detail.blockId
-        );
-        var index = parseInt(slide.dataset.index);
+        )
+        var index = parseInt(slide.dataset.index)
 
         if (this.flickity && typeof this.flickity.pause === 'function') {
-          this.flickity.goToSlide(index);
-          this.flickity.pause();
+          this.flickity.goToSlide(index)
+          this.flickity.pause()
         } else {
           // If section reloads, slideshow might not have been setup yet, wait a second and try again
-          this.initialIndex = index;
+          this.initialIndex = index
           setTimeout(
             function () {
               if (this.flickity && typeof this.flickity.pause === 'function') {
-                this.flickity.pause();
+                this.flickity.pause()
               }
             }.bind(this),
             1000
-          );
+          )
         }
       },
 
       onBlockDeselect: function () {
         if (this.flickity && typeof this.flickity.play === 'function') {
           if (this.flickity.args.autoPlay) {
-            this.flickity.play();
+            this.flickity.play()
           }
         }
       },
-    });
+    })
 
-    return SlideshowSection;
-  })();
+    return SlideshowSection
+  })()
 
   theme.StoreAvailability = (function () {
     var selectors = {
       drawerOpenBtn: '.js-drawer-open-availability',
       modalOpenBtn: '.js-modal-open-availability',
       productTitle: '[data-availability-product-title]',
-    };
+    }
 
     function StoreAvailability(container) {
-      this.container = container;
-      this.baseUrl = container.dataset.baseUrl;
-      this.productTitle = container.dataset.productName;
+      this.container = container
+      this.baseUrl = container.dataset.baseUrl
+      this.productTitle = container.dataset.productName
     }
 
     StoreAvailability.prototype = Object.assign(
@@ -6280,30 +6268,30 @@ lazySizesConfig.expFactor = 4;
             this.baseUrl +
             '/variants/' +
             variantId +
-            '/?section_id=store-availability';
+            '/?section_id=store-availability'
 
-          var self = this;
+          var self = this
 
           fetch(variantSectionUrl)
             .then(function (response) {
-              return response.text();
+              return response.text()
             })
             .then(function (html) {
               if (html.trim() === '') {
-                this.container.innerHTML = '';
-                return;
+                this.container.innerHTML = ''
+                return
               }
 
-              self.container.innerHTML = html;
+              self.container.innerHTML = html
               self.container.innerHTML =
-                self.container.firstElementChild.innerHTML;
+                self.container.firstElementChild.innerHTML
 
               // Setup drawer if have open button
               if (self.container.querySelector(selectors.drawerOpenBtn)) {
                 self.drawer = new theme.Drawers(
                   'StoreAvailabilityDrawer',
                   'availability'
-                );
+                )
               }
 
               // Setup modal if have open button
@@ -6311,59 +6299,59 @@ lazySizesConfig.expFactor = 4;
                 self.modal = new theme.Modals(
                   'StoreAvailabilityModal',
                   'availability'
-                );
+                )
               }
 
-              var title = self.container.querySelector(selectors.productTitle);
+              var title = self.container.querySelector(selectors.productTitle)
               if (title) {
-                title.textContent = self.productTitle;
+                title.textContent = self.productTitle
               }
-            });
+            })
         },
       }
-    );
+    )
 
-    return StoreAvailability;
-  })();
+    return StoreAvailability
+  })()
 
   theme.VideoSection = (function () {
     var selectors = {
       videoParent: '.video-parent-section',
-    };
+    }
 
     function videoSection(container) {
-      this.container = container;
-      this.sectionId = container.getAttribute('data-section-id');
-      this.namespace = '.video-' + this.sectionId;
-      this.videoObject;
+      this.container = container
+      this.sectionId = container.getAttribute('data-section-id')
+      this.namespace = '.video-' + this.sectionId
+      this.videoObject
 
       theme.initWhenVisible({
         element: this.container,
         callback: this.init.bind(this),
         threshold: 500,
-      });
+      })
     }
 
     videoSection.prototype = Object.assign({}, videoSection.prototype, {
       init: function () {
-        var dataDiv = this.container.querySelector('.video-div');
+        var dataDiv = this.container.querySelector('.video-div')
         if (!dataDiv) {
-          return;
+          return
         }
-        var type = dataDiv.dataset.type;
+        var type = dataDiv.dataset.type
 
         switch (type) {
           case 'youtube':
-            var videoId = dataDiv.dataset.videoId;
-            this.initYoutubeVideo(videoId);
-            break;
+            var videoId = dataDiv.dataset.videoId
+            this.initYoutubeVideo(videoId)
+            break
           case 'vimeo':
-            var videoId = dataDiv.dataset.videoId;
-            this.initVimeoVideo(videoId);
-            break;
+            var videoId = dataDiv.dataset.videoId
+            this.initVimeoVideo(videoId)
+            break
           case 'mp4':
-            this.initMp4Video();
-            break;
+            this.initMp4Video()
+            break
         }
       },
 
@@ -6371,7 +6359,7 @@ lazySizesConfig.expFactor = 4;
         this.videoObject = new theme.YouTube('YouTubeVideo-' + this.sectionId, {
           videoId: videoId,
           videoParent: selectors.videoParent,
-        });
+        })
       },
 
       initVimeoVideo: function (videoId) {
@@ -6381,18 +6369,18 @@ lazySizesConfig.expFactor = 4;
           {
             videoParent: selectors.videoParent,
           }
-        );
+        )
       },
 
       initMp4Video: function () {
-        var mp4Video = 'Mp4Video-' + this.sectionId;
-        var mp4Div = document.getElementById(mp4Video);
-        var parent = mp4Div.closest(selectors.videoParent);
+        var mp4Video = 'Mp4Video-' + this.sectionId
+        var mp4Div = document.getElementById(mp4Video)
+        var parent = mp4Div.closest(selectors.videoParent)
 
         if (mp4Div) {
-          parent.classList.add('loaded');
+          parent.classList.add('loaded')
 
-          var playPromise = document.querySelector('#' + mp4Video).play();
+          var playPromise = document.querySelector('#' + mp4Video).play()
 
           // Edge does not return a promise (video still plays)
           if (playPromise !== undefined) {
@@ -6401,166 +6389,164 @@ lazySizesConfig.expFactor = 4;
                 // playback normal
               })
               .catch(function () {
-                mp4Div.setAttribute('controls', '');
-                parent.classList.add('video-interactable');
-              });
+                mp4Div.setAttribute('controls', '')
+                parent.classList.add('video-interactable')
+              })
           }
         }
       },
 
       onUnload: function (evt) {
-        var sectionId = evt.target.id.replace('shopify-section-', '');
+        var sectionId = evt.target.id.replace('shopify-section-', '')
         if (
           this.videoObject &&
           typeof this.videoObject.destroy === 'function'
         ) {
-          this.videoObject.destroy();
+          this.videoObject.destroy()
         }
       },
-    });
+    })
 
-    return videoSection;
-  })();
+    return videoSection
+  })()
 
   theme.VideoAutoplay = (function () {
     function VideoAutoplay(container) {
-      this.container = container;
-      this.init();
+      this.container = container
+      this.init()
     }
 
     VideoAutoplay.prototype = Object.assign({}, VideoAutoplay.prototype, {
       init: function () {
-        var video = this.container.querySelector('.video-autoplay__video');
+        var video = this.container.querySelector('.video-autoplay__video')
 
-        if (!video) return;
+        if (!video) return
 
         var soundToggle = this.container.querySelector(
           '.video-autoplay__sound-toggle'
-        );
+        )
 
         soundToggle.addEventListener('click', function (evt) {
           if (soundToggle.classList.contains('is-unmuted')) {
-            video.muted = true;
+            video.muted = true
           } else {
-            video.muted = false;
+            video.muted = false
           }
-          soundToggle.classList.toggle('is-unmuted');
-        });
+          soundToggle.classList.toggle('is-unmuted')
+        })
       },
-    });
+    })
 
-    return VideoAutoplay;
-  })();
+    return VideoAutoplay
+  })()
 
   theme.LookbookScroller = (function () {
     function LookbookScroller(container) {
-      this.container = container;
-      this.init();
+      this.container = container
+      this.init()
     }
 
     LookbookScroller.prototype = Object.assign({}, LookbookScroller.prototype, {
       init: function () {
         var scrollContainer = this.container.querySelector(
           '.lookbook-scroller__scroll-container'
-        );
+        )
 
-        if (!scrollContainer) return;
+        if (!scrollContainer) return
 
         var mainContainer = this.container.querySelector(
           '.lookbook-scroller__container'
-        );
+        )
         var photos = this.container.querySelectorAll(
           '.lookbook-scroller__photo-wrapper'
-        );
+        )
 
-        var scrollInterval = null;
+        var scrollInterval = null
 
         window.addEventListener('load', (event) => {
           scrollInterval = setInterval(function () {
-            scrollContainer.scrollLeft += 1;
-          }, 5);
-        });
+            scrollContainer.scrollLeft += 1
+          }, 5)
+        })
 
         scrollContainer.addEventListener('wheel', (evt) => {
-          evt.preventDefault();
+          evt.preventDefault()
 
-          clearInterval(scrollInterval);
+          clearInterval(scrollInterval)
 
-          var scrollContainerWidth = scrollContainer.scrollWidth;
-          var mainContainerWidth = mainContainer.offsetWidth;
-          var yScrollWidth = mainContainer.scrollWidth - window.innerWidth - 1;
+          var scrollContainerWidth = scrollContainer.scrollWidth
+          var mainContainerWidth = mainContainer.offsetWidth
+          var yScrollWidth = mainContainer.scrollWidth - window.innerWidth - 1
 
           if (scrollContainer.scrollLeft <= 0) {
             if (evt.deltaY < 0) {
-              document.documentElement.scrollTop += evt.deltaY;
+              document.documentElement.scrollTop += evt.deltaY
             } else if (evt.deltaY > 0) {
-              scrollContainer.scrollLeft += evt.deltaY;
+              scrollContainer.scrollLeft += evt.deltaY
             }
           } else if (scrollContainer.scrollLeft >= yScrollWidth) {
             if (evt.deltaY < 0) {
               if (document.documentElement.scrollTop > 0) {
-                document.documentElement.scrollTop += evt.deltaY;
+                document.documentElement.scrollTop += evt.deltaY
               } else {
-                scrollContainer.scrollLeft += evt.deltaY;
+                scrollContainer.scrollLeft += evt.deltaY
               }
             } else if (evt.deltaY > 0) {
-              document.documentElement.scrollTop += evt.deltaY;
+              document.documentElement.scrollTop += evt.deltaY
             }
           } else {
-            scrollContainer.scrollLeft += evt.deltaY;
+            scrollContainer.scrollLeft += evt.deltaY
           }
-        });
+        })
 
         scrollContainer.addEventListener('touchstart', () => {
-          clearInterval(scrollInterval);
-        });
+          clearInterval(scrollInterval)
+        })
       },
-    });
+    })
 
-    return LookbookScroller;
-  })();
+    return LookbookScroller
+  })()
 
   theme.BlockPromo = (function () {
     function BlockPromo(container) {
-      this.container = container;
-      this.init();
+      this.container = container
+      this.init()
     }
 
     BlockPromo.prototype = Object.assign({}, BlockPromo.prototype, {
       init: function () {
-        var signUpEl = this.container.querySelector(
-          '.block-promo__signup-form'
-        );
+        var signUpEl = this.container.querySelector('.block-promo__signup-form')
         var countdownEl = this.container.querySelector(
           '.block-promo__signup-main-countdown'
-        );
+        )
 
-        if (signUpEl) theme.mobileNumberForm(signUpEl);
-        if (countdownEl) theme.countdown(countdownEl);
+        if (signUpEl) theme.mobileNumberForm(signUpEl)
+        if (countdownEl) theme.countdown(countdownEl)
       },
-    });
+    })
 
-    return BlockPromo;
-  })();
+    return BlockPromo
+  })()
 
   theme.BackgroundImage = (function () {
     var selectors = {
       parallaxContainer: '.parallax-container',
-    };
+    }
 
     function backgroundImage(container) {
-      this.container = container;
+      this.container = container
       if (!container) {
-        return;
+        return
       }
 
-      var sectionId = container.getAttribute('data-section-id');
-      this.namespace = '.' + sectionId;
+      var sectionId = container.getAttribute('data-section-id')
+      this.namespace = '.' + sectionId
 
       theme.initWhenVisible({
         element: this.container,
         callback: this.init.bind(this),
-      });
+      })
     }
 
     backgroundImage.prototype = Object.assign({}, backgroundImage.prototype, {
@@ -6568,88 +6554,86 @@ lazySizesConfig.expFactor = 4;
         if (this.container.dataset && this.container.dataset.parallax) {
           var parallaxContainer = this.container.querySelector(
             selectors.parallaxContainer
-          );
+          )
           var args = {
             namespace: this.namespace + '-parallax',
             desktopOnly: true,
-          };
+          }
 
           theme.parallaxSections[this.namespace] = new theme.Parallax(
             parallaxContainer,
             args
-          );
+          )
         }
       },
 
       onUnload: function (evt) {
         if (!this.container) {
-          return;
+          return
         }
         if (
           theme.parallaxSections[this.namespace] &&
           typeof theme.parallaxSections[this.namespace].destroy === 'function'
         ) {
-          theme.parallaxSections[this.namespace].destroy();
+          theme.parallaxSections[this.namespace].destroy()
         }
-        delete theme.parallaxSections[this.namespace];
+        delete theme.parallaxSections[this.namespace]
       },
-    });
+    })
 
-    return backgroundImage;
-  })();
+    return backgroundImage
+  })()
 
   theme.Blog = (function () {
     function Blog(container) {
-      this.tagFilters();
+      this.tagFilters()
     }
 
     Blog.prototype = Object.assign({}, Blog.prototype, {
       tagFilters: function () {
-        var filterBy = document.getElementById('BlogTagFilter');
+        var filterBy = document.getElementById('BlogTagFilter')
 
         if (!filterBy) {
-          return;
+          return
         }
 
         filterBy.addEventListener('change', function () {
-          location.href = filterBy.value;
-        });
+          location.href = filterBy.value
+        })
       },
-    });
+    })
 
-    return Blog;
-  })();
+    return Blog
+  })()
 
   theme.CollectionHeader = (function () {
-    var hasLoadedBefore = false;
+    var hasLoadedBefore = false
 
     function CollectionHeader(container) {
-      this.namespace = '.collection-header';
+      this.namespace = '.collection-header'
 
-      var heroImageContainer = container.querySelector('.collection-hero');
+      var heroImageContainer = container.querySelector('.collection-hero')
       if (heroImageContainer) {
         if (hasLoadedBefore) {
-          this.checkIfNeedReload();
+          this.checkIfNeedReload()
         }
-        theme.loadImageSection(heroImageContainer);
+        theme.loadImageSection(heroImageContainer)
 
         if (container.dataset && container.dataset.parallax) {
-          var parallaxContainer = container.querySelector(
-            '.parallax-container'
-          );
+          var parallaxContainer = container.querySelector('.parallax-container')
           var args = {
             namespace: this.namespace + '-parallax',
-          };
+          }
           theme.parallaxSections[this.namespace] = new theme.Parallax(
             parallaxContainer,
             args
-          );
+          )
         }
       } else if (theme.settings.overlayHeader) {
-        theme.headerNav.disableOverlayHeader();
+        theme.headerNav.disableOverlayHeader()
       }
 
-      hasLoadedBefore = true;
+      hasLoadedBefore = true
     }
 
     CollectionHeader.prototype = Object.assign({}, CollectionHeader.prototype, {
@@ -6658,36 +6642,36 @@ lazySizesConfig.expFactor = 4;
       // and the header is set to sticky. Only necessary in the editor.
       checkIfNeedReload: function () {
         if (!Shopify.designMode) {
-          return;
+          return
         }
 
         if (theme.settings.overlayHeader) {
-          var header = document.querySelector('.header-wrapper');
+          var header = document.querySelector('.header-wrapper')
           if (!header.classList.contains('header-wrapper--overlay')) {
-            location.reload();
+            location.reload()
           }
         }
       },
 
       onUnload: function () {
         if (theme.parallaxSections[this.namespace]) {
-          theme.parallaxSections[this.namespace].destroy();
-          delete theme.parallaxSections[this.namespace];
+          theme.parallaxSections[this.namespace].destroy()
+          delete theme.parallaxSections[this.namespace]
         }
       },
-    });
+    })
 
-    return CollectionHeader;
-  })();
+    return CollectionHeader
+  })()
 
   theme.CollectionSidebar = (function () {
-    var drawerStyle = false;
+    var drawerStyle = false
     var selectors = {
       sidebar: '#CollectionSidebar',
-    };
+    }
 
     function CollectionSidebar(container) {
-      this.container = container.querySelector(selectors.sidebar);
+      this.container = container.querySelector(selectors.sidebar)
     }
 
     CollectionSidebar.prototype = Object.assign(
@@ -6697,55 +6681,55 @@ lazySizesConfig.expFactor = 4;
         init: function () {
           // Do not load when no sidebar exists
           if (!this.container) {
-            return;
+            return
           }
 
-          this.onUnload();
+          this.onUnload()
 
-          drawerStyle = this.container.dataset.style === 'drawer';
+          drawerStyle = this.container.dataset.style === 'drawer'
           theme.FilterDrawer = new theme.Drawers(
             'FilterDrawer',
             'collection-filters',
             true
-          );
+          )
         },
 
         forceReload: function () {
-          this.init();
+          this.init()
         },
 
         onSelect: function () {
           if (theme.FilterDrawer) {
             if (!drawerStyle) {
-              theme.FilterDrawer.close();
-              return;
+              theme.FilterDrawer.close()
+              return
             }
 
             if (drawerStyle || theme.config.bpSmall) {
-              theme.FilterDrawer.open();
+              theme.FilterDrawer.open()
             }
           }
         },
 
         onDeselect: function () {
           if (theme.FilterDrawer) {
-            theme.FilterDrawer.close();
+            theme.FilterDrawer.close()
           }
         },
 
         onUnload: function () {
           if (theme.FilterDrawer) {
-            theme.FilterDrawer.close();
+            theme.FilterDrawer.close()
           }
         },
       }
-    );
+    )
 
-    return CollectionSidebar;
-  })();
+    return CollectionSidebar
+  })()
 
   theme.Collection = (function () {
-    var isAnimating = false;
+    var isAnimating = false
 
     var selectors = {
       sortSelect: '#SortBy',
@@ -6763,20 +6747,20 @@ lazySizesConfig.expFactor = 4;
       tagsForm: '.filter-form',
       filters: '.collection-filter',
       priceRange: '.price-range',
-    };
+    }
 
     var classes = {
       activeTag: 'tag--active',
       removeTagParent: 'tag--remove',
       filterSidebar: 'collapsible-content--sidebar',
       isOpen: 'is-open',
-    };
+    }
 
     function Collection(container) {
-      this.container = container;
-      this.sectionId = container.getAttribute('data-section-id');
-      this.namespace = '.collection-' + this.sectionId;
-      this.sidebar = new theme.CollectionSidebar(container);
+      this.container = container
+      this.sectionId = container.getAttribute('data-section-id')
+      this.namespace = '.collection-' + this.sectionId
+      this.sidebar = new theme.CollectionSidebar(container)
       this.ajaxRenderer = new theme.AjaxRenderer({
         sections: [
           {
@@ -6785,176 +6769,176 @@ lazySizesConfig.expFactor = 4;
           },
         ],
         onReplace: this.onReplaceAjaxContent.bind(this),
-      });
+      })
 
-      this.init();
+      this.init()
     }
 
     Collection.prototype = Object.assign({}, Collection.prototype, {
       init: function () {
-        this.initSort();
-        this.colorSwatchHovering();
-        this.initFilters();
-        this.initPriceRange();
-        this.sidebar.init();
+        this.initSort()
+        this.colorSwatchHovering()
+        this.initFilters()
+        this.initPriceRange()
+        this.sidebar.init()
       },
 
       initSort: function () {
-        this.sortSelect = document.querySelector(selectors.sortSelect);
+        this.sortSelect = document.querySelector(selectors.sortSelect)
 
         if (this.sortSelect) {
-          this.defaultSort = this.getDefaultSortValue();
+          this.defaultSort = this.getDefaultSortValue()
           this.sortSelect.on(
             'change' + this.namespace,
             this.onSortChange.bind(this)
-          );
+          )
         }
       },
 
       getSortValue: function () {
-        return this.sortSelect.value || this.defaultSort;
+        return this.sortSelect.value || this.defaultSort
       },
 
       getDefaultSortValue: function () {
-        return this.sortSelect.getAttribute('data-default-sortby');
+        return this.sortSelect.getAttribute('data-default-sortby')
       },
 
       onSortChange: function () {
-        this.queryParams = new URLSearchParams(window.location.search);
+        this.queryParams = new URLSearchParams(window.location.search)
 
-        this.queryParams.set('sort_by', this.getSortValue());
-        this.queryParams.delete('page'); // Delete if it exists
+        this.queryParams.set('sort_by', this.getSortValue())
+        this.queryParams.delete('page') // Delete if it exists
 
-        window.location.search = this.queryParams.toString();
+        window.location.search = this.queryParams.toString()
       },
 
       colorSwatchHovering: function () {
         var colorImages = this.container.querySelectorAll(
           selectors.colorSwatchImage
-        );
+        )
         if (!colorImages.length) {
-          return;
+          return
         }
 
         this.container
           .querySelectorAll(selectors.colorSwatch)
           .forEach((swatch) => {
             swatch.addEventListener('mouseenter', function () {
-              var id = swatch.dataset.variantId;
-              var image = swatch.dataset.variantImage;
+              var id = swatch.dataset.variantId
+              var image = swatch.dataset.variantImage
               var el = document.querySelector(
                 '.grid-product__color-image--' + id
-              );
-              el.style.backgroundImage = 'url(' + image + ')';
-              el.classList.add('is-active');
-            });
+              )
+              el.style.backgroundImage = 'url(' + image + ')'
+              el.classList.add('is-active')
+            })
             swatch.addEventListener('mouseleave', function () {
-              var id = swatch.dataset.variantId;
+              var id = swatch.dataset.variantId
               document
                 .querySelector('.grid-product__color-image--' + id)
-                .classList.remove('is-active');
-            });
-          });
+                .classList.remove('is-active')
+            })
+          })
       },
 
       /*====================
         Collection filters
       ====================*/
       initFilters: function () {
-        var tags = document.querySelectorAll(selectors.tags);
+        var tags = document.querySelectorAll(selectors.tags)
 
         if (!tags.length) {
-          return;
+          return
         }
 
-        this.bindBackButton();
+        this.bindBackButton()
 
         // Set mobile top value for filters if sticky header enabled
         if (theme.config.stickyHeader) {
-          this.setFilterStickyPosition();
+          this.setFilterStickyPosition()
 
           window.on(
             'resize',
             theme.utils.debounce(500, this.setFilterStickyPosition)
-          );
+          )
         }
 
         document.querySelectorAll(selectors.activeTags).forEach((tag) => {
-          tag.addEventListener('click', this.tagClick.bind(this));
-        });
+          tag.addEventListener('click', this.tagClick.bind(this))
+        })
 
         document.querySelectorAll(selectors.tagsForm).forEach((form) => {
-          form.addEventListener('input', this.onFormSubmit.bind(this));
-        });
+          form.addEventListener('input', this.onFormSubmit.bind(this))
+        })
       },
 
       initPriceRange: function () {
-        const priceRangeEls = document.querySelectorAll(selectors.priceRange);
+        const priceRangeEls = document.querySelectorAll(selectors.priceRange)
         priceRangeEls.forEach(
           (el) =>
             new theme.PriceRange(el, {
               // onChange passes in formData
               onChange: this.renderFromFormData.bind(this),
             })
-        );
+        )
       },
 
       tagClick: function (evt) {
-        var el = evt.currentTarget;
+        var el = evt.currentTarget
 
         if (theme.FilterDrawer) {
-          theme.FilterDrawer.close();
+          theme.FilterDrawer.close()
         }
 
         // Do not ajax-load collection links
         if (el.classList.contains('no-ajax')) {
-          return;
+          return
         }
 
-        evt.preventDefault();
+        evt.preventDefault()
 
         if (isAnimating) {
-          return;
+          return
         }
 
-        isAnimating = true;
+        isAnimating = true
 
-        const parent = el.parentNode;
-        const newUrl = new URL(el.href);
+        const parent = el.parentNode
+        const newUrl = new URL(el.href)
 
-        this.renderActiveTag(parent, el);
-        this.updateScroll(true);
-        this.startLoading();
-        this.renderCollectionPage(newUrl.searchParams);
+        this.renderActiveTag(parent, el)
+        this.updateScroll(true)
+        this.startLoading()
+        this.renderCollectionPage(newUrl.searchParams)
       },
 
       onFormSubmit: function (evt) {
-        var el = evt.target;
+        var el = evt.target
 
         if (theme.FilterDrawer) {
-          theme.FilterDrawer.close();
+          theme.FilterDrawer.close()
         }
 
         // Do not ajax-load collection links
         if (el.classList.contains('no-ajax')) {
-          return;
+          return
         }
 
-        evt.preventDefault();
+        evt.preventDefault()
         if (isAnimating) {
-          return;
+          return
         }
 
-        isAnimating = true;
+        isAnimating = true
 
-        const parent = el.closest('li');
-        const formEl = el.closest('form');
-        const formData = new FormData(formEl);
+        const parent = el.closest('li')
+        const formEl = el.closest('form')
+        const formData = new FormData(formEl)
 
-        this.renderActiveTag(parent, el);
-        this.updateScroll(true);
-        this.startLoading();
-        this.renderFromFormData(formData);
+        this.renderActiveTag(parent, el)
+        this.updateScroll(true)
+        this.startLoading()
+        this.renderFromFormData(formData)
       },
 
       fetchOpenCollasibleFilters: function () {
@@ -6962,219 +6946,216 @@ lazySizesConfig.expFactor = 4;
           document.querySelectorAll(
             `${selectors.sidebar} ${selectors.trigger}.${classes.isOpen}`
           )
-        ).map((trigger) => trigger.dataset.collapsibleId);
+        ).map((trigger) => trigger.dataset.collapsibleId)
       },
 
       renderActiveTag: function (parent, el) {
-        const textEl = parent.querySelector('.tag__text');
+        const textEl = parent.querySelector('.tag__text')
 
         if (parent.classList.contains(classes.activeTag)) {
-          parent.classList.remove(classes.activeTag);
+          parent.classList.remove(classes.activeTag)
         } else {
-          parent.classList.add(classes.activeTag);
+          parent.classList.add(classes.activeTag)
 
           // If adding a tag, show new tag right away.
           // Otherwise, remove it before ajax finishes
           if (el.closest('li').classList.contains(classes.removeTagParent)) {
-            parent.remove();
+            parent.remove()
           } else {
             // Append new tag in both drawer and sidebar
             document
               .querySelectorAll(selectors.activeTagList)
               .forEach((list) => {
-                const newTag = document.createElement('li');
-                const newTagLink = document.createElement('a');
-                newTag.classList.add('tag', 'tag--remove');
-                newTagLink.classList.add('btn', 'btn--small');
-                newTagLink.innerText = textEl.innerText;
-                newTag.appendChild(newTagLink);
+                const newTag = document.createElement('li')
+                const newTagLink = document.createElement('a')
+                newTag.classList.add('tag', 'tag--remove')
+                newTagLink.classList.add('btn', 'btn--small')
+                newTagLink.innerText = textEl.innerText
+                newTag.appendChild(newTagLink)
 
-                list.appendChild(newTag);
-              });
+                list.appendChild(newTag)
+              })
           }
         }
       },
 
       renderFromFormData: function (formData) {
-        const searchParams = new URLSearchParams(formData);
-        this.renderCollectionPage(searchParams);
+        const searchParams = new URLSearchParams(formData)
+        this.renderCollectionPage(searchParams)
       },
 
       onReplaceAjaxContent: function (newDom, section) {
-        const openCollapsibleIds = this.fetchOpenCollasibleFilters();
+        const openCollapsibleIds = this.fetchOpenCollasibleFilters()
 
         openCollapsibleIds.forEach((selector) => {
           newDom
             .querySelectorAll(`[data-collapsible-id=${selector}]`)
-            .forEach(this.openCollapsible);
-        });
+            .forEach(this.openCollapsible)
+        })
 
-        var newContentEl = newDom.getElementById(section.nodeId);
+        var newContentEl = newDom.getElementById(section.nodeId)
         if (!newContentEl) {
-          return;
+          return
         }
 
         document.getElementById(section.nodeId).innerHTML =
-          newContentEl.innerHTML;
+          newContentEl.innerHTML
       },
 
       openCollapsible: function (el) {
         if (el.classList.contains(classes.filterSidebar)) {
-          el.style.height = 'auto';
+          el.style.height = 'auto'
         }
 
-        el.classList.add(classes.isOpen);
+        el.classList.add(classes.isOpen)
       },
 
       renderCollectionPage: function (searchParams, updateURLHash = true) {
         this.ajaxRenderer
           .renderPage(window.location.pathname, searchParams, updateURLHash)
           .then(() => {
-            theme.sections.reinit('collection-grid');
-            this.updateScroll(false);
-            this.initPriceRange();
-            theme.reinitProductGridItem();
+            theme.sections.reinit('collection-grid')
+            this.updateScroll(false)
+            this.initPriceRange()
+            theme.reinitProductGridItem()
 
-            document.dispatchEvent(new CustomEvent('collection:reloaded'));
+            document.dispatchEvent(new CustomEvent('collection:reloaded'))
 
-            isAnimating = false;
-          });
+            isAnimating = false
+          })
       },
 
       bindBackButton: function () {
         // Ajax page on back button
-        window.off('popstate' + this.namespace);
+        window.off('popstate' + this.namespace)
         window.on(
           'popstate' + this.namespace,
           function (state) {
             if (state) {
-              const newUrl = new URL(window.location.href);
-              this.renderCollectionPage(newUrl.searchParams, false);
+              const newUrl = new URL(window.location.href)
+              this.renderCollectionPage(newUrl.searchParams, false)
             }
           }.bind(this)
-        );
+        )
       },
 
       updateScroll: function (animate) {
-        var scrollToElement = document.querySelector('[data-scroll-to]');
-        var scrollTo = scrollToElement && scrollToElement.offsetTop;
+        var scrollToElement = document.querySelector('[data-scroll-to]')
+        var scrollTo = scrollToElement && scrollToElement.offsetTop
 
         if (!theme.config.bpSmall) {
-          scrollTo -= 15;
+          scrollTo -= 15
         }
 
         if (theme.config.stickyHeader) {
-          var headerHeight =
-            document.querySelector('.site-header').offsetHeight;
-          scrollTo = scrollTo - headerHeight;
+          var headerHeight = document.querySelector('.site-header').offsetHeight
+          scrollTo = scrollTo - headerHeight
         }
 
         if (animate) {
-          window.scrollTo({ top: scrollTo, behavior: 'smooth' });
+          window.scrollTo({ top: scrollTo, behavior: 'smooth' })
         } else {
-          window.scrollTo({ top: scrollTo });
+          window.scrollTo({ top: scrollTo })
         }
       },
 
       setFilterStickyPosition: function () {
-        var headerHeight = document.querySelector('.site-header').offsetHeight;
+        var headerHeight = document.querySelector('.site-header').offsetHeight
         document.querySelector(selectors.filters).style.top =
-          headerHeight + 10 + 'px';
+          headerHeight + 10 + 'px'
 
         // Also update top position of sticky sidebar
-        var stickySidebar = document.querySelector('.grid__item--sidebar');
+        var stickySidebar = document.querySelector('.grid__item--sidebar')
         if (stickySidebar) {
-          stickySidebar.style.top = headerHeight + 10 + 'px';
+          stickySidebar.style.top = headerHeight + 10 + 'px'
         }
       },
 
       forceReload: function () {
-        this.init();
+        this.init()
       },
 
       startLoading: function () {
-        document
-          .querySelector(selectors.collectionGrid)
-          .classList.add('unload');
+        document.querySelector(selectors.collectionGrid).classList.add('unload')
       },
-    });
+    })
 
-    return Collection;
-  })();
+    return Collection
+  })()
 
   theme.FooterSection = (function () {
     var selectors = {
       locale: '[data-disclosure-locale]',
       currency: '[data-disclosure-currency]',
       signUp: '.site-footer__signup',
-    };
+    }
 
     function FooterSection(container) {
-      this.container = container;
-      this.localeDisclosure = null;
-      this.currencyDisclosure = null;
+      this.container = container
+      this.localeDisclosure = null
+      this.currencyDisclosure = null
 
-      this.init();
+      this.init()
     }
 
     FooterSection.prototype = Object.assign({}, FooterSection.prototype, {
       init: function () {
-        var signUpEl = this.container.querySelector(selectors.signUp);
-        var localeEl = this.container.querySelector(selectors.locale);
-        var currencyEl = this.container.querySelector(selectors.currency);
+        var signUpEl = this.container.querySelector(selectors.signUp)
+        var localeEl = this.container.querySelector(selectors.locale)
+        var currencyEl = this.container.querySelector(selectors.currency)
 
         if (signUpEl) {
-          theme.mobileNumberForm(signUpEl);
+          theme.mobileNumberForm(signUpEl)
         }
 
         if (localeEl) {
-          this.localeDisclosure = new theme.Disclosure(localeEl);
+          this.localeDisclosure = new theme.Disclosure(localeEl)
         }
 
         if (currencyEl) {
-          this.currencyDisclosure = new theme.Disclosure(currencyEl);
+          this.currencyDisclosure = new theme.Disclosure(currencyEl)
         }
 
         // Change email icon to submit text
         var newsletterInput = document.querySelector(
           '.footer__newsletter-input'
-        );
+        )
         if (newsletterInput) {
           newsletterInput.addEventListener('keyup', function () {
-            newsletterInput.classList.add('footer__newsletter-input--active');
-          });
+            newsletterInput.classList.add('footer__newsletter-input--active')
+          })
         }
 
         // Re-hook up collapsible box triggers
-        theme.collapsibles.init(this.container);
+        theme.collapsibles.init(this.container)
       },
 
       onUnload: function () {
         if (this.localeDisclosure) {
-          this.localeDisclosure.destroy();
+          this.localeDisclosure.destroy()
         }
 
         if (this.currencyDisclosure) {
-          this.currencyDisclosure.destroy();
+          this.currencyDisclosure.destroy()
         }
       },
-    });
+    })
 
-    return FooterSection;
-  })();
+    return FooterSection
+  })()
 
   theme.HeaderSection = (function () {
     var selectors = {
       locale: '[data-disclosure-locale]',
       currency: '[data-disclosure-currency]',
       mobileNavSignup: '.mobile-nav__signup',
-    };
+    }
 
     function HeaderSection(container) {
-      this.container = container;
-      this.sectionId = this.container.getAttribute('data-section-id');
+      this.container = container
+      this.sectionId = this.container.getAttribute('data-section-id')
 
-      this.init();
+      this.init()
     }
 
     HeaderSection.prototype = Object.assign({}, HeaderSection.prototype, {
@@ -7183,74 +7164,74 @@ lazySizesConfig.expFactor = 4;
         // sticky header works as expected
         // (can be anywhere in sections.instance array)
         if (Shopify && Shopify.designMode) {
-          theme.sections.reinit('slideshow-section');
+          theme.sections.reinit('slideshow-section')
 
           // Set a timer to resize the header in case the logo changes size
           setTimeout(function () {
-            window.dispatchEvent(new Event('resize'));
-          }, 500);
+            window.dispatchEvent(new Event('resize'))
+          }, 500)
         }
 
-        this.initDrawers();
-        this.initDisclosures();
-        theme.headerNav.init();
-        theme.announcementBar.init();
+        this.initDrawers()
+        this.initDisclosures()
+        theme.headerNav.init()
+        theme.announcementBar.init()
 
-        var signUpEl = document.querySelector(selectors.mobileNavSignup);
-        if (signUpEl) theme.mobileNumberForm(signUpEl);
+        var signUpEl = document.querySelector(selectors.mobileNavSignup)
+        if (signUpEl) theme.mobileNumberForm(signUpEl)
       },
 
       initDisclosures: function () {
-        var localeEl = this.container.querySelector(selectors.locale);
-        var currencyEl = this.container.querySelector(selectors.currency);
+        var localeEl = this.container.querySelector(selectors.locale)
+        var currencyEl = this.container.querySelector(selectors.currency)
 
         if (localeEl) {
-          this.localeDisclosure = new theme.Disclosure(localeEl);
+          this.localeDisclosure = new theme.Disclosure(localeEl)
         }
 
         if (currencyEl) {
-          this.currencyDisclosure = new theme.Disclosure(currencyEl);
+          this.currencyDisclosure = new theme.Disclosure(currencyEl)
         }
       },
 
       initDrawers: function () {
-        theme.NavDrawer = new theme.Drawers('NavDrawer', 'nav');
+        theme.NavDrawer = new theme.Drawers('NavDrawer', 'nav')
         if (theme.settings.cartType === 'drawer') {
           if (!document.body.classList.contains('template-cart')) {
-            new theme.CartDrawer();
+            new theme.CartDrawer()
           }
         }
 
-        theme.collapsibles.init(document.getElementById('NavDrawer'));
+        theme.collapsibles.init(document.getElementById('NavDrawer'))
       },
 
       onBlockSelect: function (evt) {
-        theme.announcementBar.onBlockSelect(evt.detail.blockId);
+        theme.announcementBar.onBlockSelect(evt.detail.blockId)
       },
 
       onBlockDeselect: function () {
-        theme.announcementBar.onBlockDeselect();
+        theme.announcementBar.onBlockDeselect()
       },
 
       onUnload: function () {
-        theme.NavDrawer.close();
-        theme.announcementBar.unload();
+        theme.NavDrawer.close()
+        theme.announcementBar.unload()
 
         if (this.localeDisclosure) {
-          this.localeDisclosure.destroy();
+          this.localeDisclosure.destroy()
         }
 
         if (this.currencyDisclosure) {
-          this.currencyDisclosure.destroy();
+          this.currencyDisclosure.destroy()
         }
       },
-    });
+    })
 
-    return HeaderSection;
-  })();
+    return HeaderSection
+  })()
 
   theme.Product = (function () {
-    var videoObjects = {};
+    var videoObjects = {}
 
     var classes = {
       onSale: 'on-sale',
@@ -7261,7 +7242,7 @@ lazySizesConfig.expFactor = 4;
       hidden: 'hide',
       interactable: 'video-interactable',
       visuallyHide: 'visually-invisible',
-    };
+    }
 
     var selectors = {
       productVideo: '.product__video',
@@ -7272,17 +7253,17 @@ lazySizesConfig.expFactor = 4;
       variantType: '.variant-wrapper',
       blocks: '[data-product-blocks]',
       blocksHolder: '[data-blocks-holder]',
-    };
+    }
 
     function Product(container) {
-      this.container = container;
+      this.container = container
       var sectionId = (this.sectionId =
-        container.getAttribute('data-section-id'));
+        container.getAttribute('data-section-id'))
       var productId = (this.productId =
-        container.getAttribute('data-product-id'));
+        container.getAttribute('data-product-id'))
 
-      this.inModal = container.dataset.modal === 'true';
-      this.modal;
+      this.inModal = container.dataset.modal === 'true'
+      this.modal
 
       this.settings = {
         enableHistoryState: container.dataset.history || false,
@@ -7298,13 +7279,13 @@ lazySizesConfig.expFactor = 4;
         currentSlideIndex: 0,
         videoLooping: container.dataset.videoLooping,
         photoThumbsRemoved: container.querySelector('.product__photos--remove'),
-      };
+      }
 
       // Overwrite some settings when loaded in modal
       if (this.inModal) {
-        this.settings.enableHistoryState = false;
-        this.settings.namespace = '.product-' + sectionId + '-modal';
-        this.modal = document.getElementById('QuickShopModal-' + productId);
+        this.settings.enableHistoryState = false
+        this.settings.namespace = '.product-' + sectionId + '-modal'
+        this.modal = document.getElementById('QuickShopModal-' + productId)
       }
 
       this.selectors = {
@@ -7343,48 +7324,48 @@ lazySizesConfig.expFactor = 4;
         variantColorSwatch: '.variant__input--color-swatch',
 
         availabilityContainer: '[data-store-availability-holder]',
-      };
+      }
 
-      this.cacheElements();
+      this.cacheElements()
 
-      this.firstProductImage = this.cache.mainSlider.querySelector('img');
+      this.firstProductImage = this.cache.mainSlider.querySelector('img')
 
       if (!this.firstProductImage) {
-        this.settings.hasImages = false;
+        this.settings.hasImages = false
       }
 
-      var dataSetEl = this.cache.mainSlider.querySelector('[data-set-name]');
+      var dataSetEl = this.cache.mainSlider.querySelector('[data-set-name]')
       if (dataSetEl) {
-        this.settings.imageSetName = dataSetEl.dataset.setName;
+        this.settings.imageSetName = dataSetEl.dataset.setName
       }
 
-      this.init();
+      this.init()
     }
 
     Product.prototype = Object.assign({}, Product.prototype, {
       init: function () {
         if (this.inModal) {
-          this.container.classList.add(classes.isModal);
+          this.container.classList.add(classes.isModal)
           document.addEventListener(
             'modalOpen.QuickShopModal-' + this.productId,
             this.openModalProduct.bind(this)
-          );
+          )
           document.addEventListener(
             'modalClose.QuickShopModal-' + this.productId,
             this.closeModalProduct.bind(this)
-          );
+          )
         }
 
         if (!this.inModal) {
-          this.formSetup();
-          this.productSetup();
-          this.videoSetup();
-          this.initProductSlider();
-          this.customMediaListners();
-          this.addIdToRecentlyViewed();
-          this.initContentToggle();
+          this.formSetup()
+          this.productSetup()
+          this.videoSetup()
+          this.initProductSlider()
+          this.customMediaListners()
+          this.addIdToRecentlyViewed()
+          this.initContentToggle()
 
-          window.addEventListener('resize', this.initProductSlider.bind(this));
+          window.addEventListener('resize', this.initProductSlider.bind(this))
         }
       },
 
@@ -7413,65 +7394,65 @@ lazySizesConfig.expFactor = 4;
           price: this.container.querySelector(this.selectors.price),
           savePrice: this.container.querySelector(this.selectors.savePrice),
           priceA11y: this.container.querySelector(this.selectors.priceA11y),
-        };
+        }
       },
 
       formSetup: function () {
-        this.initQtySelector();
-        this.initAjaxProductForm();
-        this.availabilitySetup();
-        this.initVariants();
+        this.initQtySelector()
+        this.initAjaxProductForm()
+        this.availabilitySetup()
+        this.initVariants()
 
         // We know the current variant now so setup image sets
         if (this.settings.imageSetName) {
-          this.updateImageSet();
+          this.updateImageSet()
         }
       },
 
       availabilitySetup: function () {
         var container = this.container.querySelector(
           this.selectors.availabilityContainer
-        );
+        )
         if (container) {
-          this.storeAvailability = new theme.StoreAvailability(container);
+          this.storeAvailability = new theme.StoreAvailability(container)
         }
       },
 
       productSetup: function () {
-        this.setImageSizes();
-        this.initImageZoom();
-        this.initModelViewerLibraries();
-        this.initShopifyXrLaunch();
+        this.setImageSizes()
+        this.initImageZoom()
+        this.initModelViewerLibraries()
+        this.initShopifyXrLaunch()
 
         if (window.SPR) {
-          SPR.initDomEls();
-          SPR.loadBadges();
+          SPR.initDomEls()
+          SPR.loadBadges()
         }
       },
 
       setImageSizes: function () {
         if (!this.settings.hasImages) {
-          return;
+          return
         }
 
         // Get srcset image src, works on most modern browsers
         // otherwise defaults to settings.imageSize
-        var currentImage = this.firstProductImage.currentSrc;
+        var currentImage = this.firstProductImage.currentSrc
 
         if (currentImage) {
-          this.settings.imageSize = theme.Images.imageSize(currentImage);
+          this.settings.imageSize = theme.Images.imageSize(currentImage)
         }
       },
 
       addIdToRecentlyViewed: function () {
-        var handle = this.container.getAttribute('data-product-handle');
-        var url = this.container.getAttribute('data-product-url');
-        var aspectRatio = this.container.getAttribute('data-aspect-ratio');
-        var featuredImage = this.container.getAttribute('data-img-url');
+        var handle = this.container.getAttribute('data-product-handle')
+        var url = this.container.getAttribute('data-product-url')
+        var aspectRatio = this.container.getAttribute('data-aspect-ratio')
+        var featuredImage = this.container.getAttribute('data-img-url')
 
         // Remove current product if already in set of recent
         if (theme.recentlyViewed.recent.hasOwnProperty(handle)) {
-          delete theme.recentlyViewed.recent[handle];
+          delete theme.recentlyViewed.recent[handle]
         }
 
         // Add it back to the end
@@ -7479,26 +7460,26 @@ lazySizesConfig.expFactor = 4;
           url: url,
           aspectRatio: aspectRatio,
           featuredImage: featuredImage,
-        };
+        }
 
         if (theme.config.hasLocalStorage) {
           window.localStorage.setItem(
             'theme-recent',
             JSON.stringify(theme.recentlyViewed.recent)
-          );
+          )
         }
       },
 
       initVariants: function () {
         var variantJson = this.container.querySelector(
           this.selectors.variantsJson
-        );
+        )
 
         if (!variantJson) {
-          return;
+          return
         }
 
-        this.variantsObject = JSON.parse(variantJson.innerHTML);
+        this.variantsObject = JSON.parse(variantJson.innerHTML)
 
         var options = {
           container: this.container,
@@ -7506,85 +7487,83 @@ lazySizesConfig.expFactor = 4;
           singleOptionSelector: this.selectors.singleOptionSelector,
           originalSelectorId: this.selectors.originalSelectorId,
           variants: this.variantsObject,
-        };
+        }
 
         var swatches = this.container.querySelectorAll(
           this.selectors.variantColorSwatch
-        );
+        )
         if (swatches.length) {
           swatches.forEach((swatch) => {
             swatch.addEventListener(
               'change',
               function (evt) {
-                var color = swatch.dataset.colorName;
-                var index = swatch.dataset.colorIndex;
-                this.updateColorName(color, index);
+                var color = swatch.dataset.colorName
+                var index = swatch.dataset.colorIndex
+                this.updateColorName(color, index)
               }.bind(this)
-            );
-          });
+            )
+          })
         }
 
-        this.variants = new theme.Variants(options);
+        this.variants = new theme.Variants(options)
 
         // Product availability on page load
         if (this.storeAvailability) {
           var variant_id = this.variants.currentVariant
             ? this.variants.currentVariant.id
-            : this.variants.variants[0].id;
+            : this.variants.variants[0].id
 
-          this.storeAvailability.updateContent(variant_id);
+          this.storeAvailability.updateContent(variant_id)
           this.container.on(
             'variantChange' + this.settings.namespace,
             this.updateAvailability.bind(this)
-          );
+          )
         }
 
         this.container.on(
           'variantChange' + this.settings.namespace,
           this.updateCartButton.bind(this)
-        );
+        )
         this.container.on(
           'variantImageChange' + this.settings.namespace,
           this.updateVariantImage.bind(this)
-        );
+        )
         this.container.on(
           'variantPriceChange' + this.settings.namespace,
           this.updatePrice.bind(this)
-        );
+        )
         this.container.on(
           'variantUnitPriceChange' + this.settings.namespace,
           this.updateUnitPrice.bind(this)
-        );
+        )
 
         if (this.container.querySelector(this.selectors.sku)) {
           this.container.on(
             'variantSKUChange' + this.settings.namespace,
             this.updateSku.bind(this)
-          );
+          )
         }
 
-        var inventoryEl = this.container.querySelector(
-          this.selectors.inventory
-        );
+        var inventoryEl = this.container.querySelector(this.selectors.inventory)
         if (inventoryEl) {
-          this.settings.inventory = true;
-          this.settings.inventoryThreshold = inventoryEl.dataset.threshold;
+          this.settings.inventory = true
+          this.settings.inventoryThreshold = inventoryEl.dataset.threshold
           this.container.on(
             'variantChange' + this.settings.namespace,
             this.updateInventory.bind(this)
-          );
+          )
         }
 
         // Update individual variant availability on each selection
         if (theme.settings.dynamicVariantsEnable) {
           var currentVariantJson = this.container.querySelector(
             this.selectors.currentVariantJson
-          );
+          )
 
           if (currentVariantJson) {
             var variantType = this.container.querySelector(
               selectors.variantType
-            );
+            )
 
             if (variantType) {
               new theme.VariantAvailability({
@@ -7593,7 +7572,7 @@ lazySizesConfig.expFactor = 4;
                 type: variantType.dataset.type,
                 variantsObject: this.variantsObject,
                 currentVariantObject: JSON.parse(currentVariantJson.innerHTML),
-              });
+              })
             }
           }
         }
@@ -7604,15 +7583,15 @@ lazySizesConfig.expFactor = 4;
             '.variant-input-wrap[data-handle="' +
               this.settings.imageSetName +
               '"]'
-          );
+          )
           if (variantWrapper) {
-            this.settings.imageSetIndex = variantWrapper.dataset.index;
+            this.settings.imageSetIndex = variantWrapper.dataset.index
             this.container.on(
               'variantChange' + this.settings.namespace,
               this.updateImageSet.bind(this)
-            );
+            )
           } else {
-            this.settings.imageSetName = null;
+            this.settings.imageSetName = null
           }
         }
       },
@@ -7621,13 +7600,13 @@ lazySizesConfig.expFactor = 4;
         this.container.querySelectorAll('.js-qty__wrapper').forEach((el) => {
           new theme.QtySelector(el, {
             namespace: '.product',
-          });
-        });
+          })
+        })
       },
 
       initAjaxProductForm: function () {
         if (theme.settings.cartType === 'drawer') {
-          new theme.AjaxProduct(this.cache.form);
+          new theme.AjaxProduct(this.cache.form)
         }
       },
 
@@ -7638,108 +7617,108 @@ lazySizesConfig.expFactor = 4;
         // Updates on radio button change, not variant.js
         this.container.querySelector(
           this.selectors.colorLabel + `[data-index="${index}"`
-        ).textContent = color;
+        ).textContent = color
       },
 
       updateCartButton: function (evt) {
-        var variant = evt.detail.variant;
-        var cartBtn = this.container.querySelector(this.selectors.addToCart);
+        var variant = evt.detail.variant
+        var cartBtn = this.container.querySelector(this.selectors.addToCart)
         var cartBtnText = this.container.querySelector(
           this.selectors.addToCartText
-        );
+        )
 
         if (variant) {
           if (variant.available) {
             // Available, enable the submit button and change text
-            cartBtn.classList.remove(classes.disabled);
-            cartBtn.disabled = false;
-            var defaultText = cartBtnText.dataset.defaultText;
-            cartBtnText.textContent = defaultText;
+            cartBtn.classList.remove(classes.disabled)
+            cartBtn.disabled = false
+            var defaultText = cartBtnText.dataset.defaultText
+            cartBtnText.textContent = defaultText
           } else {
             // Sold out, disable the submit button and change text
-            cartBtn.classList.add(classes.disabled);
-            cartBtn.disabled = true;
-            cartBtnText.textContent = theme.strings.soldOut;
+            cartBtn.classList.add(classes.disabled)
+            cartBtn.disabled = true
+            cartBtnText.textContent = theme.strings.soldOut
           }
         } else {
           // The variant doesn't exist, disable submit button
-          cartBtn.classList.add(classes.disabled);
-          cartBtn.disabled = true;
-          cartBtnText.textContent = theme.strings.unavailable;
+          cartBtn.classList.add(classes.disabled)
+          cartBtn.disabled = true
+          cartBtnText.textContent = theme.strings.unavailable
         }
       },
 
       updatePrice: function (evt) {
-        var variant = evt.detail.variant;
+        var variant = evt.detail.variant
 
         if (variant) {
           // Regular price
           this.cache.price.innerHTML = theme.Currency.formatMoney(
             variant.price,
             theme.settings.moneyFormat
-          );
+          )
 
           // Sale price, if necessary
           if (variant.compare_at_price > variant.price) {
             this.cache.comparePrice.innerHTML = theme.Currency.formatMoney(
               variant.compare_at_price,
               theme.settings.moneyFormat
-            );
-            this.cache.priceWrapper.classList.remove(classes.hidden);
-            this.cache.price.classList.add(classes.onSale);
-            this.cache.comparePriceA11y.setAttribute('aria-hidden', 'false');
-            this.cache.priceA11y.setAttribute('aria-hidden', 'false');
+            )
+            this.cache.priceWrapper.classList.remove(classes.hidden)
+            this.cache.price.classList.add(classes.onSale)
+            this.cache.comparePriceA11y.setAttribute('aria-hidden', 'false')
+            this.cache.priceA11y.setAttribute('aria-hidden', 'false')
 
-            var savings = variant.compare_at_price - variant.price;
+            var savings = variant.compare_at_price - variant.price
 
             if (theme.settings.saveType == 'percent') {
               savings =
-                Math.round((savings * 100) / variant.compare_at_price) + '%';
+                Math.round((savings * 100) / variant.compare_at_price) + '%'
             } else {
               savings = theme.Currency.formatMoney(
                 savings,
                 theme.settings.moneyFormat
-              );
+              )
             }
 
-            this.cache.savePrice.classList.remove(classes.hidden);
+            this.cache.savePrice.classList.remove(classes.hidden)
             this.cache.savePrice.innerHTML = theme.strings.savePrice.replace(
               '[saved_amount]',
               savings
-            );
+            )
           } else {
             if (this.cache.priceWrapper) {
-              this.cache.priceWrapper.classList.add(classes.hidden);
+              this.cache.priceWrapper.classList.add(classes.hidden)
             }
-            this.cache.savePrice.classList.add(classes.hidden);
-            this.cache.price.classList.remove(classes.onSale);
+            this.cache.savePrice.classList.add(classes.hidden)
+            this.cache.price.classList.remove(classes.onSale)
             if (this.cache.comparePriceA11y) {
-              this.cache.comparePriceA11y.setAttribute('aria-hidden', 'true');
+              this.cache.comparePriceA11y.setAttribute('aria-hidden', 'true')
             }
-            this.cache.priceA11y.setAttribute('aria-hidden', 'true');
+            this.cache.priceA11y.setAttribute('aria-hidden', 'true')
           }
         }
       },
 
       updateUnitPrice: function (evt) {
-        var variant = evt.detail.variant;
+        var variant = evt.detail.variant
 
         if (variant && variant.unit_price) {
           this.container.querySelector(this.selectors.unitPrice).innerHTML =
             theme.Currency.formatMoney(
               variant.unit_price,
               theme.settings.moneyFormat
-            );
+            )
           this.container.querySelector(
             this.selectors.unitPriceBaseUnit
-          ).innerHTML = theme.Currency.getBaseUnit(variant);
+          ).innerHTML = theme.Currency.getBaseUnit(variant)
           this.container
             .querySelector(this.selectors.unitWrapper)
-            .classList.remove(classes.hidden);
+            .classList.remove(classes.hidden)
         } else {
           this.container
             .querySelector(this.selectors.unitWrapper)
-            .classList.add(classes.hidden);
+            .classList.add(classes.hidden)
         }
       },
 
@@ -7748,23 +7727,23 @@ lazySizesConfig.expFactor = 4;
           ? variant
           : this.variants
           ? this.variants.currentVariant
-          : null;
-        if (!variant) return;
+          : null
+        if (!variant) return
 
         var setValue = (this.settings.currentImageSet = this.getImageSetName(
           variant[this.settings.imageSetIndex]
-        ));
-        var set = this.settings.imageSetName + '_' + setValue;
+        ))
+        var set = this.settings.imageSetName + '_' + setValue
 
         // Always start on index 0
-        this.settings.currentSlideIndex = 0;
+        this.settings.currentSlideIndex = 0
 
         // Return object that adds cellSelector to mainSliderArgs
         return {
           cellSelector: '[data-group="' + set + '"]',
           imageSet: set,
           initialIndex: this.settings.currentSlideIndex,
-        };
+        }
       },
 
       updateImageSet: function (evt) {
@@ -7773,21 +7752,21 @@ lazySizesConfig.expFactor = 4;
           ? evt.detail.variant
           : this.variants
           ? this.variants.currentVariant
-          : null;
+          : null
         if (!variant) {
-          return;
+          return
         }
 
         var setValue = this.getImageSetName(
           variant[this.settings.imageSetIndex]
-        );
+        )
 
         // Already on the current image group
         if (this.settings.currentImageSet === setValue) {
-          return;
+          return
         }
 
-        this.initProductSlider(variant);
+        this.initProductSlider(variant)
       },
 
       // Show/hide thumbnails based on current image set
@@ -7795,8 +7774,8 @@ lazySizesConfig.expFactor = 4;
         this.cache.thumbSlider
           .querySelectorAll('.product__thumb-item')
           .forEach((thumb) => {
-            thumb.classList.toggle(classes.hidden, thumb.dataset.group !== set);
-          });
+            thumb.classList.toggle(classes.hidden, thumb.dataset.group !== set)
+          })
       },
 
       getImageSetName: function (string) {
@@ -7804,24 +7783,24 @@ lazySizesConfig.expFactor = 4;
           .toLowerCase()
           .replace(/[^a-z0-9]+/g, '-')
           .replace(/-$/, '')
-          .replace(/^-/, '');
+          .replace(/^-/, '')
       },
 
       updateSku: function (evt) {
-        var variant = evt.detail.variant;
-        var newSku = '';
+        var variant = evt.detail.variant
+        var newSku = ''
 
         if (variant) {
           if (variant.sku) {
-            newSku = variant.sku;
+            newSku = variant.sku
           }
 
-          this.container.querySelector(this.selectors.sku).textContent = newSku;
+          this.container.querySelector(this.selectors.sku).textContent = newSku
         }
       },
 
       updateInventory: function (evt) {
-        var variant = evt.detail.variant;
+        var variant = evt.detail.variant
 
         // Hide stock if no inventory management or policy is continue
         if (
@@ -7829,9 +7808,9 @@ lazySizesConfig.expFactor = 4;
           !variant.inventory_management ||
           variant.inventory_policy === 'continue'
         ) {
-          this.toggleInventoryQuantity(variant, false);
-          this.toggleIncomingInventory(false);
-          return;
+          this.toggleInventoryQuantity(variant, false)
+          this.toggleIncomingInventory(false)
+          return
         }
 
         if (
@@ -7840,24 +7819,24 @@ lazySizesConfig.expFactor = 4;
           window.inventories[this.productId]
         ) {
           var variantInventoryObject =
-            window.inventories[this.productId][variant.id];
+            window.inventories[this.productId][variant.id]
 
           // Hide stock if policy is continue
           if (variantInventoryObject.policy === 'continue') {
-            this.toggleInventoryQuantity(variant, false);
-            this.toggleIncomingInventory(false);
-            return;
+            this.toggleInventoryQuantity(variant, false)
+            this.toggleIncomingInventory(false)
+            return
           }
 
-          var quantity = variantInventoryObject.quantity;
-          var showInventory = true;
-          var showIncomingInventory = false;
+          var quantity = variantInventoryObject.quantity
+          var showInventory = true
+          var showIncomingInventory = false
 
           if (quantity <= 0 || quantity > this.settings.inventoryThreshold) {
-            showInventory = false;
+            showInventory = false
           }
 
-          this.toggleInventoryQuantity(variant, showInventory, quantity);
+          this.toggleInventoryQuantity(variant, showInventory, quantity)
 
           // Only show incoming inventory when:
           // - inventory notice itself is hidden
@@ -7868,81 +7847,81 @@ lazySizesConfig.expFactor = 4;
             variantInventoryObject.incoming === 'true' &&
             quantity <= this.settings.inventoryThreshold
           ) {
-            showIncomingInventory = true;
+            showIncomingInventory = true
           }
 
           this.toggleIncomingInventory(
             showIncomingInventory,
             variant.available,
             variantInventoryObject.next_incoming_date
-          );
+          )
         }
       },
 
       updateAvailability: function (evt) {
-        var variant = evt.detail.variant;
+        var variant = evt.detail.variant
         if (!variant) {
-          return;
+          return
         }
 
-        this.storeAvailability.updateContent(variant.id);
+        this.storeAvailability.updateContent(variant.id)
       },
 
       toggleInventoryQuantity: function (variant, show, qty) {
         if (!this.settings.inventory) {
-          show = false;
+          show = false
         }
 
-        var el = this.container.querySelector(this.selectors.inventory);
-        var salesPoint = el.closest('.product-block');
+        var el = this.container.querySelector(this.selectors.inventory)
+        var salesPoint = el.closest('.product-block')
 
         if (parseInt(qty) <= parseInt(this.settings.inventoryThreshold)) {
-          el.parentNode.classList.add('inventory--low');
-          el.textContent = theme.strings.stockLabel.replace('[count]', qty);
+          el.parentNode.classList.add('inventory--low')
+          el.textContent = theme.strings.stockLabel.replace('[count]', qty)
         } else {
-          el.parentNode.classList.remove('inventory--low');
-          el.textContent = theme.strings.inStockLabel;
+          el.parentNode.classList.remove('inventory--low')
+          el.textContent = theme.strings.inStockLabel
         }
 
         if (variant && variant.available) {
-          el.parentNode.classList.remove(classes.hidden);
+          el.parentNode.classList.remove(classes.hidden)
           if (salesPoint) {
-            salesPoint.classList.remove(classes.hidden);
+            salesPoint.classList.remove(classes.hidden)
           }
         } else {
-          el.parentNode.classList.add(classes.hidden);
+          el.parentNode.classList.add(classes.hidden)
           if (salesPoint) {
-            salesPoint.classList.add(classes.hidden);
+            salesPoint.classList.add(classes.hidden)
           }
         }
       },
 
       toggleIncomingInventory: function (show, available, date) {
-        var el = this.container.querySelector(this.selectors.incomingInventory);
-        var salesPoint = el.closest('.product-block');
+        var el = this.container.querySelector(this.selectors.incomingInventory)
+        var salesPoint = el.closest('.product-block')
 
         if (!el) {
-          return;
+          return
         }
 
-        var textEl = el.querySelector('.js-incoming-text');
+        var textEl = el.querySelector('.js-incoming-text')
 
         if (show) {
           var string = available
             ? theme.strings.willNotShipUntil.replace('[date]', date)
-            : theme.strings.willBeInStockAfter.replace('[date]', date);
+            : theme.strings.willBeInStockAfter.replace('[date]', date)
 
           if (!date) {
-            string = theme.strings.waitingForStock;
+            string = theme.strings.waitingForStock
           }
 
-          el.classList.remove(classes.hidden);
+          el.classList.remove(classes.hidden)
           if (salesPoint) {
-            salesPoint.classList.remove(classes.hidden);
+            salesPoint.classList.remove(classes.hidden)
           }
-          textEl.textContent = string;
+          textEl.textContent = string
         } else {
-          el.classList.add(classes.hidden);
+          el.classList.add(classes.hidden)
         }
       },
 
@@ -7952,20 +7931,20 @@ lazySizesConfig.expFactor = 4;
       videoSetup: function () {
         var productVideos = this.cache.mainSlider.querySelectorAll(
           selectors.productVideo
-        );
+        )
 
         if (!productVideos.length) {
-          return false;
+          return false
         }
 
         productVideos.forEach((vid) => {
-          var type = vid.dataset.videoType;
+          var type = vid.dataset.videoType
           if (type === 'youtube') {
-            this.initYoutubeVideo(vid);
+            this.initYoutubeVideo(vid)
           } else if (type === 'mp4') {
-            this.initMp4Video(vid);
+            this.initMp4Video(vid)
           }
-        });
+        })
       },
 
       initYoutubeVideo: function (div) {
@@ -7979,63 +7958,63 @@ lazySizesConfig.expFactor = 4;
             onReady: this.youtubePlayerReady.bind(this),
             onStateChange: this.youtubePlayerStateChange.bind(this),
           },
-        });
+        })
       },
 
       // Comes from YouTube SDK
       // Get iframe ID with evt.target.getIframe().id
       // Then access product video players with videoObjects[id]
       youtubePlayerReady: function (evt) {
-        var iframeId = evt.target.getIframe().id;
+        var iframeId = evt.target.getIframe().id
 
         if (!videoObjects[iframeId]) {
           // No youtube player data
-          return;
+          return
         }
 
-        var obj = videoObjects[iframeId];
-        var player = obj.videoPlayer;
+        var obj = videoObjects[iframeId]
+        var player = obj.videoPlayer
 
         if (obj.options.style !== 'sound') {
-          player.mute();
+          player.mute()
         }
 
-        obj.parent.classList.remove('loading');
-        obj.parent.classList.add('loaded');
+        obj.parent.classList.remove('loading')
+        obj.parent.classList.add('loaded')
 
         // If we have an element, it is in the visible/first slide,
         // and is muted, play it
         if (this._isFirstSlide(iframeId) && obj.options.style !== 'sound') {
-          player.playVideo();
+          player.playVideo()
         }
       },
 
       _isFirstSlide: function (id) {
         return this.cache.mainSlider.querySelector(
           selectors.startingSlide + ' ' + '#' + id
-        );
+        )
       },
 
       youtubePlayerStateChange: function (evt) {
-        var iframeId = evt.target.getIframe().id;
-        var obj = videoObjects[iframeId];
+        var iframeId = evt.target.getIframe().id
+        var obj = videoObjects[iframeId]
 
         switch (evt.data) {
           case -1: // unstarted
             // Handle low power state on iOS by checking if
             // video is reset to unplayed after attempting to buffer
             if (obj.attemptedToPlay) {
-              obj.parent.classList.add('video-interactable');
+              obj.parent.classList.add('video-interactable')
             }
-            break;
+            break
           case 0: // ended
             if (obj && obj.options.loop === 'true') {
-              obj.videoPlayer.playVideo();
+              obj.videoPlayer.playVideo()
             }
-            break;
+            break
           case 3: // buffering
-            obj.attemptedToPlay = true;
-            break;
+            obj.attemptedToPlay = true
+            break
         }
       },
 
@@ -8043,10 +8022,10 @@ lazySizesConfig.expFactor = 4;
         videoObjects[div.id] = {
           id: div.id,
           type: 'mp4',
-        };
+        }
 
         if (this._isFirstSlide(div.id)) {
-          this.playMp4Video(div.id);
+          this.playMp4Video(div.id)
         }
       },
 
@@ -8054,25 +8033,25 @@ lazySizesConfig.expFactor = 4;
         for (var [id, vid] of Object.entries(videoObjects)) {
           if (vid.videoPlayer) {
             if (typeof vid.videoPlayer.stopVideo === 'function') {
-              vid.videoPlayer.stopVideo(); // YouTube player
+              vid.videoPlayer.stopVideo() // YouTube player
             }
           } else if (vid.type === 'mp4') {
-            this.stopMp4Video(vid.id); // MP4 player
+            this.stopMp4Video(vid.id) // MP4 player
           }
         }
       },
 
       _getVideoType: function (video) {
-        return video.getAttribute('data-video-type');
+        return video.getAttribute('data-video-type')
       },
 
       _getVideoDivId: function (video) {
-        return video.id;
+        return video.id
       },
 
       playMp4Video: function (id) {
-        var player = this.container.querySelector('#' + id);
-        var playPromise = player.play();
+        var player = this.container.querySelector('#' + id)
+        var playPromise = player.play()
 
         if (playPromise !== undefined) {
           playPromise
@@ -8081,18 +8060,18 @@ lazySizesConfig.expFactor = 4;
             })
             .catch(function (error) {
               // Likely low power mode on iOS, show controls
-              player.setAttribute('controls', '');
+              player.setAttribute('controls', '')
               player
                 .closest(selectors.videoParent)
-                .setAttribute('data-video-style', 'unmuted');
-            });
+                .setAttribute('data-video-style', 'unmuted')
+            })
         }
       },
 
       stopMp4Video: function (id) {
-        var player = this.container.querySelector('#' + id);
+        var player = this.container.querySelector('#' + id)
         if (player && typeof player.pause === 'function') {
-          player.pause();
+          player.pause()
         }
       },
 
@@ -8102,66 +8081,66 @@ lazySizesConfig.expFactor = 4;
       initImageZoom: function () {
         var container = this.container.querySelector(
           this.selectors.imageContainer
-        );
+        )
         if (!container) {
-          return;
+          return
         }
-        var imageZoom = new theme.Photoswipe(container, this.sectionId);
+        var imageZoom = new theme.Photoswipe(container, this.sectionId)
         container.addEventListener(
           'photoswipe:afterChange',
           function (evt) {
             if (this.flickity) {
-              this.flickity.goToSlide(evt.detail.index);
+              this.flickity.goToSlide(evt.detail.index)
             }
           }.bind(this)
-        );
+        )
       },
 
       getThumbIndex: function (target) {
-        return target.dataset.index;
+        return target.dataset.index
       },
 
       updateVariantImage: function (evt) {
-        var variant = evt.detail.variant;
+        var variant = evt.detail.variant
         var sizedImgUrl = theme.Images.getSizedImageUrl(
           variant.featured_media.preview_image.src,
           this.settings.imageSize
-        );
+        )
 
         var newImage = this.container.querySelector(
           '.product__thumb[data-id="' + variant.featured_media.id + '"]'
-        );
-        var imageIndex = this.getThumbIndex(newImage);
+        )
+        var imageIndex = this.getThumbIndex(newImage)
 
         // If there is no index, slider is not initalized
         if (typeof imageIndex === 'undefined') {
-          return;
+          return
         }
 
         // Go to that variant image's slide
         if (this.flickity) {
-          this.flickity.goToSlide(imageIndex);
+          this.flickity.goToSlide(imageIndex)
         }
       },
 
       initProductSlider: function (variant) {
         // Destroy slider in preparation of new initialization
         if (this.flickity && typeof this.flickity.destroy === 'function') {
-          this.flickity.destroy();
+          this.flickity.destroy()
         }
 
         // Stop if only a single image or product thumbs are removed, but add active class to first slide
         var singleImage =
-          this.cache.mainSlider.querySelectorAll(selectors.slide).length <= 1;
+          this.cache.mainSlider.querySelectorAll(selectors.slide).length <= 1
         var photoThumbsRemoved =
-          this.settings.photoThumbsRemoved && window.innerWidth > 768;
+          this.settings.photoThumbsRemoved && window.innerWidth > 768
 
         if (singleImage || photoThumbsRemoved) {
-          var slide = this.cache.mainSlider.querySelector(selectors.slide);
+          var slide = this.cache.mainSlider.querySelector(selectors.slide)
           if (slide) {
-            slide.classList.add('is-selected');
+            slide.classList.add('is-selected')
           }
-          return;
+          return
         }
 
         // If variant argument exists, slideshow is reinitializing because of the
@@ -8170,8 +8149,8 @@ lazySizesConfig.expFactor = 4;
         if (!variant) {
           var activeSlide = this.cache.mainSlider.querySelector(
             selectors.startingSlide
-          );
-          this.settings.currentSlideIndex = this._slideIndex(activeSlide);
+          )
+          this.settings.currentSlideIndex = this._slideIndex(activeSlide)
         }
 
         var mainSliderArgs = {
@@ -8187,37 +8166,37 @@ lazySizesConfig.expFactor = 4;
             onInit: this.onSliderInit.bind(this),
             onChange: this.onSlideChange.bind(this),
           },
-        };
+        }
 
         // Override default settings if image set feature enabled
         if (this.settings.imageSetName) {
-          var imageSetArgs = this.imageSetArguments(variant);
-          mainSliderArgs = Object.assign({}, mainSliderArgs, imageSetArgs);
-          this.updateImageSetThumbs(mainSliderArgs.imageSet);
+          var imageSetArgs = this.imageSetArguments(variant)
+          mainSliderArgs = Object.assign({}, mainSliderArgs, imageSetArgs)
+          this.updateImageSetThumbs(mainSliderArgs.imageSet)
         }
 
         this.flickity = new theme.Slideshow(
           this.cache.mainSlider,
           mainSliderArgs
-        );
+        )
       },
 
       onSliderInit: function (slide) {
         // If slider is initialized with image set feature active,
         // initialize any videos/media when they are first slide
         if (this.settings.imageSetName) {
-          this.prepMediaOnSlide(slide);
+          this.prepMediaOnSlide(slide)
         }
       },
 
       onSlideChange: function (index) {
-        if (!this.flickity) return;
+        if (!this.flickity) return
 
         var prevSlide = this.cache.mainSlider.querySelector(
           '.product-main-slide[data-index="' +
             this.settings.currentSlideIndex +
             '"]'
-        );
+        )
 
         // If imageSetName exists, use a more specific selector
         var nextSlide = this.settings.imageSetName
@@ -8226,161 +8205,161 @@ lazySizesConfig.expFactor = 4;
             )[index]
           : this.cache.mainSlider.querySelector(
               '.product-main-slide[data-index="' + index + '"]'
-            );
+            )
 
-        prevSlide.setAttribute('tabindex', '-1');
-        nextSlide.setAttribute('tabindex', 0);
+        prevSlide.setAttribute('tabindex', '-1')
+        nextSlide.setAttribute('tabindex', 0)
 
         // Pause any existing slide video/media
-        this.stopMediaOnSlide(prevSlide);
+        this.stopMediaOnSlide(prevSlide)
 
         // Prep next slide video/media
-        this.prepMediaOnSlide(nextSlide);
+        this.prepMediaOnSlide(nextSlide)
 
         // Update current slider index
-        this.settings.currentSlideIndex = index;
+        this.settings.currentSlideIndex = index
       },
 
       stopMediaOnSlide(slide) {
         // Stop existing video
-        var video = slide.querySelector(selectors.productVideo);
+        var video = slide.querySelector(selectors.productVideo)
         if (video) {
-          var videoType = this._getVideoType(video);
-          var videoId = this._getVideoDivId(video);
+          var videoType = this._getVideoType(video)
+          var videoId = this._getVideoDivId(video)
           if (videoType === 'youtube') {
             if (videoObjects[videoId].videoPlayer) {
-              videoObjects[videoId].videoPlayer.stopVideo();
-              return;
+              videoObjects[videoId].videoPlayer.stopVideo()
+              return
             }
           } else if (videoType === 'mp4') {
-            this.stopMp4Video(videoId);
-            return;
+            this.stopMp4Video(videoId)
+            return
           }
         }
 
         // Stop existing media
-        var currentMedia = slide.querySelector(this.selectors.media);
+        var currentMedia = slide.querySelector(this.selectors.media)
         if (currentMedia) {
           currentMedia.dispatchEvent(
             new CustomEvent('mediaHidden', {
               bubbles: true,
               cancelable: true,
             })
-          );
+          )
         }
       },
 
       prepMediaOnSlide(slide) {
-        var video = slide.querySelector(selectors.productVideo);
+        var video = slide.querySelector(selectors.productVideo)
         if (video) {
-          this.flickity.reposition();
-          var videoType = this._getVideoType(video);
-          var videoId = this._getVideoDivId(video);
+          this.flickity.reposition()
+          var videoType = this._getVideoType(video)
+          var videoId = this._getVideoDivId(video)
           if (videoType === 'youtube') {
             if (
               videoObjects[videoId].videoPlayer &&
               videoObjects[videoId].options.style !== 'sound'
             ) {
-              videoObjects[videoId].videoPlayer.playVideo();
-              return;
+              videoObjects[videoId].videoPlayer.playVideo()
+              return
             }
           } else if (videoType === 'mp4') {
-            this.playMp4Video(videoId);
+            this.playMp4Video(videoId)
           }
         }
 
-        var nextMedia = slide.querySelector(this.selectors.media);
+        var nextMedia = slide.querySelector(this.selectors.media)
         if (nextMedia) {
           nextMedia.dispatchEvent(
             new CustomEvent('mediaVisible', {
               bubbles: true,
               cancelable: true,
             })
-          );
+          )
           slide
             .querySelector('.shopify-model-viewer-ui__button')
-            .setAttribute('tabindex', 0);
+            .setAttribute('tabindex', 0)
           slide
             .querySelector('.product-single__close-media')
-            .setAttribute('tabindex', 0);
+            .setAttribute('tabindex', 0)
         }
       },
 
       _slideIndex: function (el) {
-        return el.getAttribute('data-index');
+        return el.getAttribute('data-index')
       },
 
       /*============================================================================
         Products when in quick view modal
       ==============================================================================*/
       openModalProduct: function () {
-        var initialized = false;
+        var initialized = false
 
         if (!this.settings.modalInit) {
           this.blocksHolder = this.container.querySelector(
             selectors.blocksHolder
-          );
-          var url = this.blocksHolder.dataset.url;
+          )
+          var url = this.blocksHolder.dataset.url
 
           fetch(url)
             .then(function (response) {
-              return response.text();
+              return response.text()
             })
             .then(
               function (html) {
-                var parser = new DOMParser();
-                var doc = parser.parseFromString(html, 'text/html');
-                var blocks = doc.querySelector(selectors.blocks);
+                var parser = new DOMParser()
+                var doc = parser.parseFromString(html, 'text/html')
+                var blocks = doc.querySelector(selectors.blocks)
 
                 // Because the same product could be opened in quick view
                 // on the page we load the form elements from, we need to
                 // update any `id`, `for`, and `form` attributes
                 blocks.querySelectorAll('[id]').forEach((el) => {
                   // Update input `id`
-                  var val = el.getAttribute('id');
-                  el.setAttribute('id', val + '-modal');
+                  var val = el.getAttribute('id')
+                  el.setAttribute('id', val + '-modal')
 
                   // Update related label if it exists
-                  var label = blocks.querySelector(`[for="${val}"]`);
+                  var label = blocks.querySelector(`[for="${val}"]`)
                   if (label) {
-                    label.setAttribute('for', val + '-modal');
+                    label.setAttribute('for', val + '-modal')
                   }
 
                   // Update any collapsible elements
                   var collapsibleTrigger = blocks.querySelector(
                     `[aria-controls="${val}"]`
-                  );
+                  )
                   if (collapsibleTrigger) {
                     collapsibleTrigger.setAttribute(
                       'aria-controls',
                       val + '-modal'
-                    );
+                    )
                   }
-                });
+                })
 
                 // Update any elements with `form` attribute.
                 // Form element already has `-modal` appended
-                var form = blocks.querySelector(this.selectors.form);
-                var formId = form.getAttribute('id');
+                var form = blocks.querySelector(this.selectors.form)
+                var formId = form.getAttribute('id')
                 blocks.querySelectorAll('[form]').forEach((el) => {
-                  el.setAttribute('form', formId);
-                });
+                  el.setAttribute('form', formId)
+                })
 
-                this.blocksHolder.innerHTML = '';
-                this.blocksHolder.append(blocks);
-                this.blocksHolder.classList.add('product-form-holder--loaded');
+                this.blocksHolder.innerHTML = ''
+                this.blocksHolder.append(blocks)
+                this.blocksHolder.classList.add('product-form-holder--loaded')
 
-                this.cacheElements();
+                this.cacheElements()
 
-                this.formSetup();
-                this.updateModalProductInventory();
+                this.formSetup()
+                this.updateModalProductInventory()
 
                 if (Shopify && Shopify.PaymentButton) {
-                  Shopify.PaymentButton.init();
+                  Shopify.PaymentButton.init()
                 }
 
                 // Re-hook up collapsible box triggers
-                theme.collapsibles.init(this.container);
+                theme.collapsibles.init(this.container)
 
                 document.dispatchEvent(
                   new CustomEvent('quickview:loaded', {
@@ -8388,52 +8367,49 @@ lazySizesConfig.expFactor = 4;
                       productId: this.sectionId,
                     },
                   })
-                );
+                )
               }.bind(this)
-            );
+            )
 
-          this.productSetup();
-          this.videoSetup();
+          this.productSetup()
+          this.videoSetup()
 
           // Enable product slider in quick view
           // 1. with image sets enabled, make sure we have this.variants before initializing
           // 2. initialize normally, form data not required
           if (this.settings.imageSetName) {
             if (this.variants) {
-              this.initProductSlider();
+              this.initProductSlider()
               window.addEventListener(
                 'resize',
                 this.initProductSlider.bind(this)
-              );
+              )
             } else {
               document.addEventListener(
                 'quickview:loaded',
                 function (evt) {
                   if (evt.detail.productId === this.sectionId) {
-                    this.initProductSlider();
+                    this.initProductSlider()
                     window.addEventListener(
                       'resize',
                       this.initProductSlider.bind(this)
-                    );
+                    )
                   }
                 }.bind(this)
-              );
+              )
             }
           } else {
-            this.initProductSlider();
-            window.addEventListener(
-              'resize',
-              this.initProductSlider.bind(this)
-            );
+            this.initProductSlider()
+            window.addEventListener('resize', this.initProductSlider.bind(this))
           }
-          this.customMediaListners();
-          this.addIdToRecentlyViewed();
-          this.settings.modalInit = true;
+          this.customMediaListners()
+          this.addIdToRecentlyViewed()
+          this.settings.modalInit = true
         } else {
-          initialized = true;
+          initialized = true
         }
 
-        AOS.refreshHard();
+        AOS.refreshHard()
 
         document.dispatchEvent(
           new CustomEvent('quickview:open', {
@@ -8442,19 +8418,19 @@ lazySizesConfig.expFactor = 4;
               productId: this.sectionId,
             },
           })
-        );
+        )
       },
 
       // Recommended products load via JS and don't add variant inventory to the
       // global variable that we later check. This function scrapes a data div
       // to get that info and manually add the values.
       updateModalProductInventory: function () {
-        window.inventories = window.inventories || {};
+        window.inventories = window.inventories || {}
         this.container
           .querySelectorAll('.js-product-inventory-data')
           .forEach((el) => {
-            var productId = el.dataset.productId;
-            window.inventories[productId] = {};
+            var productId = el.dataset.productId
+            window.inventories[productId] = {}
 
             el.querySelectorAll('.js-variant-inventory-data').forEach((el) => {
               window.inventories[productId][el.dataset.id] = {
@@ -8462,13 +8438,13 @@ lazySizesConfig.expFactor = 4;
                 policy: el.dataset.policy,
                 incoming: el.dataset.incoming,
                 next_incoming_date: el.dataset.date,
-              };
-            });
-          });
+              }
+            })
+          })
       },
 
       closeModalProduct: function () {
-        this.stopVideos();
+        this.stopVideos()
       },
 
       /*============================================================================
@@ -8477,10 +8453,10 @@ lazySizesConfig.expFactor = 4;
       initModelViewerLibraries: function () {
         var modelViewerElements = this.container.querySelectorAll(
           this.selectors.media
-        );
-        if (modelViewerElements.length < 1) return;
+        )
+        if (modelViewerElements.length < 1) return
 
-        theme.ProductMedia.init(modelViewerElements, this.sectionId);
+        theme.ProductMedia.init(modelViewerElements, this.sectionId)
       },
 
       initShopifyXrLaunch: function () {
@@ -8492,15 +8468,15 @@ lazySizesConfig.expFactor = 4;
                 ':not(.' +
                 self.classes.hidden +
                 ')'
-            );
+            )
             currentMedia.dispatchEvent(
               new CustomEvent('xrLaunch', {
                 bubbles: true,
                 cancelable: true,
               })
-            );
+            )
           }.bind(this)
-        );
+        )
       },
 
       customMediaListners: function () {
@@ -8510,37 +8486,37 @@ lazySizesConfig.expFactor = 4;
             function () {
               var slide = this.cache.mainSlider.querySelector(
                 selectors.currentSlide
-              );
-              var media = slide.querySelector(this.selectors.media);
+              )
+              var media = slide.querySelector(this.selectors.media)
               if (media) {
                 media.dispatchEvent(
                   new CustomEvent('mediaHidden', {
                     bubbles: true,
                     cancelable: true,
                   })
-                );
+                )
               }
             }.bind(this)
-          );
-        });
+          )
+        })
 
-        var modelViewers = this.container.querySelectorAll('model-viewer');
+        var modelViewers = this.container.querySelectorAll('model-viewer')
         if (modelViewers.length) {
           modelViewers.forEach((el) => {
             el.addEventListener(
               'shopify_model_viewer_ui_toggle_play',
               function (evt) {
-                this.mediaLoaded(evt);
+                this.mediaLoaded(evt)
               }.bind(this)
-            );
+            )
 
             el.addEventListener(
               'shopify_model_viewer_ui_toggle_pause',
               function (evt) {
-                this.mediaUnloaded(evt);
+                this.mediaUnloaded(evt)
               }.bind(this)
-            );
-          });
+            )
+          })
         }
       },
 
@@ -8548,11 +8524,11 @@ lazySizesConfig.expFactor = 4;
         this.container
           .querySelectorAll(this.selectors.closeMedia)
           .forEach((el) => {
-            el.classList.remove(classes.hidden);
-          });
+            el.classList.remove(classes.hidden)
+          })
 
         if (this.flickity) {
-          this.flickity.setDraggable(false);
+          this.flickity.setDraggable(false)
         }
       },
 
@@ -8560,19 +8536,19 @@ lazySizesConfig.expFactor = 4;
         this.container
           .querySelectorAll(this.selectors.closeMedia)
           .forEach((el) => {
-            el.classList.add(classes.hidden);
-          });
+            el.classList.add(classes.hidden)
+          })
 
         if (this.flickity) {
-          this.flickity.setDraggable(true);
+          this.flickity.setDraggable(true)
         }
       },
 
       onUnload: function () {
-        theme.ProductMedia.removeSectionModels(this.sectionId);
+        theme.ProductMedia.removeSectionModels(this.sectionId)
 
         if (this.flickity && typeof this.flickity.destroy === 'function') {
-          this.flickity.destroy();
+          this.flickity.destroy()
         }
       },
 
@@ -8582,210 +8558,210 @@ lazySizesConfig.expFactor = 4;
       initContentToggle: function () {
         var contentToggle = this.container.querySelector(
           '.product-content-toggle'
-        );
+        )
 
-        if (!contentToggle) return;
+        if (!contentToggle) return
 
         var trigger = this.container.querySelectorAll(
           '.product-content-toggle__trigger'
-        );
+        )
         var contentItem = this.container.querySelectorAll(
           '.product-content-toggle__content-item'
-        );
+        )
 
         trigger.forEach((el) => {
           el.addEventListener(
             'click',
             function (evt) {
-              var thisEl = evt.target;
-              var thisTabNumber = thisEl.dataset.tab;
+              var thisEl = evt.target
+              var thisTabNumber = thisEl.dataset.tab
               var thisContentItem = this.container.querySelector(
                 '.product-content-toggle__content-item[data-tab="' +
                   thisTabNumber +
                   '"'
-              );
+              )
 
               if (thisEl.classList.contains('is-active')) {
                 // Close this tab
-                thisEl.classList.remove('is-active');
-                thisContentItem.classList.remove('is-active');
+                thisEl.classList.remove('is-active')
+                thisContentItem.classList.remove('is-active')
               } else {
                 // Clear all active states
-                trigger.forEach((el) => el.classList.remove('is-active'));
-                contentItem.forEach((el) => el.classList.remove('is-active'));
+                trigger.forEach((el) => el.classList.remove('is-active'))
+                contentItem.forEach((el) => el.classList.remove('is-active'))
 
                 // Open this tab
-                thisEl.classList.add('is-active');
-                thisContentItem.classList.add('is-active');
+                thisEl.classList.add('is-active')
+                thisContentItem.classList.add('is-active')
               }
             }.bind(this)
-          );
-        });
+          )
+        })
       },
-    });
+    })
 
-    return Product;
-  })();
+    return Product
+  })()
 
   theme.RecentlyViewed = (function () {
-    var init = false;
+    var init = false
 
     function RecentlyViewed(container) {
       if (!container) {
-        return;
+        return
       }
 
-      this.container = container;
-      this.sectionId = this.container.getAttribute('data-section-id');
-      this.namespace = '.recently-viewed' + this.sectionId;
-      this.gridItemWidth = this.container.getAttribute('data-grid-item-class');
-      this.rowOf = this.container.getAttribute('data-row-of');
+      this.container = container
+      this.sectionId = this.container.getAttribute('data-section-id')
+      this.namespace = '.recently-viewed' + this.sectionId
+      this.gridItemWidth = this.container.getAttribute('data-grid-item-class')
+      this.rowOf = this.container.getAttribute('data-row-of')
 
       theme.initWhenVisible({
         element: this.container,
         callback: this.init.bind(this),
         threshold: 600,
-      });
+      })
     }
 
     RecentlyViewed.prototype = Object.assign({}, RecentlyViewed.prototype, {
       init: function () {
         if (init) {
-          return;
+          return
         }
 
-        init = true;
+        init = true
 
         if (
           Object.keys(theme.recentlyViewed.recent).length === 0 &&
           theme.recentlyViewed.recent.constructor === Object
         ) {
           // No previous history on page load, so bail
-          this.container.classList.add('hide');
-          return;
+          this.container.classList.add('hide')
+          return
         }
 
         this.outputContainer = document.getElementById(
           'RecentlyViewed-' + this.sectionId
-        );
-        this.handle = this.container.getAttribute('data-product-handle');
+        )
+        this.handle = this.container.getAttribute('data-product-handle')
 
         // Request new product info via JS API
-        var promises = [];
+        var promises = []
         Object.keys(theme.recentlyViewed.recent).forEach(
           function (handle) {
             if (handle !== 'undefined') {
-              promises.push(this.getProductInfo(handle));
+              promises.push(this.getProductInfo(handle))
             }
           }.bind(this)
-        );
+        )
 
         Promise.all(promises).then(
           function (result) {
-            this.setupOutput(result);
-            this.captureProductDetails(result);
+            this.setupOutput(result)
+            this.captureProductDetails(result)
           }.bind(this)
-        );
+        )
       },
 
       getProductInfo: function (handle) {
         return new Promise(function (resolve, reject) {
           if (theme.recentlyViewed.productInfo.hasOwnProperty(handle)) {
-            resolve(theme.recentlyViewed.productInfo[handle]);
+            resolve(theme.recentlyViewed.productInfo[handle])
           } else {
             fetch('/products/' + handle + '.js')
               .then(function (response) {
-                return response.text();
+                return response.text()
               })
               .then(function (product) {
-                resolve(product);
-              });
+                resolve(product)
+              })
           }
-        });
+        })
       },
 
       setupOutput: function (products) {
-        var allProducts = [];
-        var data = {};
-        var limit = this.container.getAttribute('data-recent-count');
+        var allProducts = []
+        var data = {}
+        var limit = this.container.getAttribute('data-recent-count')
 
-        var i = 0;
+        var i = 0
 
         Object.keys(products).forEach(
           function (key) {
             if (!products[key]) {
-              return;
+              return
             }
-            var product = JSON.parse(products[key]);
+            var product = JSON.parse(products[key])
 
             // Ignore current product
             if (product.handle === this.handle) {
-              return;
+              return
             }
 
             // Ignore undefined key
             if (typeof product.handle == 'undefined') {
-              return;
+              return
             }
 
-            i++;
+            i++
 
             // New or formatted properties
             product.url = theme.recentlyViewed.recent[product.handle]
               ? theme.recentlyViewed.recent[product.handle].url
-              : product.url;
+              : product.url
             product.image_responsive_url =
-              theme.recentlyViewed.recent[product.handle].featuredImage;
+              theme.recentlyViewed.recent[product.handle].featuredImage
             product.image_aspect_ratio =
-              theme.recentlyViewed.recent[product.handle].aspectRatio;
+              theme.recentlyViewed.recent[product.handle].aspectRatio
 
             // Unit pricing checks first variant
-            var firstVariant = product.variants[0];
+            var firstVariant = product.variants[0]
             if (firstVariant && firstVariant.unit_price) {
-              var baseUnit = '';
+              var baseUnit = ''
 
               if (firstVariant.unit_price_measurement) {
                 if (firstVariant.unit_price_measurement.reference_value != 1) {
                   baseUnit +=
-                    firstVariant.unit_price_measurement.reference_value + ' ';
+                    firstVariant.unit_price_measurement.reference_value + ' '
                 }
-                baseUnit += firstVariant.unit_price_measurement.reference_unit;
+                baseUnit += firstVariant.unit_price_measurement.reference_unit
               }
 
               product.unit_price = theme.Currency.formatMoney(
                 firstVariant.unit_price
-              );
+              )
               if (baseUnit != '') {
-                product.unit_price += '/' + baseUnit;
+                product.unit_price += '/' + baseUnit
               }
             }
 
-            allProducts.unshift(product);
+            allProducts.unshift(product)
           }.bind(this)
-        );
+        )
 
         if (allProducts.length === 0) {
-          this.container.classList.add('hide');
-          return;
+          this.container.classList.add('hide')
+          return
         }
 
         var productMarkup = theme.buildProductGridItem(
           allProducts.slice(0, limit),
           this.gridItemWidth,
           this.rowOf
-        );
+        )
 
-        this.outputContainer.innerHTML = productMarkup;
+        this.outputContainer.innerHTML = productMarkup
 
         if (AOS) {
-          AOS.refreshHard();
+          AOS.refreshHard()
         }
       },
 
       captureProductDetails: function (products) {
         for (var i = 0; i < products.length; i++) {
-          var product = products[i];
-          theme.recentlyViewed.productInfo[product.handle] = product;
+          var product = products[i]
+          theme.recentlyViewed.productInfo[product.handle] = product
         }
 
         // Add data to session storage to reduce API requests later
@@ -8793,17 +8769,17 @@ lazySizesConfig.expFactor = 4;
           sessionStorage.setItem(
             'recent-products',
             JSON.stringify(theme.recentlyViewed.productInfo)
-          );
+          )
         }
       },
 
       onUnload: function () {
-        init = false;
+        init = false
       },
-    });
+    })
 
-    return RecentlyViewed;
-  })();
+    return RecentlyViewed
+  })()
 
   theme.Testimonials = (function () {
     var defaults = {
@@ -8811,154 +8787,154 @@ lazySizesConfig.expFactor = 4;
       avoidReflow: true,
       pageDots: true,
       prevNextButtons: false,
-    };
+    }
 
     function Testimonials(container) {
-      this.container = container;
-      this.timeout;
-      var sectionId = container.getAttribute('data-section-id');
-      this.slideshow = container.querySelector('#Testimonials-' + sectionId);
-      this.namespace = '.testimonial-' + sectionId;
+      this.container = container
+      this.timeout
+      var sectionId = container.getAttribute('data-section-id')
+      this.slideshow = container.querySelector('#Testimonials-' + sectionId)
+      this.namespace = '.testimonial-' + sectionId
 
       if (!this.slideshow) {
-        return;
+        return
       }
 
       theme.initWhenVisible({
         element: this.container,
         callback: this.init.bind(this),
         threshold: 600,
-      });
+      })
     }
 
     Testimonials.prototype = Object.assign({}, Testimonials.prototype, {
       init: function () {
         // Do not wrap when only a few blocks
         if (this.slideshow.dataset.count <= 3) {
-          defaults.wrapAround = false;
+          defaults.wrapAround = false
         }
 
-        this.flickity = new theme.Slideshow(this.slideshow, defaults);
+        this.flickity = new theme.Slideshow(this.slideshow, defaults)
 
         // Autoscroll to next slide on load to indicate more blocks
         if (this.slideshow.dataset.count > 2) {
           this.timeout = setTimeout(
             function () {
-              this.flickity.goToSlide(1);
+              this.flickity.goToSlide(1)
             }.bind(this),
             1000
-          );
+          )
         }
       },
 
       onUnload: function () {
         if (this.flickity && typeof this.flickity.destroy === 'function') {
-          this.flickity.destroy();
+          this.flickity.destroy()
         }
       },
 
       onDeselect: function () {
         if (this.flickity && typeof this.flickity.play === 'function') {
-          this.flickity.play();
+          this.flickity.play()
         }
       },
 
       onBlockSelect: function (evt) {
         var slide = this.slideshow.querySelector(
           '.testimonials-slide--' + evt.detail.blockId
-        );
-        var index = parseInt(slide.dataset.index);
+        )
+        var index = parseInt(slide.dataset.index)
 
-        clearTimeout(this.timeout);
+        clearTimeout(this.timeout)
 
         if (this.flickity && typeof this.flickity.pause === 'function') {
-          this.flickity.goToSlide(index);
-          this.flickity.pause();
+          this.flickity.goToSlide(index)
+          this.flickity.pause()
         }
       },
 
       onBlockDeselect: function () {
         if (this.flickity && typeof this.flickity.play === 'function') {
-          this.flickity.play();
+          this.flickity.play()
         }
       },
-    });
+    })
 
-    return Testimonials;
-  })();
+    return Testimonials
+  })()
 
   theme.CartUpsell = (function () {
     function CartUpsell(container) {
-      this.container = container;
-      this.init();
+      this.container = container
+      this.init()
     }
 
     CartUpsell.prototype = Object.assign({}, CartUpsell.prototype, {
       init: function () {
-        this.cartCheck();
+        this.cartCheck()
         document.addEventListener(
           'ajaxProduct:added',
           function (evt) {
-            this.cartCheck();
+            this.cartCheck()
           }.bind(this)
-        );
+        )
         document.addEventListener(
           'cart:updated',
           function (evt) {
-            this.cartCheck();
+            this.cartCheck()
           }.bind(this)
-        );
+        )
       },
 
       cartCheck: async function () {
-        var cart = await theme.cart.getCart();
+        var cart = await theme.cart.getCart()
         var upsellProducts = document.querySelectorAll(
           '[data-section-type="cart-upsell-product"]'
-        );
+        )
 
         var idsInCart = cart.items.map(function (item) {
-          return item.product_id;
-        });
+          return item.product_id
+        })
 
         var upsellIds = Array.from(upsellProducts).map(function (product) {
-          return parseInt(product.dataset.productId);
-        });
+          return parseInt(product.dataset.productId)
+        })
 
         upsellProducts.forEach(function (product) {
-          product.style.display = 'block';
-        });
+          product.style.display = 'block'
+        })
 
         idsInCart.forEach(
           function (product) {
             if (upsellIds.includes(product)) {
-              this.hideProduct(product);
+              this.hideProduct(product)
             }
           }.bind(this)
-        );
+        )
 
         if (upsellIds.every((item) => idsInCart.includes(item))) {
-          this.container.style.display = 'none';
+          this.container.style.display = 'none'
         } else {
-          this.container.style.display = 'block';
+          this.container.style.display = 'block'
         }
       },
 
       hideProduct: function (product) {
         const upsellProduct = document.querySelector(
           `[data-section-type="cart-upsell-product"][data-product-id="${product}"]`
-        );
-        upsellProduct.style.display = 'none';
+        )
+        upsellProduct.style.display = 'none'
       },
-    });
+    })
 
-    return CartUpsell;
-  })();
+    return CartUpsell
+  })()
 
   theme.CartUpsellProduct = (function () {
     function CartUpsellProduct(container) {
-      this.container = container;
-      this.addToCartButton = this.container.querySelector('.add-to-cart');
-      this.init();
+      this.container = container
+      this.addToCartButton = this.container.querySelector('.add-to-cart')
+      this.init()
     }
 
     CartUpsellProduct.prototype = Object.assign(
@@ -8968,39 +8944,37 @@ lazySizesConfig.expFactor = 4;
         init: function () {
           var variants = this.container.querySelector(
             '.cart-upsell__product-variants'
-          );
+          )
 
           if (variants) {
             // Ensure the first variant is selected
-            var checkedRadio = variants.querySelector(
-              '[type="radio"][checked]'
-            );
-            checkedRadio.nextSibling.click();
+            var checkedRadio = variants.querySelector('[type="radio"][checked]')
+            checkedRadio.nextSibling.click()
           }
 
           this.addToCartButton.addEventListener(
             'click',
             function (e) {
-              var variantId = 0;
+              var variantId = 0
               if (variants) {
                 var selectedVariant = this.container.querySelector(
                   '[type="radio"]:checked'
-                );
-                variantId = selectedVariant.dataset.variantId;
+                )
+                variantId = selectedVariant.dataset.variantId
               } else {
-                variantId = e.target.dataset.variantId;
+                variantId = e.target.dataset.variantId
               }
 
-              this.addToCart(variantId);
+              this.addToCart(variantId)
             }.bind(this)
-          );
+          )
         },
 
         addToCart: function (variantId) {
           // Loading indicator on add to cart button
-          this.addToCartButton.classList.add('btn--loading');
+          this.addToCartButton.classList.add('btn--loading')
 
-          var data = new URLSearchParams({ id: variantId }).toString();
+          var data = new URLSearchParams({ id: variantId }).toString()
 
           fetch(theme.routes.cartAdd, {
             method: 'POST',
@@ -9015,15 +8989,15 @@ lazySizesConfig.expFactor = 4;
             .then(
               function (data) {
                 if (data.status === 422) {
-                  this.addError(data);
+                  this.addError(data)
                 } else {
-                  var product = data;
-                  this.addSuccess(product);
+                  var product = data
+                  this.addSuccess(product)
                 }
 
-                this.addToCartButton.classList.remove('btn--loading');
+                this.addToCartButton.classList.remove('btn--loading')
               }.bind(this)
-            );
+            )
         },
 
         addSuccess: function (product) {
@@ -9034,7 +9008,7 @@ lazySizesConfig.expFactor = 4;
                 addToCartBtn: this.addToCartButton,
               },
             })
-          );
+          )
 
           if (this.args && this.args.scopedEventId) {
             document.dispatchEvent(
@@ -9044,14 +9018,14 @@ lazySizesConfig.expFactor = 4;
                   addToCartBtn: this.addToCartButton,
                 },
               })
-            );
+            )
           }
         },
 
         addError: function (error) {
           if (!error.description) {
-            console.warn(error);
-            return;
+            console.warn(error)
+            return
           }
 
           document.dispatchEvent(
@@ -9060,7 +9034,7 @@ lazySizesConfig.expFactor = 4;
                 errorMessage: error.description,
               },
             })
-          );
+          )
 
           if (this.args && this.args.scopedEventId) {
             document.dispatchEvent(
@@ -9069,27 +9043,27 @@ lazySizesConfig.expFactor = 4;
                   errorMessage: error.description,
                 },
               })
-            );
+            )
           }
         },
       }
-    );
+    )
 
-    return CartUpsellProduct;
-  })();
+    return CartUpsellProduct
+  })()
 
   theme.mobileNumberForm = function (section) {
     // Phone number field auto format
     function isNumericInput(event) {
-      var key = event.keyCode;
+      var key = event.keyCode
       return (
         (key >= 48 && key <= 57) || // Allow number line
         (key >= 96 && key <= 105) // Allow number pad
-      );
+      )
     }
 
     function isModifierKey(event) {
-      var key = event.keyCode;
+      var key = event.keyCode
       return (
         event.shiftKey === true ||
         key === 35 ||
@@ -9102,78 +9076,78 @@ lazySizesConfig.expFactor = 4;
         // Allow Ctrl/Command + A,C,V,X,Z
         ((event.ctrlKey === true || event.metaKey === true) &&
           (key === 65 || key === 67 || key === 86 || key === 88 || key === 90))
-      );
+      )
     }
 
     function enforceFormat(event) {
       // Input must be of a valid number format or a modifier key, and not longer than ten digits
       if (!isNumericInput(event) && !isModifierKey(event)) {
-        event.preventDefault();
+        event.preventDefault()
       }
     }
 
     function formatToPhone(event) {
       if (isModifierKey(event)) {
-        return;
+        return
       }
 
       // I am lazy and don't like to type things more than once
-      var target = event.target;
-      var input = event.target.value.replace(/\D/g, '').substring(0, 10); // First ten digits of input only
-      var zip = input.substring(0, 3);
-      var middle = input.substring(3, 6);
-      var last = input.substring(6, 10);
+      var target = event.target
+      var input = event.target.value.replace(/\D/g, '').substring(0, 10) // First ten digits of input only
+      var zip = input.substring(0, 3)
+      var middle = input.substring(3, 6)
+      var last = input.substring(6, 10)
 
       if (input.length > 6) {
-        target.value = `(${zip}) ${middle}-${last}`;
+        target.value = `(${zip}) ${middle}-${last}`
       } else if (input.length > 3) {
-        target.value = `(${zip}) ${middle}`;
+        target.value = `(${zip}) ${middle}`
       } else if (input.length > 0) {
-        target.value = `(${zip}`;
+        target.value = `(${zip}`
       }
     }
 
-    var inputElement = section.querySelector('.mobile-number-form__input');
-    inputElement.addEventListener('keydown', enforceFormat);
-    inputElement.addEventListener('keyup', formatToPhone);
+    var inputElement = section.querySelector('.mobile-number-form__input')
+    inputElement.addEventListener('keydown', enforceFormat)
+    inputElement.addEventListener('keyup', formatToPhone)
 
     // Form submit
-    var form = section.querySelector('.mobile-number-form');
+    var form = section.querySelector('.mobile-number-form')
     form.addEventListener('submit', function (e) {
-      e.preventDefault();
+      e.preventDefault()
 
-      var thisForm = e.target;
-      var input = thisForm.querySelector('.mobile-number-form__input');
-      var submit = thisForm.querySelector('.mobile-number-form__submit');
+      var thisForm = e.target
+      var input = thisForm.querySelector('.mobile-number-form__input')
+      var submit = thisForm.querySelector('.mobile-number-form__submit')
       var formattedNumber = input.value
         .replace('(', '')
         .replace(')', '')
         .replace('-', '')
-        .replace(' ', '');
+        .replace(' ', '')
       var attentiveVisitorId = document.cookie.replace(
         /(?:(?:^|.*;\s*)__attentive_id\s*=\s*([^;]*).*$)|^.*$/,
         '$1'
-      );
+      )
       var responseMessage = form.querySelector(
         '.mobile-number-form__response-message'
-      );
+      )
 
-      var postUrl = 'https://tour.4hunnid.com/attentive/';
-      var messageDelay = 0;
-      var submittingMessage = 'Submitting...';
+      var postUrl = 'https://tour.4hunnid.com/attentive/'
+      var messageDelay = 0
+      var submittingMessage = 'Submitting...'
       var successMessage =
-        'Thank you for your submission. Please check your text messages to confirm.';
+        'Thank you for your submission. Please check your text messages to confirm.'
       var errorMessage =
-        "Sorry, there was an error with your submission. Please double check what you've entered and try again.";
+        "Sorry, there was an error with your submission. Please double check what you've entered and try again."
 
       var data = {
         phone: formattedNumber,
         visitorId: attentiveVisitorId,
-      };
+      }
 
-      responseMessage.textContent = submittingMessage;
+      responseMessage.textContent = submittingMessage
       if (!responseMessage.classList.contains('is-active'))
-        responseMessage.classList.add('is-active');
+        responseMessage.classList.add('is-active')
 
       fetch(postUrl, {
         method: 'POST',
@@ -9182,26 +9156,26 @@ lazySizesConfig.expFactor = 4;
         },
         body: new URLSearchParams(data),
       }).then((response) => {
-        var status = response.status;
-        var message = '';
+        var status = response.status
+        var message = ''
 
         if (status === 200) {
-          message = successMessage;
+          message = successMessage
         } else {
-          message = errorMessage;
+          message = errorMessage
         }
 
-        responseMessage.textContent = message;
-        input.value = '';
-      });
-    });
-  };
+        responseMessage.textContent = message
+        input.value = ''
+      })
+    })
+  }
 
   theme.countdown = function (countdownEl) {
-    if (!countdownEl) return;
+    if (!countdownEl) return
 
     function padWithZero(num) {
-      return String(num).padStart(2, '0');
+      return String(num).padStart(2, '0')
     }
 
     function displayCountdown(countdownObj) {
@@ -9212,9 +9186,9 @@ lazySizesConfig.expFactor = 4;
             'hours',
             'minutes',
             'seconds',
-          ]);
+          ])
           var seconds =
-            Math.floor(diff.seconds) === 60 ? 0 : Math.floor(diff.seconds);
+            Math.floor(diff.seconds) === 60 ? 0 : Math.floor(diff.seconds)
           var countdownDisplay =
             padWithZero(diff.days) +
             ':' +
@@ -9222,173 +9196,173 @@ lazySizesConfig.expFactor = 4;
             ':' +
             padWithZero(diff.minutes) +
             ':' +
-            padWithZero(seconds);
+            padWithZero(seconds)
 
           if (seconds < 0) {
-            clearInterval(interval);
-            countdownEl.textContent = '00:00:00:00';
-            return;
+            clearInterval(interval)
+            countdownEl.textContent = '00:00:00:00'
+            return
           }
 
-          countdownEl.textContent = countdownDisplay;
+          countdownEl.textContent = countdownDisplay
         }.bind(this),
         1000
-      );
+      )
     }
 
-    var countdownDateTime = countdownEl.dataset.countdown;
-    var DateTime = luxon.DateTime;
+    var countdownDateTime = countdownEl.dataset.countdown
+    var DateTime = luxon.DateTime
     var countdownObj = DateTime.fromFormat(
       countdownDateTime,
       'yyyy-MM-dd HH:mm'
-    ).setZone('America/Los_Angeles');
+    ).setZone('America/Los_Angeles')
 
-    displayCountdown(countdownObj);
-  };
+    displayCountdown(countdownObj)
+  }
 
   theme.isStorageSupported = function (type) {
     // Return false if we are in an iframe without access to sessionStorage
     if (window.self !== window.top) {
-      return false;
+      return false
     }
 
-    var testKey = 'test';
-    var storage;
+    var testKey = 'test'
+    var storage
     if (type === 'session') {
-      storage = window.sessionStorage;
+      storage = window.sessionStorage
     }
     if (type === 'local') {
-      storage = window.localStorage;
+      storage = window.localStorage
     }
 
     try {
-      storage.setItem(testKey, '1');
-      storage.removeItem(testKey);
-      return true;
+      storage.setItem(testKey, '1')
+      storage.removeItem(testKey)
+      return true
     } catch (error) {
-      return false;
+      return false
     }
-  };
+  }
 
   theme.reinitProductGridItem = function (scope) {
     if (AOS) {
-      AOS.refreshHard();
+      AOS.refreshHard()
     }
 
-    theme.initQuickShop();
+    theme.initQuickShop()
 
     // Refresh reviews app
     if (window.SPR) {
-      SPR.initDomEls();
-      SPR.loadBadges();
+      SPR.initDomEls()
+      SPR.loadBadges()
     }
 
     // Re-hook up collapsible box triggers
-    theme.collapsibles.init();
-  };
+    theme.collapsibles.init()
+  }
 
   /*============================================================================
     Things that don't require DOM to be ready
   ==============================================================================*/
-  theme.config.hasSessionStorage = theme.isStorageSupported('session');
-  theme.config.hasLocalStorage = theme.isStorageSupported('local');
+  theme.config.hasSessionStorage = theme.isStorageSupported('session')
+  theme.config.hasLocalStorage = theme.isStorageSupported('local')
   AOS.init({
     easing: 'ease-out-quad',
     once: true,
     offset: 60,
     disableMutationObserver: true,
-  });
+  })
 
   if (theme.config.hasLocalStorage) {
     theme.recentlyViewed.localStorage =
-      window.localStorage.getItem('theme-recent');
+      window.localStorage.getItem('theme-recent')
 
     if (theme.recentlyViewed.localStorage) {
       theme.recentlyViewed.recent = JSON.parse(
         theme.recentlyViewed.localStorage
-      );
+      )
     }
   }
 
   theme.recentlyViewed.productInfo =
     theme.config.hasSessionStorage && sessionStorage['recent-products']
       ? JSON.parse(sessionStorage['recent-products'])
-      : {};
+      : {}
 
   // Trigger events when going between breakpoints
-  theme.config.bpSmall = matchMedia(theme.config.mediaQuerySmall).matches;
+  theme.config.bpSmall = matchMedia(theme.config.mediaQuerySmall).matches
   matchMedia(theme.config.mediaQuerySmall).addListener(function (mql) {
     if (mql.matches) {
-      theme.config.bpSmall = true;
-      document.dispatchEvent(new CustomEvent('matchSmall'));
+      theme.config.bpSmall = true
+      document.dispatchEvent(new CustomEvent('matchSmall'))
     } else {
-      theme.config.bpSmall = false;
-      document.dispatchEvent(new CustomEvent('unmatchSmall'));
+      theme.config.bpSmall = false
+      document.dispatchEvent(new CustomEvent('unmatchSmall'))
     }
-  });
+  })
 
   /*============================================================================
     Things that require DOM to be ready
   ==============================================================================*/
   function DOMready(callback) {
-    if (document.readyState != 'loading') callback();
-    else document.addEventListener('DOMContentLoaded', callback);
+    if (document.readyState != 'loading') callback()
+    else document.addEventListener('DOMContentLoaded', callback)
   }
 
   // Load generic JS. Also reinitializes when sections are
   // added, edited, or removed in Shopify's editor
   theme.initGlobals = function () {
-    theme.collapsibles.init();
-    theme.videoModal();
-  };
+    theme.collapsibles.init()
+    theme.videoModal()
+  }
 
   DOMready(function () {
-    theme.sections = new theme.Sections();
+    theme.sections = new theme.Sections()
 
-    theme.sections.register('slideshow-section', theme.SlideshowSection);
-    theme.sections.register('header', theme.HeaderSection);
-    theme.sections.register('product', theme.Product);
-    theme.sections.register('blog', theme.Blog);
-    theme.sections.register('password-header', theme.PasswordHeader);
-    theme.sections.register('password-text-splash', theme.PasswordTextSplash);
-    theme.sections.register('password-image-splash', theme.PasswordImageSplash);
-    theme.sections.register('photoswipe', theme.Photoswipe);
-    theme.sections.register('product-recommendations', theme.Recommendations);
-    theme.sections.register('background-image', theme.BackgroundImage);
-    theme.sections.register('testimonials', theme.Testimonials);
-    theme.sections.register('video-section', theme.VideoSection);
-    theme.sections.register('video-autoplay', theme.VideoAutoplay);
-    theme.sections.register('lookbook-scroller', theme.LookbookScroller);
-    theme.sections.register('block-promo', theme.BlockPromo);
-    theme.sections.register('map', theme.Maps);
-    theme.sections.register('footer-section', theme.FooterSection);
-    theme.sections.register('store-availability', theme.StoreAvailability);
-    theme.sections.register('recently-viewed', theme.RecentlyViewed);
-    theme.sections.register('newsletter-popup', theme.NewsletterPopup);
-    theme.sections.register('collection-header', theme.CollectionHeader);
-    theme.sections.register('collection-grid', theme.Collection);
-    theme.sections.register('cart-upsell', theme.CartUpsell);
-    theme.sections.register('cart-upsell-product', theme.CartUpsellProduct);
+    theme.sections.register('slideshow-section', theme.SlideshowSection)
+    theme.sections.register('header', theme.HeaderSection)
+    theme.sections.register('product', theme.Product)
+    theme.sections.register('blog', theme.Blog)
+    theme.sections.register('password-header', theme.PasswordHeader)
+    theme.sections.register('password-text-splash', theme.PasswordTextSplash)
+    theme.sections.register('password-image-splash', theme.PasswordImageSplash)
+    theme.sections.register('photoswipe', theme.Photoswipe)
+    theme.sections.register('product-recommendations', theme.Recommendations)
+    theme.sections.register('background-image', theme.BackgroundImage)
+    theme.sections.register('testimonials', theme.Testimonials)
+    theme.sections.register('video-section', theme.VideoSection)
+    theme.sections.register('video-autoplay', theme.VideoAutoplay)
+    theme.sections.register('lookbook-scroller', theme.LookbookScroller)
+    theme.sections.register('block-promo', theme.BlockPromo)
+    theme.sections.register('map', theme.Maps)
+    theme.sections.register('footer-section', theme.FooterSection)
+    theme.sections.register('store-availability', theme.StoreAvailability)
+    theme.sections.register('recently-viewed', theme.RecentlyViewed)
+    theme.sections.register('newsletter-popup', theme.NewsletterPopup)
+    theme.sections.register('collection-header', theme.CollectionHeader)
+    theme.sections.register('collection-grid', theme.Collection)
+    theme.sections.register('cart-upsell', theme.CartUpsell)
+    theme.sections.register('cart-upsell-product', theme.CartUpsellProduct)
 
-    theme.initGlobals();
-    theme.initQuickShop();
-    theme.rteInit();
+    theme.initGlobals()
+    theme.initQuickShop()
+    theme.rteInit()
 
     if (document.body.classList.contains('template-cart')) {
-      var cartPageForm = document.getElementById('CartPageForm');
+      var cartPageForm = document.getElementById('CartPageForm')
       if (cartPageForm) {
-        new theme.CartForm(cartPageForm);
+        new theme.CartForm(cartPageForm)
       }
     }
 
     if (theme.settings.predictiveSearch) {
-      theme.predictiveSearch.init();
+      theme.predictiveSearch.init()
     }
 
     if (theme.settings.isCustomerTemplate) {
-      theme.customerTemplates();
+      theme.customerTemplates()
     }
 
-    document.dispatchEvent(new CustomEvent('page:loaded'));
-  });
-})();
+    document.dispatchEvent(new CustomEvent('page:loaded'))
+  })
+})()

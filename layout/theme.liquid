@@ -14,10 +14,6 @@
   <link rel="dns-prefetch" href="https://maps.googleapis.com">
   <link rel="dns-prefetch" href="https://maps.gstatic.com">
 
-  <script>
-   if (window.location.hostname != '4hunnid.com') { window.location = 'https://4hunnid.com'; console.log('Success'); };
-  </script>
-
   {%- if settings.favicon != blank -%}
     <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png" />
   {%- endif -%}
