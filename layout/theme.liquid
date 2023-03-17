@@ -4,6 +4,7 @@
 {%- assign send_to_main_domain = false -%}
 {%- if request.host != '4hunnid.com' and request.host != '4hunnid-original.myshopify.com' -%}
   {%- assign send_to_main_domain = true -%}
+  <meta></meta>
 {%- endif -%}
 
 {%- if send_to_main_domain -%}
