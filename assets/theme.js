@@ -11,7 +11,7 @@
   });
 */
 
-console.log('window.location.hostname', window.location.hostname)
+console.log('window.location.origin', window.location.origin)
 
 // if (!['4hunnid.com', 'myshopify.com'].includes(window.location.hostname))
 //   window.location = 'https://4hunnid.com'
