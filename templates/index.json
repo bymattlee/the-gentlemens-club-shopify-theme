@@ -56,7 +56,7 @@
         "16649038026416c14c-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/4Hunnid0144_268f8105-79e3-46dc-9eb1-ae8a2eb352c7.jpg",
+            "image": "shopify:\/\/shop_images\/DSC_9543_c153de81-ab38-4f6d-afb1-828a2725390e.jpg",
             "link": "",
             "width": "33%",
             "alignment": "center"
@@ -75,8 +75,8 @@
     "featured-collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Good Sex Collection",
-        "home_featured_products": "2023-good-sex-collection",
+        "title": "Spring 2023 Collection",
+        "home_featured_products": "2023-spring",
         "per_row": 4,
         "rows": 10,
         "mobile_scrollable": false,
