@@ -1,0 +1,182 @@
+{%if shop.metafields.FacebookPixelCode != blank %}
+
+
+        {% if template contains "collection" or template contains "product" %}
+		{% if template contains "collection" %}
+          <div class="selCollection_fb" style="display:none;">
+          <span data-shop="4hunnid-original.myshopify.com"></span>
+            {% assign lengthArr = shop.metafields.FacebookPixelCode | size %}
+            {%- for field in shop.metafields.FacebookPixelCode -%}
+        {%assign pixelCode = field | last %} 
+            
+        {%assign a = shop.metafields.FBPixelACToken%}
+        {%assign aEvent = shop.metafields.FBTestEventCode%}
+        {%assign sStatus = shop.metafields.FBPixelStatus%}
+        {%assign c = field | first | split: "pixelCode" | last %}
+        {%assign b = "accesstoken" | append: c%}
+        {%assign bEvent = "eventcode" | append: c%}
+        
+        {%assign maineAccess = a[b] | split: "&with&" | first%}
+        {%assign maineEvent = aEvent[bEvent] | split: "&with&" | first%}
+         {%assign stat = "status" | append: c%}
+         {%assign maineStatus = sStatus[stat] %}
+              
+            	{%assign pixelCode = field | last %}
+            	{%unless pixelCode contains "&with&" %}
+            		{%assign pixelCode = pixelCode | append: "&with&all" %}
+            	{%endunless%}
+                {%assign selCol = pixelCode | split:"&with&" %}
+            	{%if selCol[1] == "all"%}
+            	{% if maineStatus == "false" %}
+                       
+                            {% else %}
+            <p data-pixelId="{{selCol[0]}}" data-access="{{maineAccess}}" data-event="{{maineEvent}}">{{pixel[0]}}</p>
+             {%endif%}
+            	{%else%}
+                  {%if collection.handle == selCol[1] %}
+                  {% if maineStatus == "false" %}
+                      
+                            {% else %}
+            <p data-pixelId="{{selCol[0]}}" data-access="{{maineAccess}}" data-event="{{maineEvent}}">{{pixel[0]}}</p>
+            {%endif%}
+                  {%endif%}
+            	{%endif%}
+            {%- endfor -%}
+            
+            
+           
+          </div>
+        {%endif%}
+        {% if template contains "product" %}
+          <div class="productCol_fb" style="display:none;">
+             {% assign lengthArr = shop.metafields.FacebookPixelCode | size %}
+            {%- for field in shop.metafields.FacebookPixelCode -%}
+                {%assign pixelCode = field | last %}
+            
+        {%assign a = shop.metafields.FBPixelACToken%}
+        {%assign aEvent = shop.metafields.FBTestEventCode%}
+        {%assign sStatus = shop.metafields.FBPixelStatus%}
+        {%assign c = field | first | split: "pixelCode" | last %}
+        {%assign b = "accesstoken" | append: c%}
+        {%assign bEvent = "eventcode" | append: c%}
+        {%assign maineAccess = a[b] | split: "&with&" | first%}
+         {%assign maineEvent = aEvent[bEvent] | split: "&with&" | first%}
+              {%assign stat = "status" | append: c%}
+         {%assign maineStatus = sStatus[stat] %}
+            	{%unless pixelCode contains "&with&" %}
+            		{%assign pixelCode = pixelCode | append: "&with&all" %}
+            	{%endunless%}
+                {%assign selCol = pixelCode | split:"&with&" %}
+            	  {%if selCol[1] == "all"%}
+            		{% if maineStatus == "false" %}
+                     
+                      {% else %}
+            <p data-pixelId="{{selCol[0]}}" data-access="{{maineAccess}}" data-event="{{maineEvent}}">{{pixel[0]}}</p>
+           {% endif %}
+            	  {%endif%}
+                  {%for collection in product.collections %}
+                      {%assign colURL = collection.url | remove:"/collections/"%}
+                        {%if selCol[1] == colURL and selCol[1] != "all" %}
+                          {% if maineStatus == "false" %}
+                     
+                            {% else %}
+                            <p data-pixelId="{{selCol[0]}}" data-access="{{maineAccess}}" data-event="{{maineEvent}}">{{pixel[0]}}</p>
+                            {% endif %}
+                        {%endif%}
+                  {%endfor%}
+            {%- endfor -%}
+            
+          </div>
+        {%endif%}
+	{% elsif template contains "cart" %}
+		{%if cart.item_count > 0 %}
+		  {% assign pixelArr = "" %}
+ <div class="cartCol_fb" style="display:none;"> 
+     {% assign lengthArr = shop.metafields.FacebookPixelCode | size %}
+        {%- for field in shop.metafields.FacebookPixelCode -%}
+        {%assign a = shop.metafields.FBPixelACToken%}
+        {%assign aEvent = shop.metafields.FBTestEventCode%}
+        {%assign sStatus = shop.metafields.FBPixelStatus%}
+        {%assign c = field | first | split: "pixelCode" | last %}
+        {%assign b = "accesstoken" | append: c%}
+        {%assign bEvent = "eventcode" | append: c%}
+        {%assign maineAccess = a[b] | split: "&with&" | first%}
+         {%assign maineEvent = aEvent[bEvent] | split: "&with&" | first%}
+          {%assign stat = "status" | append: c%}
+         {%assign maineStatus = sStatus[stat] %}
+        {%assign pixelCode = field | last %}
+            	{%unless pixelCode contains "&with&" %}
+            		{%assign pixelCode = pixelCode | append: "&with&all" %}
+            	{%endunless%}
+                {%assign selCol = pixelCode | split:"&with&" %}
+
+                {%if selCol[1] == "all"%}
+            		{%assign temp = selCol[0] | append:"," %}
+            		{%assign pixelArr = pixelArr | append:temp %}
+                      {% if maineStatus == "false" %}
+                
+                            {% else %}
+                    <p data-pixelId="{{selCol[0]}}" data-access="{{maineAccess}}" data-event="{{maineEvent}}">{{selCol[0]}}</p>
+                         {%endif%}
+                        {%else%}
+             {% if maineStatus == "false" %}
+                      
+                            {% else %}
+           <p data-pixelId="{{selCol[0]}}" data-access="{{maineAccess}}" data-event="{{maineEvent}}">{{selCol[0]}}</p>
+              {%endif%}       
+                {%endif%}
+
+                {% for item in cart.items %}
+                    {%for collection in item.product.collections %}
+
+                        {%if selCol[1] == collection.handle and selCol[1] != "all" %}
+            				{%assign temp = selCol[0] | append:"," %}
+            				{%assign pixelArr = pixelArr | append:temp %}
+                        {%endif%}
+                    {%endfor%}
+                {%endfor%}
+            {%endfor%}
+
+
+		  {%assign pixelArr = pixelArr | split:"," | uniq %}
+</div>
+        {%endif%}
+	{%else%}
+      <div class="shopMetafields" style="display:none;">
+        {% assign lengthArr = shop.metafields.FacebookPixelCode | size %}
+        {%- for field in shop.metafields.FacebookPixelCode -%}
+          {%assign pixelCode = field | last %} 
+        {%assign a = shop.metafields.FBPixelACToken%}
+        {%assign aEvent = shop.metafields.FBTestEventCode%}
+        {%assign sStatus = shop.metafields.FBPixelStatus%}
+        {%assign c = field | first | split: "pixelCode" | last %}
+        {%assign b = "accesstoken" | append: c%}
+        {%assign bEvent = "eventcode" | append: c%}
+        {%assign maineAccess = a[b] | split: "&with&" | first%}
+         {%assign maineEvent = aEvent[bEvent] | split: "&with&" | first%}
+          {%assign stat = "status" | append: c%}
+         {%assign maineStatus = sStatus[stat] %}
+          {%if pixelCode contains "&with&" %}
+            {%if pixelCode contains "&with&all" %}
+              	{%assign pixel = pixelCode | split:"&with&" %}
+                 {% if maineStatus == "false" %}
+                    
+                            {% else %}
+              	<p data-pixelId="{{pixel[0]}}" data-access="{{maineAccess}}" data-event="{{maineEvent}}">{{pixel[0]}}</p>
+            {%endif%}
+        {%endif%}
+          {%else%}
+              {% if maineStatus == "false" %}
+                      
+                            {% else %}
+        	<p data-pixelId="{{pixel[0]}}" data-access="{{maineAccess}}" data-event="{{maineEvent}}">{{pixel[0]}}</p>
+              {%endif%}
+          {%endif%} 
+        {%- endfor -%}
+      </div>
+    {%endif%}
+    
+	<div data-clinetagent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36" data-browserid="fb.1.1681146721.1116446470" data-shop="4hunnid-original.myshopify.com" data-ip="2603:8000:4200:eac2:a060:7eaf:90de:1725" data-time="1681146721" class="shopCurrency" style="display:none;">{{shop.currency}}</div>
+	<script src="{{ 'api.jquery.js' | shopify_asset_url }}" ></script>
+{%endif%}
+<script src="https://optiapps.xyz/pull/{{shop.permanent_domain}}/hook.js?v=1681146721" ></script>
