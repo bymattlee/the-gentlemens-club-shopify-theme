@@ -7,6 +7,33 @@
         "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/a7702701a8a94213ab0353c822b7387f.mp4"
       }
     },
+    "bfb5747d-3b50-451b-8d98-90b05d3834c3": {
+      "type": "block-promo",
+      "blocks": {
+        "ace0bd23-0ecf-447a-bab3-459a8ed11aff": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/THE_BLOCK_RUNNER_WHITE_GREEN_-_4.jpg"
+          }
+        },
+        "329b92ac-8443-43e3-aa91-21de278fa5c6": {
+          "type": "form",
+          "settings": {
+            "main_message": "<p>The Flame<\/p>",
+            "countdown": "2023-04-28 12:00",
+            "show_attentive_signup": true,
+            "capture_message": "<p>Enter your mobile number to be the first to know about the next collection release.<\/p>",
+            "disclaimer_message": "<p>Agree to <a href=\"http:\/\/attn.tv\/4hunnid\/terms.html\">Terms<\/a> & <a href=\"https:\/\/attnl.tv\/p\/g4j\">Privacy<\/a>.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "ace0bd23-0ecf-447a-bab3-459a8ed11aff",
+        "329b92ac-8443-43e3-aa91-21de278fa5c6"
+      ],
+      "settings": {
+      }
+    },
     "7bcf1d28-e5ee-49a9-96ea-750057e52e44": {
       "type": "advanced-content",
       "disabled": true,
@@ -52,6 +79,7 @@
     },
     "1664903802b41fe288": {
       "type": "advanced-content",
+      "disabled": true,
       "blocks": {
         "16649038026416c14c-0": {
           "type": "image",
@@ -120,6 +148,7 @@
   },
   "order": [
     "166077867707fcfa32",
+    "bfb5747d-3b50-451b-8d98-90b05d3834c3",
     "7bcf1d28-e5ee-49a9-96ea-750057e52e44",
     "1664903802b41fe288",
     "featured-collection",
