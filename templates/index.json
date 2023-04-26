@@ -19,7 +19,7 @@
         "329b92ac-8443-43e3-aa91-21de278fa5c6": {
           "type": "form",
           "settings": {
-            "main_message": "<p>The Flame<\/p>",
+            "main_message": "<p>The Flame<br\/>Available This Friday<\/p>",
             "countdown": "2023-04-28 12:00",
             "show_attentive_signup": true,
             "capture_message": "<p>Enter your mobile number to be the first to know about the next collection release.<\/p>",
