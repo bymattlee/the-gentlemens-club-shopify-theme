@@ -1,12 +1,5 @@
 {
   "sections": {
-    "166077867707fcfa32": {
-      "type": "video-autoplay",
-      "disabled": true,
-      "settings": {
-        "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/a7702701a8a94213ab0353c822b7387f.mp4"
-      }
-    },
     "bfb5747d-3b50-451b-8d98-90b05d3834c3": {
       "type": "block-promo",
       "blocks": {
@@ -38,10 +31,10 @@
       "type": "advanced-content",
       "disabled": true,
       "blocks": {
-        "template--14945423032364__7bcf1d28-e5ee-49a9-96ea-750057e52e44-1666286472da29b4b6-0": {
+        "74a17b03-8a30-4837-be8d-2a3a5ca57911": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Email_Blast_-_Top.jpg",
+            "image": "shopify:\/\/shop_images\/095a8519.jpg",
             "link": "shopify:\/\/collections\/shoes",
             "width": "33%",
             "alignment": "center"
@@ -50,16 +43,16 @@
         "eacc0035-6bf5-46e2-8fbc-bd3bcf9cd161": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Email_Blast_-_Bottom_Left.jpg",
+            "image": "shopify:\/\/shop_images\/095A8154.jpg",
             "link": "shopify:\/\/collections\/shoes",
             "width": "33%",
             "alignment": "center"
           }
         },
-        "74a17b03-8a30-4837-be8d-2a3a5ca57911": {
+        "template--14945423032364__7bcf1d28-e5ee-49a9-96ea-750057e52e44-1666286472da29b4b6-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Email_Blast_-_Bottom_Right.jpg",
+            "image": "shopify:\/\/shop_images\/095a8104.jpg",
             "link": "shopify:\/\/collections\/shoes",
             "width": "33%",
             "alignment": "center"
@@ -67,9 +60,9 @@
         }
       },
       "block_order": [
-        "template--14945423032364__7bcf1d28-e5ee-49a9-96ea-750057e52e44-1666286472da29b4b6-0",
+        "74a17b03-8a30-4837-be8d-2a3a5ca57911",
         "eacc0035-6bf5-46e2-8fbc-bd3bcf9cd161",
-        "74a17b03-8a30-4837-be8d-2a3a5ca57911"
+        "template--14945423032364__7bcf1d28-e5ee-49a9-96ea-750057e52e44-1666286472da29b4b6-0"
       ],
       "settings": {
         "full_width": false,
@@ -111,47 +104,12 @@
         "view_all": false,
         "divider": false
       }
-    },
-    "1660881047c7a0864a": {
-      "type": "advanced-content",
-      "disabled": true,
-      "blocks": {
-        "166088104720c5a5f6-0": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Bottom_Left_Photo.jpg",
-            "link": "",
-            "width": "50%",
-            "alignment": "center"
-          }
-        },
-        "c9472ce4-0e79-4cf8-b9e9-56cfea670ab7": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Bottom_Right_Photo.jpg",
-            "link": "",
-            "width": "50%",
-            "alignment": "center"
-          }
-        }
-      },
-      "block_order": [
-        "166088104720c5a5f6-0",
-        "c9472ce4-0e79-4cf8-b9e9-56cfea670ab7"
-      ],
-      "settings": {
-        "full_width": false,
-        "space_around": true,
-        "center_content": true
-      }
     }
   },
   "order": [
-    "166077867707fcfa32",
     "bfb5747d-3b50-451b-8d98-90b05d3834c3",
     "7bcf1d28-e5ee-49a9-96ea-750057e52e44",
     "1664903802b41fe288",
-    "featured-collection",
-    "1660881047c7a0864a"
+    "featured-collection"
   ]
 }
