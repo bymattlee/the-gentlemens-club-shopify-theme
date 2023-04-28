@@ -35,7 +35,7 @@
           "type": "image",
           "settings": {
             "image": "shopify:\/\/shop_images\/095a8519.jpg",
-            "link": "shopify:\/\/collections\/shoes",
+            "link": "shopify:\/\/products\/the-block-runner-white-green",
             "width": "33%",
             "alignment": "center"
           }
@@ -44,7 +44,7 @@
           "type": "image",
           "settings": {
             "image": "shopify:\/\/shop_images\/095A8154.jpg",
-            "link": "shopify:\/\/collections\/shoes",
+            "link": "shopify:\/\/products\/the-block-runner-white-green",
             "width": "33%",
             "alignment": "center"
           }
@@ -53,7 +53,7 @@
           "type": "image",
           "settings": {
             "image": "shopify:\/\/shop_images\/095a8104.jpg",
-            "link": "shopify:\/\/collections\/shoes",
+            "link": "shopify:\/\/products\/the-block-runner-white-green",
             "width": "33%",
             "alignment": "center"
           }
