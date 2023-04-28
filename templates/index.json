@@ -2,6 +2,7 @@
   "sections": {
     "bfb5747d-3b50-451b-8d98-90b05d3834c3": {
       "type": "block-promo",
+      "disabled": true,
       "blocks": {
         "ace0bd23-0ecf-447a-bab3-459a8ed11aff": {
           "type": "image",
@@ -29,7 +30,6 @@
     },
     "7bcf1d28-e5ee-49a9-96ea-750057e52e44": {
       "type": "advanced-content",
-      "disabled": true,
       "blocks": {
         "74a17b03-8a30-4837-be8d-2a3a5ca57911": {
           "type": "image",
