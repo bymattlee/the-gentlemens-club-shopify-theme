@@ -15,8 +15,8 @@
             "title": "06\/27",
             "location": "Copenhagen, Denmark",
             "venue": "Rumors",
-            "button_1_text": "",
-            "button_1_url": "",
+            "button_1_text": "Buy Tickets",
+            "button_1_url": "#",
             "button_2_text": "",
             "button_2_url": ""
           }
@@ -24,11 +24,11 @@
         "ac5e0a9e-dc33-4c25-9f92-8cd9b3851b40": {
           "type": "tour_date",
           "settings": {
-            "title": "06\/27",
+            "title": "06\/29",
             "location": "Stockholm, Sweden",
-            "venue": "",
-            "button_1_text": "",
-            "button_1_url": "",
+            "venue": "Lollapalooza",
+            "button_1_text": "Buy Tickets",
+            "button_1_url": "https:\/\/lollastockholm.com\/tickets\/",
             "button_2_text": "",
             "button_2_url": ""
           }
@@ -50,7 +50,7 @@
           "settings": {
             "title": "07\/03",
             "location": "Dublin, Ireland",
-            "venue": "Academy",
+            "venue": "The Academy",
             "button_1_text": "Buy Tickets",
             "button_1_url": "https:\/\/www.ticketmaster.ie\/venueartist\/198465\/1546929",
             "button_2_text": "",
@@ -99,8 +99,8 @@
             "title": "07\/09",
             "location": "Paris, France",
             "venue": "Din Dada",
-            "button_1_text": "",
-            "button_1_url": "",
+            "button_1_text": "Buy Tickets",
+            "button_1_url": "#",
             "button_2_text": "",
             "button_2_url": ""
           }
@@ -130,7 +130,7 @@
         "9bc78b05-31c4-485b-bb0b-41de0e3ab67e"
       ],
       "settings": {
-        "tour_flyer": "shopify:\/\/shop_images\/The_Red_Cup_Tour_Europe_2023.jpg",
+        "tour_flyer": "shopify:\/\/shop_images\/The_Red_Cup_Tour_Europe_2023_2caf421d-91c3-468d-8312-7475bdaa79ac.jpg",
         "title": "The Red Cup Tour - Europe"
       }
     }
