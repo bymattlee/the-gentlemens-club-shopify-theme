@@ -226,7 +226,7 @@
       },
       "15823171910904952427": {
         "type": "shopify:\/\/apps\/accessibility-toolkit\/blocks\/accessibilty-widget\/7fc368d3-1043-4955-8c86-8afc04c8a479",
-        "disabled": false,
+        "disabled": true,
         "settings": {
           "appify_accessibility_widget": false
         }
