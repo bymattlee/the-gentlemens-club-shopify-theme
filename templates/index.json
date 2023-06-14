@@ -70,6 +70,18 @@
         "center_content": true
       }
     },
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Spring 2023 Collection",
+        "home_featured_products": "2023-spring",
+        "per_row": 4,
+        "rows": 10,
+        "mobile_scrollable": false,
+        "view_all": false,
+        "divider": false
+      }
+    },
     "1664903802b41fe288": {
       "type": "advanced-content",
       "disabled": true,
@@ -77,9 +89,9 @@
         "16649038026416c14c-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/DSC_9543_c153de81-ab38-4f6d-afb1-828a2725390e.jpg",
+            "image": "shopify:\/\/shop_images\/Pre-Drop.jpg",
             "link": "",
-            "width": "33%",
+            "width": "50%",
             "alignment": "center"
           }
         }
@@ -93,11 +105,12 @@
         "center_content": true
       }
     },
-    "featured-collection": {
+    "9be68cd0-7327-422f-a4fc-850561ae28e4": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
-        "title": "Spring 2023 Collection",
-        "home_featured_products": "2023-spring",
+        "title": "OG Good Sex Collection",
+        "home_featured_products": "2023-og-good-sex-collection",
         "per_row": 4,
         "rows": 10,
         "mobile_scrollable": false,
@@ -109,7 +122,8 @@
   "order": [
     "bfb5747d-3b50-451b-8d98-90b05d3834c3",
     "7bcf1d28-e5ee-49a9-96ea-750057e52e44",
+    "featured-collection",
     "1664903802b41fe288",
-    "featured-collection"
+    "9be68cd0-7327-422f-a4fc-850561ae28e4"
   ]
 }
