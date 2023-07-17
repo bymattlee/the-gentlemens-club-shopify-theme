@@ -167,6 +167,8 @@
         "15fb16c7-a3f5-4f54-a770-f9f501c234cf"
       ],
       "settings": {
+        "hero_image_mobile": "shopify:\/\/shop_images\/hero-mobile.jpg",
+        "hero_image_desktop": "shopify:\/\/shop_images\/hero-desktop.jpg"
       }
     }
   },
