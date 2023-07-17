@@ -72,6 +72,7 @@
   --color-white: #fff;
   --color-off-white: #F6F5F0;
   --color-grey: #D3D3D3;
+  --color-tan: #FFEFCE;
 }
 
 *::selection {
@@ -12828,4 +12829,199 @@ html[dir=rtl] .product-single__meta .rte{
   font-weight: 700;
   padding: 12px 16px 10px;
   min-width: 80px;
+}
+
+.blank-page #shopify-section-header,
+.blank-page #shopify-section-newsletter-popup,
+.blank-page #shopify-section-footer-promotions,
+.blank-page #shopify-section-footer,
+.blank-page .aca_ui_container,
+.blank-page #gorgias-chat-container {
+  display: none;
+}
+
+.tour-dates-2023-sttk {
+  min-height: 100vh;
+  background-image: url("{{ 'bg-tour-2023-sttk-mobile.jpg' | asset_url }}");
+  background-size: 100%;
+  background-position: center top;
+  color: var(--color-tan);
+  font-family: 'Cool Font', sans-serif;
+  font-size: 26px;
+  line-height: 0.9;
+}
+
+@media only screen and (min-width: 1024px) {
+  .tour-dates-2023-sttk {
+    background-image: url("{{ 'bg-tour-2023-sttk-desktop.jpg' | asset_url }}");
+    background-size: 1440px;
+    font-size: 30px;
+  }
+}
+
+.tour-dates-2023-sttk::selection {
+  background-color: var(--color-tan);
+  color: var(--color-black);
+}
+
+.tour-dates-2023-sttk__hero {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.tour-dates-2023-sttk__hero-image {
+  width: 100%;
+}
+
+.tour-dates-2023-sttk__hero-image--mobile {
+  display: block !important;
+}
+
+@media only screen and (min-width: 1024px) {
+  .tour-dates-2023-sttk__hero-image--mobile {
+    display: none !important;
+  }
+}
+
+.tour-dates-2023-sttk__hero-image--desktop {
+  display: none !important;
+}
+
+@media only screen and (min-width: 1024px) {
+  .tour-dates-2023-sttk__hero-image--desktop {
+    display: block !important;
+  }
+}
+
+.tour-dates-2023-sttk__dates {
+  padding: 16px 0 64px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .tour-dates-2023-sttk__dates {
+    padding: 24px 0 96px;
+  }
+}
+
+.tour-dates-2023-sttk__container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media only screen and (min-width: 769px) {
+  .tour-dates-2023-sttk__container {
+    padding: 0 48px;
+  }
+}
+
+.tour-dates-2023-sttk__date {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 0;
+  text-align: center;
+  border-bottom: 1px solid #666;
+}
+
+@media only screen and (min-width: 1024px) {
+  .tour-dates-2023-sttk__date {
+    flex-direction: row;
+    gap: 24px;
+    align-items: center;
+    text-align: left;
+  }
+}
+
+.tour-dates-2023-sttk__date:first-child {
+  border-top: 1px solid #666;
+}
+
+@media only screen and (min-width: 1024px) {
+  .tour-dates-2023-sttk__date-date {
+    width: 96px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .tour-dates-2023-sttk__date-date {
+    width: 120px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .tour-dates-2023-sttk__date-location {
+    width: 200px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .tour-dates-2023-sttk__date-location {
+    width: 240px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .tour-dates-2023-sttk__date-venue {
+    flex: 1;
+  }
+}
+
+.tour-dates-2023-sttk__date-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .tour-dates-2023-sttk__date-buttons {
+    gap: 8px;
+  }
+}
+
+.tour-dates-2023-sttk__date-button {
+  display: inline-block;
+  color: var(--color-black);
+  text-align: center;
+  border: 2px solid var(--color-tan);
+  padding: 6px 8px;
+  position: relative;
+  overflow: hidden;
+  font-size: 20px;
+  line-height: 0.9;
+}
+
+@media only screen and (min-width: 1024px) {
+  .tour-dates-2023-sttk__date-button {
+    width: 120px;
+    font-size: 24px;
+  }
+}
+
+.tour-dates-2023-sttk__date-button:hover {
+  color: var(--color-tan) !important;
+}
+
+.tour-dates-2023-sttk__date-button:hover::before {
+  transform: translateY(-100%);
+}
+
+.tour-dates-2023-sttk__date-button::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-tan);
+  transition: color, transform;
+  transition-duration: 300ms;
+}
+
+.tour-dates-2023-sttk__date-button-text {
+  position: relative;
 }
