@@ -1,0 +1,177 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "115945f1-cf92-4881-957f-aecc360f3d67": {
+      "type": "tour-dates-2023-str8-to-the-klub",
+      "blocks": {
+        "e4b55460-ae4b-45c8-a7c5-f25598e0ba23": {
+          "type": "tour_date",
+          "settings": {
+            "title": "Sept.21",
+            "location": "Sacramento. CA",
+            "venue": "Golden 1 Center",
+            "vip_tickets_url": "https:\/\/www.ticketmaster.com\/event\/1C005EECDE2260FA",
+            "general_tickets_url": "https:\/\/www.ticketmaster.com\/event\/1C005EECDE2260FA"
+          }
+        },
+        "3168f98b-213f-44bd-add9-00b03ffe0c76": {
+          "type": "tour_date",
+          "settings": {
+            "title": "Sept.22",
+            "location": "San Francisco. CA",
+            "venue": "Chase Center",
+            "vip_tickets_url": "https:\/\/www.ticketmaster.com\/event\/1C005EECF11B69C8",
+            "general_tickets_url": "https:\/\/www.ticketmaster.com\/event\/1C005EECF11B69C8"
+          }
+        },
+        "16094a5c-e47e-40bb-bfa3-b252a3debd9c": {
+          "type": "tour_date",
+          "settings": {
+            "title": "Sept.23",
+            "location": "Las Vegas. NV",
+            "venue": "Thomas and Mack Center",
+            "vip_tickets_url": "https:\/\/www.unlvtickets.com\/eventInfo\/spe\/841\/tyga-and-yg-str8-to-the-klub-tour\/",
+            "general_tickets_url": "https:\/\/www.unlvtickets.com\/eventInfo\/spe\/841\/tyga-and-yg-str8-to-the-klub-tour\/"
+          }
+        },
+        "7a36acc6-4beb-451a-a48f-44c291e9f7ff": {
+          "type": "tour_date",
+          "settings": {
+            "title": "Sept.27",
+            "location": "Glendale. AZ",
+            "venue": "Desert Diamond Arena",
+            "vip_tickets_url": "https:\/\/www.axs.com\/events\/493912\/ygy-tyga-tickets",
+            "general_tickets_url": "https:\/\/www.axs.com\/events\/493912\/ygy-tyga-tickets"
+          }
+        },
+        "98b42a8c-270f-430e-bb32-8a33749a15e2": {
+          "type": "tour_date",
+          "settings": {
+            "title": "Sept.28",
+            "location": "Tucson. AZ",
+            "venue": "Tucson Arena",
+            "vip_tickets_url": "https:\/\/www.axs.com\/events\/493909\/ygy-tyga-tickets",
+            "general_tickets_url": "https:\/\/www.axs.com\/events\/493909\/ygy-tyga-tickets"
+          }
+        },
+        "6a6dc637-0482-41b4-99b7-dd29f72ec6d6": {
+          "type": "tour_date",
+          "settings": {
+            "title": "Sept.29",
+            "location": "Ontario. CA",
+            "venue": "Toyota Arena",
+            "vip_tickets_url": "https:\/\/www.axs.com\/events\/493891\/ygy-tyga-tickets?skin=toyotaarena",
+            "general_tickets_url": "https:\/\/www.axs.com\/events\/493891\/ygy-tyga-tickets?skin=toyotaarena"
+          }
+        },
+        "3f5c1e86-3178-42c7-91df-67f2ed4b26aa": {
+          "type": "tour_date",
+          "settings": {
+            "title": "Oct.04",
+            "location": "Tacoma. WA",
+            "venue": "Tacoma Dome",
+            "vip_tickets_url": "https:\/\/www.ticketmaster.com\/event\/0F005EECBB3E32F1",
+            "general_tickets_url": "https:\/\/www.ticketmaster.com\/event\/0F005EECBB3E32F1"
+          }
+        },
+        "d7aca1e4-ea04-4d61-ba46-866606277d2c": {
+          "type": "tour_date",
+          "settings": {
+            "title": "Oct.05",
+            "location": "Vancouver. BC",
+            "venue": "PNE Forum",
+            "vip_tickets_url": "https:\/\/www.ticketleader.ca\/events\/detail\/yg-tyga-str8-to-the-klub-tour",
+            "general_tickets_url": "https:\/\/www.ticketleader.ca\/events\/detail\/yg-tyga-str8-to-the-klub-tour"
+          }
+        },
+        "8ed903f8-ad3d-472b-8fef-63a46cdb6e0b": {
+          "type": "tour_date",
+          "settings": {
+            "title": "Oct.06",
+            "location": "Vancouver. BC",
+            "venue": "PNE Forum",
+            "vip_tickets_url": "https:\/\/www.ticketleader.ca\/events\/detail\/yg-tyga-str8-to-the-klub-tour",
+            "general_tickets_url": "https:\/\/www.ticketleader.ca\/events\/detail\/yg-tyga-str8-to-the-klub-tour"
+          }
+        },
+        "fe82b1d9-d5a2-451a-9303-034ae2af0e67": {
+          "type": "tour_date",
+          "settings": {
+            "title": "Oct.07",
+            "location": "Portland. OR",
+            "venue": "Moda Center",
+            "vip_tickets_url": "https:\/\/www.ticketmaster.com\/event\/0F005EEC98FB17C3",
+            "general_tickets_url": "https:\/\/www.ticketmaster.com\/event\/0F005EEC98FB17C3"
+          }
+        },
+        "51f8f1b2-33b7-4d60-94f7-a973a77d4d76": {
+          "type": "tour_date",
+          "settings": {
+            "title": "Oct.10",
+            "location": "Denver. CO",
+            "venue": "Ball Arena",
+            "vip_tickets_url": "",
+            "general_tickets_url": ""
+          }
+        },
+        "35dc434a-1c1e-4efc-a167-0415b202dff7": {
+          "type": "tour_date",
+          "settings": {
+            "title": "Oct.12",
+            "location": "Dallas. TX",
+            "venue": "The Factory in Deep Ellum",
+            "vip_tickets_url": "",
+            "general_tickets_url": ""
+          }
+        },
+        "d477b2e5-8d38-4d68-b589-2249b5c23676": {
+          "type": "tour_date",
+          "settings": {
+            "title": "Oct.14",
+            "location": "San Diego. CA",
+            "venue": "Pechanga Arena",
+            "vip_tickets_url": "https:\/\/www.axs.com\/events\/493586\/yg-tyga-tickets",
+            "general_tickets_url": "https:\/\/www.axs.com\/events\/493586\/yg-tyga-tickets"
+          }
+        },
+        "15fb16c7-a3f5-4f54-a770-f9f501c234cf": {
+          "type": "tour_date",
+          "settings": {
+            "title": "Nov.22",
+            "location": "Los Angeles. CA",
+            "venue": "Kia Forum",
+            "vip_tickets_url": "https:\/\/www.ticketmaster.com\/event\/09005EE3FA672052",
+            "general_tickets_url": "https:\/\/www.ticketmaster.com\/event\/09005EE3FA672052"
+          }
+        }
+      },
+      "block_order": [
+        "e4b55460-ae4b-45c8-a7c5-f25598e0ba23",
+        "3168f98b-213f-44bd-add9-00b03ffe0c76",
+        "16094a5c-e47e-40bb-bfa3-b252a3debd9c",
+        "7a36acc6-4beb-451a-a48f-44c291e9f7ff",
+        "98b42a8c-270f-430e-bb32-8a33749a15e2",
+        "6a6dc637-0482-41b4-99b7-dd29f72ec6d6",
+        "3f5c1e86-3178-42c7-91df-67f2ed4b26aa",
+        "d7aca1e4-ea04-4d61-ba46-866606277d2c",
+        "8ed903f8-ad3d-472b-8fef-63a46cdb6e0b",
+        "fe82b1d9-d5a2-451a-9303-034ae2af0e67",
+        "51f8f1b2-33b7-4d60-94f7-a973a77d4d76",
+        "35dc434a-1c1e-4efc-a167-0415b202dff7",
+        "d477b2e5-8d38-4d68-b589-2249b5c23676",
+        "15fb16c7-a3f5-4f54-a770-f9f501c234cf"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main",
+    "115945f1-cf92-4881-957f-aecc360f3d67"
+  ]
+}

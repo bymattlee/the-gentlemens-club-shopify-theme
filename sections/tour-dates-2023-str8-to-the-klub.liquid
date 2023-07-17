@@ -1,0 +1,136 @@
+<section
+  class="tour-dates-2023-sttk"
+  data-section-id="{{ section.id }}"
+  data-section-type="tour-dates-2023-sttk">
+  
+  {%- if section.settings.hero_image_mobile != blank and section.settings.hero_image_desktop != blank -%}
+    <div class="tour-dates-2023-sttk__hero">
+
+      {%- if section.settings.hero_image_mobile != blank -%}
+        {%- assign img_url = section.settings.hero_image_mobile | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+        <img class="tour-dates-2023-sttk__hero-image tour-dates-2023-sttk__hero-image--mobile lazyload"
+          data-src="{{ img_url }}"
+          data-widths="[180, 360, 540, 750, 900, 1080]"
+          data-aspectratio="{{ section.settings.hero_image_mobile.aspect_ratio }}"
+          data-sizes="auto"
+          alt="{{ section.settings.hero_image_mobile.alt }}"
+          role="presentation">
+      {%- endif -%}
+
+      {%- if section.settings.hero_image_desktop != blank -%}
+        {%- assign img_url = section.settings.hero_image_desktop | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+        <img class="tour-dates-2023-sttk__hero-image tour-dates-2023-sttk__hero-image--desktop lazyload"
+          data-src="{{ img_url }}"
+          data-widths="[180, 360, 540, 750, 900, 1080]"
+          data-aspectratio="{{ section.settings.hero_image_desktop.aspect_ratio }}"
+          data-sizes="auto"
+          alt="{{ section.settings.hero_image_desktop.alt }}"
+          role="presentation">
+      {%- endif -%}
+
+    </div>
+  {%- endif -%}
+
+  {%- if section.blocks.size > 0 -%}
+    <div class="tour-dates-2023-sttk__dates">
+      <div class="tour-dates-2023-sttk__container">
+
+        {%- for block in section.blocks -%}
+            <div class="tour-dates-2023-sttk__date">
+
+              {%- if block.settings.title != blank -%}
+                <div class="tour-dates-2023-sttk__date-date">
+                  {{ block.settings.title }}
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.location != blank -%}
+                <div class="tour-dates-2023-sttk__date-location">
+                  {{ block.settings.location }}
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.venue != blank -%}
+                <div class="tour-dates-2023-sttk__date-venue">
+                  {{ block.settings.venue }}
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.vip_tickets_url != blank or block.settings.general_tickets_url != blank -%}
+                <div class="tour-dates-2023-sttk__date-buttons">
+
+                  {%- if block.settings.vip_tickets_url != blank -%}
+                    <a href="{{ block.settings.vip_tickets_url }}" class="tour-dates-2023-sttk__date-button" target="_blank">VIP</a>
+                  {%- endif -%}
+
+                  {%- if block.settings.general_tickets_url != blank -%}
+                    <a href="{{ block.settings.general_tickets_url }}" class="tour-dates-2023-sttk__date-button" target="_blank">Tickets</a>
+                  {%- endif -%}
+
+                </div>
+              {%- endif -%}
+
+            </div>
+        {%- endfor -%}
+
+      </div>
+    </div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Tour dates - 2023 - STTK",
+  "class": "tour-dates-2023-sttk-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image_mobile",
+      "label": "Hero Image - Mobile"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_desktop",
+      "label": "Hero Image - Desktop"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tour_date",
+      "name": "Tour date",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Date"
+        },
+        {
+          "type": "text",
+          "id": "location",
+          "label": "Location"
+        },
+        {
+          "type": "text",
+          "id": "venue",
+          "label": "Venue"
+        },
+        {
+          "type": "url",
+          "id": "vip_tickets_url",
+          "label": "VIP tickets URL"
+        },
+        {
+          "type": "url",
+          "id": "general_tickets_url",
+          "label": "General tickets URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tour dates - 2023 - Str8 to the Klub"
+    }
+  ]
+}
+{% endschema %}
