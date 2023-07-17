@@ -37,24 +37,27 @@
 
         {%- for block in section.blocks -%}
             <div class="tour-dates-2023-sttk__date">
+              <div class="tour-dates-2023-sttk__date-text">
 
-              {%- if block.settings.title != blank -%}
-                <div class="tour-dates-2023-sttk__date-date">
-                  {{ block.settings.title }}
-                </div>
-              {%- endif -%}
+                {%- if block.settings.title != blank -%}
+                  <div class="tour-dates-2023-sttk__date-date">
+                    {{ block.settings.title }}
+                  </div>
+                {%- endif -%}
 
-              {%- if block.settings.location != blank -%}
-                <div class="tour-dates-2023-sttk__date-location">
-                  {{ block.settings.location }}
-                </div>
-              {%- endif -%}
+                {%- if block.settings.location != blank -%}
+                  <div class="tour-dates-2023-sttk__date-location">
+                    {{ block.settings.location }}
+                  </div>
+                {%- endif -%}
 
-              {%- if block.settings.venue != blank -%}
-                <div class="tour-dates-2023-sttk__date-venue">
-                  {{ block.settings.venue }}
-                </div>
-              {%- endif -%}
+                {%- if block.settings.venue != blank -%}
+                  <div class="tour-dates-2023-sttk__date-venue">
+                    {{ block.settings.venue }}
+                  </div>
+                {%- endif -%}
+
+              </div>
 
               {%- if block.settings.vip_tickets_url != blank or block.settings.general_tickets_url != blank -%}
                 <div class="tour-dates-2023-sttk__date-buttons">
