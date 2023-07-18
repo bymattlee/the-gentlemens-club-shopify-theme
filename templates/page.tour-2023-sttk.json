@@ -115,8 +115,8 @@
             "title": "Oct.10",
             "location": "Denver. CO",
             "venue": "Ball Arena",
-            "vip_tickets_url": "",
-            "general_tickets_url": ""
+            "vip_tickets_url": "https:\/\/www.ticketmaster.com\/event\/1E005EEDC46B599B",
+            "general_tickets_url": "https:\/\/www.ticketmaster.com\/event\/1E005EEDC46B599B"
           }
         },
         "35dc434a-1c1e-4efc-a167-0415b202dff7": {
@@ -167,8 +167,8 @@
         "15fb16c7-a3f5-4f54-a770-f9f501c234cf"
       ],
       "settings": {
-        "hero_image_mobile": "shopify:\/\/shop_images\/hero-mobile.jpg",
-        "hero_image_desktop": "shopify:\/\/shop_images\/hero-desktop.jpg"
+        "hero_image_mobile": "shopify:\/\/shop_images\/hero-mobile_2806e4a5-df69-4ada-ac6a-953c0ea318fb.jpg",
+        "hero_image_desktop": "shopify:\/\/shop_images\/hero-desktop_cb3252e8-56f0-41d7-b6f1-9966ae9125ea.jpg"
       }
     }
   },
