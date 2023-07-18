@@ -10,7 +10,7 @@
         {%- assign img_url = section.settings.hero_image_mobile | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
         <img class="tour-dates-2023-sttk__hero-image tour-dates-2023-sttk__hero-image--mobile lazyload"
           data-src="{{ img_url }}"
-          data-widths="[180, 360, 540, 750, 900, 1080]"
+          data-widths="[180, 360, 540, 750, 900, 1080, 1440]"
           data-aspectratio="{{ section.settings.hero_image_mobile.aspect_ratio }}"
           data-sizes="auto"
           alt="{{ section.settings.hero_image_mobile.alt }}"
@@ -21,7 +21,7 @@
         {%- assign img_url = section.settings.hero_image_desktop | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
         <img class="tour-dates-2023-sttk__hero-image tour-dates-2023-sttk__hero-image--desktop lazyload"
           data-src="{{ img_url }}"
-          data-widths="[180, 360, 540, 750, 900, 1080]"
+          data-widths="[180, 360, 540, 750, 900, 1080, 1440]"
           data-aspectratio="{{ section.settings.hero_image_desktop.aspect_ratio }}"
           data-sizes="auto"
           alt="{{ section.settings.hero_image_desktop.alt }}"
