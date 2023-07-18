@@ -31,8 +31,17 @@
     </div>
   {%- endif -%}
 
-  {%- if section.blocks.size > 0 -%}
+  {%- if section.blocks.size > 0 or section.settings.caption != blank -%}
     <div class="tour-dates-2023-sttk__dates">
+
+      {%- if section.settings.caption != blank -%}
+        <div class="tour-dates-2023-sttk__container">
+          <div class="tour-dates-2023-sttk__caption">
+            {{ section.settings.caption }}
+          </div>
+        </div>
+      {%- endif -%}
+
       <div class="tour-dates-2023-sttk__container">
 
         {%- for block in section.blocks -%}
@@ -99,6 +108,11 @@
       "type": "image_picker",
       "id": "hero_image_desktop",
       "label": "Hero Image - Desktop"
+    },
+    {
+      "type": "richtext",
+      "id": "caption",
+      "label": "Caption"
     }
   ],
   "blocks": [
