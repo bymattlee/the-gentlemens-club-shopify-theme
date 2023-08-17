@@ -2,7 +2,6 @@
   "sections": {
     "bfb5747d-3b50-451b-8d98-90b05d3834c3": {
       "type": "block-promo",
-      "disabled": true,
       "blocks": {
         "ace0bd23-0ecf-447a-bab3-459a8ed11aff": {
           "type": "image",
@@ -25,6 +24,7 @@
         "ace0bd23-0ecf-447a-bab3-459a8ed11aff",
         "329b92ac-8443-43e3-aa91-21de278fa5c6"
       ],
+      "disabled": true,
       "settings": {
       }
     },
@@ -64,12 +64,11 @@
     },
     "1664903802b41fe288": {
       "type": "advanced-content",
-      "disabled": true,
       "blocks": {
         "16649038026416c14c-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Pre-Drop.jpg",
+            "image": "shopify:\/\/shop_images\/Main.jpg",
             "link": "",
             "width": "33%",
             "alignment": "center"
@@ -79,6 +78,7 @@
       "block_order": [
         "16649038026416c14c-0"
       ],
+      "disabled": true,
       "settings": {
         "full_width": false,
         "space_around": false,
@@ -89,8 +89,8 @@
       "type": "featured-collection",
       "disabled": true,
       "settings": {
-        "title": "OG Good Sex Collection",
-        "home_featured_products": "2023-og-good-sex-collection",
+        "title": "Block Buster Collection",
+        "home_featured_products": "2023-block-buster-collection",
         "per_row": 4,
         "rows": 10,
         "mobile_scrollable": false,
