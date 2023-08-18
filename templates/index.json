@@ -91,7 +91,7 @@
       "settings": {
         "title": "Block Buster Collection",
         "home_featured_products": "2023-block-buster-collection",
-        "per_row": 4,
+        "per_row": 3,
         "rows": 10,
         "mobile_scrollable": false,
         "view_all": false,
