@@ -44,6 +44,7 @@
       "block_order": [
         "template--14945423032364__7bcf1d28-e5ee-49a9-96ea-750057e52e44-1666286472da29b4b6-0"
       ],
+      "disabled": true,
       "settings": {
         "full_width": false,
         "space_around": false,
@@ -52,6 +53,7 @@
     },
     "featured-collection": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "The Graffiti Collection",
         "home_featured_products": "2023-the-graffiti-collection",
@@ -78,7 +80,6 @@
       "block_order": [
         "16649038026416c14c-0"
       ],
-      "disabled": true,
       "settings": {
         "full_width": false,
         "space_around": false,
@@ -87,7 +88,6 @@
     },
     "9be68cd0-7327-422f-a4fc-850561ae28e4": {
       "type": "featured-collection",
-      "disabled": true,
       "settings": {
         "title": "Block Buster Collection",
         "home_featured_products": "2023-block-buster-collection",
