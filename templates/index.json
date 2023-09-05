@@ -69,7 +69,6 @@
       "blocks": {
         "16649038026416c14c-0": {
           "type": "image",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/Main.jpg",
             "link": "",
@@ -81,7 +80,6 @@
       "block_order": [
         "16649038026416c14c-0"
       ],
-      "disabled": true,
       "settings": {
         "full_width": false,
         "space_around": false,
@@ -91,9 +89,9 @@
     "9be68cd0-7327-422f-a4fc-850561ae28e4": {
       "type": "featured-collection",
       "settings": {
-        "title": "FDT Collection",
-        "home_featured_products": "2023-fdt-collection",
-        "per_row": 2,
+        "title": "Block Buster Collection",
+        "home_featured_products": "2023-block-buster-collection",
+        "per_row": 3,
         "rows": 10,
         "mobile_scrollable": false,
         "view_all": false,
