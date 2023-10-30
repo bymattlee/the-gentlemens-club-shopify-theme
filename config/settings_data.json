@@ -163,7 +163,7 @@
           "1494301487049"
         ],
         "settings": {
-          "show_attentive_signup": true,
+          "show_attentive_signup": false,
           "capture_message": "<p>Enter your mobile number to be the first to know about the next collection release.<\/p>",
           "disclaimer_message": "<p>Agree to <a href=\"http:\/\/attn.tv\/4hunnid\/terms.html\" target=\"_blank\">Terms<\/a> & <a href=\"https:\/\/attnl.tv\/p\/g4j\" target=\"_blank\">Privacy<\/a>.<\/p>",
           "show_locale_selector": true,
