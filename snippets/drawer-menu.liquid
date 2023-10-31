@@ -186,11 +186,11 @@
         {%- endif -%}
 
         {%- if section.settings.show_attentive_signup != blank -%}
-          <div class="mobile-nav__signup">
+          <div class="mobile-nav__signup mobile-nav__signup--attentive">
             <form class="mobile-number-form">
 
-              {% unless section.settings.capture_message == blank %}
-                <div class="mobile-number-form__heading">{{ section.settings.capture_message }}</div>
+              {% unless section.settings.attentive_message == blank %}
+                <div class="mobile-number-form__heading">{{ section.settings.attentive_message }}</div>
               {% endunless %}
 
               <div class="mobile-number-form__fieldset">
@@ -202,18 +202,39 @@
                 </button>
               </div>
 
-              {% unless section.settings.disclaimer_message == blank %}
+              {% unless section.settings.attentive_disclaimer_message == blank %}
                 <label class="mobile-number-form__disclaimer" for="mobile-number-form__disclaimer-checkbox--menu">
                   <div class="mobile-number-form__disclaimer-checkbox-container">
                     <input type="checkbox" id="mobile-number-form__disclaimer-checkbox--menu" class="mobile-number-form__disclaimer-checkbox" required>
                     <span class="mobile-number-form__disclaimer-checkbox-ui"></span>
                   </div>
                   <div class="mobile-number-form__disclaimer-message">
-                    {{ section.settings.disclaimer_message }}
+                    {{ section.settings.attentive_disclaimer_message }}
                   </div>
                 </label>
               {% endunless %}
               <div class="mobile-number-form__response-message"></div>
+            </form>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.show_klaviyo_signup != blank -%}
+          <div class="mobile-nav__signup mobile-nav__signup--klaviyo">
+            <form class="klaviyo-form">
+
+              {% unless section.settings.klaviyo_message == blank %}
+                <div class="klaviyo-form__heading">{{ section.settings.klaviyo_message }}</div>
+              {% endunless %}
+
+              <div class="klaviyo-form__fieldset">
+                <input class="klaviyo-form__input input-group-field" autocomplete="email" type="email" placeholder="Enter your email address" required>
+                <button type="submit" class="klaviyo-form__submit">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 13" xml:space="preserve">
+                    <path d="m6 6.6-.4-.4L1.1 1 0 1.9l4 4.7-4 4.7 1.1 1 4.5-5.2.4-.5z"/>
+                  </svg>
+                </button>
+              </div>
+              <div class="klaviyo-form__response-message"></div>
             </form>
           </div>
         {%- endif -%}

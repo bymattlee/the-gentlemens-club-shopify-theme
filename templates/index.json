@@ -15,8 +15,10 @@
             "main_message": "<p>4Hunnid Komfort<br\/>Available This Friday<\/p>",
             "countdown": "2023-11-03 09:00",
             "show_attentive_signup": false,
-            "capture_message": "<p>Enter your mobile number to be the first to know about the next collection release.<\/p>",
-            "disclaimer_message": "<p>Agree to <a href=\"http:\/\/attn.tv\/4hunnid\/terms.html\" target=\"_blank\">Terms<\/a> & <a href=\"https:\/\/attnl.tv\/p\/g4j\" target=\"_blank\">Privacy<\/a>.<\/p>"
+            "attentive_message": "<p>Enter your mobile number to be the first to know about the next collection release.<\/p>",
+            "attentive_disclaimer_message": "<p>Agree to <a href=\"http:\/\/attn.tv\/4hunnid\/terms.html\">Terms<\/a> & <a href=\"https:\/\/attnl.tv\/p\/g4j\">Privacy<\/a>.<\/p>",
+            "show_klaviyo_signup": true,
+            "klaviyo_message": "<p>Enter your email address to be the first to know about the next collection release.<\/p>"
           }
         }
       },

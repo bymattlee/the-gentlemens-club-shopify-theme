@@ -12332,6 +12332,82 @@ html[dir=rtl] .product-single__meta .rte{
   display: block;
 }
 
+.klaviyo-form {
+  position: relative;
+  text-align: center;
+}
+
+.klaviyo-form__heading {
+
+}
+
+.klaviyo-form__heading p:last-child {
+  margin-bottom: 0;
+}
+
+.klaviyo-form__fieldset {
+  margin-top: 8px;
+  position: relative;
+}
+
+.klaviyo-form__input {
+  width: 100%;
+  text-align: center;
+  border: 1px solid var(--colorTextBody);
+  text-transform: uppercase;
+}
+
+@media only screen and (max-width:768px){
+  .klaviyo-form__input {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+}
+
+.klaviyo-form__submit {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 12px;
+  font-size: 0;
+  transition: opacity 300ms;
+}
+
+.klaviyo-form__submit:hover {
+  opacity: 0.5;
+}
+
+.klaviyo-form__submit svg {
+  width: 6px;
+  color: var(--colorTextBody);
+  fill: currentColor;
+}
+
+.klaviyo-form__response-message {
+  position: absolute;
+  width: 100%;
+  top: 120%;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.klaviyo-form__response-message.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mobile-nav__signup .klaviyo-form__response-message {
+  position: relative;
+  margin-top: 24px;
+  display: none;
+}
+
+.mobile-nav__signup .klaviyo-form__response-message.is-active {
+  display: block;
+}
+
 .password-image-splash {
   display: flex;
   flex-direction: column;

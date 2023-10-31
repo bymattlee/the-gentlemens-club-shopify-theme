@@ -5798,10 +5798,19 @@ lazySizesConfig.expFactor = 4
       PasswordTextSplash.prototype,
       {
         init: function () {
-          var signUpEl = this.container.querySelector(
-            '.password-text-splash__signup-form'
+          var attentiveSignUpEl = this.container.querySelector(
+            '.password-image-splash__signup-form--attentive'
           )
-          if (signUpEl) theme.mobileNumberForm(signUpEl)
+          var klaviyoSignUpEl = this.container.querySelector(
+            '.password-image-splash__signup-form--klaviyo'
+          )
+
+          if (attentiveSignUpEl) {
+            theme.mobileNumberForm(attentiveSignUpEl)
+          }
+          if (klaviyoSignUpEl) {
+            theme.klaviyoForm(klaviyoSignUpEl)
+          }
         },
       }
     )
@@ -5820,14 +5829,22 @@ lazySizesConfig.expFactor = 4
       PasswordImageSplash.prototype,
       {
         init: function () {
-          var signUpEl = this.container.querySelector(
-            '.password-image-splash__signup-form'
+          var attentiveSignUpEl = this.container.querySelector(
+            '.password-image-splash__signup-form--attentive'
+          )
+          var klaviyoSignUpEl = this.container.querySelector(
+            '.password-image-splash__signup-form--klaviyo'
           )
           var countdownEl = this.container.querySelector(
             '.password-image-splash__main-countdown'
           )
 
-          if (signUpEl) theme.mobileNumberForm(signUpEl)
+          if (attentiveSignUpEl) {
+            theme.mobileNumberForm(attentiveSignUpEl)
+          }
+          if (klaviyoSignUpEl) {
+            theme.klaviyoForm(klaviyoSignUpEl)
+          }
           if (countdownEl) theme.countdown(countdownEl)
         },
       }
@@ -6516,12 +6533,22 @@ lazySizesConfig.expFactor = 4
 
     BlockPromo.prototype = Object.assign({}, BlockPromo.prototype, {
       init: function () {
-        var signUpEl = this.container.querySelector('.block-promo__signup-form')
+        var attentiveSignUpEl = this.container.querySelector(
+          '.block-promo__signup-form--attentive'
+        )
+        var klaviyoSignUpEl = this.container.querySelector(
+          '.block-promo__signup-form--klaviyo'
+        )
         var countdownEl = this.container.querySelector(
           '.block-promo__signup-main-countdown'
         )
 
-        if (signUpEl) theme.mobileNumberForm(signUpEl)
+        if (attentiveSignUpEl) {
+          theme.mobileNumberForm(attentiveSignUpEl)
+        }
+        if (klaviyoSignUpEl) {
+          theme.klaviyoForm(klaviyoSignUpEl)
+        }
         if (countdownEl) theme.countdown(countdownEl)
       },
     })
@@ -7087,7 +7114,8 @@ lazySizesConfig.expFactor = 4
     var selectors = {
       locale: '[data-disclosure-locale]',
       currency: '[data-disclosure-currency]',
-      signUp: '.site-footer__signup',
+      attentiveSignUp: '.site-footer__signup-form--attentive',
+      klaviyoSignUp: '.site-footer__signup-form--klaviyo',
     }
 
     function FooterSection(container) {
@@ -7100,12 +7128,21 @@ lazySizesConfig.expFactor = 4
 
     FooterSection.prototype = Object.assign({}, FooterSection.prototype, {
       init: function () {
-        var signUpEl = this.container.querySelector(selectors.signUp)
+        var attentiveSignUpEl = this.container.querySelector(
+          selectors.attentiveSignUp
+        )
+        var klaviyoSignUpEl = this.container.querySelector(
+          selectors.klaviyoSignUp
+        )
         var localeEl = this.container.querySelector(selectors.locale)
         var currencyEl = this.container.querySelector(selectors.currency)
 
-        if (signUpEl) {
-          theme.mobileNumberForm(signUpEl)
+        if (attentiveSignUpEl) {
+          theme.mobileNumberForm(attentiveSignUpEl)
+        }
+
+        if (klaviyoSignUpEl) {
+          theme.klaviyoForm(klaviyoSignUpEl)
         }
 
         if (localeEl) {
@@ -7148,7 +7185,8 @@ lazySizesConfig.expFactor = 4
     var selectors = {
       locale: '[data-disclosure-locale]',
       currency: '[data-disclosure-currency]',
-      mobileNavSignup: '.mobile-nav__signup',
+      attentiveMobileNavSignup: '.mobile-nav__signup--attentive',
+      klaviyoMobileNavSignup: '.mobile-nav__signup--klaviyo',
     }
 
     function HeaderSection(container) {
@@ -7177,8 +7215,20 @@ lazySizesConfig.expFactor = 4
         theme.headerNav.init()
         theme.announcementBar.init()
 
-        var signUpEl = document.querySelector(selectors.mobileNavSignup)
-        if (signUpEl) theme.mobileNumberForm(signUpEl)
+        var attentiveSignUpEl = document.querySelector(
+          selectors.attentiveMobileNavSignup
+        )
+        var klaviyoSignUpEl = document.querySelector(
+          selectors.klaviyoMobileNavSignup
+        )
+
+        if (attentiveSignUpEl) {
+          theme.mobileNumberForm(attentiveSignUpEl)
+        }
+
+        if (klaviyoSignUpEl) {
+          theme.klaviyoForm(klaviyoSignUpEl)
+        }
       },
 
       initDisclosures: function () {
@@ -9160,6 +9210,66 @@ lazySizesConfig.expFactor = 4
         var message = ''
 
         if (status === 200) {
+          message = successMessage
+        } else {
+          message = errorMessage
+        }
+
+        responseMessage.textContent = message
+        input.value = ''
+      })
+    })
+  }
+
+  theme.klaviyoForm = function (section) {
+    // Form submit
+    var form = section.querySelector('.klaviyo-form')
+    form.addEventListener('submit', function (e) {
+      e.preventDefault()
+
+      var thisForm = e.target
+      var input = thisForm.querySelector('.klaviyo-form__input')
+      var submit = thisForm.querySelector('.klaviyo-form__submit')
+      var responseMessage = form.querySelector(
+        '.klaviyo-form__response-message'
+      )
+
+      var messageDelay = 0
+      var submittingMessage = 'Submitting...'
+      var successMessage = 'Thank you for signing up.'
+      var errorMessage =
+        "Sorry, there was an error with your signup. Please double check what you've entered and try again."
+      responseMessage.textContent = submittingMessage
+
+      var companyId = 'TdnQEp'
+      var listId = 'TnM8fQ'
+      var url = `https://a.klaviyo.com/client/subscriptions/?company_id=${companyId}`
+      var body = JSON.stringify({
+        data: {
+          type: 'subscription',
+          attributes: {
+            list_id: listId,
+            email: input.value,
+          },
+        },
+      })
+      var options = {
+        method: 'POST',
+        headers: {
+          revision: '2022-10-17',
+          'content-type': 'application/json',
+        },
+        body,
+      }
+
+      if (!responseMessage.classList.contains('is-active'))
+        responseMessage.classList.add('is-active')
+
+      fetch(url, options).then((response) => {
+        var status = response.status
+        var message = ''
+
+        if (status === 202) {
           message = successMessage
         } else {
           message = errorMessage
