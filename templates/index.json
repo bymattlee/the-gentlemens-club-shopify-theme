@@ -57,8 +57,8 @@
       "disabled": true,
       "settings": {
         "title": "4Hunnid Flare Collection",
-        "home_featured_products": "2023-4hunnid-komfort-collection",
-        "per_row": 4,
+        "home_featured_products": "2023-4hunnid-flare-collection",
+        "per_row": 3,
         "rows": 10,
         "mobile_scrollable": false,
         "view_all": false,
