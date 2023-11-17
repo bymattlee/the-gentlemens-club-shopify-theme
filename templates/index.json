@@ -26,6 +26,7 @@
         "ace0bd23-0ecf-447a-bab3-459a8ed11aff",
         "329b92ac-8443-43e3-aa91-21de278fa5c6"
       ],
+      "disabled": true,
       "settings": {
       }
     },
@@ -45,7 +46,6 @@
       "block_order": [
         "16649038026416c14c-0"
       ],
-      "disabled": true,
       "settings": {
         "full_width": false,
         "space_around": false,
@@ -54,7 +54,6 @@
     },
     "9be68cd0-7327-422f-a4fc-850561ae28e4": {
       "type": "featured-collection",
-      "disabled": true,
       "settings": {
         "title": "4Hunnid Flare Collection",
         "home_featured_products": "2023-4hunnid-flare-collection",
