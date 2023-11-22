@@ -58,9 +58,9 @@
         "title": "4Hunnid Holiday Sale",
         "home_featured_products": "all",
         "per_row": 4,
-        "rows": 8,
+        "rows": 20,
         "mobile_scrollable": false,
-        "view_all": true,
+        "view_all": false,
         "divider": false
       }
     }
