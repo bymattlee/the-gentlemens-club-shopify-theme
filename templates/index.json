@@ -36,7 +36,7 @@
         "16649038026416c14c-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Sale_Flyer_a27cee9d-f45b-459d-bc43-a51ac3bb3aac.jpg",
+            "image": "shopify:\/\/shop_images\/Home_-_Drop_410731b8-fa7b-4a35-957c-299cc5c5c29b.jpg",
             "link": "",
             "width": "33%",
             "alignment": "center"
@@ -55,8 +55,8 @@
     "9be68cd0-7327-422f-a4fc-850561ae28e4": {
       "type": "featured-collection",
       "settings": {
-        "title": "4Hunnid Holiday Sale",
-        "home_featured_products": "all",
+        "title": "4Hunnid Flare Collection",
+        "home_featured_products": "2023-4hunnid-flare-collection",
         "per_row": 4,
         "rows": 20,
         "mobile_scrollable": false,
