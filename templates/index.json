@@ -3,11 +3,6 @@
     "91e4b8e1-11ec-427f-8649-c6a8ae28dfd7": {
       "type": "featured-product",
       "blocks": {
-        "template--14945423032364__91e4b8e1-11ec-427f-8649-c6a8ae28dfd7-price-1": {
-          "type": "price",
-          "settings": {
-          }
-        },
         "template--14945423032364__91e4b8e1-11ec-427f-8649-c6a8ae28dfd7-variant_picker-1": {
           "type": "variant_picker",
           "settings": {
@@ -31,7 +26,6 @@
         }
       },
       "block_order": [
-        "template--14945423032364__91e4b8e1-11ec-427f-8649-c6a8ae28dfd7-price-1",
         "template--14945423032364__91e4b8e1-11ec-427f-8649-c6a8ae28dfd7-variant_picker-1",
         "template--14945423032364__91e4b8e1-11ec-427f-8649-c6a8ae28dfd7-buy_buttons-1",
         "template--14945423032364__91e4b8e1-11ec-427f-8649-c6a8ae28dfd7-description-1"
