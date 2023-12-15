@@ -30,6 +30,7 @@
         "template--14945423032364__91e4b8e1-11ec-427f-8649-c6a8ae28dfd7-buy_buttons-1",
         "template--14945423032364__91e4b8e1-11ec-427f-8649-c6a8ae28dfd7-description-1"
       ],
+      "disabled": true,
       "settings": {
         "featured_product": "the-block-runner-red-white",
         "divider": false,
@@ -90,7 +91,6 @@
       "block_order": [
         "16649038026416c14c-0"
       ],
-      "disabled": true,
       "settings": {
         "full_width": false,
         "space_around": false,
@@ -99,10 +99,9 @@
     },
     "9be68cd0-7327-422f-a4fc-850561ae28e4": {
       "type": "featured-collection",
-      "disabled": true,
       "settings": {
-        "title": "4Hunnid Flare Collection",
-        "home_featured_products": "2023-4hunnid-flare-collection",
+        "title": "Holiday Sale",
+        "home_featured_products": "2023-holiday-sale-2",
         "per_row": 4,
         "rows": 20,
         "mobile_scrollable": false,
