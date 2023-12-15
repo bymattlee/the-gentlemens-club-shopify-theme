@@ -81,7 +81,7 @@
         "16649038026416c14c-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Home_-_Drop_410731b8-fa7b-4a35-957c-299cc5c5c29b.jpg",
+            "image": "shopify:\/\/shop_images\/Website_Flyer.jpg",
             "link": "",
             "width": "33%",
             "alignment": "center"
@@ -100,7 +100,7 @@
     "9be68cd0-7327-422f-a4fc-850561ae28e4": {
       "type": "featured-collection",
       "settings": {
-        "title": "Holiday Sale",
+        "title": "Christmas Sale",
         "home_featured_products": "2023-christmas-sale",
         "per_row": 4,
         "rows": 20,
