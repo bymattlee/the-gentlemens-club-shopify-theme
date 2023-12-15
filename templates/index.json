@@ -101,7 +101,7 @@
       "type": "featured-collection",
       "settings": {
         "title": "Holiday Sale",
-        "home_featured_products": "2023-holiday-sale-2",
+        "home_featured_products": "2023-christmas-sale",
         "per_row": 4,
         "rows": 20,
         "mobile_scrollable": false,
