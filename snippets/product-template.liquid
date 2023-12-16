@@ -127,6 +127,11 @@
   {%- endcomment -%}
 {% endcapture %}
 
+{%- assign is_final_sale = false -%}
+{%- if product.tags contains 'final sale' or product.tags contains 'Final Sale' -%}
+  {%- assign is_final_sale = true -%}
+{%- endif -%}
+
 <div id="ProductSection-{{ section_id }}-{{ product.id }}"
   class="product-section"
   data-section-id="{{ section_id }}"
@@ -199,6 +204,10 @@
                     {{ 'home_page.onboarding.product_title' | t }}
                   {%- endunless -%}
                 </h1>
+              {%- endif -%}
+
+              {%- if is_final_sale -%}
+                <p class="product-single__final-sale-text">Final Sale - No Returns Or Exchanges.</p>
               {%- endif -%}
 
               {%- if sku_enable -%}
