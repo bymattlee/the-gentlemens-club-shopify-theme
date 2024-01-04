@@ -159,6 +159,13 @@
             "enlarge_text": true,
             "text": "<p><strong>CAN I RETURN CHERRY BOMB IF I’M NOT SATISFIED?<\/strong><\/p><p>I STRONGLY DOUBT YOU’LL WANT TO…BUT YES IF YOU ARE NOT FULLY SATISFIED MY MONEY-BACK GUARANTEE POLICY HAS YOU COVERED.<\/p>"
           }
+        },
+        "8cc47b19-6280-4aa0-8126-54d3a0b7e911": {
+          "type": "button",
+          "settings": {
+            "link": "https:\/\/www.instagram.com\/CHERRYBOMB._____",
+            "link_text": "FOLLOW @CHERRYBOMB.___ ON INSTAGRAM"
+          }
         }
       },
       "block_order": [
@@ -168,7 +175,8 @@
         "addd4925-1619-49aa-8b46-efa6ae111a51",
         "9548feaa-d0f9-4fc7-ad7e-4440087f980f",
         "412300c5-da51-4bf2-9c09-9c10ba798517",
-        "9343d1fa-5af9-48a9-8116-9842deb5eb3f"
+        "9343d1fa-5af9-48a9-8116-9842deb5eb3f",
+        "8cc47b19-6280-4aa0-8126-54d3a0b7e911"
       ],
       "settings": {
         "align_text": "center",
