@@ -51,6 +51,28 @@
         "product_video_style": "muted"
       }
     },
+    "advanced_content_MkizN6": {
+      "type": "advanced-content",
+      "blocks": {
+        "image_4edH83": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Cherry_Bomb_Lifestyle_1_53d22ad4-1645-45ee-9952-f0d3269e4ecf.jpg",
+            "link": "",
+            "width": "50%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "image_4edH83"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "center_content": true
+      }
+    },
     "rich_text_eaxVDJ": {
       "type": "rich-text",
       "blocks": {
@@ -74,17 +96,95 @@
             "enlarge_text": false,
             "text": "<p><strong>WHAT IS CHERRY BOMB?<\/strong><\/p><p>CHERRY BOMB IS AN ALL NATURAL SUPPLEMENT USED TO ENHANCE ERECTIONS. CHERRY BOMB CAN HELP A MAN GET: 1) TURNED ON & 2) GET HIS BLOOD PUMPING FOR A HARDER, FIRMER ERECTION.<\/p>"
           }
+        },
+        "text_CFgYkX": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p><strong>HOW DO I TAKE CHERRY BOMB?<\/strong><\/p><p>TAKE 45 MINUTES BEFORE SEX. TAKING CHERRY BOMB BEFORE SEX CAN GIVE YOU STRONGER AND MORE POWERFUL ERECTIONS WHEN IT’S TIME TO PERFORM – AND  INTENSE ORGASMS WHEN IT’S TIME TO CLIMAX.<\/p>"
+          }
+        },
+        "text_fzPUew": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p><strong>WILL CHERRY BOMB WORK FOR ME?<\/strong><\/p><p>CHERRY BOMB IS A TESTED FORMULA WITH EFFECTIVE INGREDIENTS. WHILE NO PRODUCT WORKS FOR EVERYONE, CHERRY BOMB IS LIKELY TO WORK FOR YOU.<\/p>"
+          }
+        },
+        "text_L7CKKL": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p><strong>WILL CHERRY BOMB MAKE MY PENIS BIGGER?<\/strong><\/p><p>WE SAY - BE BIGGER <em>WHEN IT COUNTS<\/em>! CHERRY BOMB MAY BE USED TO INCREASE BLOOD FLOW TO PRODUCE BIGGER, FIRMER ERECTIONS. PRODUCT DISCLAIMER: CHERRY BOMB, LIKE OTHER PILLS,<em> IS NOT INTENDED TO NOR DOES IT MAKE YOUR FLACID STRONGMAN PERMANENTLY BIGGER. <\/em><\/p>"
+          }
+        },
+        "text_QhV9Gb": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p><strong>HOW IS CHERRY BOMB BETTER THAN SOME OF THE POPULAR PRODUCTS ON THE MARKET?<\/strong><\/p><p>CHERRY BOMB IS 1 OF A FEW TRUSTED <em>ALL NATURAL<\/em> MALE ENHANCEMENT PILLS. <\/p><p>KEEP SUPPLY ON HAND AND TAKE CHERRY BOMB ONLY WHEN YOU NEED IT. <\/p><ul><li>GET TURNED ON – UNLIKE OTHER PILLS THAT JUST GET YOU HARD, CHERRY BOMB MAY ALSO INCREASE SEXUAL AROUSAL. DESIRE. WANTING.<\/li><li>MINIMAL SIDE EFFECTS – MADE WITH ALL NATURAL INGREDIENTS, CHERRY BOMB IS LESS LIKELY TO CAUSE DIZZINESS OR HEADACHE, A FEW OF THE MOST NEGATIVE SIDE EFFECTS OF CONVENTIONAL PRODUCTS.<\/li><li>CONVENIENT – TAKING A PILL DAILY AND BUYING WHATEVER’S AT THE GAS STATION IS AN INCONVENIENT GAMBLE. CHERRY BOMB CAN POWER ON-DEMAND. NO WAITING DAYS\/MONTHS FOR SYSTEM BUILD UP AND NO RUNNING OUT TO THE NEAREST GAS STATION. WITH A PACK AT HOME – AND IN THE CAR – YOU’RE READY<\/li><\/ul>"
+          }
+        },
+        "text_BKFyBF": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p><strong>ARE THERE ANY SIDE EFFECTS?<\/strong><\/p><p>CHERRY BOMB WAS FORMULATED WITH ALL NATURAL HERBS, WELLNESS PROPERTIES AND IS 100% DRUG-FREE. IT CONTAINS ONLY INGREDIENTS CONSIDERED TO BE SAFE FOR ON-GOING USE WITHOUT THE LIKELIHOOD OF SIDE EFFECTS. HOWEVER, AS POSSIBLE WITH ANY FOOD OR SUPPLEMENT, ONE COULD HAVE AN ADVERSE REACTION. IN WHICH CASE ONE SHOULD DISCONTINUE USE AND CONSULT A MEDICAL PROFESSIONAL.<\/p>"
+          }
+        },
+        "text_BL84NN": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p><strong>CAN I RETURN CHERRY BOMB IF I’M NOT SATISFIED?<\/strong><\/p><p>WE ARE CONFIDENT THAT CHERRY BOMB WILL LEAVE YOU MORE THAN SATISFIED, BUT IF YOU NEED TO RETURN FOR ANY REASON, OUR MONEY-BACK GUARANTEE HAS YOU COVERED.<\/p>"
+          }
+        },
+        "text_QfxYAx": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p><a href=\"https:\/\/www.instagram.com\/cherrybomb.4h\/\" target=\"_blank\" title=\"https:\/\/www.instagram.com\/cherrybomb.4h\/\"><strong>FOLLOW @CHERRYBOMB.4H ON INSTAGRAM<\/strong><\/a><\/p>"
+          }
         }
       },
       "block_order": [
         "text_BB6wBP",
         "text_Cq3yeX",
-        "text_xiUmQ7"
+        "text_xiUmQ7",
+        "text_CFgYkX",
+        "text_fzPUew",
+        "text_L7CKKL",
+        "text_QhV9Gb",
+        "text_BKFyBF",
+        "text_BL84NN",
+        "text_QfxYAx"
       ],
       "settings": {
         "align_text": "center",
         "narrow_column": true,
         "divider": false
+      }
+    },
+    "advanced_content_rhqKbY": {
+      "type": "advanced-content",
+      "blocks": {
+        "image_q4R8QK": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Cherry_Bomb_Lifestyle_2_111d4b34-2c4d-4cbc-a62d-0a329bdabf0e.jpg",
+            "link": "",
+            "width": "50%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "image_q4R8QK"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "center_content": true
       }
     },
     "sub": {
@@ -111,7 +211,9 @@
   },
   "order": [
     "main",
+    "advanced_content_MkizN6",
     "rich_text_eaxVDJ",
+    "advanced_content_rhqKbY",
     "sub",
     "product-recommendations",
     "recently-viewed"
