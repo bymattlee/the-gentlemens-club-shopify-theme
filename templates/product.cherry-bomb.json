@@ -51,28 +51,6 @@
         "product_video_style": "muted"
       }
     },
-    "advanced_content_MkizN6": {
-      "type": "advanced-content",
-      "blocks": {
-        "image_4edH83": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Cherry_Bomb_Lifestyle_1_53d22ad4-1645-45ee-9952-f0d3269e4ecf.jpg",
-            "link": "",
-            "width": "50%",
-            "alignment": "center"
-          }
-        }
-      },
-      "block_order": [
-        "image_4edH83"
-      ],
-      "settings": {
-        "full_width": false,
-        "space_around": true,
-        "center_content": true
-      }
-    },
     "rich_text_eaxVDJ": {
       "type": "rich-text",
       "blocks": {
@@ -165,13 +143,13 @@
         "divider": false
       }
     },
-    "advanced_content_rhqKbY": {
+    "advanced_content_MkizN6": {
       "type": "advanced-content",
       "blocks": {
-        "image_q4R8QK": {
+        "image_4edH83": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Cherry_Bomb_Lifestyle_2_111d4b34-2c4d-4cbc-a62d-0a329bdabf0e.jpg",
+            "image": "shopify:\/\/shop_images\/Cherry_Bomb_Lifestyle_1_53d22ad4-1645-45ee-9952-f0d3269e4ecf.jpg",
             "link": "",
             "width": "50%",
             "alignment": "center"
@@ -179,7 +157,7 @@
         }
       },
       "block_order": [
-        "image_q4R8QK"
+        "image_4edH83"
       ],
       "settings": {
         "full_width": false,
@@ -211,9 +189,8 @@
   },
   "order": [
     "main",
-    "advanced_content_MkizN6",
     "rich_text_eaxVDJ",
-    "advanced_content_rhqKbY",
+    "advanced_content_MkizN6",
     "sub",
     "product-recommendations",
     "recently-viewed"
