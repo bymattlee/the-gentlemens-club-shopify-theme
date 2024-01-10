@@ -48,69 +48,23 @@
         "center_content": true
       }
     },
-    "1ef2f2fb-0e29-4723-819c-43b6913e2597": {
+    "7cff8f9e-056f-408e-b55d-36762c8d2f9f": {
       "type": "rich-text",
       "blocks": {
-        "template--15735071834156__1ef2f2fb-0e29-4723-819c-43b6913e2597-text-1": {
+        "d5b57c6f-c663-4391-9283-79a67d188f8a": {
           "type": "text",
           "settings": {
             "enlarge_text": false,
             "text": "<p><strong>ABOUT US<\/strong><\/p><p>CHERRY BOMB IS A NATURAL MALE ENHANCEMENT SUPPLEMENT FOR MEN WHO WANT TO GO ALL NIGHT LONG WITHOUT THE TYPICAL SIDE EFFECTS<\/p>"
           }
         },
-        "9e21e3e8-0ff5-4d04-8558-e6b31a9454ae": {
+        "25322f43-6840-4ce7-a066-de64a6da0984": {
           "type": "text",
           "settings": {
             "enlarge_text": false,
             "text": "<p><strong>WHAT DOES 4HUNNID’S CHERRY BOMB DO?<\/strong><\/p><ul><li>IMPROVES THE PHYSICAL APPEARANCE OF YOUR STRONGMAN SO YOU’LL APPEAR BIGGER, WIDER, AND FIRMER<\/li><li>INTENSIFIES THE SEXUAL EXPERIENCE BECAUSE YOU’LL BE THROBBING WITH DESIRE AND RELEASING POUNDING ORGASMS<\/li><li>IGNITES THE SEXUAL COMPATIBILITY BETWEEN YOU AND YOUR PARTNER, HELPING YOU TAKE THEM TO THEIR PLEASURE PEAK OVER AND OVER AGAIN<\/li><\/ul><p>CHERRY BOMB IS MADE TO BOOST YOUR NIGHTTIME PERFORMANCE WITHOUT KILLING YOUR MORNING VIBE.<\/p><p>A POTENT, ALL-NATURAL FORMULA.<\/p><p>WE DO NOT BELIEVE IN INTOXICATION, JUST INTOXICATING SEX. THAT’S WHY 4HUNNID’S “CHERRY BOMB” IS MADE FROM 100% NATURAL INGREDIENTS. EACH INGREDIENT IN CHERRY BOMB HAS ENHANCING PROPERTIES, WELLNESS PROPERTIES, OR BOTH!  WHEN COMBINED, THESE INGREDIENTS WORK TOGETHER TO HELP IMPROVE YOUR SEXUAL PERFORMANCE AND ARE LESS LIKELY TO CAUSE SIDE EFFECTS.<\/p><ul><li>PANAX GINSENG IS A PLANT ROOT THAT IS COMMONLY USED TO IMPROVE PHYSICAL STAMINA. IT IS ALSO COMMONLY USED TO TREAT DIZZINESS AND HEADACHES.<\/li><li>WILD YAM PLANT IS A ROOT AND BULB THAT IS A SOURCE OF DIOSGENIN, WHICH IS COMMONLY USED TO INCREASE ENERGY AND SEXUAL DRIVE.<\/li><li>WHITE WILLOW EXTRACT IS FROM TREE BARK THAT IS COMMONLY USED AS A PAIN RELIEVER AND TO TREAT HEADACHES.<\/li><li>CAYENNE EXTRACT IS AN HERB COMMONLY USED TO IMPROVE CIRCULATION AND BLOOD FLOW, WHICH WILL LEAD TO HARDER, FIRMER ERECTIONS.<\/li><li>TRIBULUS TERRESTRIS IS AN HERB COMMONLY USED TO INCREASE SEX DRIVE<\/li><li>GINKGO IS AN HERB COMMONLY USED TO IMPROVE LIBIDO<\/li><\/ul>"
           }
-        }
-      },
-      "block_order": [
-        "template--15735071834156__1ef2f2fb-0e29-4723-819c-43b6913e2597-text-1",
-        "9e21e3e8-0ff5-4d04-8558-e6b31a9454ae"
-      ],
-      "settings": {
-        "align_text": "center",
-        "narrow_column": true,
-        "divider": false
-      }
-    },
-    "63937e18-3114-448e-8225-a1e7e1af4ebf": {
-      "type": "advanced-content",
-      "blocks": {
-        "template--15735071834156__63937e18-3114-448e-8225-a1e7e1af4ebf-image-1": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Cherry_Bomb_Packaging.jpg",
-            "link": "",
-            "width": "50%",
-            "alignment": "center"
-          }
         },
-        "a2c9b79f-d3d5-4fb7-9a36-6e8262abfb4e": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Cherry_Bomb_Pill.jpg",
-            "link": "",
-            "width": "50%",
-            "alignment": "center"
-          }
-        }
-      },
-      "block_order": [
-        "template--15735071834156__63937e18-3114-448e-8225-a1e7e1af4ebf-image-1",
-        "a2c9b79f-d3d5-4fb7-9a36-6e8262abfb4e"
-      ],
-      "settings": {
-        "full_width": false,
-        "space_around": true,
-        "center_content": true
-      }
-    },
-    "7cff8f9e-056f-408e-b55d-36762c8d2f9f": {
-      "type": "rich-text",
-      "blocks": {
         "template--15735071834156__7cff8f9e-056f-408e-b55d-36762c8d2f9f-text-1": {
           "type": "text",
           "settings": {
@@ -169,6 +123,8 @@
         }
       },
       "block_order": [
+        "d5b57c6f-c663-4391-9283-79a67d188f8a",
+        "25322f43-6840-4ce7-a066-de64a6da0984",
         "template--15735071834156__7cff8f9e-056f-408e-b55d-36762c8d2f9f-text-1",
         "a5760eb5-eb37-4901-abb9-fd73a3f0220b",
         "9bf10295-723d-43a2-90d1-0699ba3f9cc9",
@@ -211,8 +167,6 @@
     "main",
     "bd221d34-073e-4005-8cb5-4d74c1afe2fe",
     "3eaa6dc1-4f33-4cd0-bcce-18d04c93f5cd",
-    "1ef2f2fb-0e29-4723-819c-43b6913e2597",
-    "63937e18-3114-448e-8225-a1e7e1af4ebf",
     "7cff8f9e-056f-408e-b55d-36762c8d2f9f",
     "e1bb2577-61c0-4026-9b2c-9c6c038e1360"
   ]
