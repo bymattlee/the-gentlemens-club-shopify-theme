@@ -7731,16 +7731,19 @@ lazySizesConfig.expFactor = 4
               )
             }
 
-            this.cache.savePrice.classList.remove(classes.hidden)
-            this.cache.savePrice.innerHTML = theme.strings.savePrice.replace(
-              '[saved_amount]',
-              savings
-            )
+            if (this.cache.savePrice) {
+              this.cache.savePrice.classList.remove(classes.hidden)
+              this.cache.savePrice.innerHTML = theme.strings.savePrice.replace(
+                '[saved_amount]',
+                savings
+              )
+            }
           } else {
             if (this.cache.priceWrapper) {
               this.cache.priceWrapper.classList.add(classes.hidden)
             }
-            this.cache.savePrice.classList.add(classes.hidden)
+            if (this.cache.savePrice)
+              this.cache.savePrice.classList.add(classes.hidden)
             this.cache.price.classList.remove(classes.onSale)
             if (this.cache.comparePriceA11y) {
               this.cache.comparePriceA11y.setAttribute('aria-hidden', 'true')
@@ -8152,24 +8155,36 @@ lazySizesConfig.expFactor = 4
 
       updateVariantImage: function (evt) {
         var variant = evt.detail.variant
-        var sizedImgUrl = theme.Images.getSizedImageUrl(
-          variant.featured_media.preview_image.src,
-          this.settings.imageSize
-        )
 
-        var newImage = this.container.querySelector(
-          '.product__thumb[data-id="' + variant.featured_media.id + '"]'
-        )
-        var imageIndex = this.getThumbIndex(newImage)
+        // If flickity is enabled and on mobile
+        if (this.flickity && window.innerWidth <= 768) {
+          var newImage = this.container.querySelector(
+            '.product__thumb[data-id="' + variant.featured_media.id + '"]'
+          )
+          var imageIndex = this.getThumbIndex(newImage)
 
-        // If there is no index, slider is not initalized
-        if (typeof imageIndex === 'undefined') {
-          return
-        }
+          // If there is no index, slider is not initalized
+          if (typeof imageIndex === 'undefined') {
+            return
+          }
 
-        // Go to that variant image's slide
-        if (this.flickity) {
           this.flickity.goToSlide(imageIndex)
+        } else {
+          // On desktop, scroll to image
+          var newImage = this.container.querySelector(
+            '.photoswipe__image[data-id="' + variant.featured_media.id + '"]'
+          )
+
+          if (!newImage) return
+
+          var imageRect = newImage.getBoundingClientRect()
+          var imageYPosition = window.pageYOffset + imageRect.top
+
+          window.scroll({
+            top: imageYPosition,
+            left: 0,
+            behavior: 'smooth',
+          })
         }
       },
 
@@ -8185,11 +8200,24 @@ lazySizesConfig.expFactor = 4
         var photoThumbsRemoved =
           this.settings.photoThumbsRemoved && window.innerWidth > 768
 
-        if (singleImage || photoThumbsRemoved) {
+        if (singleImage) {
           var slide = this.cache.mainSlider.querySelector(selectors.slide)
           if (slide) {
             slide.classList.add('is-selected')
           }
+          return
+        } else if (photoThumbsRemoved) {
+          var activeSlide = this.cache.mainSlider.querySelector(
+            selectors.startingSlide
+          )
+
+          if (!activeSlide || activeSlide.dataset.index === '0') return
+
+          var activeSlideRect = activeSlide.getBoundingClientRect()
+          var activeSlideYPosition = window.pageYOffset + activeSlideRect.top
+
+          window.scroll(0, activeSlideYPosition)
+
           return
         }
 

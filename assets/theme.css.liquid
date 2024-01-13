@@ -2250,6 +2250,11 @@ button[disabled],html input[disabled]{
       display:none;
     }
 
+.btn--circle:hover {
+  color:{{ settings.color_body_text | default: "#1c1d1d" }} !important;
+  color:var(--colorTextBody) !important;
+}
+
 .btn--small{
   padding:8px 14px;
   background-position:150% 45%;
