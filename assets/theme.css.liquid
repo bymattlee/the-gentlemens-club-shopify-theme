@@ -2121,8 +2121,8 @@ button[disabled],html input[disabled]{
     }
 
 .btn--secondary:hover,.rte .btn--secondary:hover{
-    color:{{ settings.color_body_text | default: "#1c1d1d" }};
-    color:var(--colorTextBody);
+    color:{{ settings.color_body_text | default: "#1c1d1d" }} !important;
+    color:var(--colorTextBody) !important;
     border-color:{{ settings.color_body_text | default: "#1c1d1d" }};
     border-color:var(--colorTextBody);
     background-color:transparent;
