@@ -55,10 +55,9 @@
     },
     "9be68cd0-7327-422f-a4fc-850561ae28e4": {
       "type": "featured-collection",
-      "disabled": true,
       "settings": {
-        "title": "Christmas Sale",
-        "home_featured_products": "2023-christmas-sale",
+        "title": "Life is Like Collection",
+        "home_featured_products": "2024-life-is-like-collection",
         "per_row": 4,
         "rows": 20,
         "mobile_scrollable": false,
