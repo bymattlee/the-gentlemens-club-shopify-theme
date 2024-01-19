@@ -36,7 +36,7 @@
         "16649038026416c14c-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Website_Flyer.jpg",
+            "image": "shopify:\/\/shop_images\/Drop.jpg",
             "link": "",
             "width": "33%",
             "alignment": "center"
@@ -46,7 +46,6 @@
       "block_order": [
         "16649038026416c14c-0"
       ],
-      "disabled": true,
       "settings": {
         "full_width": false,
         "space_around": false,
