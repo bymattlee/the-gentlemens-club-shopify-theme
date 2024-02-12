@@ -14,10 +14,18 @@
           "settings": {
             "title": "Podcast"
           }
+        },
+        "text_NDJWVH": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p><\/p><p><\/p>"
+          }
         }
       },
       "block_order": [
-        "heading_h7c9QU"
+        "heading_h7c9QU",
+        "text_NDJWVH"
       ],
       "settings": {
         "align_text": "center",
@@ -40,12 +48,40 @@
         "video_url": "https:\/\/www.youtube.com\/watch?v=aUrpRaZAYDE",
         "divider": false
       }
+    },
+    "rich_text_B6FFFE": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_tL6zJh": {
+          "type": "heading",
+          "settings": {
+            "title": "Rich text"
+          }
+        },
+        "text_rz4VBG": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": true,
+            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_tL6zJh",
+        "text_rz4VBG"
+      ],
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false
+      }
     }
   },
   "order": [
     "main",
     "rich_text_kD6tW4",
     "featured_video_w6D87T",
-    "featured_video_WBkKHJ"
+    "featured_video_WBkKHJ",
+    "rich_text_B6FFFE"
   ]
 }
