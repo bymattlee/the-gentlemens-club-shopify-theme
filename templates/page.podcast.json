@@ -52,6 +52,13 @@
     "rich_text_B6FFFE": {
       "type": "rich-text",
       "blocks": {
+        "text_UTjLUa": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": true,
+            "text": "<p><\/p><p><\/p>"
+          }
+        },
         "heading_tL6zJh": {
           "type": "heading",
           "settings": {
@@ -67,6 +74,7 @@
         }
       },
       "block_order": [
+        "text_UTjLUa",
         "heading_tL6zJh",
         "text_rz4VBG"
       ],
