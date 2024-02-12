@@ -41,6 +41,26 @@
         "divider": false
       }
     },
+    "rich_text_WzhXzR": {
+      "type": "rich-text",
+      "blocks": {
+        "text_jaqTA4": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": true,
+            "text": "<p><\/p><p><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_jaqTA4"
+      ],
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false
+      }
+    },
     "featured_video_WBkKHJ": {
       "type": "featured-video",
       "settings": {
@@ -89,6 +109,7 @@
     "main",
     "rich_text_kD6tW4",
     "featured_video_w6D87T",
+    "rich_text_WzhXzR",
     "featured_video_WBkKHJ",
     "rich_text_B6FFFE"
   ]
