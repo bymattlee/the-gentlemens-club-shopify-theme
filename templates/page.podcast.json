@@ -55,14 +55,14 @@
         "heading_tL6zJh": {
           "type": "heading",
           "settings": {
-            "title": "Rich text"
+            "title": "Follow @4HUNNIDPodcast"
           }
         },
         "text_rz4VBG": {
           "type": "text",
           "settings": {
-            "enlarge_text": true,
-            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>"
+            "enlarge_text": false,
+            "text": "<p><a href=\"https:\/\/open.spotify.com\/show\/4DN3Q92yaTjHJ9XIFdjGF3?si=e698c770e659478e\" target=\"_blank\" title=\"https:\/\/open.spotify.com\/show\/4DN3Q92yaTjHJ9XIFdjGF3?si=e698c770e659478e\">Spotify<\/a> \/ <a href=\"https:\/\/www.youtube.com\/@4HUNNIDPODCAST\" target=\"_blank\" title=\"https:\/\/www.youtube.com\/@4HUNNIDPODCAST\">YouTube<\/a> \/ <a href=\"https:\/\/podcasts.apple.com\/us\/podcast\/4hunnid-podcast\/id1728148476?ign-itscg=30200&ign-itsct=lt_p\" target=\"_blank\" title=\"https:\/\/podcasts.apple.com\/us\/podcast\/4hunnid-podcast\/id1728148476?ign-itscg=30200&ign-itsct=lt_p\">Apple Podcasts<\/a> \/ <a href=\"https:\/\/music.amazon.com\/podcasts\/8763933c-00f8-47b4-a2fb-3458eb28d3d4\/4hunnid-podcast\" target=\"_blank\" title=\"https:\/\/music.amazon.com\/podcasts\/8763933c-00f8-47b4-a2fb-3458eb28d3d4\/4hunnid-podcast\">Amazon Music<\/a> \/ <a href=\"https:\/\/www.tiktok.com\/@4hunnidpodcast\" target=\"_blank\" title=\"https:\/\/www.tiktok.com\/@4hunnidpodcast\">TikTok<\/a><\/p>"
           }
         }
       },
