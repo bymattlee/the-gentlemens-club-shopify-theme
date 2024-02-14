@@ -13157,13 +13157,13 @@ html[dir=rtl] .product-single__meta .rte{
   margin-top: 12px !important;
 }
 
-.rc-subscription-details {
+ .rc-subscription-details {
   padding: 16px 0 0 !important;
 }
 
 .rc-subscription-details .rc-subscription-details__button,
 .rc-tooltip .rc-tooltip__footer .recharge-badge .powered-by,
-.rc-tooltip .rc-tooltip__footer .recharge-badge svg {
+ .rc-tooltip .rc-tooltip__footer .recharge-badge svg {
   color: var(--colorTextBody) !important;
 }
 
@@ -13172,16 +13172,64 @@ html[dir=rtl] .product-single__meta .rte{
   box-shadow: none !important;
 }
 
-.rc-tooltip .how-it-works {
-  font-weight: 700 !important;
+body .rc-tooltip .how-it-works {
+  font-weight: 700;
 }
 
-.rc-tooltip a.learn-more {
-  margin-top: 8px !important;
-  display: inline-block !important;
-  font-weight: 700 !important;
+body .rc-tooltip a.learn-more {
+  margin-top: 8px;
+  display: inline-block;
+  font-weight: 700;
 }
 
-.rc-tooltip .rc-tooltip__footer .recharge-badge {
+body .rc-tooltip .rc-tooltip__footer .recharge-badge {
   border: none !important;
+}
+
+body .rc-login--body {
+  box-shadow: none !important;
+}
+
+body .rc-login {
+  --rc-font-color: var(--color-red);
+  --rc-button-bg-color: var(--color-red);
+  --rc-border-radius: none;
+}
+
+body .rc-login--header-title {
+  padding-right: 40px;
+  text-align: center;
+}
+
+body .rc-login-form-email {
+  border-color: var(--color-red);
+  text-align: center;
+  padding-right: 12px;
+}
+
+body .rc-login-form-email:not(:placeholder-shown),
+body .rc-enter-code-digits-item {
+  border: 1px solid var(--color-red);
+}
+
+body .rc-enter-code-header {
+  justify-content: center;
+}
+
+body .rc-enter-code-text {
+  text-align: center;
+}
+
+body .rc-enter-code-sms-info {
+  color: var(--color-red);
+}
+
+body .recharge-theme {
+  --recharge-color-neutral: var(--color-red);
+  --recharge-color-neutral-80: #f14950;
+  --recharge-color-neutral-70: #f4777c;
+  --recharge-color-neutral-40: #f8a4a7;
+  --recharge-color-neutral-10: #fbc6c8;
+  --recharge-typography-primary: var(--color-red);
+  --recharge-typography-secondary: var(--color-red);
 }
