@@ -36,15 +36,24 @@
         "16649038026416c14c-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Drop.jpg",
-            "link": "",
+            "image": "shopify:\/\/shop_images\/Cherry_Bomb_-_Ad_b5ec0589-cdb3-4176-81e9-db9046816cbf.jpg",
+            "link": "shopify:\/\/products\/cherry-bomb",
             "width": "33%",
+            "alignment": "center"
+          }
+        },
+        "liquid_kn78Xq": {
+          "type": "liquid",
+          "settings": {
+            "code": "<p style=\"text-align: center;\"><a href=\"\/products\/cherry-bomb\" class=\"btn\">Buy Now<\/a><\/p>",
+            "width": "100%",
             "alignment": "center"
           }
         }
       },
       "block_order": [
-        "16649038026416c14c-0"
+        "16649038026416c14c-0",
+        "liquid_kn78Xq"
       ],
       "settings": {
         "full_width": false,
@@ -54,6 +63,7 @@
     },
     "9be68cd0-7327-422f-a4fc-850561ae28e4": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Life is Like Collection",
         "home_featured_products": "2024-life-is-like-collection",
