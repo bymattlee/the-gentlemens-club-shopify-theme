@@ -446,6 +446,10 @@
                           {%- if block.settings.tab_3_title and block.settings.tab_3_content -%}
                             <button class="product-content-toggle__trigger" data-tab="3">{{ block.settings.tab_3_title }}</button>
                           {%- endif -%}
+
+                          {%- if block.settings.tab_4_title and block.settings.tab_4_content -%}
+                            <button class="product-content-toggle__trigger" data-tab="4">{{ block.settings.tab_4_title }}</button>
+                          {%- endif -%}
                         </div>
                         <div class="product-content-toggle__content">
                           <div class="product-content-toggle__content-item" data-tab="1">
@@ -461,6 +465,12 @@
                           {%- if block.settings.tab_3_content -%}
                             <div class="product-content-toggle__content-item" data-tab="3">
                               {{ block.settings.tab_3_content.content }}
+                            </div>
+                          {%- endif -%}
+
+                          {%- if block.settings.tab_4_content -%}
+                            <div class="product-content-toggle__content-item" data-tab="4">
+                              {{ block.settings.tab_4_content.content }}
                             </div>
                           {%- endif -%}
                         </div>

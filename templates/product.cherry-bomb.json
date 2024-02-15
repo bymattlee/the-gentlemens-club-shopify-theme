@@ -34,8 +34,10 @@
           "settings": {
             "tab_2_title": "Ingredients",
             "tab_2_content": "cherry-bomb-ingredients",
-            "tab_3_title": "Shipping & Returns",
-            "tab_3_content": "cherry-bomb-shipping-and-returns"
+            "tab_3_title": "Subscription",
+            "tab_3_content": "cherry-bomb-subscription",
+            "tab_4_title": "Shipping & Returns",
+            "tab_4_content": "cherry-bomb-shipping-and-returns"
           }
         }
       },
@@ -144,7 +146,7 @@
           "settings": {
             "icon": "thumbs-up",
             "title": "Safe & effective",
-            "text": "<p><em>Cherry Bomb <\/em>does not contain any illegal drugs or substances. Every ingredient used in <em>Cherry Bomb <\/em>undergoes professional dosing and rigorous quality control checks from our trusted suppliers in Los Angeles, CA. <\/p>"
+            "text": "<p>Cherry Bomb is formulated, crafted, and packaged in our partnered registered Los Angeles facility.<\/p>"
           }
         },
         "text_block_ABznEG": {
