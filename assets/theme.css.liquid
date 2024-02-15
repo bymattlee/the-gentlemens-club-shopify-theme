@@ -6183,6 +6183,7 @@ form+.footer__social{
 .collapsible-trigger{
   color:inherit;
   position:relative;
+  width: 100%;
 }
 
 .collapsible-trigger__icon{
@@ -6233,8 +6234,8 @@ form+.footer__social{
 
 .collapsible-trigger__icon--circle{
   border:1px solid;
-  border-color:{{ settings.color_borders | default: "#1c1d1d" }};
-  border-color:var(--colorBorder);
+  border-color:{{ settings.color_body_text | default: "#1c1d1d" }};
+  border-color:var(--colorTextBody);
   width:28px;
   height:28px;
   border-radius:28px;
@@ -6304,6 +6305,7 @@ form+.footer__social{
 } */
 
 .rte.collapsible-content__inner--faq{
+  padding-top: 10px;
   padding-bottom:30px;
 }
 

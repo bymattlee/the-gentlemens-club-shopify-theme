@@ -32,10 +32,10 @@
         "f04516e7-cbde-4edf-989d-313bc0f49fee": {
           "type": "content_toggle",
           "settings": {
-            "tab_2_title": "Size Guide",
-            "tab_2_content": "{{ product.metafields.tab.size_guide_page.value }}",
+            "tab_2_title": "Ingredients",
+            "tab_2_content": "cherry-bomb-ingredients",
             "tab_3_title": "Shipping & Returns",
-            "tab_3_content": "shipping-returns-tab"
+            "tab_3_content": "cherry-bomb-shipping-and-returns"
           }
         }
       },
@@ -58,99 +58,164 @@
         "product_video_style": "muted"
       }
     },
-    "rich_text_eaxVDJ": {
+    "rich_text_BDVdRH": {
       "type": "rich-text",
       "blocks": {
-        "text_FAgCxL": {
+        "text_i46tTE": {
           "type": "text",
           "settings": {
-            "enlarge_text": false,
-            "text": "<p> <\/p>"
-          }
-        },
-        "text_BB6wBP": {
-          "type": "text",
-          "settings": {
-            "enlarge_text": false,
-            "text": "<p><strong>About Us<\/strong><\/p><p>Cherry Bomb is a natural male enhancement supplement for men who want to go all night long without the typical side effects.<\/p>"
-          }
-        },
-        "text_Cq3yeX": {
-          "type": "text",
-          "settings": {
-            "enlarge_text": false,
-            "text": "<p><strong>What does 4HUNNID’s Cherry Bomb do?<\/strong><\/p><ul><li>Improves the physical appearance of your strongman so you’ll appear bigger, wider, and firmer<\/li><li>Intensifies the sexual experience because you’ll be throbbing with desire and releasing pounding orgasms<\/li><li>Ignites the sexual compatibility between you and your partner, helping you take them to their pleasure peak over and over again<\/li><\/ul><p>Cherry Bomb is made to boost your nighttime performance without killing your morning vibe.<\/p><p>A potent, all-natural formula.<\/p><p>We do not believe in intoxication, just intoxicating sex. That’s why 4HUNNID’s “Cherry Bomb” is made from 100% natural ingredients. Each ingredient in Cherry Bomb has enhancing properties, wellness properties, or both!  When combined, these ingredients work together to help improve your sexual performance and are less likely to cause side effects.<\/p><ul><li>Tongkat ali is an herbal supplement commonly used as an aphrodisiac and testosterone booster.<\/li><li>Deer antler velvet is an herb commonly used to help improve blood flow to the genitals, raise testosterone levels, and increase physical stamina during sex.<\/li><li>White willow extract is from tree bark that is commonly used as a pain reliever and to treat headaches.<\/li><li>Cayenne extract is an herb commonly used to improve circulation and blood flow, which will lead to harder, firmer erections.<\/li><li>Panax ginseng is a plant root that is commonly used to improve physical stamina. It is also commonly used to treat dizziness and headaches.<\/li><li>Tribulus terrestris is an herb commonly used to increase sex drive.<\/li><\/ul>"
-          }
-        },
-        "text_xiUmQ7": {
-          "type": "text",
-          "settings": {
-            "enlarge_text": false,
-            "text": "<p><strong>What is Cherry Bomb?<\/strong><\/p><p>Cherry Bomb is an all natural supplement used to enhance erections. Cherry Bomb can help a man get: 1) turned on & 2) get his blood pumping for a harder, firmer erection.<\/p>"
-          }
-        },
-        "text_CFgYkX": {
-          "type": "text",
-          "settings": {
-            "enlarge_text": false,
-            "text": "<p><strong>How do I take Cherry Bomb?<\/strong><\/p><p>Take 45 minutes before sex. Taking Cherry Bomb before sex can give you stronger and more powerful erections when it’s time to perform – and intense orgasms when it’s time to climax.<\/p>"
-          }
-        },
-        "text_fzPUew": {
-          "type": "text",
-          "settings": {
-            "enlarge_text": false,
-            "text": "<p><strong>Will Cherry Bomb work for me?<\/strong><\/p><p>Cherry Bomb is a tested formula with effective ingredients. While no product works for everyone, Cherry Bomb is likely to work for you.<\/p>"
-          }
-        },
-        "text_L7CKKL": {
-          "type": "text",
-          "settings": {
-            "enlarge_text": false,
-            "text": "<p><strong>Will Cherry Bomb make my penis bigger?<\/strong><\/p><p>We say - be bigger <em>when it counts<\/em>! Cherry Bomb may be used to increase blood flow to produce bigger, firmer erections. Product disclaimer: Cherry Bomb, like other pills, <em>is not intended to nor does it make your flaccid strongman permanently bigger. <\/em><\/p>"
-          }
-        },
-        "text_QhV9Gb": {
-          "type": "text",
-          "settings": {
-            "enlarge_text": false,
-            "text": "<p><strong>How is Cherry Bomb better than some of the popular products on the market?<\/strong><\/p><p>Cherry Bomb is 1 of a few trusted <em>all natural<\/em> male enhancement pills. <\/p><p>Keep supply on hand and take Cherry Bomb only when you need it.<\/p><ul><li>Get turned on – unlike other pills that just get you hard, Cherry Bomb may also increase sexual arousal. Desire. Wanting.<\/li><li>Minimal side effects – made with all natural ingredients, Cherry Bomb is less likely to cause dizziness or headache, a few of the most negative side effects of conventional products.<\/li><li>Convenient – taking a pill daily and buying whatever’s at the gas station is an inconvenient gamble. Cherry Bomb can power on-demand. No waiting days\/months for system build up and no running out to the nearest gas station. With a pack at home – and in the car – you’re ready<\/li><\/ul>"
-          }
-        },
-        "text_BKFyBF": {
-          "type": "text",
-          "settings": {
-            "enlarge_text": false,
-            "text": "<p><strong>Are there any side effects?<\/strong><\/p><p>Cherry Bomb was formulated with all natural herbs, wellness properties and is 100% drug-free. It contains only ingredients considered to be safe for on-going use without the likelihood of side effects. However, as possible with any food or supplement, one could have an adverse reaction. In which case one should discontinue use and consult a medical professional.<\/p>"
-          }
-        },
-        "text_BL84NN": {
-          "type": "text",
-          "settings": {
-            "enlarge_text": false,
-            "text": "<p><strong>Can I return Cherry Bomb if I’m not satisfied?<\/strong><\/p><p>We are confident that Cherry Bomb will leave you more than satisfied, but if you need to return for any reason, our money-back guarantee has you covered.<\/p>"
-          }
-        },
-        "text_QfxYAx": {
-          "type": "text",
-          "settings": {
-            "enlarge_text": false,
-            "text": "<p><a href=\"https:\/\/www.instagram.com\/gocherrybomb\/\" target=\"_blank\" title=\"Follow @GoCherryBomb on Instagram\"><strong>Follow @GoCherryBomb on Instagram<\/strong><\/a><\/p>"
+            "enlarge_text": true,
+            "text": "<p><\/p><p><\/p>"
           }
         }
       },
       "block_order": [
-        "text_FAgCxL",
-        "text_BB6wBP",
-        "text_Cq3yeX",
-        "text_xiUmQ7",
-        "text_CFgYkX",
-        "text_fzPUew",
-        "text_L7CKKL",
-        "text_QhV9Gb",
-        "text_BKFyBF",
-        "text_BL84NN",
-        "text_QfxYAx"
+        "text_i46tTE"
+      ],
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false
+      }
+    },
+    "faq_888jBf": {
+      "type": "faq",
+      "blocks": {
+        "question_CDKRyG": {
+          "type": "question",
+          "settings": {
+            "title": "How do I take Cherry Bomb?",
+            "text": "<p>Take 45 minutes before sex and stay hydrated. Cherry Bomb is made to help enhance your performance in bed while giving you stronger and more powerful erections and intensifying orgasms when it’s time to climax.<\/p>"
+          }
+        },
+        "question_Qp8eGV": {
+          "type": "question",
+          "settings": {
+            "title": "Will Cherry Bomb work for me?",
+            "text": "<p>Cherry Bomb is a tested formula with effective ingredients. <\/p>"
+          }
+        },
+        "question_ePj3qD": {
+          "type": "question",
+          "settings": {
+            "title": "Will Cherry Bomb make my penis bigger?",
+            "text": "<p>We say - be bigger when it counts! Cherry Bomb may be used to increase blood flow to produce bigger, firmer erections. Product disclaimer: Cherry Bomb, like other pills, is not intended to nor does it make your flaccid strongman permanently bigger. <\/p>"
+          }
+        },
+        "question_biadVF": {
+          "type": "question",
+          "settings": {
+            "title": "How is Cherry Bomb better than some of the popular products on the market?",
+            "text": "<p>Cherry Bomb is one the few trusted all natural male enhancement pills. Keep supply on hand and take Cherry Bomb when needed.<\/p><ul><li>Get turned on - unlike other pills that just get you hard, Cherry Bomb is made to help increase sexual arousal, heighten pleasure and euphoria and enhance sensual drive and performance.<\/li><li>Minimal side effects – made with all natural ingredients, Cherry Bomb is less likely to cause dizziness or headaches, a few of the most negative side effects of conventional products.<\/li><li>Convenient – No Dr’s, no and no monthly subscription needed to purchase. Cherry Bomb can power on-demand. No waiting days\/months for system build up. With a pack at home or in the car – you’re ready!<\/li><\/ul>"
+          }
+        },
+        "question_AHH8QE": {
+          "type": "question",
+          "settings": {
+            "title": "Are there any side effects?",
+            "text": "<p>Cherry Bomb is crafted using all-natural herbs and wellness properties, ensuring it is 100% drug-free. It comprises ingredients deemed safe for ongoing consumption without the risk of side effects. Nonetheless, as with any food or supplement, there's a possibility of adverse reactions. In such instances, discontinuing use and seeking advice from a medical professional is recommended.<\/p>"
+          }
+        },
+        "question_FXEAGB": {
+          "type": "question",
+          "settings": {
+            "title": "Can I return Cherry Bomb if I’m not satisfied?",
+            "text": "<p>We're certain that Cherry Bomb will exceed your expectations. However, if you are unsatisfied for any reason, our money-back guarantee ensures your satisfaction.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_CDKRyG",
+        "question_Qp8eGV",
+        "question_ePj3qD",
+        "question_biadVF",
+        "question_AHH8QE",
+        "question_FXEAGB"
+      ],
+      "settings": {
+        "title": "FAQs"
+      }
+    },
+    "text_with_icons_NQJhaJ": {
+      "type": "text-with-icons",
+      "blocks": {
+        "text_block_Hxan9H": {
+          "type": "text_block",
+          "settings": {
+            "icon": "thumbs-up",
+            "title": "Safe & effective",
+            "text": "<p><em>Cherry Bomb <\/em>does not contain any illegal drugs or substances. Every ingredient used in <em>Cherry Bomb <\/em>undergoes professional dosing and rigorous quality control checks from our trusted suppliers in Los Angeles, CA. <\/p>"
+          }
+        },
+        "text_block_ABznEG": {
+          "type": "text_block",
+          "settings": {
+            "icon": "globe",
+            "title": "Made in CA, USA",
+            "text": "<p>Cherry Bomb is formulated, crafted, and packaged in our registered Los Angeles facility. <\/p>"
+          }
+        },
+        "text_block_RFbwTk": {
+          "type": "text_block",
+          "settings": {
+            "icon": "package",
+            "title": "Easy Refunds",
+            "text": "<p>We're certain that Cherry Bomb will exceed your expectations. However, if you are unsatisfied for any reason, our money-back guarantee ensures your satisfaction<\/p>"
+          }
+        },
+        "text_block_6D3x77": {
+          "type": "text_block",
+          "settings": {
+            "icon": "envelope",
+            "title": "Discrete shipping",
+            "text": "<p>Your privacy is important to us. Orders from Cherry Bomb are shipped discreetly in unbranded, polymailers, ensuring confidentiality between you and your partner. We aim for same-day fulfillment on weekdays and utilize 2-5 business day shipping.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_block_Hxan9H",
+        "text_block_ABznEG",
+        "text_block_RFbwTk",
+        "text_block_6D3x77"
+      ],
+      "settings": {
+        "title": "",
+        "align_text": "center",
+        "desktop_columns_per_row": 4,
+        "icon_color": "#ed1c24",
+        "button_label": "",
+        "button_link": "",
+        "divider": false
+      }
+    },
+    "rich_text_eXdiyh": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_VzKKBN": {
+          "type": "heading",
+          "settings": {
+            "title": "Follow @GoCherryBomb"
+          }
+        },
+        "text_Qfd47P": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p><a href=\"https:\/\/www.instagram.com\/gocherrybomb\/\" target=\"_blank\" title=\"https:\/\/www.instagram.com\/gocherrybomb\/\">Instagram<\/a> \/ <a href=\"https:\/\/www.tiktok.com\/@gocherrybomb\" target=\"_blank\" title=\"https:\/\/www.tiktok.com\/@gocherrybomb\">TikTok<\/a> \/ <a href=\"https:\/\/www.facebook.com\/profile.php?id=61556475600742\" target=\"_blank\" title=\"https:\/\/www.facebook.com\/profile.php?id=61556475600742\">Facebook<\/a> \/ <a href=\"https:\/\/twitter.com\/gocherrybomb_\" target=\"_blank\" title=\"https:\/\/twitter.com\/gocherrybomb_\">Twitter<\/a> \/ <a href=\"https:\/\/t.snapchat.com\/z9p0eYRc\" target=\"_blank\" title=\"https:\/\/t.snapchat.com\/z9p0eYRc\">Snapchat<\/a><\/p>"
+          }
+        },
+        "text_jHYi8p": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p><\/p><p><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_VzKKBN",
+        "text_Qfd47P",
+        "text_jHYi8p"
       ],
       "settings": {
         "align_text": "center",
@@ -204,7 +269,10 @@
   },
   "order": [
     "main",
-    "rich_text_eaxVDJ",
+    "rich_text_BDVdRH",
+    "faq_888jBf",
+    "text_with_icons_NQJhaJ",
+    "rich_text_eXdiyh",
     "advanced_content_MkizN6",
     "sub",
     "product-recommendations",
