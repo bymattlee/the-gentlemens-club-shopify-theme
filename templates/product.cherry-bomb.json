@@ -97,13 +97,6 @@
             "text": "<p>Cherry Bomb is a tested formula with effective ingredients. <\/p>"
           }
         },
-        "question_ePj3qD": {
-          "type": "question",
-          "settings": {
-            "title": "Will Cherry Bomb make my penis bigger?",
-            "text": "<p>We say - be bigger when it counts! Cherry Bomb may be used to increase blood flow to produce bigger, firmer erections. Product disclaimer: Cherry Bomb, like other pills, is not intended to nor does it make your flaccid strongman permanently bigger. <\/p>"
-          }
-        },
         "question_biadVF": {
           "type": "question",
           "settings": {
@@ -129,7 +122,6 @@
       "block_order": [
         "question_CDKRyG",
         "question_Qp8eGV",
-        "question_ePj3qD",
         "question_biadVF",
         "question_AHH8QE",
         "question_FXEAGB"
