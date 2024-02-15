@@ -32,10 +32,10 @@
         "f04516e7-cbde-4edf-989d-313bc0f49fee": {
           "type": "content_toggle",
           "settings": {
-            "tab_2_title": "Ingredients",
-            "tab_2_content": "cherry-bomb-ingredients",
-            "tab_3_title": "Subscription",
-            "tab_3_content": "cherry-bomb-subscription",
+            "tab_2_title": "Subscription",
+            "tab_2_content": "cherry-bomb-subscription",
+            "tab_3_title": "Ingredients",
+            "tab_3_content": "cherry-bomb-ingredients",
             "tab_4_title": "Shipping & Returns",
             "tab_4_content": "cherry-bomb-shipping-and-returns"
           }
