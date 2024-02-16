@@ -13,7 +13,7 @@
           "type": "text",
           "settings": {
             "enlarge_text": true,
-            "text": "<p>The Cherry Bomb Product Introduction<br\/>Coming Soon<\/p>"
+            "text": "<p>The Cherry Bomb Product Introduction<br\/><a href=\"\/products\/cherry-bomb\" title=\"Cherry Bomb\">Buy Now<\/a><\/p>"
           }
         }
       },
@@ -120,6 +120,13 @@
             "enlarge_text": false,
             "text": "<p><a href=\"https:\/\/www.instagram.com\/gocherrybomb\/\" target=\"_blank\" title=\"Follow @GoCherryBomb on Instagram\"><strong>Follow @GoCherryBomb on Instagram<\/strong><\/a><\/p>"
           }
+        },
+        "button_teFP8p": {
+          "type": "button",
+          "settings": {
+            "link": "shopify:\/\/products\/cherry-bomb",
+            "link_text": "Buy Now"
+          }
         }
       },
       "block_order": [
@@ -132,7 +139,8 @@
         "9548feaa-d0f9-4fc7-ad7e-4440087f980f",
         "412300c5-da51-4bf2-9c09-9c10ba798517",
         "9343d1fa-5af9-48a9-8116-9842deb5eb3f",
-        "d9844c18-d570-4a88-b6bf-2f9087817a67"
+        "d9844c18-d570-4a88-b6bf-2f9087817a67",
+        "button_teFP8p"
       ],
       "settings": {
         "align_text": "center",
