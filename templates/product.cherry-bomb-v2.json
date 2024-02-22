@@ -65,6 +65,8 @@
         "sales_point_iXWrcL"
       ],
       "settings": {
+        "sticker": "{{ product.metafields.theme.sticker.value }}",
+        "caption": "",
         "sku_enable": false,
         "image_position": "left",
         "image_size": "medium",

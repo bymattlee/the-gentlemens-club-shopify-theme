@@ -29,7 +29,9 @@
             "tab_2_title": "Size Guide",
             "tab_2_content": "{{ product.metafields.tab.size_guide_page.value }}",
             "tab_3_title": "Shipping & Returns",
-            "tab_3_content": "shipping-returns-tab"
+            "tab_3_content": "shipping-returns-tab",
+            "tab_4_title": "",
+            "tab_4_content": ""
           }
         }
       },
@@ -40,6 +42,8 @@
         "f04516e7-cbde-4edf-989d-313bc0f49fee"
       ],
       "settings": {
+        "sticker": "{{ product.metafields.theme.sticker.value }}",
+        "caption": "{{ product.metafields.theme.caption.value }}",
         "sku_enable": false,
         "image_position": "left",
         "image_size": "medium",

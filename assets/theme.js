@@ -8157,7 +8157,7 @@ lazySizesConfig.expFactor = 4
         var variant = evt.detail.variant
 
         // If flickity is enabled and on mobile
-        if (this.flickity && window.innerWidth <= 768) {
+        if (this.flickity) {
           var newImage = this.container.querySelector(
             '.product__thumb[data-id="' + variant.featured_media.id + '"]'
           )

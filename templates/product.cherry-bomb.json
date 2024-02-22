@@ -49,6 +49,8 @@
         "f04516e7-cbde-4edf-989d-313bc0f49fee"
       ],
       "settings": {
+        "sticker": "",
+        "caption": "{{ product.metafields.theme.caption.value }}",
         "sku_enable": false,
         "image_position": "left",
         "image_size": "medium",

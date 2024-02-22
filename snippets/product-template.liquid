@@ -174,6 +174,12 @@
                 {%- render 'breadcrumbs' -%}
               {%- endif -%}
 
+              {%- if section.settings.sticker != blank -%}
+                <div class="product-single__sticker">
+                  <span class="product-single__sticker-item">{{ section.settings.sticker }}</span>
+                </div>
+              {%- endif -%}
+
               {%- if settings.vendor_enable -%}
                 <div class="product-single__vendor">
                   {%- assign vendor_handle = product.vendor | handleize -%}
@@ -201,8 +207,8 @@
                 </h1>
               {%- endif -%}
 
-              {%- if product.metafields.theme.caption -%}
-                <p class="product-single__caption">{{ product.metafields.theme.caption }}</p>
+              {%- if section.settings.caption != blank -%}
+                <p class="product-single__caption">{{ section.settings.caption }}</p>
               {%- endif -%}
 
               {%- if sku_enable -%}
