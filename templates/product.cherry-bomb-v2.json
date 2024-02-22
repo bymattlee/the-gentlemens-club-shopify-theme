@@ -1,0 +1,107 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "f5d49e77-9e1e-4406-8d7c-3a480f5d5a97": {
+          "type": "color_variations",
+          "settings": {
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "variant_labels": true,
+            "picker_type": "button",
+            "color_swatches": false
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "surface_pickup_enable": false
+          }
+        },
+        "text_PH6iNL": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Cherry Bomb is an all natural male enhancement supplement made to help increase your performance in bed! No Dr’s, No prescription needed. Simply take 1 pill 45 minutes before performance.<\/p>",
+            "enlarge_text": true
+          }
+        },
+        "sales_point_bEELXi": {
+          "type": "sales_point",
+          "settings": {
+            "icon": "checkmark",
+            "text": "<p><strong>Stimulates Blood Flow<\/strong><br\/>Improves the physical appearance of your strongman making you appear bigger, wider, and firmer.<\/p>",
+            "enlarge_text": true
+          }
+        },
+        "sales_point_iEwqgD": {
+          "type": "sales_point",
+          "settings": {
+            "icon": "checkmark",
+            "text": "<p><strong>Enhances Sensual Drive & Performance<\/strong><br\/>Enhance pleasure and euphoria during your sexual encounters as you experience heightened desire and achieve intense orgasms.<\/p>",
+            "enlarge_text": true
+          }
+        },
+        "sales_point_iXWrcL": {
+          "type": "sales_point",
+          "settings": {
+            "icon": "checkmark",
+            "text": "<p><strong>Amplifies Emotional Connection<\/strong><br\/>Sparks sexual chemistry between you and your partner, guiding you both to new heights of pleasure repeatedly.<\/p>",
+            "enlarge_text": true
+          }
+        }
+      },
+      "block_order": [
+        "f5d49e77-9e1e-4406-8d7c-3a480f5d5a97",
+        "variant_picker",
+        "buy_buttons",
+        "text_PH6iNL",
+        "sales_point_bEELXi",
+        "sales_point_iEwqgD",
+        "sales_point_iXWrcL"
+      ],
+      "settings": {
+        "sku_enable": false,
+        "image_position": "left",
+        "image_size": "medium",
+        "product_zoom_enable": true,
+        "thumbnail_position": "below",
+        "thumbnail_arrows": false,
+        "mobile_layout": "full",
+        "enable_video_looping": true,
+        "product_video_style": "muted"
+      }
+    },
+    "sub": {
+      "type": "product-full-width",
+      "disabled": true,
+      "settings": {
+        "max_width": true
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "show_product_recommendations": true,
+        "product_recommendations_heading": "You may also like",
+        "related_count": 4
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {
+        "recent_count": 4
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sub",
+    "product-recommendations",
+    "recently-viewed"
+  ]
+}
