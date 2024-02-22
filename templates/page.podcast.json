@@ -33,6 +33,34 @@
         "divider": false
       }
     },
+    "featured_video_DriPLi": {
+      "type": "featured-video",
+      "settings": {
+        "title": "Episode 3 - Mustard Speaks On Upcoming Album, Reconciling With YG, Tennis and Touches On His Divorce",
+        "video_url": "https:\/\/www.youtube.com\/watch?v=PltOy3-tjNo",
+        "divider": false
+      }
+    },
+    "rich_text_wRmyBB": {
+      "type": "rich-text",
+      "blocks": {
+        "text_3whT98": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": true,
+            "text": "<p><\/p><p><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_3whT98"
+      ],
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false
+      }
+    },
     "featured_video_w6D87T": {
       "type": "featured-video",
       "settings": {
@@ -108,6 +136,8 @@
   "order": [
     "main",
     "rich_text_kD6tW4",
+    "featured_video_DriPLi",
+    "rich_text_wRmyBB",
     "featured_video_w6D87T",
     "rich_text_WzhXzR",
     "featured_video_WBkKHJ",
