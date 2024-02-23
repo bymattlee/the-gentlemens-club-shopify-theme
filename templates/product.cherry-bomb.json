@@ -39,12 +39,6 @@
             "tab_4_title": "Shipping & Returns",
             "tab_4_content": "cherry-bomb-shipping-and-returns"
           }
-        },
-        "custom_Mhj7Fb": {
-          "type": "custom",
-          "settings": {
-            "code": "<script>\nconst defaultVariant = document.querySelector('label[for=\"ProductSelect-template--15766253305900__main-7276775079980-option-size-10+Pills\"]');\nif (defaultVariant) defaultVariant.click();\n<\/script>"
-          }
         }
       },
       "block_order": [
@@ -52,8 +46,7 @@
         "variant_picker",
         "recharge_subscriptions_subscription_widget_9Pchz9",
         "buy_buttons",
-        "f04516e7-cbde-4edf-989d-313bc0f49fee",
-        "custom_Mhj7Fb"
+        "f04516e7-cbde-4edf-989d-313bc0f49fee"
       ],
       "settings": {
         "sku_enable": false,
