@@ -78,45 +78,50 @@
         "product_video_style": "muted"
       }
     },
-    "highlight_with_icons_HQ6EzG": {
-      "type": "highlight-with-icons",
+    "product_benefits_ny9TNc": {
+      "type": "product-benefits",
       "blocks": {
-        "highlight_KdaYgM": {
-          "type": "highlight",
+        "benefit_QNLP9w": {
+          "type": "benefit",
           "settings": {
             "icon": "lock",
-            "title": "Safe & Effective"
+            "title": "Safe & Effective",
+            "description": ""
           }
         },
-        "highlight_P7Eh3N": {
-          "type": "highlight",
+        "benefit_eabKVb": {
+          "type": "benefit",
           "settings": {
             "icon": "globe",
-            "title": "Made in CA, USA"
+            "title": "Made in CA, USA",
+            "description": ""
           }
         },
-        "highlight_WahqpF": {
-          "type": "highlight",
+        "benefit_gqdYAJ": {
+          "type": "benefit",
           "settings": {
             "icon": "refund",
-            "title": "30-Day Satisfaction Guarantee"
+            "title": "30-Day Satisfaction Guarantee",
+            "description": ""
           }
         },
-        "highlight_YaMXmi": {
-          "type": "highlight",
+        "benefit_UVYKQk": {
+          "type": "benefit",
           "settings": {
             "icon": "box",
-            "title": "Discrete Shipping"
+            "title": "Discrete Shipping",
+            "description": ""
           }
         }
       },
       "block_order": [
-        "highlight_KdaYgM",
-        "highlight_P7Eh3N",
-        "highlight_WahqpF",
-        "highlight_YaMXmi"
+        "benefit_QNLP9w",
+        "benefit_eabKVb",
+        "benefit_gqdYAJ",
+        "benefit_UVYKQk"
       ],
       "settings": {
+        "size": "compact"
       }
     },
     "product_ingredients_Pk4Y7y": {
@@ -179,6 +184,52 @@
         "text": "<p>Cherry Bomb boasts a potent, all-natural formula for intoxicating sex without intoxication. Made from 100% natural ingredients, each ingredient offers enhancing and wellness properties, synergistically improving sexual performance with minimal risk of side effects.<\/p><p>Cherry Bomb Male Enhancement Supplement is free from illegal drugs or substances. Each ingredient undergoes precise dosing and thorough quality control checks at our licensed facility in Los Angeles, CA.<\/p>"
       }
     },
+    "product_benefits_37JN8w": {
+      "type": "product-benefits",
+      "blocks": {
+        "benefit_ktjVbm": {
+          "type": "benefit",
+          "settings": {
+            "icon": "lock",
+            "title": "Safe & Effective",
+            "description": "<p>Cherry Bomb is formulated, crafted, and packaged in our partnered registered Los Angeles facility.<\/p>"
+          }
+        },
+        "benefit_g3nReF": {
+          "type": "benefit",
+          "settings": {
+            "icon": "globe",
+            "title": "Made in CA, USA",
+            "description": "<p>Cherry Bomb is formulated, crafted, and packaged in our registered Los Angeles facility.<\/p>"
+          }
+        },
+        "benefit_YPqeAk": {
+          "type": "benefit",
+          "settings": {
+            "icon": "refund",
+            "title": "30-Day Satisfaction Guarantee",
+            "description": "<p>We're certain that Cherry Bomb will exceed your expectations. However, if you are unsatisfied for any reason, our money-back guarantee ensures your satisfaction<\/p>"
+          }
+        },
+        "benefit_eEwTV9": {
+          "type": "benefit",
+          "settings": {
+            "icon": "box",
+            "title": "Discrete Shipping",
+            "description": "<p>Your privacy is important to us. Orders from Cherry Bomb are shipped discreetly in unbranded, polymailers, ensuring confidentiality between you and your partner. We aim for same-day fulfillment on weekdays and utilize 2-5 business day shipping.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_ktjVbm",
+        "benefit_g3nReF",
+        "benefit_YPqeAk",
+        "benefit_eEwTV9"
+      ],
+      "settings": {
+        "size": "default"
+      }
+    },
     "sub": {
       "type": "product-full-width",
       "disabled": true,
@@ -188,6 +239,7 @@
     },
     "product-recommendations": {
       "type": "product-recommendations",
+      "disabled": true,
       "settings": {
         "show_product_recommendations": true,
         "product_recommendations_heading": "You may also like",
@@ -196,6 +248,7 @@
     },
     "recently-viewed": {
       "type": "recently-viewed",
+      "disabled": true,
       "settings": {
         "recent_count": 4
       }
@@ -203,8 +256,9 @@
   },
   "order": [
     "main",
-    "highlight_with_icons_HQ6EzG",
+    "product_benefits_ny9TNc",
     "product_ingredients_Pk4Y7y",
+    "product_benefits_37JN8w",
     "sub",
     "product-recommendations",
     "recently-viewed"

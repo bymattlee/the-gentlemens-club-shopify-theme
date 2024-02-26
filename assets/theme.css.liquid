@@ -13278,19 +13278,29 @@ body .recharge-theme {
   --recharge-typography-secondary: var(--color-red);
 }
 
-.highlight-with-icons {
+.product-benefits {
   border-top: 1px solid currentColor;
   border-bottom: 1px solid currentColor;
   padding: 24px 0;
 }
 
 @media only screen and (min-width: 768px) {
-  .highlight-with-icons {
+  .product-benefits {
+    padding: 48px 0;
+  }
+}
+
+.product-benefits--compact {
+  padding: 24px 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .product-benefits--compact {
     padding: 32px 0;
   }
 }
 
-.highlight-with-icons__items {
+.product-benefits__items {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13299,54 +13309,109 @@ body .recharge-theme {
 }
 
 @media only screen and (min-width: 1024px) {
-  .highlight-with-icons__items {
+  .product-benefits__items {
     flex-direction: row;
+    align-items: flex-start;
     flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  .product-benefits--compact .product-benefits__items {
     gap: 24px 40px;
+    align-items: center;
   }
 }
 
 @media only screen and (min-width: 1440px) {
-  .highlight-with-icons__items {
+  .product-benefits--compact .product-benefits__items {
     gap: 24px 64px;
   }
 }
 
-.highlight-with-icons__item {
+.product-benefits__item {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
+  text-align: center;
+  width: 240px;
 }
 
-.highlight-with-icons__item-icon {
+@media only screen and (min-width: 1024px) {
+  .product-benefits__item {
+    gap: 12px;
+    flex: 1;
+    align-items: flex-start;
+    text-align: left;
+    width: auto;
+  }
+}
+
+.product-benefits--compact .product-benefits__item {
+  gap: 12px;
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+  width: auto;
+}
+
+@media only screen and (min-width: 1024px) {
+  .product-benefits--compact .product-benefits__item {
+    flex: none;
+  }
+}
+
+.product-benefits__item-icon {
+  width: 40px;
+}
+
+.product-benefits--compact .product-benefits__item-icon {
   width: 32px;
 }
 
 @media only screen and (min-width: 768px) {
-  .highlight-with-icons__item-icon {
+  .product-benefits--compact .product-benefits__item-icon {
     width: 40px;
   }
 }
 
-.highlight-with-icons__item-icon-svg {
+.product-benefits__item-icon-svg {
   width: 100%;
   fill: currentColor;
 }
 
-.highlight-with-icons__item-title {
+.product-benefits__item-text {
+  flex: 1;
+}
+
+.product-benefits__item-title {
 
 }
 
-.highlight-with-icons__item-title h3 {
-  font-size: 20px;
-  font-weight: 500;
+.product-benefits__item-title h3 {
+  font-size: 14px;
+  font-weight: 700;
   margin-bottom: 0;
 }
 
+.product-benefits--compact  .product-benefits__item-title h3 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
 @media only screen and (min-width: 768px) {
-  .highlight-with-icons__item-title h3 {
+  .product-benefits--compact .product-benefits__item-title h3 {
     font-size: 24px;
   }
+}
+
+.product-benefits__item-description {
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.product-benefits__item-description p:last-child {
+  margin-bottom: 0;
 }
 
 .product-ingredients {
