@@ -34,9 +34,9 @@
                 "@context": "https://schema.org",
                 "@type": "FAQPage",
                 "mainEntity": [
-                  {% for block in section.blocks %}
-                    {% case block.type %}
-                      {% when 'question' %}
+                  {%- for block in section.blocks -%}
+                    {%- case block.type -%}
+                      {%- when 'question' -%}
                         {
                           "@type": "Question",
                           "name": {{ block.settings.title | json }},
@@ -44,9 +44,9 @@
                             "@type": "Answer",
                             "text": {{ block.settings.answer | json }}
                           }
-                        }{% unless forloop.last %},{% endunless %}
-                    {% endcase %}
-                  {% endfor %}
+                        }{%- unless forloop.last -%},{%- endunless -%}
+                    {%- endcase -%}
+                  {%- endfor -%}
                 ]
               }
             </script>
@@ -69,7 +69,7 @@
                   </div>
                 {%- endif -%}
 
-              {% endfor %}
+              {%- endfor -%}
             </div>
           {%- endif -%}
 

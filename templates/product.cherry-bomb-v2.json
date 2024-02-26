@@ -331,6 +331,56 @@
       "settings": {
         "recent_count": 4
       }
+    },
+    "social_icons_4WVRqf": {
+      "type": "social-icons",
+      "blocks": {
+        "icon_8MQaCf": {
+          "type": "icon",
+          "settings": {
+            "icon": "instagram",
+            "link": "https:\/\/www.instagram.com\/gocherrybomb\/"
+          }
+        },
+        "icon_Ch7Dp8": {
+          "type": "icon",
+          "settings": {
+            "icon": "tiktok",
+            "link": "https:\/\/www.tiktok.com\/@gocherrybomb"
+          }
+        },
+        "icon_8JVdFU": {
+          "type": "icon",
+          "settings": {
+            "icon": "facebook",
+            "link": "https:\/\/www.facebook.com\/profile.php?id=61556475600742"
+          }
+        },
+        "icon_dxgzrD": {
+          "type": "icon",
+          "settings": {
+            "icon": "twitter",
+            "link": "https:\/\/twitter.com\/gocherrybomb_"
+          }
+        },
+        "icon_wMd37B": {
+          "type": "icon",
+          "settings": {
+            "icon": "snapchat",
+            "link": "https:\/\/t.snapchat.com\/z9p0eYRc"
+          }
+        }
+      },
+      "block_order": [
+        "icon_8MQaCf",
+        "icon_Ch7Dp8",
+        "icon_8JVdFU",
+        "icon_dxgzrD",
+        "icon_wMd37B"
+      ],
+      "settings": {
+        "heading": "Follow @GoCherryBomb"
+      }
     }
   },
   "order": [
@@ -342,6 +392,7 @@
     "product_benefits_37JN8w",
     "sub",
     "product-recommendations",
-    "recently-viewed"
+    "recently-viewed",
+    "social_icons_4WVRqf"
   ]
 }
