@@ -13078,11 +13078,7 @@ html[dir=rtl] .product-single__meta .rte{
   }
 }
 
-@media only screen and (min-width: 1024px) {
-  .tour-dates-2023-sttk__date-date {
-    width: 96px;
-  }
-}
+≈
 
 @media only screen and (min-width: 1280px) {
   .tour-dates-2023-sttk__date-date {
@@ -13272,4 +13268,75 @@ body .recharge-theme {
   --recharge-color-neutral-10: #fbc6c8;
   --recharge-typography-primary: var(--color-red);
   --recharge-typography-secondary: var(--color-red);
+}
+
+.highlight-with-icons {
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  padding: 24px 0;
+}
+
+@media only screen and (min-width: 1024px) {
+  .highlight-with-icons {
+    padding: 32px 0;
+  }
+}
+
+.highlight-with-icons__items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .highlight-with-icons__items {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px 40px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .highlight-with-icons__items {
+    gap: 24px 64px;
+  }
+}
+
+.highlight-with-icons__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.highlight-with-icons__item-icon {
+  width: 32px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .highlight-with-icons__item-icon {
+    width: 40px;
+  }
+}
+
+.highlight-with-icons__item-icon-svg {
+  width: 100%;
+  fill: currentColor;
+}
+
+.thighlight-with-icons__item-title {
+
+}
+
+.thighlight-with-icons__item-title h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+@media only screen and (min-width: 1024px) {
+  .thighlight-with-icons__item-title h3 {
+    font-size: 24px;
+  }
 }
