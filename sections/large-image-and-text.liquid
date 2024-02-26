@@ -1,0 +1,113 @@
+<div
+  class="large-image-and-text"
+  data-section-id="{{ section.id }}"
+  data-section-type="large-image-and-text"
+>
+  <div class="page-width">
+    <div class="large-image-and-text__grid large-image-and-text__grid--image-{{ section.settings.image_align }}">
+
+      {%- if section.settings.image != blank -%}
+        <div class="large-image-and-text__grid-item large-image-and-text__grid-item--image">
+          {%- assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+          <img class="large-image-and-text__grid-item-image lazyload"
+            data-src="{{ img_url }}"
+            data-widths="[180, 360, 540, 750, 900, 1080, 1600]"
+            data-aspectratio="{{ section.settings.image.aspect_ratio }}"
+            data-sizes="auto"
+            alt="{{ section.settings.image.alt }}"
+            role="presentation">
+        </div>
+      {%- endif -%}
+
+      {%- if section.blocks -%}
+        <div class="large-image-and-text__grid-item large-image-and-text__grid-item--text">
+          <div class="large-image-and-text__grid-item-content">
+
+            {%- for block in section.blocks -%}
+              <div class="large-image-and-text__grid-item-content-block">
+
+                {%- if block.settings.title != blank -%}
+                  <div class="large-image-and-text__grid-item-content-block-heading">
+                    <h3>{{ block.settings.title }}</h3>
+                  </div>
+                {%- endif -%}
+
+                {%- if block.settings.text != blank -%}
+                  <div class="large-image-and-text__grid-item-content-block-text">
+                    {{ block.settings.text }}
+                  </div>
+                {%- endif -%}
+
+              </div>
+            {% endfor %}
+
+          </div>
+        </div>
+      {%- endif -%}
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Large image and text",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "image_align",
+      "label": "Image align",
+      "default": "left",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Content heading"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Large image and text",
+      "blocks": [
+        {
+          "type": "text"
+        },
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

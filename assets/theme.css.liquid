@@ -13521,3 +13521,101 @@ body .recharge-theme {
 .product-ingredients__ingredients-item-description p:last-child {
   margin-bottom: 0;
 }
+
+.large-image-and-text {
+
+}
+
+.large-image-and-text__grid {
+  display: grid;
+  gap: 16px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .large-image-and-text__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .large-image-and-text__grid--image-right .large-image-and-text__grid-item--image {
+    order: 2;
+  }
+
+  .large-image-and-text__grid--image-right .large-image-and-text__grid-item--text {
+    order: 1;
+  }
+}
+
+.large-image-and-text__grid-item {
+
+}
+
+.large-image-and-text__grid-item--image {
+
+}
+
+.large-image-and-text__grid-item-image {
+  width: 100%;
+}
+
+.large-image-and-text__grid-item--text {
+
+}
+
+@media only screen and (min-width: 1024px) {
+  .large-image-and-text__grid-item--text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.large-image-and-text__grid-item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .large-image-and-text__grid-item-content {
+    width: 100%;
+    max-width: 464px;
+    gap: 48px;
+  }
+}
+
+.large-image-and-text__grid-item-content-block {
+  display: grid;
+  gap: 8px;
+}
+
+@media only screen and (min-width: 768px) {
+  .large-image-and-text__grid-item-content-block {
+    gap: 16px;
+  }
+}
+
+.large-image-and-text__grid-item-content-block-heading {
+
+}
+
+.large-image-and-text__grid-item-content-block-heading h3 {
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .large-image-and-text__grid-item-content-block-heading h3 {
+    font-size: 24px;
+  }
+}
+
+.large-image-and-text__grid-item-content-block-text {
+  font-size: 14px;
+}
+
+.large-image-and-text__grid-item-content-block-text p:last-child {
+  margin-bottom: 0;
+}
