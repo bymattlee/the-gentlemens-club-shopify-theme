@@ -13528,13 +13528,12 @@ body .recharge-theme {
 
 .large-image-and-text__grid {
   display: grid;
-  gap: 16px;
+  gap: 24px;
 }
 
 @media only screen and (min-width: 1024px) {
   .large-image-and-text__grid {
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
   }
 }
 
@@ -13584,6 +13583,11 @@ body .recharge-theme {
     max-width: 464px;
     gap: 48px;
   }
+
+  .large-image-and-text__grid-item-content--faq {
+    max-width: 420px;
+    gap: 32px;
+  }
 }
 
 .large-image-and-text__grid-item-content-block {
@@ -13601,14 +13605,26 @@ body .recharge-theme {
 
 }
 
+.large-image-and-text--faq .large-image-and-text__grid-item-content-block-heading  {
+  text-align: center;
+}
+
 .large-image-and-text__grid-item-content-block-heading h3 {
   font-size: 20px;
   margin-bottom: 0;
 }
 
+.large-image-and-text--faq .large-image-and-text__grid-item-content-block-heading h3 {
+  font-size: 24px;
+}
+
 @media only screen and (min-width: 768px) {
   .large-image-and-text__grid-item-content-block-heading h3 {
     font-size: 24px;
+  }
+
+  .large-image-and-text--faq .large-image-and-text__grid-item-content-block-heading h3 {
+    font-size: 32px;
   }
 }
 
@@ -13618,4 +13634,43 @@ body .recharge-theme {
 
 .large-image-and-text__grid-item-content-block-text p:last-child {
   margin-bottom: 0;
+}
+
+.large-image-and-text__grid-item-content-bock-faq {
+  border-top: 1px solid var(--color-grey);
+}
+
+.large-image-and-text__grid-item-content-bock-faq-item {
+  border-bottom: 1px solid var(--color-grey);
+}
+
+.large-image-and-text__grid-item-content-bock-faq-item .collapsible-trigger {
+  padding: 14px 0;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.large-image-and-text__grid-item-content-bock-faq-item .collapsible-trigger .collapsible-trigger__text {
+  flex: 1;
+}
+
+
+.large-image-and-text__grid-item-content-bock-faq-item .collapsible-trigger .collapsible-trigger__icon {
+  position: static;
+  width: 24px;
+  height: 24px;
+  transform: none;
+  padding-top: 4px;
+}
+
+.large-image-and-text__grid-item-content-bock-faq-item .collapsible-trigger .collapsible-trigger__icon .icon {
+  width: 14px;
+  height: 14px;
+}
+
+.large-image-and-text__grid-item-content-bock-faq-item .collapsible-content .collapsible-content__inner--faq {
+  font-size: 14px;
 }

@@ -211,6 +211,58 @@
         "image_align": "left"
       }
     },
+    "large_image_and_faq_NaJmnW": {
+      "type": "large-image-and-faq",
+      "blocks": {
+        "faq_Upc39k": {
+          "type": "faq",
+          "settings": {
+            "title": "How do I take Cherry Bomb?",
+            "answer": "<p>Take 45 minutes before sex and stay hydrated. Cherry Bomb is made to help enhance your performance in bed while giving you stronger and more powerful erections and intensifying orgasms when it’s time to climax.<\/p>"
+          }
+        },
+        "faq_WmJEBL": {
+          "type": "faq",
+          "settings": {
+            "title": "Will Cherry Bomb work for me?",
+            "answer": "<p>Cherry Bomb is a tested formula with effective ingredients.<\/p>"
+          }
+        },
+        "faq_4eBrmb": {
+          "type": "faq",
+          "settings": {
+            "title": "How is Cherry Bomb better than some of the popular products on the market?",
+            "answer": "<p>Cherry Bomb is one the few trusted all natural male enhancement pills. Keep supply on hand and take Cherry Bomb when needed.<\/p><ul><li>Get turned on - unlike other pills that just get you hard, Cherry Bomb is made to help increase sexual arousal, heighten pleasure and euphoria and enhance sensual drive and performance.<\/li><li>Minimal side effects – made with all natural ingredients, Cherry Bomb is less likely to cause dizziness or headaches, a few of the most negative side effects of conventional products.<\/li><li>Convenient – No Dr’s, no and no monthly subscription needed to purchase. Cherry Bomb can power on-demand. No waiting days\/months for system build up. With a pack at home or in the car – you’re ready!<\/li><\/ul>"
+          }
+        },
+        "faq_RChhAN": {
+          "type": "faq",
+          "settings": {
+            "title": "Are there any side effects?",
+            "answer": "<p>Cherry Bomb is crafted using all-natural herbs and wellness properties, ensuring it is 100% drug-free. It comprises ingredients deemed safe for ongoing consumption without the risk of side effects. Nonetheless, as with any food or supplement, there's a possibility of adverse reactions. In such instances, discontinuing use and seeking advice from a medical professional is recommended.<\/p>"
+          }
+        },
+        "faq_9kWU9M": {
+          "type": "faq",
+          "settings": {
+            "title": "Can I return Cherry Bomb if I’m not satisfied?",
+            "answer": "<p>We're certain that Cherry Bomb will exceed your expectations. However, if you are unsatisfied for any reason, our money-back guarantee ensures your satisfaction.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_Upc39k",
+        "faq_WmJEBL",
+        "faq_4eBrmb",
+        "faq_RChhAN",
+        "faq_9kWU9M"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Email_-_Pre-Drop_1.png",
+        "image_align": "right",
+        "heading": "FAQ"
+      }
+    },
     "product_benefits_37JN8w": {
       "type": "product-benefits",
       "blocks": {
@@ -286,6 +338,7 @@
     "product_benefits_ny9TNc",
     "product_ingredients_Pk4Y7y",
     "large_image_and_text_LMyppG",
+    "large_image_and_faq_NaJmnW",
     "product_benefits_37JN8w",
     "sub",
     "product-recommendations",

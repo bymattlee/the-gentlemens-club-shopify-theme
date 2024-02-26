@@ -1,0 +1,149 @@
+<div
+  class="large-image-and-text large-image-and-text--faq"
+  data-section-id="{{ section.id }}"
+  data-section-type="large-image-and-faq"
+>
+  <div class="page-width">
+    <div class="large-image-and-text__grid large-image-and-text__grid--image-{{ section.settings.image_align }}">
+
+      {%- if section.settings.image != blank -%}
+        <div class="large-image-and-text__grid-item large-image-and-text__grid-item--image">
+          {%- assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+          <img class="large-image-and-text__grid-item-image lazyload"
+            data-src="{{ img_url }}"
+            data-widths="[180, 360, 540, 750, 900, 1080, 1600]"
+            data-aspectratio="{{ section.settings.image.aspect_ratio }}"
+            data-sizes="auto"
+            alt="{{ section.settings.image.alt }}"
+            role="presentation">
+        </div>
+      {%- endif -%}
+
+      <div class="large-image-and-text__grid-item large-image-and-text__grid-item--text">
+        <div class="large-image-and-text__grid-item-content large-image-and-text__grid-item-content--faq">
+
+          {%- if section.settings.heading != blank -%}
+            <div class="large-image-and-text__grid-item-content-block-heading">
+              <h3>{{ section.settings.heading }}</h3>
+            </div>
+          {%- endif -%}
+
+          {%- if section.blocks.size > 0 -%}
+            <script type="application/ld+json">
+              {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                  {% for block in section.blocks %}
+                    {% case block.type %}
+                      {% when 'question' %}
+                        {
+                          "@type": "Question",
+                          "name": {{ block.settings.title | json }},
+                          "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": {{ block.settings.answer | json }}
+                          }
+                        }{% unless forloop.last %},{% endunless %}
+                    {% endcase %}
+                  {% endfor %}
+                ]
+              }
+            </script>
+
+            <div class="large-image-and-text__grid-item-content-bock-faq">
+
+              {%- for block in section.blocks -%}
+
+                {%- if block.settings.title != blank and block.settings.answer != blank -%}
+                  <div class="large-image-and-text__grid-item-content-bock-faq-item">
+                    <button type="button" class="collapsible-trigger collapsible--auto-height text-left" aria-controls="FAQ-content-{{ block.id }}">
+                      <span class="collapsible-trigger__text">{{ block.settings.title }}</span>
+                      {%- render 'collapsible-icons', no_circle: true -%}
+                    </button>
+                    <div id="FAQ-content-{{ block.id }}" class="collapsible-content collapsible-content--all">
+                      <div class="collapsible-content__inner collapsible-content__inner--faq rte">
+                        {{ block.settings.answer }}
+                      </div>
+                    </div>
+                  </div>
+                {%- endif -%}
+
+              {% endfor %}
+            </div>
+          {%- endif -%}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Large image and FAQ",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "image_align",
+      "label": "Image align",
+      "default": "left",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Heading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Question",
+          "default": "Question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Large image and FAQ",
+      "blocks": [
+        {
+          "type": "faq"
+        },
+        {
+          "type": "faq"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
