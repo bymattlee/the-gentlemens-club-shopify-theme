@@ -78,6 +78,107 @@
         "product_video_style": "muted"
       }
     },
+    "highlight_with_icons_HQ6EzG": {
+      "type": "highlight-with-icons",
+      "blocks": {
+        "highlight_KdaYgM": {
+          "type": "highlight",
+          "settings": {
+            "icon": "lock",
+            "title": "Safe & Effective"
+          }
+        },
+        "highlight_P7Eh3N": {
+          "type": "highlight",
+          "settings": {
+            "icon": "globe",
+            "title": "Made in CA, USA"
+          }
+        },
+        "highlight_WahqpF": {
+          "type": "highlight",
+          "settings": {
+            "icon": "refund",
+            "title": "30-Day Satisfaction Guarantee"
+          }
+        },
+        "highlight_YaMXmi": {
+          "type": "highlight",
+          "settings": {
+            "icon": "box",
+            "title": "Discrete Shipping"
+          }
+        }
+      },
+      "block_order": [
+        "highlight_KdaYgM",
+        "highlight_P7Eh3N",
+        "highlight_WahqpF",
+        "highlight_YaMXmi"
+      ],
+      "settings": {
+      }
+    },
+    "product_ingredients_Pk4Y7y": {
+      "type": "product-ingredients",
+      "blocks": {
+        "ingredient_QaYbcn": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Tongkat Ali",
+            "description": "<p>An herbal supplement commonly used as an aphrodisiac and testosterone booster.<\/p>"
+          }
+        },
+        "ingredient_JNjjXG": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Deer Antler Velvet",
+            "description": "<p>An herb commonly used to help improve blood flow to the genitals, raise testosterone levels, and increase physical stamina during sex.<\/p>"
+          }
+        },
+        "ingredient_rgJ4Jh": {
+          "type": "ingredient",
+          "settings": {
+            "title": "White Willow Extract",
+            "description": "<p>Extracted from tree bark that is commonly used as a pain reliever and to treat headaches.<\/p>"
+          }
+        },
+        "ingredient_yayg3y": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Cayenne Extract",
+            "description": "<p>An herb commonly used to improve circulation and blood flow, which will lead to harder, firmer erections.<\/p>"
+          }
+        },
+        "ingredient_3YXjfr": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Panax Ginseng",
+            "description": "<p>Aplant root that is commonly used to improve physical stamina. It is also commonly used to treat dizziness and headaches.<\/p>"
+          }
+        },
+        "ingredient_P8C7aP": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Tribulus Terrestris",
+            "description": "<p>An herb commonly used to increase sex drive.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_QaYbcn",
+        "ingredient_JNjjXG",
+        "ingredient_rgJ4Jh",
+        "ingredient_yayg3y",
+        "ingredient_3YXjfr",
+        "ingredient_P8C7aP"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/424857591_398097969445099_1126847841646022577_n_2.png",
+        "title": "Ingredients",
+        "text": "<p>Cherry Bomb boasts a potent, all-natural formula for intoxicating sex without intoxication. Made from 100% natural ingredients, each ingredient offers enhancing and wellness properties, synergistically improving sexual performance with minimal risk of side effects.<\/p><p>Cherry Bomb Male Enhancement Supplement is free from illegal drugs or substances. Each ingredient undergoes precise dosing and thorough quality control checks at our licensed facility in Los Angeles, CA.<\/p>"
+      }
+    },
     "sub": {
       "type": "product-full-width",
       "disabled": true,
@@ -102,6 +203,8 @@
   },
   "order": [
     "main",
+    "highlight_with_icons_HQ6EzG",
+    "product_ingredients_Pk4Y7y",
     "sub",
     "product-recommendations",
     "recently-viewed"

@@ -1,0 +1,134 @@
+<div
+  class="product-ingredients"
+  data-section-id="{{ section.id }}"
+  data-section-type="product-ingredients"
+>
+  <div class="page-width page-width--medium">
+    <div class="product-ingredients__content">
+
+      {%- if section.settings.image != blank -%}
+        <div class="product-ingredients__image-block">
+          {%- assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+          <img class="product-ingredients__image lazyload"
+            data-src="{{ img_url }}"
+            data-widths="[180, 360, 540, 750, 900, 1080]"
+            data-aspectratio="{{ section.settings.image.aspect_ratio }}"
+            data-sizes="auto"
+            alt="{{ section.settings.image.alt }}"
+            role="presentation">
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.title != blank or section.settings.text != blank -%}
+        <div class="product-ingredients__text-block">
+
+          {%- if section.settings.title != blank %}
+            <h2 class="product-ingredients__title">{{ section.settings.title }}</h2>
+          {%- endif -%}
+
+          {%- if section.settings.text != blank -%}
+            <div class="product-ingredients__text">
+              {{ section.settings.text }}
+            </div>
+          {%- endif -%}
+
+        </div>
+      {%- endif -%}
+
+    </div>
+  </div>
+  <div class="page-width page-width--large">
+
+    {%- if section.blocks -%}
+      <div class="product-ingredients__ingredients-block">
+
+        {%- for block in section.blocks -%}
+          <div class="product-ingredients__ingredients-item">
+            <div class="product-ingredients__ingredients-item-icon">
+              <svg class="product-ingredients__ingredients-item-icon-svg" aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 40 41">
+                <path d="M3.333 33.466v-2.778h9.861c-.574-2.472-1.77-4.627-3.59-6.465-1.82-1.838-3.91-3.063-6.27-3.674a13.274 13.274 0 0 1 3.333-.417c3.722 0 6.875 1.292 9.458 3.876C18.708 26.59 20 29.744 20 33.465H3.333Zm19.445 0c0-1.167-.116-2.234-.347-3.202a19.34 19.34 0 0 0-.917-2.84c1.13-2.287 2.77-4.074 4.924-5.361 2.152-1.287 4.45-1.93 6.895-1.93a13.275 13.275 0 0 1 3.334.416c-2.361.611-4.463 1.845-6.306 3.701-1.843 1.857-3.028 4.003-3.555 6.438h9.86v2.778H22.779Zm-2.722-8.68c-.167-2.01.064-3.89.694-5.64.63-1.75 1.532-3.28 2.708-4.59a13.25 13.25 0 0 1 4.216-3.132 12.88 12.88 0 0 1 5.201-1.25c-1.555.972-2.986 2.255-4.292 3.847-1.305 1.593-2.185 3.32-2.638 5.18a12.484 12.484 0 0 0-3.34 2.341 15.29 15.29 0 0 0-2.55 3.243Zm-2.709-3.154a22.421 22.421 0 0 0-1.305-1.069 15.641 15.641 0 0 0-1.236-.861 10.9 10.9 0 0 0 .139-.91 7.61 7.61 0 0 0 .055-.826c0-2.111-.333-4.111-1-6a17.998 17.998 0 0 0-2.833-5.167c1.907.769 3.585 1.947 5.034 3.535a14.466 14.466 0 0 1 3.146 5.465c-.5.87-.926 1.808-1.277 2.813a14.838 14.838 0 0 0-.723 3.02Z"/>
+              </svg>
+            </div>
+
+            {%- if block.settings.title != blank -%}
+              <div class="product-ingredients__ingredients-item-name">
+                <h3>{{ block.settings.title }}</h3>
+              </div>
+            {%- endif -%}
+
+            {%- if block.settings.description != blank -%}
+              <div class="product-ingredients__ingredients-item-description">
+                {{ block.settings.description }}
+              </div>
+            {%- endif -%}
+
+          </div>
+        {% endfor %}
+
+      </div>
+    {%- endif -%}
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product ingredients",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Ingredients"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Name",
+          "default": "Ingredient name"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product ingredients",
+      "blocks": [
+        {
+          "type": "ingredient"
+        },
+        {
+          "type": "ingredient"
+        },
+        {
+          "type": "ingredient"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
