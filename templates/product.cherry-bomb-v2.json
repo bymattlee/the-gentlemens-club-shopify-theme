@@ -16,6 +16,12 @@
             "color_swatches": false
           }
         },
+        "recharge_subscriptions_subscription_widget_giJqtL": {
+          "type": "shopify:\/\/apps\/recharge-subscriptions\/blocks\/subscription-widget\/371eed76-0b44-4869-9813-730372ea378e",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -58,6 +64,7 @@
       "block_order": [
         "f5d49e77-9e1e-4406-8d7c-3a480f5d5a97",
         "variant_picker",
+        "recharge_subscriptions_subscription_widget_giJqtL",
         "buy_buttons",
         "text_PH6iNL",
         "sales_point_bEELXi",
