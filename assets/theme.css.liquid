@@ -13722,3 +13722,98 @@ body .recharge-theme {
   width: 100%;
   fill: currentColor;
 }
+
+.modal-is-open {
+  overflow: hidden;
+}
+
+.popup-gate {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+@media only screen and (min-width: 768px) {
+  .popup-gate {
+    padding: 48px;
+  }
+}
+
+.popup-gate--is-open {
+  display: flex;
+}
+
+.popup-gate__content {
+  width: 100%;
+  max-width: 400px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  background-color: var(--color-body);
+  position: relative;
+  z-index: 1;
+}
+
+@media only screen and (min-width: 768px) {
+  .popup-gate__content {
+    padding: 48px;
+  }
+}
+
+.popup-gate__logo-block {
+  display: flex;
+  justify-content: center;
+}
+
+.popup-gate__logo {
+
+}
+
+.popup-gate__text-block {
+  font-size: 18px;
+  color: var(--color-body-text);
+  text-align: center;
+}
+
+.popup-gate__text-block p:last-child {
+  margin-bottom: 0;
+}
+
+.popup-gate__buttons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+@media only screen and (min-width: 768px) {
+  .popup-gate__buttons {
+    gap: 16px;
+  }
+}
+
+.popup-gate__buttons .btn {
+  width: 120px;
+  padding: 12px 24px;
+}
+
+.popup-gate__bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+}

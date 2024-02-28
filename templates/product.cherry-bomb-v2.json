@@ -1,5 +1,14 @@
 {
   "sections": {
+    "popup_gate_VmLXRQ": {
+      "type": "popup-gate",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Cherry_Bomb_Logo_-_Red.png",
+        "logo_width": 200,
+        "text": "<p>Welcome, are you at least 18 years old?<\/p>",
+        "redirect_page": "shopify:\/\/collections\/all"
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -391,6 +400,7 @@
     }
   },
   "order": [
+    "popup_gate_VmLXRQ",
     "main",
     "product_benefits_ny9TNc",
     "product_ingredients_Pk4Y7y",

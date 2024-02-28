@@ -1,0 +1,75 @@
+<div
+  class="popup-gate popup-gate--is-open"
+  data-section-id="{{ section.id }}"
+  data-section-type="popup-gate"
+>
+  <div class="popup-gate__content">
+
+    {%- if section.settings.image != blank -%}
+      {%- style -%}
+        .popup-gate__logo {
+          width: {{ section.settings.logo_width }}px;
+        }
+      {%- endstyle -%}
+      <div class="popup-gate__logo-block">
+        {%- assign header_logo_size = section.settings.logo_width | append: 'x' -%}
+        <img class="popup-gate__logo" src="{{ section.settings.image | img_url: header_logo_size }}" srcset="{{ section.settings.image | img_url: header_logo_size }} 1x, {{ section.settings.image | img_url: header_logo_size, scale: 2 }} 2x">
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.text != blank -%}
+      <div class="popup-gate__text-block">
+        {{ section.settings.text }}
+      </div>
+    {%- endif -%}
+
+    <div class="popup-gate__buttons">
+      <button class="btn accept" type="button">Yes</button>
+
+      {%- if section.settings.redirect_page != blank -%}
+        <a href="{{ section.settings.redirect_page }}" class="btn btn--secondary">No</a>
+      {%- endif -%}
+
+    </div>
+  </div>
+  <div class="popup-gate__bg"></div>
+</div>
+
+{% schema %}
+{
+  "name": "Popup gate",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Logo"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "label": "Logo width",
+      "default": 200,
+      "min": 100,
+      "max": 400,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Welcome, are you at least 18 years old?</p>"
+    },
+    {
+      "type": "url",
+      "id": "redirect_page",
+      "label": "Redirect page"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Popup gate"
+    }
+  ]
+}
+{% endschema %}

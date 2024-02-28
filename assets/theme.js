@@ -9130,6 +9130,29 @@ lazySizesConfig.expFactor = 4
     return CartUpsellProduct
   })()
 
+  theme.PopupGate = (function () {
+    function PopupGate(container) {
+      this.container = container
+      this.acceptButton = container.querySelector('.btn.accept')
+      this.init()
+    }
+
+    PopupGate.prototype = Object.assign({}, PopupGate.prototype, {
+      init: function () {
+        document.documentElement.classList.add('modal-is-open')
+
+        this.acceptButton.addEventListener('click', this.closePopup.bind(this))
+      },
+
+      closePopup: function () {
+        document.documentElement.classList.remove('modal-is-open')
+        this.container.classList.remove('popup-gate--is-open')
+      },
+    })
+
+    return PopupGate
+  })()
+
   theme.mobileNumberForm = function (section) {
     // Phone number field auto format
     function isNumericInput(event) {
@@ -9481,6 +9504,7 @@ lazySizesConfig.expFactor = 4
     theme.sections.register('collection-grid', theme.Collection)
     theme.sections.register('cart-upsell', theme.CartUpsell)
     theme.sections.register('cart-upsell-product', theme.CartUpsellProduct)
+    theme.sections.register('popup-gate', theme.PopupGate)
 
     theme.initGlobals()
     theme.initQuickShop()
