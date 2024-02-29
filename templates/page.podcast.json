@@ -125,39 +125,62 @@
         "divider": false
       }
     },
-    "rich_text_B6FFFE": {
-      "type": "rich-text",
+    "social_icons_katwBV": {
+      "type": "social-icons",
       "blocks": {
-        "text_UTjLUa": {
-          "type": "text",
+        "icon_LcGmjd": {
+          "type": "icon",
           "settings": {
-            "enlarge_text": true,
-            "text": "<p><\/p><p><\/p>"
+            "icon": "spotify",
+            "link": "https:\/\/open.spotify.com\/show\/4DN3Q92yaTjHJ9XIFdjGF3?si=e698c770e659478e"
           }
         },
-        "heading_tL6zJh": {
-          "type": "heading",
+        "icon_GzjLRW": {
+          "type": "icon",
           "settings": {
-            "title": "Follow @4HUNNIDPodcast"
+            "icon": "youtube",
+            "link": "https:\/\/www.youtube.com\/@4HUNNIDPODCAST"
           }
         },
-        "text_rz4VBG": {
-          "type": "text",
+        "icon_Br8i8A": {
+          "type": "icon",
           "settings": {
-            "enlarge_text": false,
-            "text": "<p><a href=\"https:\/\/open.spotify.com\/show\/4DN3Q92yaTjHJ9XIFdjGF3?si=e698c770e659478e\" target=\"_blank\" title=\"https:\/\/open.spotify.com\/show\/4DN3Q92yaTjHJ9XIFdjGF3?si=e698c770e659478e\">Spotify<\/a> \/ <a href=\"https:\/\/www.youtube.com\/@4HUNNIDPODCAST\" target=\"_blank\" title=\"https:\/\/www.youtube.com\/@4HUNNIDPODCAST\">YouTube<\/a> \/ <a href=\"https:\/\/podcasts.apple.com\/us\/podcast\/4hunnid-podcast\/id1728148476?ign-itscg=30200&ign-itsct=lt_p\" target=\"_blank\" title=\"https:\/\/podcasts.apple.com\/us\/podcast\/4hunnid-podcast\/id1728148476?ign-itscg=30200&ign-itsct=lt_p\">Apple Podcasts<\/a> \/ <a href=\"https:\/\/music.amazon.com\/podcasts\/8763933c-00f8-47b4-a2fb-3458eb28d3d4\/4hunnid-podcast\" target=\"_blank\" title=\"https:\/\/music.amazon.com\/podcasts\/8763933c-00f8-47b4-a2fb-3458eb28d3d4\/4hunnid-podcast\">Amazon Music<\/a> \/ <a href=\"https:\/\/www.tiktok.com\/@4hunnidpodcast\" target=\"_blank\" title=\"https:\/\/www.tiktok.com\/@4hunnidpodcast\">TikTok<\/a><\/p>"
+            "icon": "apple_podcasts",
+            "link": "https:\/\/podcasts.apple.com\/us\/podcast\/4hunnid-podcast\/id1728148476?ign-itscg=30200&ign-itsct=lt_p"
+          }
+        },
+        "icon_zdKYKq": {
+          "type": "icon",
+          "settings": {
+            "icon": "amazon_music",
+            "link": "https:\/\/music.amazon.com\/podcasts\/8763933c-00f8-47b4-a2fb-3458eb28d3d4\/4hunnid-podcast"
+          }
+        },
+        "icon_XDf3Dg": {
+          "type": "icon",
+          "settings": {
+            "icon": "instagram",
+            "link": "https:\/\/www.instagram.com\/4hunnidpodcast\/"
+          }
+        },
+        "icon_jM7PNz": {
+          "type": "icon",
+          "settings": {
+            "icon": "tiktok",
+            "link": "https:\/\/www.tiktok.com\/@4hunnidpodcast"
           }
         }
       },
       "block_order": [
-        "text_UTjLUa",
-        "heading_tL6zJh",
-        "text_rz4VBG"
+        "icon_LcGmjd",
+        "icon_GzjLRW",
+        "icon_Br8i8A",
+        "icon_zdKYKq",
+        "icon_XDf3Dg",
+        "icon_jM7PNz"
       ],
       "settings": {
-        "align_text": "center",
-        "narrow_column": true,
-        "divider": false
+        "heading": "Follow @4HUNNIDPodcast"
       }
     }
   },
@@ -171,6 +194,6 @@
     "featured_video_w6D87T",
     "rich_text_WzhXzR",
     "featured_video_WBkKHJ",
-    "rich_text_B6FFFE"
+    "social_icons_katwBV"
   ]
 }
