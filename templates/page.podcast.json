@@ -33,6 +33,34 @@
         "divider": false
       }
     },
+    "featured_video_BM6r9q": {
+      "type": "featured-video",
+      "settings": {
+        "title": "Episode 4 - Mozzy Breaks Down Street Politics, Growing Up In Oak Park, Investing in Real Estate & more!",
+        "video_url": "https:\/\/www.youtube.com\/watch?v=VzusZF4TJug",
+        "divider": false
+      }
+    },
+    "rich_text_LzjxmP": {
+      "type": "rich-text",
+      "blocks": {
+        "text_mNgXNj": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": true,
+            "text": "<p><\/p><p><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_mNgXNj"
+      ],
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false
+      }
+    },
     "featured_video_DriPLi": {
       "type": "featured-video",
       "settings": {
@@ -136,6 +164,8 @@
   "order": [
     "main",
     "rich_text_kD6tW4",
+    "featured_video_BM6r9q",
+    "rich_text_LzjxmP",
     "featured_video_DriPLi",
     "rich_text_wRmyBB",
     "featured_video_w6D87T",
