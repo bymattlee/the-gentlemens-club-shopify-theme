@@ -1722,7 +1722,7 @@ label{
 }
 
 .h4,h4{
-  text-transform:uppercase;
+/*   text-transform:uppercase; */
   /* letter-spacing:0.3em; */
   /* font-size:0.8em; */
 }
@@ -10997,6 +10997,58 @@ newsletter-reminder .newsletter-reminder__message{
 
 .cart__route .route-widget .rw-contents .rw-center .rw-text-top .rw-info {
   border-color: var(--color-body-text) !important;
+}
+
+.cart-verification {
+  display: none;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  margin-bottom: 0;
+  border: 1px solid;
+  border-color: {{ settings.color_drawer_border | default: "#343535" }};
+  border-color: var(--colorDrawerBorder);
+}
+
+.cart-verification--is-active {
+  display: block;
+}
+
+.cart-verification--drawer {
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+}
+
+.cart-verification__text {
+  margin: 0;
+}
+
+.cart-verification__checkbox-label {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
+  margin: 8px 0 0;
+}
+
+.cart-verification__checkbox {
+  margin: 0 !important;
+  border: 1px solid var(--color-body-text) !important;
+  width: 12px !important;
+  height: 12px;
+  border-radius: 0;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  background-color: !important;
+}
+
+.cart-verification__checkbox:checked {
+  background-color: var(--color-body-text);
+}
+
+.cart-verification__checkbox-text {
+  flex: 1;
+  margin-bottom: 0;
 }
 
 /* .cart__checkout-wrapper{

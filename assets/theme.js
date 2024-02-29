@@ -1803,6 +1803,7 @@ lazySizesConfig.expFactor = 4
 
     var config = {
       requiresTerms: false,
+      requiresVerification: false,
     }
 
     function CartForm(form) {
@@ -1862,6 +1863,14 @@ lazySizesConfig.expFactor = 4
       },
 
       onSubmit: function (evt) {
+        // Check if verification is active
+        this.verificationIsActive = this.form.querySelector(
+          '.cart-verification--is-active'
+        )
+        this.verificationCheckbox = this.form.querySelector(
+          '.cart-verification__checkbox'
+        )
+
         this.submitBtn.classList.add(classes.btnLoading)
 
         if (config.requiresTerms) {
@@ -1869,6 +1878,19 @@ lazySizesConfig.expFactor = 4
             // continue to checkout
           } else {
             alert(theme.strings.cartTermsConfirmation)
+            this.submitBtn.classList.remove(classes.btnLoading)
+            evt.preventDefault()
+            return false
+          }
+        }
+
+        if (this.verificationIsActive) {
+          if (this.verificationCheckbox.checked) {
+            // continue to checkout
+          } else {
+            alert(
+              'Please confirm that you are at least 18 years old to purchase Cherry Bomb.'
+            )
             this.submitBtn.classList.remove(classes.btnLoading)
             evt.preventDefault()
             return false
@@ -9130,6 +9152,51 @@ lazySizesConfig.expFactor = 4
     return CartUpsellProduct
   })()
 
+  theme.CartVerification = (function () {
+    function CartVerification(container) {
+      this.container = container
+      this.productId = container.dataset.productId
+      this.init()
+    }
+
+    CartVerification.prototype = Object.assign({}, CartVerification.prototype, {
+      init: function () {
+        this.cartCheck()
+
+        document.addEventListener(
+          'ajaxProduct:added',
+          function (evt) {
+            this.cartCheck()
+          }.bind(this)
+        )
+        document.addEventListener(
+          'cart:updated',
+          function (evt) {
+            this.cartCheck()
+          }.bind(this)
+        )
+      },
+
+      cartCheck: async function () {
+        var cart = await theme.cart.getCart()
+
+        const hasProduct = cart.items.some(
+          function (product) {
+            return product.product_id === parseInt(this.productId)
+          }.bind(this)
+        )
+
+        if (hasProduct) {
+          this.container.classList.add('cart-verification--is-active')
+        } else {
+          this.container.classList.remove('cart-verification--is-active')
+        }
+      },
+    })
+
+    return CartVerification
+  })()
+
   theme.PopupGate = (function () {
     function PopupGate(container) {
       this.container = container
@@ -9504,6 +9571,7 @@ lazySizesConfig.expFactor = 4
     theme.sections.register('collection-grid', theme.Collection)
     theme.sections.register('cart-upsell', theme.CartUpsell)
     theme.sections.register('cart-upsell-product', theme.CartUpsellProduct)
+    theme.sections.register('cart-verification', theme.CartVerification)
     theme.sections.register('popup-gate', theme.PopupGate)
 
     theme.initGlobals()

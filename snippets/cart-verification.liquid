@@ -1,0 +1,16 @@
+{% if settings.enable_verification_checkbox != false and settings.verification_product != blank %}
+  <div class="cart-verification cart__item-row{% if is_drawer %} cart-verification--drawer{% endif %}" data-section-type="cart-verification" data-product-id="{{ settings.verification_product.id }}">
+
+    {% if settings.verification_text %}
+      <p class="cart-verification__text">{{ settings.verification_text }}</p>
+    {% endif %}
+
+    {% if settings.verification_checkbox_text %}
+      <label class="cart-verification__checkbox-label">
+        <input type="checkbox" class="cart-verification__checkbox">
+        <p class="cart-verification__checkbox-text">{{ settings.verification_checkbox_text }}</p>
+      </label>
+    {% endif %}
+
+  </div>
+{% endif %}

@@ -125,6 +125,26 @@
         "divider": false
       }
     },
+    "rich_text_fY4ddT": {
+      "type": "rich-text",
+      "blocks": {
+        "text_YFipDX": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": true,
+            "text": "<p><\/p><p><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_YFipDX"
+      ],
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false
+      }
+    },
     "social_icons_katwBV": {
       "type": "social-icons",
       "blocks": {
@@ -194,6 +214,7 @@
     "featured_video_w6D87T",
     "rich_text_WzhXzR",
     "featured_video_WBkKHJ",
+    "rich_text_fY4ddT",
     "social_icons_katwBV"
   ]
 }

@@ -4,8 +4,8 @@
     "theme_name": "Impulse",
     "theme_author": "Archetype Themes",
     "theme_version": "6.0.1",
-    "theme_documentation_url": "https:\/\/archetypethemes.co\/blogs\/impulse",
-    "theme_support_url": "https:\/\/archetypethemes.co\/pages\/support#impulse"
+    "theme_documentation_url": "https://archetypethemes.co/blogs/impulse",
+    "theme_support_url": "https://archetypethemes.co/pages/support#impulse"
   },
   {
     "name": "t:settings_schema.colors.name",
@@ -894,6 +894,31 @@
         "type": "product",
         "id": "upsell_product_2",
         "label": "Upsell product 2"
+      },
+      {
+        "type": "header",
+        "content": "Verification checkbox"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_verification_checkbox",
+        "label": "Enable verification checkbox"
+      },
+      {
+        "type": "product",
+        "id": "verification_product",
+        "label": "Verification product",
+        "info": "Product that will trigger this checkbox to appear."
+      },
+      {
+        "type": "textarea",
+        "id": "verification_text",
+        "label": "Verification text"
+      },
+      {
+        "type": "textarea",
+        "id": "verification_checkbox_text",
+        "label": "Verification checkbox text"
       }
     ]
   },
