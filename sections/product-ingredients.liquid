@@ -27,7 +27,7 @@
           {%- endif -%}
 
           {%- if section.settings.text != blank -%}
-            <div class="product-ingredients__text">
+            <div class="product-ingredients__text rte">
               {{ section.settings.text }}
             </div>
           {%- endif -%}
@@ -57,7 +57,7 @@
             {%- endif -%}
 
             {%- if block.settings.description != blank -%}
-              <div class="product-ingredients__ingredients-item-description">
+              <div class="product-ingredients__ingredients-item-description rte">
                 {{ block.settings.description }}
               </div>
             {%- endif -%}
