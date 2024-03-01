@@ -115,8 +115,8 @@
         "benefit_gqdYAJ": {
           "type": "benefit",
           "settings": {
-            "icon": "refund",
-            "title": "30-Day Satisfaction Guarantee",
+            "icon": "truck",
+            "title": "Fast Shipping",
             "description": ""
           }
         },
@@ -124,7 +124,7 @@
           "type": "benefit",
           "settings": {
             "icon": "box",
-            "title": "Discrete Shipping",
+            "title": "Discrete Packaging",
             "description": ""
           }
         }
@@ -213,6 +213,7 @@
       "block_order": [
         "okendo_reviews_widget_YrfCCd"
       ],
+      "disabled": true,
       "settings": {
         "full_width": false,
         "space_around": true
@@ -227,10 +228,18 @@
             "title": "Subscription",
             "text": "<p>Opt for Cherry Bomb's subscription package to enjoy double savings and ensure a continuous supply. Plus, we guarantee to maintain your subscription price during special promotions throughout your term with us. Enjoy a hassle-free cancellation process through our trusted partners and Recharge.<\/p>"
           }
+        },
+        "text_tMYDJp": {
+          "type": "text",
+          "settings": {
+            "title": "Returns & Refunds",
+            "text": "<p>Please review our returns and refunds policies <a href=\"\/pages\/cherry-bomb-returns-refunds-policy\" title=\"Cherry Bomb Returns & Refunds Policy\">here<\/a>.<\/p>"
+          }
         }
       },
       "block_order": [
-        "text_Y9ygye"
+        "text_Y9ygye",
+        "text_tMYDJp"
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/Cherry_Bomb_-_Ad_2_1.png",
@@ -311,16 +320,16 @@
         "benefit_YPqeAk": {
           "type": "benefit",
           "settings": {
-            "icon": "refund",
-            "title": "30-Day Satisfaction Guarantee",
-            "description": "<p>We're certain that Cherry Bomb will exceed your expectations. However, if you are unsatisfied for any reason, our money-back guarantee ensures your satisfaction<\/p>"
+            "icon": "truck",
+            "title": "Fast Shipping",
+            "description": "<p>Receive your order within 2-5 business days! We aim for same day fulfillment on business days. <\/p>"
           }
         },
         "benefit_eEwTV9": {
           "type": "benefit",
           "settings": {
             "icon": "box",
-            "title": "Discrete Shipping",
+            "title": "Discrete Packaging",
             "description": "<p>Your privacy is important to us. Orders from Cherry Bomb are shipped discreetly in unbranded, polymailers, ensuring confidentiality between you and your partner. We aim for same-day fulfillment on weekdays and utilize 2-5 business day shipping.<\/p>"
           }
         }
