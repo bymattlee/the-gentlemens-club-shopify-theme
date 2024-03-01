@@ -233,7 +233,7 @@
           "type": "text",
           "settings": {
             "title": "Returns & Refunds",
-            "text": "<p>Please review our Return & Refund policy <a href=\"\/pages\/cherry-bomb-returns-refunds-policy\" title=\"Cherry Bomb Returns & Refunds Policy\">here<\/a>.<\/p>"
+            "text": "<p>Please review our Return & Refund policy <a href=\"\/pages\/cherry-bomb-return-refund-policy\" title=\"Cherry Bomb Return & Refund Policy\">here<\/a>.<\/p>"
           }
         }
       },
