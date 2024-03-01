@@ -3,6 +3,13 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "okendo_star_rating_8Xyfq3": {
+          "type": "shopify:\/\/apps\/okendo\/blocks\/star-rating\/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+          "disabled": true,
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
         "f5d49e77-9e1e-4406-8d7c-3a480f5d5a97": {
           "type": "color_variations",
           "settings": {
@@ -62,6 +69,7 @@
         }
       },
       "block_order": [
+        "okendo_star_rating_8Xyfq3",
         "f5d49e77-9e1e-4406-8d7c-3a480f5d5a97",
         "variant_picker",
         "recharge_subscriptions_subscription_widget_giJqtL",
@@ -189,6 +197,25 @@
         "image": "shopify:\/\/shop_images\/424857591_398097969445099_1126847841646022577_n_2.png",
         "title": "Ingredients",
         "text": "<p>Cherry Bomb boasts a potent, all-natural formula for intoxicating sex without intoxication. Made from 100% natural ingredients, each ingredient offers enhancing and wellness properties, synergistically improving sexual performance with minimal risk of side effects.<\/p><p>Cherry Bomb Male Enhancement Supplement is free from illegal drugs or substances. Each ingredient undergoes precise dosing and thorough quality control checks at our licensed facility in Los Angeles, CA.<\/p>"
+      }
+    },
+    "1709271225c5ccfc6b": {
+      "type": "apps",
+      "blocks": {
+        "okendo_reviews_widget_YrfCCd": {
+          "type": "shopify:\/\/apps\/okendo\/blocks\/reviews-widget\/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+          "settings": {
+            "product": "{{product}}",
+            "widget_type": "combined_widget"
+          }
+        }
+      },
+      "block_order": [
+        "okendo_reviews_widget_YrfCCd"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
       }
     },
     "large_image_and_text_LMyppG": {
@@ -386,6 +413,7 @@
     "main",
     "product_benefits_ny9TNc",
     "product_ingredients_Pk4Y7y",
+    "1709271225c5ccfc6b",
     "large_image_and_text_LMyppG",
     "large_image_and_faq_NaJmnW",
     "product_benefits_37JN8w",
