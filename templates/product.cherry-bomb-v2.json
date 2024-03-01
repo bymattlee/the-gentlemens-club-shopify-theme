@@ -200,18 +200,10 @@
             "title": "Subscription",
             "text": "<p>Opt for Cherry Bomb's subscription package to enjoy double savings and ensure a continuous supply. Plus, we guarantee to maintain your subscription price during special promotions throughout your term with us. Enjoy a hassle-free cancellation process through our trusted partners and Recharge.<\/p>"
           }
-        },
-        "text_GQ8Uff": {
-          "type": "text",
-          "settings": {
-            "title": "Returns and Refund Policy",
-            "text": "<p>Please review our returns and refund policy here.<\/p>"
-          }
         }
       },
       "block_order": [
-        "text_Y9ygye",
-        "text_GQ8Uff"
+        "text_Y9ygye"
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/Cherry_Bomb_-_Ad_2_1.png",
