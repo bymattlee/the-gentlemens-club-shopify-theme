@@ -200,18 +200,10 @@
             "title": "Subscription",
             "text": "<p>Opt for Cherry Bomb's subscription package to enjoy double savings and ensure a continuous supply. Plus, we guarantee to maintain your subscription price during special promotions throughout your term with us. Enjoy a hassle-free cancellation process through our trusted partners and Recharge.<\/p>"
           }
-        },
-        "text_tMYDJp": {
-          "type": "text",
-          "settings": {
-            "title": "Shipping & Returns",
-            "text": "<p>We're certain that Cherry Bomb will exceed your expectations. However, if you are unsatisfied for any reason, our money-back guarantee ensures your satisfaction.<\/p><ul><li>We offer USPS Ground Advantage shipping with 2-5 business days or Priority Mail with 1-3 business days.<\/li><li>We aim for same-day fulfillment on weekdays.<\/li><li>To cancel your subscription, please do it directly through your Recharge account.<\/li><li>Cancellations must be done prior to your order being dispatched from our fulfillment center.<\/li><\/ul>"
-          }
         }
       },
       "block_order": [
-        "text_Y9ygye",
-        "text_tMYDJp"
+        "text_Y9ygye"
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/Cherry_Bomb_-_Ad_2_1.png",
