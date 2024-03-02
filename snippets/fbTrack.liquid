@@ -177,6 +177,6 @@
     {%endif%}
     
 	<div data-clinetagent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36" data-browserid="fb.1.1681146721.1116446470" data-shop="4hunnid-original.myshopify.com" data-ip="2603:8000:4200:eac2:a060:7eaf:90de:1725" data-time="1681146721" class="shopCurrency" style="display:none;">{{shop.currency}}</div>
-	<script src="{{ 'api.jquery.js' | shopify_asset_url }}" ></script>
+	<script src="{{ 'api.jquery.js' | shopify_asset_url }}" defer></script>
 {%endif%}
-<script src="https://optiapps.xyz/pull/{{shop.permanent_domain}}/hook.js?v=1681146721" ></script>
+<script src="https://optiapps.xyz/pull/{{shop.permanent_domain}}/hook.js?v=1681146721" defer></script>
