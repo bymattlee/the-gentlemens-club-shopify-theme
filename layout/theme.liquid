@@ -14,9 +14,11 @@
   <link rel="dns-prefetch" href="https://maps.googleapis.com">
   <link rel="dns-prefetch" href="https://maps.gstatic.com">
 
-  {%- if template.name == 'index' -%}
+  {%- if settings.enable_homepage_redirect and settings.homepage_redirect_url != blank and template.name == 'index' -%}
     <script>
-      window.location.href = '/products/cherry-bomb'
+      if (!window.location.search.includes('oseid')) {
+        window.location.href = '{{ settings.homepage_redirect_url }}'
+      }
     </script>
   {%- endif -%}
 

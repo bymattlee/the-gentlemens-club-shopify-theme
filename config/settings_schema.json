@@ -1105,6 +1105,22 @@
     ]
   },
   {
+    "name": "Homepage redirect",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_homepage_redirect",
+        "label": "Enable homepage redirect",
+        "default": false
+      },
+      {
+        "type": "url",
+        "id": "homepage_redirect_url",
+        "label": "Homepage redirect URL"
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.extras.name",
     "settings": [
       {
