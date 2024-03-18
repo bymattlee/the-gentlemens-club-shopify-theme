@@ -11,6 +11,64 @@
         "social_sharing_blog": false
       }
     },
+    "social_icons_cdth6z": {
+      "type": "social-icons",
+      "blocks": {
+        "icon_D3UDnm": {
+          "type": "icon",
+          "settings": {
+            "icon": "spotify",
+            "link": "https:\/\/open.spotify.com\/show\/4DN3Q92yaTjHJ9XIFdjGF3?si=e698c770e659478e"
+          }
+        },
+        "icon_PCgzbP": {
+          "type": "icon",
+          "settings": {
+            "icon": "youtube",
+            "link": "https:\/\/www.youtube.com\/@4HUNNIDPODCAST"
+          }
+        },
+        "icon_GbMN9d": {
+          "type": "icon",
+          "settings": {
+            "icon": "apple_podcasts",
+            "link": "https:\/\/podcasts.apple.com\/us\/podcast\/4hunnid-podcast\/id1728148476?ign-itscg=30200&ign-itsct=lt_p"
+          }
+        },
+        "icon_fPXXyD": {
+          "type": "icon",
+          "settings": {
+            "icon": "amazon_music",
+            "link": "https:\/\/music.amazon.com\/podcasts\/8763933c-00f8-47b4-a2fb-3458eb28d3d4\/4hunnid-podcast"
+          }
+        },
+        "icon_bVMwqg": {
+          "type": "icon",
+          "settings": {
+            "icon": "instagram",
+            "link": "https:\/\/www.instagram.com\/4hunnidpodcast\/"
+          }
+        },
+        "icon_Y9CiJy": {
+          "type": "icon",
+          "settings": {
+            "icon": "tiktok",
+            "link": "https:\/\/www.tiktok.com\/@4hunnidpodcast"
+          }
+        }
+      },
+      "block_order": [
+        "icon_D3UDnm",
+        "icon_PCgzbP",
+        "icon_GbMN9d",
+        "icon_fPXXyD",
+        "icon_bVMwqg",
+        "icon_Y9CiJy"
+      ],
+      "settings": {
+        "heading": "Follow @4HUNNIDPodcast"
+      }
+    },
     "blog-posts": {
       "type": "blog-posts",
       "settings": {
@@ -21,7 +79,7 @@
         "blog_show_date": true,
         "blog_show_comments": false,
         "blog_show_author": false,
-        "view_all": true,
+        "view_all": false,
         "blog_image_size": "wide",
         "divider": false
       }
@@ -29,6 +87,7 @@
   },
   "order": [
     "main",
+    "social_icons_cdth6z",
     "blog-posts"
   ]
 }
