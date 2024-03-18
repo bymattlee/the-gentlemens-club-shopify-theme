@@ -59,6 +59,14 @@
   </div>
 {%- endif -%}
 
+{%- if article.metafields.podcast.youtube_video_id -%}
+  <div class="page-width page-width--large">
+    <div class="article__podcast-video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ article.metafields.podcast.youtube_video_id }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+  </div>
+{%- endif -%}
+
 <div class="page-width page-width--narrow page-content">
   <article class="article">
     {%- unless section.settings.image_hero and article.image -%}
@@ -192,13 +200,15 @@
       {%- endpaginate -%}
     {%- endif -%}
 
-    <hr class="hr--large">
+    <!-- <hr class="hr--large"> -->
 
   </article>
 
-  <div class="text-center">
-    <a href="{{ blog.url }}" class="btn return-link"><svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-arrow-left" viewBox="0 0 50 15"><path d="M50 5.38v4.25H15V15L0 7.5 15 0v5.38z"/></svg> {{ 'blogs.article.back_to_blog' | t: title: blog.title }}</a>
-  </div>
+  {% comment %}
+    <div class="text-center">
+      <a href="{{ blog.url }}" class="btn return-link"><svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-arrow-left" viewBox="0 0 50 15"><path d="M50 5.38v4.25H15V15L0 7.5 15 0v5.38z"/></svg> {{ 'blogs.article.back_to_blog' | t: title: blog.title }}</a>
+    </div>
+  {% endcomment %}
 </div>
 
 <script type="application/ld+json">
