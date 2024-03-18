@@ -12,9 +12,68 @@
         "blog_show_excerpt": true,
         "blog_image_size": "wide"
       }
+    },
+    "social_icons_fWMLjW": {
+      "type": "social-icons",
+      "blocks": {
+        "icon_x87nKf": {
+          "type": "icon",
+          "settings": {
+            "icon": "spotify",
+            "link": "https:\/\/open.spotify.com\/show\/4DN3Q92yaTjHJ9XIFdjGF3?si=e698c770e659478e"
+          }
+        },
+        "icon_FCJAYN": {
+          "type": "icon",
+          "settings": {
+            "icon": "youtube",
+            "link": "https:\/\/www.youtube.com\/@4HUNNIDPODCAST"
+          }
+        },
+        "icon_xBxQxP": {
+          "type": "icon",
+          "settings": {
+            "icon": "apple_podcasts",
+            "link": "https:\/\/podcasts.apple.com\/us\/podcast\/4hunnid-podcast\/id1728148476?ign-itscg=30200&ign-itsct=lt_p"
+          }
+        },
+        "icon_rK3jkM": {
+          "type": "icon",
+          "settings": {
+            "icon": "amazon_music",
+            "link": "https:\/\/music.amazon.com\/podcasts\/8763933c-00f8-47b4-a2fb-3458eb28d3d4\/4hunnid-podcast"
+          }
+        },
+        "icon_eHPRLr": {
+          "type": "icon",
+          "settings": {
+            "icon": "instagram",
+            "link": "https:\/\/www.instagram.com\/4hunnidpodcast\/"
+          }
+        },
+        "icon_zrw9id": {
+          "type": "icon",
+          "settings": {
+            "icon": "tiktok",
+            "link": "https:\/\/www.tiktok.com\/@4hunnidpodcast"
+          }
+        }
+      },
+      "block_order": [
+        "icon_x87nKf",
+        "icon_FCJAYN",
+        "icon_xBxQxP",
+        "icon_rK3jkM",
+        "icon_eHPRLr",
+        "icon_zrw9id"
+      ],
+      "settings": {
+        "heading": "Follow @4HUNNIDPodcast"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "social_icons_fWMLjW"
   ]
 }
