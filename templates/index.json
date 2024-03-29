@@ -36,7 +36,7 @@
         "16649038026416c14c-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Main_Image.jpg",
+            "image": "shopify:\/\/shop_images\/Main_40582abe-0c19-4dcf-849d-3ce2d82bc520.jpg",
             "link": "",
             "width": "33%",
             "alignment": "center"
@@ -55,8 +55,8 @@
     "9be68cd0-7327-422f-a4fc-850561ae28e4": {
       "type": "featured-collection",
       "settings": {
-        "title": "FH Logo Collection",
-        "home_featured_products": "2024-fh-logo-collection",
+        "title": "Good Sex Collection",
+        "home_featured_products": "2024-good-sex-collection",
         "per_row": 4,
         "rows": 20,
         "mobile_scrollable": false,
