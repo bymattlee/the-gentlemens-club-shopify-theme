@@ -274,21 +274,13 @@
             "title": "Are there any side effects?",
             "answer": "<p>Cherry Bomb is crafted using all-natural herbs and wellness properties, ensuring it is 100% drug-free. It comprises ingredients deemed safe for ongoing consumption without the risk of side effects. Nonetheless, as with any food or supplement, there's a possibility of adverse reactions. In such instances, discontinuing use and seeking advice from a medical professional is recommended.<\/p>"
           }
-        },
-        "faq_9kWU9M": {
-          "type": "faq",
-          "settings": {
-            "title": "Can I return Cherry Bomb if I’m not satisfied?",
-            "answer": "<p>We're certain that Cherry Bomb will exceed your expectations. However, if you are unsatisfied for any reason, our money-back guarantee ensures your satisfaction.<\/p>"
-          }
         }
       },
       "block_order": [
         "faq_Upc39k",
         "faq_WmJEBL",
         "faq_4eBrmb",
-        "faq_RChhAN",
-        "faq_9kWU9M"
+        "faq_RChhAN"
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/Email_-_Pre-Drop_1.png",
