@@ -75,7 +75,7 @@
     "favicon": "shopify:\/\/shop_images\/4Hunnid_Favicon_aaa4831c-62e6-40cc-a7d3-6bbf61722619.png",
     "search_enable": false,
     "predictive_search_enabled": false,
-    "enable_homepage_redirect": false,
+    "enable_homepage_redirect": true,
     "homepage_redirect_url": "shopify:\/\/products\/cherry-bomb",
     "checkout_logo_image": "shopify:\/\/shop_images\/4Hunnid_Logo_-_Red.png",
     "checkout_logo_position": "center",
