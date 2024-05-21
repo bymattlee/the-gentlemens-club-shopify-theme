@@ -144,13 +144,121 @@
         "tour_date_43QiNX": {
           "type": "tour_date",
           "settings": {
-            "title": "",
-            "location": "",
-            "venue": "",
-            "button_1_text": "",
-            "button_1_url": "",
-            "button_2_text": "",
-            "button_2_url": ""
+            "title": "07\/26",
+            "location": "New York, NY",
+            "venue": "Irving Plaza",
+            "button_1_text": "Buy Tickets",
+            "button_1_url": "https:\/\/www.ticketmaster.com\/event\/000060B11700C784",
+            "button_2_text": "VIP",
+            "button_2_url": "https:\/\/www.ticketmaster.com\/event\/000060B11700C784"
+          }
+        },
+        "tour_date_GRk9Py": {
+          "type": "tour_date",
+          "settings": {
+            "title": "07\/28",
+            "location": "Silver Spring, MD",
+            "venue": "The Fillmore - Silver Spring",
+            "button_1_text": "Buy Tickets",
+            "button_1_url": "https:\/\/www.ticketmaster.com\/event\/150060B1D72059F5",
+            "button_2_text": "VIP",
+            "button_2_url": "https:\/\/www.ticketmaster.com\/event\/150060B1D72059F5"
+          }
+        },
+        "tour_date_MWFrLy": {
+          "type": "tour_date",
+          "settings": {
+            "title": "08\/03",
+            "location": "Dallas, TX",
+            "venue": "House Of Blues - Dallas",
+            "button_1_text": "Buy Tickets",
+            "button_1_url": "https:\/\/www.ticketmaster.com\/event\/0C0060B1F4E34AE2",
+            "button_2_text": "VIP",
+            "button_2_url": "https:\/\/www.ticketmaster.com\/event\/0C0060B1F4E34AE2"
+          }
+        },
+        "tour_date_MwUDY8": {
+          "type": "tour_date",
+          "settings": {
+            "title": "08\/04",
+            "location": "Houston, TX",
+            "venue": "House Of Blues - Houston",
+            "button_1_text": "Buy Tickets",
+            "button_1_url": "https:\/\/www.ticketmaster.com\/event\/3A0060B2AE8936CC",
+            "button_2_text": "VIP",
+            "button_2_url": "https:\/\/www.ticketmaster.com\/event\/3A0060B2AE8936CC"
+          }
+        },
+        "tour_date_LFjedU": {
+          "type": "tour_date",
+          "settings": {
+            "title": "08\/06",
+            "location": "Albuquerque, NM",
+            "venue": "Revel",
+            "button_1_text": "Buy Tickets",
+            "button_1_url": "https:\/\/www.prekindle.com\/event\/13432-yg-the-just-red-up-tour-albuquerque",
+            "button_2_text": "VIP",
+            "button_2_url": "https:\/\/www.prekindle.com\/event\/13432-yg-the-just-red-up-tour-albuquerque"
+          }
+        },
+        "tour_date_fQkHAj": {
+          "type": "tour_date",
+          "settings": {
+            "title": "08\/08",
+            "location": "Phoenix, AZ",
+            "venue": "Arizona Financial Theatre",
+            "button_1_text": "Buy Tickets",
+            "button_1_url": "https:\/\/www.ticketmaster.com\/event\/190060B0EF8946F3",
+            "button_2_text": "VIP",
+            "button_2_url": "https:\/\/www.ticketmaster.com\/event\/190060B0EF8946F3"
+          }
+        },
+        "tour_date_MVpmHc": {
+          "type": "tour_date",
+          "settings": {
+            "title": "08\/09",
+            "location": "Riverside, CA",
+            "venue": "Riverside Municipal Auditorium",
+            "button_1_text": "Buy Tickets",
+            "button_1_url": "https:\/\/www.ticketmaster.com\/event\/0B0060B1CB572DAC",
+            "button_2_text": "VIP",
+            "button_2_url": "https:\/\/www.ticketmaster.com\/event\/0B0060B1CB572DAC"
+          }
+        },
+        "tour_date_zpFGbL": {
+          "type": "tour_date",
+          "settings": {
+            "title": "08\/10",
+            "location": "Anaheim, CA",
+            "venue": "House Of Blues - Anaheim",
+            "button_1_text": "Buy Tickets",
+            "button_1_url": "https:\/\/www.ticketmaster.com\/event\/090060B0CA5B4E63",
+            "button_2_text": "VIP",
+            "button_2_url": "https:\/\/www.ticketmaster.com\/event\/090060B0CA5B4E63"
+          }
+        },
+        "tour_date_caLDVf": {
+          "type": "tour_date",
+          "settings": {
+            "title": "08\/11",
+            "location": "San Diego, CA",
+            "venue": "Observatory North Park",
+            "button_1_text": "Buy Tickets",
+            "button_1_url": "https:\/\/www.ticketmaster.com\/event\/0B0060B1B51A2B88",
+            "button_2_text": "VIP",
+            "button_2_url": "https:\/\/www.ticketmaster.com\/event\/0B0060B1B51A2B88"
+          }
+        },
+        "tour_date_y9rWpF": {
+          "type": "tour_date",
+          "settings": {
+            "title": "08\/17",
+            "location": "Mililani, HI",
+            "venue": "Wet'N'Wild",
+            "button_1_text": "Buy Tickets",
+            "button_1_url": "https:\/\/wl.seetickets.us\/event\/yg\/604742?afflky=WeAreMetta",
+            "button_2_text": "VIP",
+            "button_2_url": "https:\/\/wl.seetickets.us\/event\/yg\/604742?afflky=WeAreMetta"
           }
         }
       },
@@ -166,7 +274,16 @@
         "9bc78b05-31c4-485b-bb0b-41de0e3ab67e",
         "tour_date_nKw8cy",
         "tour_date_BATXMe",
-        "tour_date_43QiNX"
+        "tour_date_43QiNX",
+        "tour_date_GRk9Py",
+        "tour_date_MWFrLy",
+        "tour_date_MwUDY8",
+        "tour_date_LFjedU",
+        "tour_date_fQkHAj",
+        "tour_date_MVpmHc",
+        "tour_date_zpFGbL",
+        "tour_date_caLDVf",
+        "tour_date_y9rWpF"
       ],
       "settings": {
         "tour_flyer": "shopify:\/\/shop_images\/image0.jpg",
