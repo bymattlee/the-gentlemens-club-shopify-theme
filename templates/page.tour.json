@@ -14,7 +14,7 @@
           "settings": {
             "title": "06\/28",
             "location": "Los Angeles, CA",
-            "venue": "Hollywood Palladium",
+            "venue": "",
             "button_1_text": "Buy Tickets",
             "button_1_url": "https:\/\/www.ticketmaster.com\/event\/090060B1935927BD",
             "button_2_text": "VIP",
@@ -26,7 +26,7 @@
           "settings": {
             "title": "07\/06",
             "location": "Oakland, CA",
-            "venue": "Fox Theatre",
+            "venue": "",
             "button_1_text": "Buy Tickets",
             "button_1_url": "https:\/\/www.ticketmaster.com\/event\/1C0060B0C44C5194?camefrom=CFC_ANOTHERPLANET_artist&brand=anotherplanet",
             "button_2_text": "VIP",
@@ -38,7 +38,7 @@
           "settings": {
             "title": "07\/07",
             "location": "Sacramento, CA",
-            "venue": "Ace of Spades",
+            "venue": "",
             "button_1_text": "Buy Tickets",
             "button_1_url": "https:\/\/www.ticketmaster.com\/event\/1C0060B0C1494FCD",
             "button_2_text": "VIP",
@@ -50,7 +50,7 @@
           "settings": {
             "title": "07\/10",
             "location": "Portland, OR",
-            "venue": "Roseland Theater",
+            "venue": "",
             "button_1_text": "Buy Tickets",
             "button_1_url": "https:\/\/www.etix.com\/ticket\/p\/92115978\/yg-the-just-red-up-tour-portland-roseland-theater",
             "button_2_text": "VIP",
@@ -62,7 +62,7 @@
           "settings": {
             "title": "07\/12",
             "location": "Seattle, WA",
-            "venue": "Showbox SoDo",
+            "venue": "",
             "button_1_text": "Buy Tickets",
             "button_1_url": "https:\/\/www.axs.com\/events\/569732\/yg-tickets?skin=showboxpresents",
             "button_2_text": "VIP",
@@ -74,7 +74,7 @@
           "settings": {
             "title": "07\/14",
             "location": "Garden City, ID",
-            "venue": "Revolution Concert House",
+            "venue": "",
             "button_1_text": "Buy Tickets",
             "button_1_url": "https:\/\/www.ticketmaster.com\/event\/1E0060B1E7D75A40",
             "button_2_text": "VIP",
@@ -86,7 +86,7 @@
           "settings": {
             "title": "07\/16",
             "location": "Salt Lake City, UT",
-            "venue": "The Complex",
+            "venue": "",
             "button_1_text": "Buy Tickets",
             "button_1_url": "https:\/\/tickets.thecomplexslc.com\/event\/yg-24",
             "button_2_text": "VIP",
@@ -98,7 +98,7 @@
           "settings": {
             "title": "07\/18",
             "location": "Denver, CO",
-            "venue": "Mission Ballroom",
+            "venue": "",
             "button_1_text": "Buy Tickets",
             "button_1_url": "https:\/\/www.axs.com\/events\/570540\/yg-tickets",
             "button_2_text": "VIP",
@@ -110,7 +110,7 @@
           "settings": {
             "title": "07\/19",
             "location": "Kansas City, MO",
-            "venue": "Uptown Theater",
+            "venue": "",
             "button_1_text": "Buy Tickets",
             "button_1_url": "https:\/\/www.ticketmaster.com\/event\/060060B1B3994C3A",
             "button_2_text": "VIP",
@@ -122,7 +122,7 @@
           "settings": {
             "title": "07\/20",
             "location": "Chicago, IL",
-            "venue": "House Of Blues - Chicago",
+            "venue": "",
             "button_1_text": "Buy Tickets",
             "button_1_url": "https:\/\/www.ticketmaster.com\/event\/040060B1B17831E9",
             "button_2_text": "VIP",
@@ -134,7 +134,7 @@
           "settings": {
             "title": "07\/25",
             "location": "Boston, MA",
-            "venue": "Big Night Live",
+            "venue": "",
             "button_1_text": "Buy Tickets",
             "button_1_url": "https:\/\/www.ticketmaster.com\/event\/010060B0004F792B",
             "button_2_text": "VIP",
@@ -146,7 +146,7 @@
           "settings": {
             "title": "07\/26",
             "location": "New York, NY",
-            "venue": "Irving Plaza",
+            "venue": "",
             "button_1_text": "Buy Tickets",
             "button_1_url": "https:\/\/www.ticketmaster.com\/event\/000060B11700C784",
             "button_2_text": "VIP",
@@ -158,7 +158,7 @@
           "settings": {
             "title": "07\/28",
             "location": "Silver Spring, MD",
-            "venue": "The Fillmore - Silver Spring",
+            "venue": "",
             "button_1_text": "Buy Tickets",
             "button_1_url": "https:\/\/www.ticketmaster.com\/event\/150060B1D72059F5",
             "button_2_text": "VIP",
@@ -170,7 +170,7 @@
           "settings": {
             "title": "08\/03",
             "location": "Dallas, TX",
-            "venue": "House Of Blues - Dallas",
+            "venue": "",
             "button_1_text": "Buy Tickets",
             "button_1_url": "https:\/\/www.ticketmaster.com\/event\/0C0060B1F4E34AE2",
             "button_2_text": "VIP",
@@ -182,7 +182,7 @@
           "settings": {
             "title": "08\/04",
             "location": "Houston, TX",
-            "venue": "House Of Blues - Houston",
+            "venue": "",
             "button_1_text": "Buy Tickets",
             "button_1_url": "https:\/\/www.ticketmaster.com\/event\/3A0060B2AE8936CC",
             "button_2_text": "VIP",
@@ -194,7 +194,7 @@
           "settings": {
             "title": "08\/06",
             "location": "Albuquerque, NM",
-            "venue": "Revel",
+            "venue": "",
             "button_1_text": "Buy Tickets",
             "button_1_url": "https:\/\/www.prekindle.com\/event\/13432-yg-the-just-red-up-tour-albuquerque",
             "button_2_text": "VIP",
@@ -206,7 +206,7 @@
           "settings": {
             "title": "08\/08",
             "location": "Phoenix, AZ",
-            "venue": "Arizona Financial Theatre",
+            "venue": "",
             "button_1_text": "Buy Tickets",
             "button_1_url": "https:\/\/www.ticketmaster.com\/event\/190060B0EF8946F3",
             "button_2_text": "VIP",
@@ -218,7 +218,7 @@
           "settings": {
             "title": "08\/09",
             "location": "Riverside, CA",
-            "venue": "Riverside Municipal Auditorium",
+            "venue": "",
             "button_1_text": "Buy Tickets",
             "button_1_url": "https:\/\/www.ticketmaster.com\/event\/0B0060B1CB572DAC",
             "button_2_text": "VIP",
@@ -230,7 +230,7 @@
           "settings": {
             "title": "08\/10",
             "location": "Anaheim, CA",
-            "venue": "House Of Blues - Anaheim",
+            "venue": "",
             "button_1_text": "Buy Tickets",
             "button_1_url": "https:\/\/www.ticketmaster.com\/event\/090060B0CA5B4E63",
             "button_2_text": "VIP",
@@ -242,7 +242,7 @@
           "settings": {
             "title": "08\/11",
             "location": "San Diego, CA",
-            "venue": "Observatory North Park",
+            "venue": "",
             "button_1_text": "Buy Tickets",
             "button_1_url": "https:\/\/www.ticketmaster.com\/event\/0B0060B1B51A2B88",
             "button_2_text": "VIP",
@@ -254,7 +254,7 @@
           "settings": {
             "title": "08\/17",
             "location": "Mililani, HI",
-            "venue": "Wet'N'Wild",
+            "venue": "",
             "button_1_text": "Buy Tickets",
             "button_1_url": "https:\/\/wl.seetickets.us\/event\/yg\/604742?afflky=WeAreMetta",
             "button_2_text": "VIP",
