@@ -260,6 +260,18 @@
             "button_2_text": "VIP",
             "button_2_url": "https:\/\/wl.seetickets.us\/event\/yg\/604742?afflky=WeAreMetta"
           }
+        },
+        "tour_date_xm6e6z": {
+          "type": "tour_date",
+          "settings": {
+            "title": "08\/12\/2024",
+            "location": "San Diego, CA",
+            "venue": "",
+            "button_1_text": "Buy Tickets",
+            "button_1_url": "https:\/\/www.ticketmaster.com\/event\/0B0060B4BFA82172",
+            "button_2_text": "VIP",
+            "button_2_url": "https:\/\/www.ticketmaster.com\/event\/0B0060B4BFA82172"
+          }
         }
       },
       "block_order": [
@@ -283,7 +295,8 @@
         "tour_date_MVpmHc",
         "tour_date_zpFGbL",
         "tour_date_caLDVf",
-        "tour_date_y9rWpF"
+        "tour_date_y9rWpF",
+        "tour_date_xm6e6z"
       ],
       "settings": {
         "tour_flyer": "shopify:\/\/shop_images\/image0.jpg",
