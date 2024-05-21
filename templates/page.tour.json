@@ -12,107 +12,143 @@
         "51de88b7-8d4e-4a89-9258-c961fe27a9d0": {
           "type": "tour_date",
           "settings": {
-            "title": "06\/27",
-            "location": "Copenhagen, Denmark",
-            "venue": "Rumors",
+            "title": "06\/28",
+            "location": "Los Angeles, CA",
+            "venue": "Hollywood Palladium",
             "button_1_text": "Buy Tickets",
             "button_1_url": "https:\/\/tickets.nyxapp.net\/events\/ZFGlMPU1",
-            "button_2_text": "",
-            "button_2_url": ""
+            "button_2_text": "VIP",
+            "button_2_url": "https:\/\/www.ticketmaster.com\/event\/090060B1935927BD"
           }
         },
         "ac5e0a9e-dc33-4c25-9f92-8cd9b3851b40": {
           "type": "tour_date",
           "settings": {
-            "title": "06\/29",
-            "location": "Stockholm, Sweden",
-            "venue": "Lollapalooza",
+            "title": "07\/06",
+            "location": "Oakland, CA",
+            "venue": "Fox Theatre",
             "button_1_text": "Buy Tickets",
             "button_1_url": "https:\/\/lollastockholm.com\/tickets\/",
-            "button_2_text": "",
-            "button_2_url": ""
+            "button_2_text": "VIP",
+            "button_2_url": "https:\/\/www.ticketmaster.com\/event\/1C0060B0C44C5194?camefrom=CFC_ANOTHERPLANET_artist&brand=anotherplanet"
           }
         },
         "1b10e3e3-f19a-4608-a3ae-e81bf2b95325": {
           "type": "tour_date",
           "settings": {
-            "title": "07\/01",
-            "location": "Gräfenhainichen, Germany",
-            "venue": "splash! Festival",
+            "title": "07\/07",
+            "location": "Sacramento, CA",
+            "venue": "Ace of Spades",
             "button_1_text": "Buy Tickets",
             "button_1_url": "https:\/\/splash-festival.de\/tickets",
-            "button_2_text": "",
-            "button_2_url": ""
+            "button_2_text": "VIP",
+            "button_2_url": "https:\/\/www.ticketmaster.com\/event\/1C0060B0C1494FCD"
           }
         },
         "5aa1f303-73c8-4cd7-9daf-d72bdc5da3e9": {
           "type": "tour_date",
           "settings": {
-            "title": "07\/03",
-            "location": "Dublin, Ireland",
-            "venue": "The Academy",
+            "title": "07\/10",
+            "location": "Portland, OR",
+            "venue": "Roseland Theater",
             "button_1_text": "Buy Tickets",
             "button_1_url": "https:\/\/www.ticketmaster.ie\/venueartist\/198465\/1546929",
-            "button_2_text": "",
-            "button_2_url": ""
+            "button_2_text": "VIP",
+            "button_2_url": "https:\/\/www.etix.com\/ticket\/p\/92115978\/yg-the-just-red-up-tour-portland-roseland-theater"
           }
         },
         "57a768be-b5d5-4e1f-b1e2-be2ccbea20cb": {
           "type": "tour_date",
           "settings": {
-            "title": "07\/04",
-            "location": "Manchester, UK",
-            "venue": "O2 Ritz Manchester",
+            "title": "07\/12",
+            "location": "Seattle, WA",
+            "venue": "Showbox SoDo",
             "button_1_text": "Buy Tickets",
             "button_1_url": "https:\/\/www.aegpresents.co.uk\/events\/detail\/yg?cid=AEGPRESUK_yg_tour_SOCIAL_onsale_09052023_OGNC_",
-            "button_2_text": "",
-            "button_2_url": ""
+            "button_2_text": "VIP",
+            "button_2_url": "https:\/\/www.axs.com\/events\/569732\/yg-tickets?skin=showboxpresents"
           }
         },
         "c1a18d50-9cf0-47d3-8f45-43dbb4c1cc5d": {
           "type": "tour_date",
           "settings": {
-            "title": "07\/06",
-            "location": "London, UK",
-            "venue": "O2 Forum Kentish Town",
+            "title": "07\/14",
+            "location": "Garden City, ID",
+            "venue": "Revolution Concert House",
             "button_1_text": "Buy Tickets",
-            "button_1_url": "https:\/\/www.aegpresents.co.uk\/events\/detail\/yg?cid=AEGPRESUK_yg_tour_SOCIAL_onsale_09052023_OGNC_",
-            "button_2_text": "",
-            "button_2_url": ""
+            "button_1_url": "https:\/\/www.ticketmaster.com\/event\/1E0060B1E7D75A40",
+            "button_2_text": "VIP",
+            "button_2_url": "https:\/\/www.ticketmaster.com\/event\/1E0060B1E7D75A40"
           }
         },
         "c6846a24-0671-48b2-8397-1d0edc30b3eb": {
           "type": "tour_date",
           "settings": {
-            "title": "07\/07",
-            "location": "Portimão, Portugal",
-            "venue": "Rolling Loud",
+            "title": "07\/16",
+            "location": "Salt Lake City, UT",
+            "venue": "The Complex",
             "button_1_text": "Buy Tickets",
-            "button_1_url": "https:\/\/portugal.rollingloud.com\/book-tickets",
-            "button_2_text": "",
-            "button_2_url": ""
+            "button_1_url": "https:\/\/tickets.thecomplexslc.com\/event\/yg-24",
+            "button_2_text": "VIP",
+            "button_2_url": "https:\/\/tickets.thecomplexslc.com\/event\/yg-24"
           }
         },
         "f5b84f76-f1e8-4c7e-8a94-9f616c37846c": {
           "type": "tour_date",
           "settings": {
-            "title": "07\/09",
-            "location": "Paris, France",
-            "venue": "Din Dada",
+            "title": "07\/18",
+            "location": "Denver, CO",
+            "venue": "Mission Ballroom",
             "button_1_text": "Buy Tickets",
-            "button_1_url": "https:\/\/shotgun.live\/fr\/events\/din-dada-yg",
-            "button_2_text": "",
-            "button_2_url": ""
+            "button_1_url": "https:\/\/www.axs.com\/events\/570540\/yg-tickets",
+            "button_2_text": "VIP",
+            "button_2_url": "https:\/\/www.axs.com\/events\/570540\/yg-tickets"
           }
         },
         "9bc78b05-31c4-485b-bb0b-41de0e3ab67e": {
           "type": "tour_date",
           "settings": {
-            "title": "07\/11",
-            "location": "Cologne, Germany",
-            "venue": "Carlswerke Victoria",
+            "title": "07\/19",
+            "location": "Kansas City, MO",
+            "venue": "Uptown Theater",
             "button_1_text": "Buy Tickets",
-            "button_1_url": "https:\/\/www.dreamhaus.com\/talent\/yg",
+            "button_1_url": "https:\/\/www.ticketmaster.com\/event\/060060B1B3994C3A",
+            "button_2_text": "VIP",
+            "button_2_url": "https:\/\/www.ticketmaster.com\/event\/060060B1B3994C3A"
+          }
+        },
+        "tour_date_nKw8cy": {
+          "type": "tour_date",
+          "settings": {
+            "title": "07\/20",
+            "location": "Chicago, IL",
+            "venue": "House Of Blues - Chicago",
+            "button_1_text": "Buy Tickets",
+            "button_1_url": "https:\/\/www.ticketmaster.com\/event\/040060B1B17831E9",
+            "button_2_text": "VIP",
+            "button_2_url": "https:\/\/www.ticketmaster.com\/event\/040060B1B17831E9"
+          }
+        },
+        "tour_date_BATXMe": {
+          "type": "tour_date",
+          "settings": {
+            "title": "07\/25",
+            "location": "Boston, MA",
+            "venue": "Big Night Live",
+            "button_1_text": "Buy Tickets",
+            "button_1_url": "https:\/\/www.ticketmaster.com\/event\/010060B0004F792B",
+            "button_2_text": "VIP",
+            "button_2_url": "https:\/\/www.ticketmaster.com\/event\/010060B0004F792B"
+          }
+        },
+        "tour_date_43QiNX": {
+          "type": "tour_date",
+          "settings": {
+            "title": "",
+            "location": "",
+            "venue": "",
+            "button_1_text": "",
+            "button_1_url": "",
             "button_2_text": "",
             "button_2_url": ""
           }
@@ -127,11 +163,14 @@
         "c1a18d50-9cf0-47d3-8f45-43dbb4c1cc5d",
         "c6846a24-0671-48b2-8397-1d0edc30b3eb",
         "f5b84f76-f1e8-4c7e-8a94-9f616c37846c",
-        "9bc78b05-31c4-485b-bb0b-41de0e3ab67e"
+        "9bc78b05-31c4-485b-bb0b-41de0e3ab67e",
+        "tour_date_nKw8cy",
+        "tour_date_BATXMe",
+        "tour_date_43QiNX"
       ],
       "settings": {
-        "tour_flyer": "shopify:\/\/shop_images\/The_Red_Cup_Tour_Europe_2023_2caf421d-91c3-468d-8312-7475bdaa79ac.jpg",
-        "title": "The Red Cup Tour - Europe"
+        "tour_flyer": "shopify:\/\/shop_images\/image0.jpg",
+        "title": "Just Re'd Up - The Tour"
       }
     }
   },
