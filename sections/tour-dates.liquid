@@ -40,7 +40,7 @@
               {%- endif -%}
 
               {%- if block.settings.location != blank -%}
-                <div class="tour-dates__date-location">
+                <div class="tour-dates__date-location{%- if block.settings.venue == blank -%} tour-dates__date-location--full-width{%- endif -%}">
                   {{ block.settings.location }}
                 </div>
               {%- endif -%}
