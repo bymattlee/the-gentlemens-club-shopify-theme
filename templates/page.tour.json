@@ -251,6 +251,7 @@
         },
         "tour_date_xm6e6z": {
           "type": "tour_date",
+          "disabled": true,
           "settings": {
             "title": "08\/12",
             "location": "San Diego, CA",
