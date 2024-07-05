@@ -75,6 +75,9 @@
            {% endif %}
             	  {%endif%}
                   {%for collection in product.collections %}
+                      {%- comment %}<locksmith:290f>{% endcomment -%}
+                        {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: collection, subject_parent: product, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                      {%- comment %}</locksmith:290f>{% endcomment -%}
                       {%assign colURL = collection.url | remove:"/collections/"%}
                         {%if selCol[1] == colURL and selCol[1] != "all" %}
                           {% if maineStatus == "false" %}
@@ -128,6 +131,10 @@
 
                 {% for item in cart.items %}
                     {%for collection in item.product.collections %}
+
+                        {%- comment %}<locksmith:af79>{% endcomment -%}
+                          {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: collection, subject_parent: item.product, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                        {%- comment %}</locksmith:af79>{% endcomment -%}
 
                         {%if selCol[1] == collection.handle and selCol[1] != "all" %}
             				{%assign temp = selCol[0] | append:"," %}

@@ -40,15 +40,24 @@
       -%}
       {%- if section.settings.sort == 'products_low' or section.settings.sort == 'date' or section.settings.sort == 'alphabetical' -%}
         {%- for collection in collections -%}
+          {%- comment %}<locksmith:a6cf>{% endcomment -%}
+            {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+          {%- comment %}</locksmith:a6cf>{% endcomment -%}
           {%- render 'collection-grid-item', collection: collection, grid_item_width: grid_item_width -%}
         {%- endfor -%}
       {%- else -%}
         {%- for collection in collections reversed -%}
+          {%- comment %}<locksmith:4c46>{% endcomment -%}
+            {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+          {%- comment %}</locksmith:4c46>{% endcomment -%}
           {%- render 'collection-grid-item', collection: collection, grid_item_width: grid_item_width -%}
         {%- endfor -%}
       {%- endif -%}
     {%- else -%}
       {%- for block in section.blocks -%}
+        {%- comment %}<locksmith:5819>{% endcomment -%}
+          {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block.settings.collection, subject_parent: section, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+        {%- comment %}</locksmith:5819>{% endcomment -%}
         {%- assign collection = collections[block.settings.collection] -%}
         {%- render 'collection-grid-item', collection: collection, grid_item_width: grid_item_width, block: block -%}
       {%- endfor -%}

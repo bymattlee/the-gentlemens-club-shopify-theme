@@ -58,6 +58,9 @@
         {%- if section.settings.collection_menu_enable -%}
           <ul class="collection-menu site-nav" role="navigation">
             {%- for link in linklists[section.settings.collection_menu_link_list].links -%}
+              {%- comment %}<locksmith:90ad>{% endcomment -%}
+                {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[section.settings.collection_menu_link_list], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+              {%- comment %}</locksmith:90ad>{% endcomment -%}
               <li class="site-nav__item">
                 <a href="{{ link.url }}" class="site-nav__link{% if link.active %} site-nav__link--active{% endif %}">{{ link.title }}</a>
               </li>

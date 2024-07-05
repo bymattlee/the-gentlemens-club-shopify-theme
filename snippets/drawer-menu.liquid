@@ -20,9 +20,15 @@
     </div>
     <div class="drawer__scrollable">
       <ul class="mobile-nav{% if settings.type_navigation_style == 'heading' %} mobile-nav--heading-style{% endif %}" role="navigation" aria-label="Primary">
+        {%- comment %}<locksmith:93dc>{% endcomment -%}
+          {%- assign locksmith_d394_forloop__size = 0 %}{%- for link in main_menu.links -%}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: main_menu, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_d394_forloop__size = locksmith_d394_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_d394_forloop__index = nil -%}
+        {%- comment %}</locksmith:93dc>{% endcomment -%}
         {%- for link in main_menu.links -%}
+          {%- comment %}<locksmith:0afb>{% endcomment -%}
+            {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: main_menu, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_d394_forloop__index == nil %}{% assign locksmith_d394_forloop__index = 1 %}{% assign locksmith_d394_forloop__index0 = 0 %}{% else %}{% assign locksmith_d394_forloop__index = locksmith_d394_forloop__index | plus: 1 %}{% assign locksmith_d394_forloop__index0 = locksmith_d394_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_d394_forloop__index == 1 %}{% assign locksmith_d394_forloop__first = true %}{% else %}{% assign locksmith_d394_forloop__first = false %}{% endif %}{% if locksmith_d394_forloop__index == locksmith_d394_forloop__size %}{% assign locksmith_d394_forloop__last = true %}{% else %}{% assign locksmith_d394_forloop__last = false %}{% endif %}{% assign locksmith_d394_forloop__rindex = locksmith_d394_forloop__size | minus: locksmith_d394_forloop__index | minus: 1 %}{% assign locksmith_d394_forloop__rindex0 = locksmith_d394_forloop__size | minus: locksmith_d394_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+          {%- comment %}</locksmith:0afb>{% endcomment -%}
           {%- assign animation_row = animation_row | plus: 1 -%}
-          {%- assign child_list_handle = link.url | handleize | append: forloop.index -%}
+          {%- assign child_list_handle = link.url | handleize | append: locksmith_d394_forloop__index -%}
           {%- assign has_dropdown = false -%}
           {%- if link.links != blank -%}
             {%- assign has_dropdown = true -%}
@@ -75,9 +81,15 @@
                 {% if link.active or link.child_active %}style="height: auto;"{% endif %}>
                 <div class="collapsible-content__inner">
                   <ul class="mobile-nav__sublist">
+                    {%- comment %}<locksmith:7bd6>{% endcomment -%}
+                      {%- assign locksmith_9a48_forloop__size = 0 %}{%- for childlink in link.links -%}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: childlink, subject_parent: link, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_9a48_forloop__size = locksmith_9a48_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_9a48_forloop__index = nil -%}
+                    {%- comment %}</locksmith:7bd6>{% endcomment -%}
                     {%- for childlink in link.links -%}
+                      {%- comment %}<locksmith:0a05>{% endcomment -%}
+                        {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: childlink, subject_parent: link, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_9a48_forloop__index == nil %}{% assign locksmith_9a48_forloop__index = 1 %}{% assign locksmith_9a48_forloop__index0 = 0 %}{% else %}{% assign locksmith_9a48_forloop__index = locksmith_9a48_forloop__index | plus: 1 %}{% assign locksmith_9a48_forloop__index0 = locksmith_9a48_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_9a48_forloop__index == 1 %}{% assign locksmith_9a48_forloop__first = true %}{% else %}{% assign locksmith_9a48_forloop__first = false %}{% endif %}{% if locksmith_9a48_forloop__index == locksmith_9a48_forloop__size %}{% assign locksmith_9a48_forloop__last = true %}{% else %}{% assign locksmith_9a48_forloop__last = false %}{% endif %}{% assign locksmith_9a48_forloop__rindex = locksmith_9a48_forloop__size | minus: locksmith_9a48_forloop__index | minus: 1 %}{% assign locksmith_9a48_forloop__rindex0 = locksmith_9a48_forloop__size | minus: locksmith_9a48_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+                      {%- comment %}</locksmith:0a05>{% endcomment -%}
                       {%- assign has_sub_dropdown = false -%}
-                      {%- assign grand_child_list_handle = childlink.url | handleize | append: forloop.index -%}
+                      {%- assign grand_child_list_handle = childlink.url | handleize | append: locksmith_9a48_forloop__index -%}
                       {%- if childlink.links != blank -%}
                         {%- assign has_sub_dropdown = true -%}
                       {%- endif -%}
@@ -118,6 +130,9 @@
                             <div class="collapsible-content__inner">
                               <ul class="mobile-nav__grandchildlist">
                                 {%- for grandchildlink in childlink.links -%}
+                                  {%- comment %}<locksmith:fc23>{% endcomment -%}
+                                    {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: grandchildlink, subject_parent: childlink, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                                  {%- comment %}</locksmith:fc23>{% endcomment -%}
                                   <li class="mobile-nav__item">
                                     <a href="{{ grandchildlink.url }}" class="mobile-nav__link{% if grandchildlink.active %} mobile-nav__link--active{% endif %}"{% if grandchildlink.active %} data-active="true"{% endif %}>
                                       {{ grandchildlink.title }}
@@ -178,6 +193,9 @@
         {%- if secondary_menu != blank -%}
           <ul class="mobile-nav mobile-nav--secondary" role="navigation" aria-label="Secondary">
             {%- for link in secondary_menu.links -%}
+              {%- comment %}<locksmith:f54a>{% endcomment -%}
+                {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: secondary_menu, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+              {%- comment %}</locksmith:f54a>{% endcomment -%}
               <li class="mobile-nav__item">
                 <a href="{{ link.url }}" class="mobile-nav__link mobile-nav__link--top-level"{% if link.active %} data-active="true"{% endif %}>{{ link.title }}</a>
               </li>
