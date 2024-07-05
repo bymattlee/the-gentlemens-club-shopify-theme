@@ -37,8 +37,8 @@
           "settings": {
             "tab_2_title": "Size Guide",
             "tab_2_content": "{{ product.metafields.tab.size_guide_page.value }}",
-            "tab_3_title": "Shipping & Returns",
-            "tab_3_content": "shipping-returns-tab",
+            "tab_3_title": "",
+            "tab_3_content": "",
             "tab_4_title": "",
             "tab_4_content": ""
           }
