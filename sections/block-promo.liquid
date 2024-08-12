@@ -1,5 +1,5 @@
 <section
-  class="block-promo"
+  class="block-promo{% if section.settings.add_top_spacing %} block-promo--add-top-spacing{% endif %}"
   data-section-id="{{ section.id }}"
   data-section-type="block-promo">
   <div class="page-width">
@@ -105,6 +105,13 @@
 {
   "name": "Block promo",
   "class": "block-promo-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "add_top_spacing",
+      "label": "Add top spacing"
+    }
+  ],
   "blocks": [
     {
       "type": "image",
