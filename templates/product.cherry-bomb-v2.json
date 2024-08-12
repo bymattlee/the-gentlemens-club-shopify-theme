@@ -31,7 +31,7 @@
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "show_dynamic_checkout": false,
+            "show_dynamic_checkout": true,
             "surface_pickup_enable": false
           }
         },
@@ -65,6 +65,11 @@
             "text": "<p><strong>Amplifies Emotional Connection<\/strong><br\/>Sparks sexual chemistry between you and your partner, guiding you both to new heights of pleasure repeatedly.<\/p>",
             "enlarge_text": true
           }
+        },
+        "share_Kkrr9y": {
+          "type": "share",
+          "settings": {
+          }
         }
       },
       "block_order": [
@@ -76,7 +81,8 @@
         "text_PH6iNL",
         "sales_point_bEELXi",
         "sales_point_iEwqgD",
-        "sales_point_iXWrcL"
+        "sales_point_iXWrcL",
+        "share_Kkrr9y"
       ],
       "settings": {
         "sticker": "{{ product.metafields.theme.sticker.value }}",
@@ -217,33 +223,6 @@
         "space_around": true
       }
     },
-    "large_image_and_text_LMyppG": {
-      "type": "large-image-and-text",
-      "blocks": {
-        "text_Y9ygye": {
-          "type": "text",
-          "settings": {
-            "title": "Subscription",
-            "text": "<p>Opt for Cherry Bomb's subscription package to enjoy double savings and ensure a continuous supply. Plus, we guarantee to maintain your subscription price during special promotions throughout your term with us. Enjoy a hassle-free cancellation process through  <a href=\"https:\/\/4hunnid.com\/tools\/recurring\/get-subscription-access\" title=\"Recharge\">Recharge<\/a>.<\/p>"
-          }
-        },
-        "text_tMYDJp": {
-          "type": "text",
-          "settings": {
-            "title": "Returns & Refunds",
-            "text": "<p>Please review our Return & Refund policy <a href=\"\/pages\/cherry-bomb-return-refund-policy\" title=\"Cherry Bomb Return & Refund Policy\">here<\/a>.<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "text_Y9ygye",
-        "text_tMYDJp"
-      ],
-      "settings": {
-        "image": "shopify:\/\/shop_images\/Cherry_Bomb_-_Ad_2_1.png",
-        "image_align": "left"
-      }
-    },
     "large_image_and_faq_NaJmnW": {
       "type": "large-image-and-faq",
       "blocks": {
@@ -284,8 +263,35 @@
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/Email_-_Pre-Drop_1.png",
-        "image_align": "right",
+        "image_align": "left",
         "heading": "FAQ"
+      }
+    },
+    "large_image_and_text_LMyppG": {
+      "type": "large-image-and-text",
+      "blocks": {
+        "text_Y9ygye": {
+          "type": "text",
+          "settings": {
+            "title": "Subscription",
+            "text": "<p>Opt for Cherry Bomb's subscription package to enjoy double savings and ensure a continuous supply. Plus, we guarantee to maintain your subscription price during special promotions throughout your term with us. Enjoy a hassle-free cancellation process through  <a href=\"https:\/\/4hunnid.com\/tools\/recurring\/get-subscription-access\" title=\"Recharge\">Recharge<\/a>.<\/p>"
+          }
+        },
+        "text_tMYDJp": {
+          "type": "text",
+          "settings": {
+            "title": "Returns & Refunds",
+            "text": "<p>Please review our Return & Refund policy <a href=\"\/pages\/cherry-bomb-return-refund-policy\" title=\"Cherry Bomb Return & Refund Policy\">here<\/a>.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_Y9ygye",
+        "text_tMYDJp"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Cherry_Bomb_-_Ad_2_1.png",
+        "image_align": "right"
       }
     },
     "product_benefits_37JN8w": {
@@ -332,29 +338,6 @@
       ],
       "settings": {
         "size": "default"
-      }
-    },
-    "sub": {
-      "type": "product-full-width",
-      "disabled": true,
-      "settings": {
-        "max_width": true
-      }
-    },
-    "product-recommendations": {
-      "type": "product-recommendations",
-      "disabled": true,
-      "settings": {
-        "show_product_recommendations": true,
-        "product_recommendations_heading": "You may also like",
-        "related_count": 4
-      }
-    },
-    "recently-viewed": {
-      "type": "recently-viewed",
-      "disabled": true,
-      "settings": {
-        "recent_count": 4
       }
     },
     "social_icons_4WVRqf": {
@@ -406,6 +389,29 @@
       "settings": {
         "heading": "Follow @GoCherryBomb"
       }
+    },
+    "sub": {
+      "type": "product-full-width",
+      "disabled": true,
+      "settings": {
+        "max_width": true
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "disabled": true,
+      "settings": {
+        "show_product_recommendations": true,
+        "product_recommendations_heading": "You may also like",
+        "related_count": 4
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "disabled": true,
+      "settings": {
+        "recent_count": 4
+      }
     }
   },
   "order": [
@@ -413,12 +419,12 @@
     "product_benefits_ny9TNc",
     "product_ingredients_Pk4Y7y",
     "1709271225c5ccfc6b",
-    "large_image_and_text_LMyppG",
     "large_image_and_faq_NaJmnW",
+    "large_image_and_text_LMyppG",
     "product_benefits_37JN8w",
+    "social_icons_4WVRqf",
     "sub",
     "product-recommendations",
-    "recently-viewed",
-    "social_icons_4WVRqf"
+    "recently-viewed"
   ]
 }

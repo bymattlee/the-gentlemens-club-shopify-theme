@@ -1,0 +1,165 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "okendo_star_rating_8Xyfq3": {
+          "type": "shopify:\/\/apps\/okendo\/blocks\/star-rating\/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "f5d49e77-9e1e-4406-8d7c-3a480f5d5a97": {
+          "type": "color_variations",
+          "settings": {
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "variant_labels": true,
+            "picker_type": "button",
+            "color_swatches": false
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "surface_pickup_enable": false
+          }
+        },
+        "text_PH6iNL": {
+          "type": "text",
+          "settings": {
+            "text": "<p>100% genuine leather, Designed in Los Angeles.<\/p><p>When you wear these shoes make sure you put your best fucking fit on. Please do not look like a bum, walk like a bum, or talk like a bum while wearing these. If you’re somebody who hasn’t had pleasure in a long time, put these shoes on and step out. I promise you by the end of the night, pleasure will be served. Wear with care, THANK YOU!<\/p>",
+            "enlarge_text": true
+          }
+        },
+        "share_yUYPiy": {
+          "type": "share",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "okendo_star_rating_8Xyfq3",
+        "f5d49e77-9e1e-4406-8d7c-3a480f5d5a97",
+        "variant_picker",
+        "buy_buttons",
+        "text_PH6iNL",
+        "share_yUYPiy"
+      ],
+      "settings": {
+        "sticker": "{{ product.metafields.theme.sticker.value }}",
+        "caption": "",
+        "sku_enable": false,
+        "image_position": "left",
+        "image_size": "medium",
+        "product_zoom_enable": true,
+        "thumbnail_position": "remove",
+        "thumbnail_arrows": false,
+        "mobile_layout": "full",
+        "enable_video_looping": true,
+        "product_video_style": "muted"
+      }
+    },
+    "block_promo_N8tWcC": {
+      "type": "block-promo",
+      "blocks": {
+        "image_qyhFNr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/452857742_1062056208684065_6640302760724635713_n.jpg"
+          }
+        },
+        "image_gJrYra": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/452857743_1515197995733789_349505993101514910_n.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_qyhFNr",
+        "image_gJrYra"
+      ],
+      "settings": {
+      }
+    },
+    "1709271225c5ccfc6b": {
+      "type": "apps",
+      "blocks": {
+        "okendo_reviews_widget_YrfCCd": {
+          "type": "shopify:\/\/apps\/okendo\/blocks\/reviews-widget\/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+          "settings": {
+            "product": "{{product}}",
+            "widget_type": "combined_widget"
+          }
+        }
+      },
+      "block_order": [
+        "okendo_reviews_widget_YrfCCd"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "block_promo_EFi4aj": {
+      "type": "block-promo",
+      "blocks": {
+        "image_WHgiHn": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/452944473_730369572492671_6232433831873051347_n.jpg"
+          }
+        },
+        "image_HKXhrt": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/452585941_18452343931006929_8836814275190346408_n.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_WHgiHn",
+        "image_HKXhrt"
+      ],
+      "settings": {
+      }
+    },
+    "sub": {
+      "type": "product-full-width",
+      "disabled": true,
+      "settings": {
+        "max_width": true
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "disabled": true,
+      "settings": {
+        "show_product_recommendations": true,
+        "product_recommendations_heading": "You may also like",
+        "related_count": 4
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "disabled": true,
+      "settings": {
+        "recent_count": 4
+      }
+    }
+  },
+  "order": [
+    "main",
+    "block_promo_N8tWcC",
+    "1709271225c5ccfc6b",
+    "block_promo_EFi4aj",
+    "sub",
+    "product-recommendations",
+    "recently-viewed"
+  ]
+}

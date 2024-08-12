@@ -1,12 +1,3 @@
-/*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
 {
   "current": {
     "color_body_bg": "#ffffff",
@@ -78,9 +69,9 @@
     "verification_product": "cherry-bomb",
     "verification_text": "You must be at least 18 years old to purchase Cherry Bomb.",
     "verification_checkbox_text": "I am at least 18 years old.",
-    "share_facebook": false,
-    "share_twitter": false,
-    "share_pinterest": false,
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
     "favicon": "shopify:\/\/shop_images\/4Hunnid_Favicon_aaa4831c-62e6-40cc-a7d3-6bbf61722619.png",
     "search_enable": false,
     "predictive_search_enabled": false,
