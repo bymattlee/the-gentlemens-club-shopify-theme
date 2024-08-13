@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "current": {
     "color_body_bg": "#ffffff",
@@ -75,8 +84,8 @@
     "favicon": "shopify:\/\/shop_images\/4Hunnid_Favicon_aaa4831c-62e6-40cc-a7d3-6bbf61722619.png",
     "search_enable": false,
     "predictive_search_enabled": false,
-    "enable_homepage_redirect": false,
-    "homepage_redirect_url": "shopify:\/\/products\/cherry-bomb",
+    "enable_homepage_redirect": true,
+    "homepage_redirect_url": "shopify:\/\/products\/the-block-runner-white-white",
     "checkout_logo_image": "shopify:\/\/shop_images\/4Hunnid_Logo_-_Red.png",
     "checkout_logo_position": "center",
     "checkout_logo_size": "small",
