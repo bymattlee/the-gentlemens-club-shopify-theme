@@ -21,6 +21,12 @@
                     role="presentation">
                 </div>
               {%- endif -%}
+            {%- when 'video' -%}
+              {%- if block.settings.video != blank -%}
+                <div class="block-promo__video-wrapper">
+                  {{ block.settings.video | video_tag: class: 'block-promo__video', autoplay: true, loop: true, muted: true }}
+                </div>
+              {%- endif -%}
             {%- when 'form' -%}
               <div class="block-promo__signup-block"{%- if block.settings.background_image != blank -%} style="background-image: url('{{ block.settings.background_image | img_url: 'master' }}');"{%- endif -%}>
                 <div class="block-promo__signup-content">
@@ -121,6 +127,17 @@
           "type": "image_picker",
           "id": "image",
           "label": "Image"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video"
         }
       ]
     },

@@ -6564,6 +6564,7 @@ lazySizesConfig.expFactor = 4
         var countdownEl = this.container.querySelector(
           '.block-promo__signup-main-countdown'
         )
+        var videos = this.container.querySelectorAll('.block-promo__video')
 
         if (attentiveSignUpEl) {
           theme.mobileNumberForm(attentiveSignUpEl)
@@ -6572,6 +6573,32 @@ lazySizesConfig.expFactor = 4
           theme.klaviyoForm(klaviyoSignUpEl)
         }
         if (countdownEl) theme.countdown(countdownEl)
+        if (videos.length > 0) this.enableVideoSoundToggle(videos)
+      },
+
+      enableVideoSoundToggle: function (videos) {
+        videos.forEach(
+          function (el) {
+            el.addEventListener('click', this.toggleVideoSound.bind(this))
+          }.bind(this)
+        )
+      },
+
+      toggleVideoSound: function (e) {
+        var thisVideo = e.target
+
+        if (thisVideo.muted) {
+          var videos = this.container.querySelectorAll('.block-promo__video')
+          videos.forEach(
+            function (el) {
+              if (!el.muted) el.muted = true
+            }.bind(this)
+          )
+
+          thisVideo.muted = false
+        } else {
+          thisVideo.muted = true
+        }
       },
     })
 

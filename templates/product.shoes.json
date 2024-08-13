@@ -78,11 +78,25 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/452857743_1515197995733789_349505993101514910_n.jpg"
           }
+        },
+        "video_bxqhDx": {
+          "type": "video",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/THEFLAME_9x16_4x5.mp4"
+          }
+        },
+        "video_FP7MEU": {
+          "type": "video",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/JAY305_9x16_4x5.mp4"
+          }
         }
       },
       "block_order": [
         "image_qyhFNr",
-        "image_gJrYra"
+        "image_gJrYra",
+        "video_bxqhDx",
+        "video_FP7MEU"
       ],
       "settings": {
         "add_top_spacing": true
