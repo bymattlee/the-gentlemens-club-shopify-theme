@@ -9668,14 +9668,14 @@ html[dir=rtl] .background-media-text__text{
 }
 
 .announcement-link:active,.announcement-link:hover{
-    color:{{ settings.color_announcement_text | default: "#fff" }};
-    color:var(--colorAnnouncementText);
+    color:{{ settings.color_announcement_text | default: "#fff" }} !important;
+    color:var(--colorAnnouncementText) !important;
   }
 
 .announcement-text{
   font-weight:700;
   display:block;
-  text-transform:uppercase;
+/*   text-transform:uppercase; */
 /*   letter-spacing:0.2em; */
   font-size:12px;
 }
@@ -9685,7 +9685,7 @@ html[dir=rtl] .background-media-text__text{
 }
 
 .announcement-link .announcement-link-text{
-    text-decoration:underline
+/*     text-decoration:underline */
 }
 
 .announcement-link-text a{
