@@ -13,62 +13,17 @@
       "type": "featured-collection",
       "disabled": true,
       "settings": {
-        "title": "Good Sex Collection",
-        "home_featured_products": "2024-good-sex-collection",
-        "per_row": 4,
+        "title": "Just Re'd Up 3 Album Merch Collection",
+        "home_featured_products": "2024-just-red-up-3-album-merch-collection",
+        "per_row": 3,
         "rows": 20,
         "mobile_scrollable": false,
         "view_all": false,
         "divider": false
       }
-    },
-    "featured_product_LfqjAi": {
-      "type": "featured-product",
-      "blocks": {
-        "variant_picker_TJdkzF": {
-          "type": "variant_picker",
-          "settings": {
-            "variant_labels": true,
-            "picker_type": "button",
-            "color_swatches": false
-          }
-        },
-        "buy_buttons_78qcAk": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "surface_pickup_enable": false
-          }
-        },
-        "description_6rGrV9": {
-          "type": "description",
-          "settings": {
-            "is_tab": false
-          }
-        }
-      },
-      "block_order": [
-        "variant_picker_TJdkzF",
-        "buy_buttons_78qcAk",
-        "description_6rGrV9"
-      ],
-      "settings": {
-        "featured_product": "the-block-runner-white-white",
-        "divider": false,
-        "sku_enable": false,
-        "image_position": "left",
-        "image_size": "medium",
-        "product_zoom_enable": true,
-        "thumbnail_position": "below",
-        "thumbnail_arrows": false,
-        "mobile_layout": "full",
-        "enable_video_looping": true,
-        "product_video_style": "muted"
-      }
     }
   },
   "order": [
-    "9be68cd0-7327-422f-a4fc-850561ae28e4",
-    "featured_product_LfqjAi"
+    "9be68cd0-7327-422f-a4fc-850561ae28e4"
   ]
 }
