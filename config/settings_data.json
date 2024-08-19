@@ -116,7 +116,7 @@
           "announcement_z9J8Qw": {
             "type": "announcement",
             "settings": {
-              "text": "Get 20% Off",
+              "text": "Get 10% Off",
               "link_text": "When You Sign Up For Our Newsletter",
               "link": "shopify:\/\/pages\/newsletter-signup"
             }
@@ -196,7 +196,7 @@
           "attentive_message": "<p>Enter your mobile number to be the first to know about the next collection release.<\/p>",
           "attentive_disclaimer_message": "<p>Agree to <a href=\"http:\/\/attn.tv\/4hunnid\/terms.html\">Terms<\/a> & <a href=\"https:\/\/attnl.tv\/p\/g4j\">Privacy<\/a>.<\/p>",
           "show_klaviyo_signup": true,
-          "klaviyo_message": "<p>Playas Only!<br\/>Enter your email address to get 20% off of your first order.<\/p>",
+          "klaviyo_message": "<p>Playas Only!<br\/>Enter your email address to get 10% off of your first order.<\/p>",
           "show_locale_selector": true,
           "show_currency_selector": true,
           "show_currency_flags": true,
