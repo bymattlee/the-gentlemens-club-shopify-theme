@@ -81,12 +81,12 @@
     "share_facebook": true,
     "share_twitter": true,
     "share_pinterest": true,
-    "favicon": "shopify:\/\/shop_images\/4Hunnid_Favicon_aaa4831c-62e6-40cc-a7d3-6bbf61722619.png",
+    "favicon": "shopify://shop_images/4Hunnid_Favicon_aaa4831c-62e6-40cc-a7d3-6bbf61722619.png",
     "search_enable": false,
     "predictive_search_enabled": false,
-    "enable_homepage_redirect": false,
-    "homepage_redirect_url": "https:\/\/music.4hunnid.com\/",
-    "checkout_logo_image": "shopify:\/\/shop_images\/4Hunnid_Logo_-_Red.png",
+    "enable_homepage_redirect": true,
+    "homepage_redirect_url": "shopify://products/the-block-runner-red-white",
+    "checkout_logo_image": "shopify://shop_images/4Hunnid_Logo_-_Red.png",
     "checkout_logo_position": "center",
     "checkout_logo_size": "small",
     "checkout_body_background_color": "#ffffff",
@@ -97,7 +97,7 @@
     "checkout_accent_color": "#000000",
     "checkout_button_color": "#000000",
     "checkout_error_color": "#ed1c24",
-    "homepage_url": "shopify:\/\/products\/cherry-bomb",
+    "homepage_url": "shopify://products/cherry-bomb",
     "enable_verfication_checkbox": true,
     "breadcrumb": false,
     "sections": {
@@ -107,8 +107,8 @@
           "1524770014057": {
             "type": "logo",
             "settings": {
-              "logo": "shopify:\/\/shop_images\/4Hunnid_Logo_-_Red.png",
-              "logo-inverted": "shopify:\/\/shop_images\/4Hunnid_Logo_-_White_37b5c38d-c392-4727-a0b7-bc4bc2c6d401.png",
+              "logo": "shopify://shop_images/4Hunnid_Logo_-_Red.png",
+              "logo-inverted": "shopify://shop_images/4Hunnid_Logo_-_White_37b5c38d-c392-4727-a0b7-bc4bc2c6d401.png",
               "desktop_logo_width": 170,
               "mobile_logo_width": 130
             }
@@ -118,7 +118,7 @@
             "settings": {
               "text": "Get 10% Off",
               "link_text": "When You Sign Up For Our Newsletter",
-              "link": "shopify:\/\/pages\/newsletter-signup"
+              "link": "shopify://pages/newsletter-signup"
             }
           }
         },
@@ -135,10 +135,10 @@
           "sticky_collection": false,
           "mobile_secondary_menu_link_list": "",
           "show_attentive_signup": false,
-          "attentive_message": "<p>Enter your mobile number to be the first to know about the next collection release.<\/p>",
-          "attentive_disclaimer_message": "<p>Agree to <a href=\"http:\/\/attn.tv\/4hunnid\/terms.html\">Terms<\/a> & <a href=\"https:\/\/attnl.tv\/p\/g4j\">Privacy<\/a>.<\/p>",
+          "attentive_message": "<p>Enter your mobile number to be the first to know about the next collection release.</p>",
+          "attentive_disclaimer_message": "<p>Agree to <a href=\"http://attn.tv/4hunnid/terms.html\">Terms</a> & <a href=\"https://attnl.tv/p/g4j\">Privacy</a>.</p>",
           "show_klaviyo_signup": false,
-          "klaviyo_message": "<p>Enter your email address to be the first to know about the next collection release.<\/p>",
+          "klaviyo_message": "<p>Enter your email address to be the first to know about the next collection release.</p>",
           "announcement_compact": true,
           "announcement_above_header": false,
           "toolbar_menu": "",
@@ -156,7 +156,7 @@
             "settings": {
               "show_footer_title": false,
               "title": "",
-              "text": "<p>© 2024 4Hunnid<\/p>",
+              "text": "<p>© 2024 4Hunnid</p>",
               "container_width": 25
             }
           },
@@ -193,10 +193,10 @@
         ],
         "settings": {
           "show_attentive_signup": false,
-          "attentive_message": "<p>Enter your mobile number to be the first to know about the next collection release.<\/p>",
-          "attentive_disclaimer_message": "<p>Agree to <a href=\"http:\/\/attn.tv\/4hunnid\/terms.html\">Terms<\/a> & <a href=\"https:\/\/attnl.tv\/p\/g4j\">Privacy<\/a>.<\/p>",
+          "attentive_message": "<p>Enter your mobile number to be the first to know about the next collection release.</p>",
+          "attentive_disclaimer_message": "<p>Agree to <a href=\"http://attn.tv/4hunnid/terms.html\">Terms</a> & <a href=\"https://attnl.tv/p/g4j\">Privacy</a>.</p>",
           "show_klaviyo_signup": true,
-          "klaviyo_message": "<p>Playas Only!<br\/>Enter your email address to get 10% off of your first order.<\/p>",
+          "klaviyo_message": "<p>Playas Only!<br/>Enter your email address to get 10% off of your first order.</p>",
           "show_locale_selector": true,
           "show_currency_selector": true,
           "show_currency_flags": true,
@@ -213,7 +213,7 @@
           "popup_seconds": 5,
           "popup_days": 30,
           "popup_title": "Sign up and save",
-          "popup_text": "<p>Entice customers to sign up for your mailing list with discounts or exclusive offers. Include an image for extra impact.<\/p>",
+          "popup_text": "<p>Entice customers to sign up for your mailing list with discounts or exclusive offers. Include an image for extra impact.</p>",
           "image_position": "left",
           "show_social_icons": false,
           "enable_newsletter": true,
@@ -239,7 +239,7 @@
       "giftcard-header": {
         "type": "giftcard-header",
         "settings": {
-          "logo": "shopify:\/\/shop_images\/4Hunnid_Logo_-_Red.png",
+          "logo": "shopify://shop_images/4Hunnid_Logo_-_Red.png",
           "desktop_logo_width": 200,
           "mobile_logo_width": 140
         }
@@ -250,13 +250,13 @@
     ],
     "blocks": {
       "855628211100114053": {
-        "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
+        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
         "disabled": false,
         "settings": {
         }
       },
       "5888675206956468567": {
-        "type": "shopify:\/\/apps\/loop-returns-exchanges\/blocks\/onstore\/e32ccd84-40d6-4b16-98bf-b6b9da010afd",
+        "type": "shopify://apps/loop-returns-exchanges/blocks/onstore/e32ccd84-40d6-4b16-98bf-b6b9da010afd",
         "disabled": true,
         "settings": {
           "show-onstore-bar": false,
@@ -277,7 +277,7 @@
         }
       },
       "17151115064775110295": {
-        "type": "shopify:\/\/apps\/recharge-subscriptions\/blocks\/recharge-theme\/371eed76-0b44-4869-9813-730372ea378e",
+        "type": "shopify://apps/recharge-subscriptions/blocks/recharge-theme/371eed76-0b44-4869-9813-730372ea378e",
         "disabled": false,
         "settings": {
           "color_brand": "#ed1c24",
@@ -293,7 +293,7 @@
         }
       },
       "733389323033596483": {
-        "type": "shopify:\/\/apps\/okendo\/blocks\/theme-settings\/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+        "type": "shopify://apps/okendo/blocks/theme-settings/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
         "disabled": false,
         "settings": {
           "show_preview_data": true
@@ -556,7 +556,7 @@
               "settings": {
                 "text": "Free shipping",
                 "link_text": "On all orders over $100",
-                "link": "shopify:\/\/collections\/all"
+                "link": "shopify://collections/all"
               }
             },
             "1520888647304": {
@@ -564,7 +564,7 @@
               "settings": {
                 "text": "Hassle-free returns",
                 "link_text": "30-day postage paid returns",
-                "link": "shopify:\/\/collections\/all"
+                "link": "shopify://collections/all"
               }
             }
           },
@@ -605,7 +605,7 @@
               "settings": {
                 "show_footer_title": true,
                 "title": "Sign up and save",
-                "text": "<p>Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.<\/p>",
+                "text": "<p>Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>",
                 "container_width": 30
               }
             },
@@ -639,7 +639,7 @@
             "popup_seconds": 5,
             "popup_days": 30,
             "popup_title": "Sign up and save",
-            "popup_text": "<p>Entice customers to sign up for your mailing list with discounts or exclusive offers. Include an image for extra impact.<\/p>",
+            "popup_text": "<p>Entice customers to sign up for your mailing list with discounts or exclusive offers. Include an image for extra impact.</p>",
             "popup_image": "",
             "enable_newsletter": true,
             "button_label": "Optional button",
@@ -663,7 +663,7 @@
                 "enable_image": true,
                 "image": "",
                 "title": "Site-wide promotion",
-                "text": "<p>Use this section to promote content throughout every page of your site. Add images for further impact.<\/p>",
+                "text": "<p>Use this section to promote content throughout every page of your site. Add images for further impact.</p>",
                 "button_label": "Optional button",
                 "button_link": ""
               }
@@ -674,7 +674,7 @@
                 "enable_image": true,
                 "image": "",
                 "title": "Site-wide promotion",
-                "text": "<p>Use this section to promote content throughout every page of your site. Add images for further impact.<\/p>",
+                "text": "<p>Use this section to promote content throughout every page of your site. Add images for further impact.</p>",
                 "button_label": "Optional button",
                 "button_link": ""
               }
@@ -685,7 +685,7 @@
                 "enable_image": true,
                 "image": "",
                 "title": "Site-wide promotion",
-                "text": "<p>Use this section to promote content throughout every page of your site. Add images for further impact.<\/p>",
+                "text": "<p>Use this section to promote content throughout every page of your site. Add images for further impact.</p>",
                 "button_label": "Optional button",
                 "button_link": ""
               }
