@@ -1,10 +1,19 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "main": {
       "type": "main-product",
       "blocks": {
         "okendo_star_rating_8Xyfq3": {
-          "type": "shopify:\/\/apps\/okendo\/blocks\/star-rating\/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+          "type": "shopify://apps/okendo/blocks/star-rating/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
           "settings": {
             "product": "{{product}}"
           }
@@ -23,7 +32,7 @@
           }
         },
         "recharge_subscriptions_subscription_widget_giJqtL": {
-          "type": "shopify:\/\/apps\/recharge-subscriptions\/blocks\/subscription-widget\/371eed76-0b44-4869-9813-730372ea378e",
+          "type": "shopify://apps/recharge-subscriptions/blocks/subscription-widget/371eed76-0b44-4869-9813-730372ea378e",
           "settings": {
             "product": "{{product}}"
           }
@@ -38,7 +47,7 @@
         "text_PH6iNL": {
           "type": "text",
           "settings": {
-            "text": "<p>Cherry Bomb is an all natural male enhancement supplement made to help increase your performance in bed! No Dr’s, No prescription needed. Simply take 1 pill 45 minutes before performance. You must be at least 18 years old to purchase.<\/p>",
+            "text": "<p>Cherry Bomb is an all natural male enhancement supplement made to help increase your performance in bed! No Dr’s, No prescription needed. Simply take 1 pill 45 minutes before performance. You must be at least 18 years old to purchase.</p>",
             "enlarge_text": true
           }
         },
@@ -46,7 +55,7 @@
           "type": "sales_point",
           "settings": {
             "icon": "checkmark",
-            "text": "<p><strong>Stimulates Blood Flow<\/strong><br\/>Improves the physical appearance of your strongman making you appear bigger, wider, and firmer.<\/p>",
+            "text": "<p><strong>Stimulates Blood Flow</strong><br/>Improves the physical appearance of your strongman making you appear bigger, wider, and firmer.</p>",
             "enlarge_text": true
           }
         },
@@ -54,7 +63,7 @@
           "type": "sales_point",
           "settings": {
             "icon": "checkmark",
-            "text": "<p><strong>Enhances Sensual Drive & Performance<\/strong><br\/>Enhance pleasure and euphoria during your sexual encounters as you experience heightened desire and achieve intense orgasms.<\/p>",
+            "text": "<p><strong>Enhances Sensual Drive & Performance</strong><br/>Enhance pleasure and euphoria during your sexual encounters as you experience heightened desire and achieve intense orgasms.</p>",
             "enlarge_text": true
           }
         },
@@ -62,7 +71,7 @@
           "type": "sales_point",
           "settings": {
             "icon": "checkmark",
-            "text": "<p><strong>Amplifies Emotional Connection<\/strong><br\/>Sparks sexual chemistry between you and your partner, guiding you both to new heights of pleasure repeatedly.<\/p>",
+            "text": "<p><strong>Amplifies Emotional Connection</strong><br/>Sparks sexual chemistry between you and your partner, guiding you both to new heights of pleasure repeatedly.</p>",
             "enlarge_text": true
           }
         },
@@ -151,42 +160,42 @@
           "type": "ingredient",
           "settings": {
             "title": "Tongkat Ali",
-            "description": "<p>An herbal supplement commonly used as an aphrodisiac and testosterone booster.<\/p>"
+            "description": "<p>An herbal supplement commonly used as an aphrodisiac and testosterone booster.</p>"
           }
         },
         "ingredient_JNjjXG": {
           "type": "ingredient",
           "settings": {
             "title": "Deer Antler Velvet",
-            "description": "<p>An herb commonly used to help improve blood flow to the genitals, raise testosterone levels, and increase physical stamina during sex.<\/p>"
+            "description": "<p>An herb commonly used to help improve blood flow to the genitals, raise testosterone levels, and increase physical stamina during sex.</p>"
           }
         },
         "ingredient_rgJ4Jh": {
           "type": "ingredient",
           "settings": {
             "title": "White Willow Extract",
-            "description": "<p>Extracted from tree bark that is commonly used as a pain reliever and to treat headaches.<\/p>"
+            "description": "<p>Extracted from tree bark that is commonly used as a pain reliever and to treat headaches.</p>"
           }
         },
         "ingredient_yayg3y": {
           "type": "ingredient",
           "settings": {
             "title": "Cayenne Extract",
-            "description": "<p>An herb commonly used to improve circulation and blood flow, which will lead to harder, firmer erections.<\/p>"
+            "description": "<p>An herb commonly used to improve circulation and blood flow, which will lead to harder, firmer erections.</p>"
           }
         },
         "ingredient_3YXjfr": {
           "type": "ingredient",
           "settings": {
             "title": "Panax Ginseng",
-            "description": "<p>A plant root that is commonly used to improve physical stamina. It is also commonly used to treat dizziness and headaches.<\/p>"
+            "description": "<p>A plant root that is commonly used to improve physical stamina. It is also commonly used to treat dizziness and headaches.</p>"
           }
         },
         "ingredient_P8C7aP": {
           "type": "ingredient",
           "settings": {
             "title": "Tribulus Terrestris",
-            "description": "<p>An herb commonly used to increase sex drive.<\/p>"
+            "description": "<p>An herb commonly used to increase sex drive.</p>"
           }
         }
       },
@@ -199,16 +208,16 @@
         "ingredient_P8C7aP"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/424857591_398097969445099_1126847841646022577_n_2.png",
+        "image": "shopify://shop_images/424857591_398097969445099_1126847841646022577_n_2.png",
         "title": "Ingredients",
-        "text": "<p>Cherry Bomb boasts a potent, all-natural formula for intoxicating sex without intoxication. Made from 100% natural ingredients, each ingredient offers enhancing and wellness properties, synergistically improving sexual performance with minimal risk of side effects.<\/p><p>Cherry Bomb Male Enhancement Supplement is free from illegal drugs or substances. Each ingredient undergoes precise dosing and thorough quality control checks at our licensed facility in Los Angeles, CA.<\/p>"
+        "text": "<p>Cherry Bomb boasts a potent, all-natural formula for intoxicating sex without intoxication. Made from 100% natural ingredients, each ingredient offers enhancing and wellness properties, synergistically improving sexual performance with minimal risk of side effects.</p><p>Cherry Bomb Male Enhancement Supplement is free from illegal drugs or substances. Each ingredient undergoes precise dosing and thorough quality control checks at our licensed facility in Los Angeles, CA.</p>"
       }
     },
     "1709271225c5ccfc6b": {
       "type": "apps",
       "blocks": {
         "okendo_reviews_widget_YrfCCd": {
-          "type": "shopify:\/\/apps\/okendo\/blocks\/reviews-widget\/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+          "type": "shopify://apps/okendo/blocks/reviews-widget/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
           "settings": {
             "product": "{{product}}",
             "widget_type": "combined_widget"
@@ -230,28 +239,28 @@
           "type": "faq",
           "settings": {
             "title": "How do I take Cherry Bomb?",
-            "answer": "<p>Take 45 minutes before sex and stay hydrated. Cherry Bomb is made to help enhance your performance in bed while giving you stronger and more powerful erections and intensifying orgasms when it’s time to climax.<\/p>"
+            "answer": "<p>Take 45 minutes before sex and stay hydrated. Cherry Bomb is made to help enhance your performance in bed while giving you stronger and more powerful erections and intensifying orgasms when it’s time to climax.</p>"
           }
         },
         "faq_WmJEBL": {
           "type": "faq",
           "settings": {
             "title": "Will Cherry Bomb work for me?",
-            "answer": "<p>Cherry Bomb is a tested formula with effective ingredients.<\/p>"
+            "answer": "<p>Cherry Bomb is a tested formula with effective ingredients.</p>"
           }
         },
         "faq_4eBrmb": {
           "type": "faq",
           "settings": {
             "title": "How is Cherry Bomb better than some of the popular products on the market?",
-            "answer": "<p>Cherry Bomb is one the few trusted all natural male enhancement pills. Keep supply on hand and take Cherry Bomb when needed.<\/p><ul><li>Get turned on - unlike other pills that just get you hard, Cherry Bomb is made to help increase sexual arousal, heighten pleasure and euphoria and enhance sensual drive and performance.<\/li><li>Minimal side effects – made with all natural ingredients, Cherry Bomb is less likely to cause dizziness or headaches, a few of the most negative side effects of conventional products.<\/li><li>Convenient – No Dr’s, no and no monthly subscription needed to purchase. Cherry Bomb can power on-demand. No waiting days\/months for system build up. With a pack at home or in the car – you’re ready!<\/li><\/ul>"
+            "answer": "<p>Cherry Bomb is one the few trusted all natural male enhancement pills. Keep supply on hand and take Cherry Bomb when needed.</p><ul><li>Get turned on - unlike other pills that just get you hard, Cherry Bomb is made to help increase sexual arousal, heighten pleasure and euphoria and enhance sensual drive and performance.</li><li>Minimal side effects – made with all natural ingredients, Cherry Bomb is less likely to cause dizziness or headaches, a few of the most negative side effects of conventional products.</li><li>Convenient – No Dr’s, no and no monthly subscription needed to purchase. Cherry Bomb can power on-demand. No waiting days/months for system build up. With a pack at home or in the car – you’re ready!</li></ul>"
           }
         },
         "faq_RChhAN": {
           "type": "faq",
           "settings": {
             "title": "Are there any side effects?",
-            "answer": "<p>Cherry Bomb is crafted using all-natural herbs and wellness properties, ensuring it is 100% drug-free. It comprises ingredients deemed safe for ongoing consumption without the risk of side effects. Nonetheless, as with any food or supplement, there's a possibility of adverse reactions. In such instances, discontinuing use and seeking advice from a medical professional is recommended.<\/p>"
+            "answer": "<p>Cherry Bomb is crafted using all-natural herbs and wellness properties, ensuring it is 100% drug-free. It comprises ingredients deemed safe for ongoing consumption without the risk of side effects. Nonetheless, as with any food or supplement, there's a possibility of adverse reactions. In such instances, discontinuing use and seeking advice from a medical professional is recommended.</p>"
           }
         }
       },
@@ -262,7 +271,7 @@
         "faq_RChhAN"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/Email_-_Pre-Drop_1.png",
+        "image": "shopify://shop_images/Email_-_Pre-Drop_1.png",
         "image_align": "left",
         "heading": "FAQ"
       }
@@ -272,16 +281,17 @@
       "blocks": {
         "text_Y9ygye": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "title": "Subscription",
-            "text": "<p>Opt for Cherry Bomb's subscription package to enjoy double savings and ensure a continuous supply. Plus, we guarantee to maintain your subscription price during special promotions throughout your term with us. Enjoy a hassle-free cancellation process through  <a href=\"https:\/\/4hunnid.com\/tools\/recurring\/get-subscription-access\" title=\"Recharge\">Recharge<\/a>.<\/p>"
+            "text": "<p>Opt for Cherry Bomb's subscription package to enjoy double savings and ensure a continuous supply. Plus, we guarantee to maintain your subscription price during special promotions throughout your term with us. Enjoy a hassle-free cancellation process through  <a href=\"https://4hunnid.com/tools/recurring/get-subscription-access\" title=\"Recharge\">Recharge</a>.</p>"
           }
         },
         "text_tMYDJp": {
           "type": "text",
           "settings": {
             "title": "Returns & Refunds",
-            "text": "<p>Please review our Return & Refund policy <a href=\"\/pages\/cherry-bomb-return-refund-policy\" title=\"Cherry Bomb Return & Refund Policy\">here<\/a>.<\/p>"
+            "text": "<p>Please review our Return & Refund policy <a href=\"/pages/cherry-bomb-return-refund-policy\" title=\"Cherry Bomb Return & Refund Policy\">here</a>.</p>"
           }
         }
       },
@@ -290,7 +300,7 @@
         "text_tMYDJp"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/Cherry_Bomb_-_Ad_2_1.png",
+        "image": "shopify://shop_images/Cherry_Bomb_-_Ad_2_1.png",
         "image_align": "right"
       }
     },
@@ -302,7 +312,7 @@
           "settings": {
             "icon": "lock",
             "title": "Safe & Effective",
-            "description": "<p>Cherry Bomb is formulated, crafted, and packaged in our partnered registered Los Angeles facility.<\/p>"
+            "description": "<p>Cherry Bomb is formulated, crafted, and packaged in our partnered registered Los Angeles facility.</p>"
           }
         },
         "benefit_g3nReF": {
@@ -310,7 +320,7 @@
           "settings": {
             "icon": "globe",
             "title": "Made in CA, USA",
-            "description": "<p>Cherry Bomb is formulated, crafted, and packaged in our registered Los Angeles facility.<\/p>"
+            "description": "<p>Cherry Bomb is formulated, crafted, and packaged in our registered Los Angeles facility.</p>"
           }
         },
         "benefit_YPqeAk": {
@@ -318,7 +328,7 @@
           "settings": {
             "icon": "truck",
             "title": "Fast Shipping",
-            "description": "<p>Receive your order within 2-5 business days! We aim for same day fulfillment on business days. <\/p>"
+            "description": "<p>Receive your order within 2-5 business days! We aim for same day fulfillment on business days. </p>"
           }
         },
         "benefit_eEwTV9": {
@@ -326,7 +336,7 @@
           "settings": {
             "icon": "box",
             "title": "Discrete Packaging",
-            "description": "<p>Your privacy is important to us. Orders from Cherry Bomb are shipped discreetly in unbranded, polymailers, ensuring confidentiality between you and your partner. We aim for same-day fulfillment on weekdays and utilize 2-5 business day shipping.<\/p>"
+            "description": "<p>Your privacy is important to us. Orders from Cherry Bomb are shipped discreetly in unbranded, polymailers, ensuring confidentiality between you and your partner. We aim for same-day fulfillment on weekdays and utilize 2-5 business day shipping.</p>"
           }
         }
       },
@@ -347,35 +357,35 @@
           "type": "icon",
           "settings": {
             "icon": "instagram",
-            "link": "https:\/\/www.instagram.com\/gocherrybomb\/"
+            "link": "https://www.instagram.com/gocherrybomb/"
           }
         },
         "icon_Ch7Dp8": {
           "type": "icon",
           "settings": {
             "icon": "tiktok",
-            "link": "https:\/\/www.tiktok.com\/@gocherrybomb"
+            "link": "https://www.tiktok.com/@gocherrybomb"
           }
         },
         "icon_8JVdFU": {
           "type": "icon",
           "settings": {
             "icon": "facebook",
-            "link": "https:\/\/www.facebook.com\/profile.php?id=61556475600742"
+            "link": "https://www.facebook.com/profile.php?id=61556475600742"
           }
         },
         "icon_dxgzrD": {
           "type": "icon",
           "settings": {
             "icon": "twitter",
-            "link": "https:\/\/twitter.com\/gocherrybomb_"
+            "link": "https://twitter.com/gocherrybomb_"
           }
         },
         "icon_wMd37B": {
           "type": "icon",
           "settings": {
             "icon": "snapchat",
-            "link": "https:\/\/t.snapchat.com\/z9p0eYRc"
+            "link": "https://t.snapchat.com/z9p0eYRc"
           }
         }
       },
