@@ -85,7 +85,7 @@
     "search_enable": false,
     "predictive_search_enabled": false,
     "enable_homepage_redirect": true,
-    "homepage_redirect_url": "shopify://collections/2024-black-friday-collection",
+    "homepage_redirect_url": "shopify://collections/2024-holiday-sale",
     "checkout_logo_image": "shopify://shop_images/4Hunnid_Logo_-_Red.png",
     "checkout_logo_position": "center",
     "checkout_logo_size": "small",
@@ -118,7 +118,7 @@
             "settings": {
               "text": "4Hunnid Holiday Sale",
               "link_text": "Entire Site 70% Off",
-              "link": "shopify://collections/2024-black-friday-collection"
+              "link": "shopify://collections/2024-holiday-sale"
             }
           }
         },
