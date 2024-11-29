@@ -116,9 +116,9 @@
           "announcement_z9J8Qw": {
             "type": "announcement",
             "settings": {
-              "text": "Get 10% Off",
-              "link_text": "When You Sign Up For Our Newsletter",
-              "link": "shopify://pages/newsletter-signup"
+              "text": "Entire Site 70% Off",
+              "link_text": "",
+              "link": "shopify://collections/2024-black-friday-collection"
             }
           }
         },
