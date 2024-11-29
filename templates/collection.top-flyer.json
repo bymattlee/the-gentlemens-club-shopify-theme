@@ -19,6 +19,28 @@
         "collection_menu_link_list": "collection-menu"
       }
     },
+    "advanced_content_MnYEiN": {
+      "type": "advanced-content",
+      "blocks": {
+        "image_difh9D": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Main_Flyer.jpg",
+            "link": "",
+            "width": "33%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "image_difh9D"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "center_content": true
+      }
+    },
     "main-collection": {
       "type": "main-collection",
       "blocks": {
@@ -46,6 +68,7 @@
   },
   "order": [
     "collection-header",
+    "advanced_content_MnYEiN",
     "main-collection"
   ]
 }
