@@ -117,7 +117,7 @@
             "type": "announcement",
             "settings": {
               "text": "4Hunnid Holiday Sale",
-              "link_text": "Entire Site 60% Off",
+              "link_text": "Entire Site 50% Off",
               "link": "shopify://collections/2024-holiday-sale"
             }
           }
@@ -854,5 +854,8 @@
         }
       }
     }
+  },
+  "platform_customizations": {
+    "custom_css": []
   }
 }
