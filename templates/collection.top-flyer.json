@@ -22,20 +22,7 @@
     },
     "advanced_content_MnYEiN": {
       "type": "advanced-content",
-      "blocks": {
-        "image_difh9D": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/4H_HOLIDAY_SALE_FLYER_40_-_1_copy.jpg",
-            "link": "",
-            "width": "33%",
-            "alignment": "center"
-          }
-        }
-      },
-      "block_order": [
-        "image_difh9D"
-      ],
+      "disabled": true,
       "settings": {
         "full_width": false,
         "space_around": true,
@@ -44,18 +31,6 @@
     },
     "rich_text_xp8hHt": {
       "type": "rich-text",
-      "blocks": {
-        "text_LzRWWY": {
-          "type": "text",
-          "settings": {
-            "enlarge_text": false,
-            "text": "<p><strong>Buy Any 3 Items / Get 1 Tee Free</strong><br/>Be sure to add the 4th item (free tee) to the cart to redeem</p>"
-          }
-        }
-      },
-      "block_order": [
-        "text_LzRWWY"
-      ],
       "settings": {
         "align_text": "center",
         "narrow_column": true,

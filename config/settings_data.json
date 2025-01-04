@@ -115,10 +115,9 @@
           },
           "announcement_z9J8Qw": {
             "type": "announcement",
-            "disabled": true,
             "settings": {
-              "text": "4Hunnid Holiday Sale",
-              "link_text": "Entire Site 50% Off    |    Buy 3 Get 1 Free",
+              "text": "",
+              "link_text": "",
               "link": "shopify://collections/2024-holiday-sale"
             }
           }
