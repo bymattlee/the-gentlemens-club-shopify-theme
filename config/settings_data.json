@@ -112,19 +112,10 @@
               "desktop_logo_width": 170,
               "mobile_logo_width": 130
             }
-          },
-          "announcement_z9J8Qw": {
-            "type": "announcement",
-            "settings": {
-              "text": "",
-              "link_text": "",
-              "link": "shopify://collections/2024-holiday-sale"
-            }
           }
         },
         "block_order": [
-          "1524770014057",
-          "announcement_z9J8Qw"
+          "1524770014057"
         ],
         "settings": {
           "main_menu_link_list": "main-menu",
