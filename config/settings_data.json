@@ -85,7 +85,7 @@
     "search_enable": false,
     "predictive_search_enabled": false,
     "enable_homepage_redirect": true,
-    "homepage_redirect_url": "shopify://collections/2024-holiday-sale",
+    "homepage_redirect_url": "shopify://pages/about",
     "checkout_logo_image": "shopify://shop_images/4Hunnid_Logo_-_Red.png",
     "checkout_logo_position": "center",
     "checkout_logo_size": "small",
