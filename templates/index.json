@@ -20,7 +20,7 @@
       "type": "featured-collection",
       "settings": {
         "title": "Summer 2025",
-        "home_featured_products": "",
+        "home_featured_products": "all",
         "per_row": 4,
         "rows": 20,
         "mobile_scrollable": false,
