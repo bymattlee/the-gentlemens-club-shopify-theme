@@ -9,23 +9,23 @@
  */
 {
   "sections": {
-    "9be68cd0-7327-422f-a4fc-850561ae28e4": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Just Re'd Up 3 Album Merch Collection",
-        "home_featured_products": "2024-just-red-up-3-album-merch-collection",
-        "per_row": 3,
-        "rows": 20,
-        "mobile_scrollable": false,
-        "view_all": false,
-        "divider": false
-      }
-    },
     "video_autoplay_hUtCcj": {
       "type": "video-autoplay",
       "name": "Video autoplay",
       "settings": {
         "video_url": "https://cdn.shopify.com/videos/c/o/v/4a09b2adb7fd417280d33f6142c4bcdd.mp4"
+      }
+    },
+    "9be68cd0-7327-422f-a4fc-850561ae28e4": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Summer 2025",
+        "home_featured_products": "",
+        "per_row": 4,
+        "rows": 20,
+        "mobile_scrollable": false,
+        "view_all": false,
+        "divider": false
       }
     }
   },
