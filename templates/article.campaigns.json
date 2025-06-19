@@ -11,17 +11,17 @@
   "sections": {
     "main": {
       "type": "article-template",
-      "settings": {}
-    },
-    "blog-posts": {
-      "type": "blog-posts",
       "settings": {
-        "title": "You may also like"
+        "image_hero": false,
+        "blog_show_tags": false,
+        "blog_show_date": false,
+        "blog_show_comments": false,
+        "blog_show_author": false,
+        "social_sharing_blog": false
       }
     }
   },
   "order": [
-    "main",
-    "blog-posts"
+    "main"
   ]
 }

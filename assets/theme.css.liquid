@@ -1449,6 +1449,10 @@ body,html{
   padding-bottom: 128px;
 }
 
+.page-content--no-bottom-padding {
+  padding-bottom: 0;
+}
+
 .main-content{
   display:block;
   min-height:300px
@@ -2091,6 +2095,10 @@ button[disabled],html input[disabled]{
   border-color:var(--colorTextBody);
   background-color:transparent;
   font-weight: 400;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 12px 32px;
+  text-transform: none;
 }
 
 [data-button_style=angled] .btn--secondary,[data-button_style=angled] .rte .btn--secondary{
@@ -4986,22 +4994,22 @@ form+.footer__social{
 
 .section-header,
 .shopify-policy__title {
-  margin-bottom:24px
+  margin-bottom:40px
 }
 
 .section-header--small {
-  margin-bottom:24px
+  margin-bottom:32px
 }
 
 @media only screen and (min-width:769px){
 
 .section-header,
 .shopify-policy__title {
-    margin-bottom:32px
+    margin-bottom:48px
 }
 
 .section-header--small {
-  margin-bottom:24px
+  margin-bottom:40px
 }
   }
 
@@ -13916,4 +13924,55 @@ div.okeReviews .oke-button:not(.oke-is-loading):not(.oke-is-active):hover {
   left: 0;
   width: 100%;
   height: 100%
+}
+
+.article__cta-row {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.article__media-row {
+  padding-bottom: 16px;
+}
+
+@media only screen and (min-width: 769px) {
+  .article__media-row {
+    padding-bottom: 24px;
+  }
+}
+
+.article__grid-images {
+  display: grid;
+  gap: 16px;
+}
+
+@media only screen and (min-width: 769px) {
+  .article__grid-images {
+    gap: 24px;
+  }
+}
+
+.article__grid-images--1-column-grid {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 769px) {
+  .article__grid-images--2-column-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .article__grid-images--3-column-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.article__grid-image-block {
+
+}
+
+.article__grid-image {
+
 }
