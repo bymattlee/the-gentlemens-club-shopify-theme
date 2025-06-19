@@ -13,7 +13,8 @@
       "type": "video-autoplay",
       "name": "Video autoplay",
       "settings": {
-        "video_url": "https://cdn.shopify.com/videos/c/o/v/4a09b2adb7fd417280d33f6142c4bcdd.mp4"
+        "video": "shopify://files/videos/Summer 2022 Reel - Web_52e62800-5a29-4ca3-bfe6-8d18bc442cae.mp4",
+        "video_orientation": "portrait"
       }
     },
     "9be68cd0-7327-422f-a4fc-850561ae28e4": {

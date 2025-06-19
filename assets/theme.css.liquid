@@ -12676,13 +12676,32 @@ html[dir=rtl] .product-single__meta .rte{
 
 .video-autoplay__video-container {
   position: relative;
-  height: calc(100vh - 86px - 48px);
+}
+
+.video-autoplay__video-container--portrait {
+  height: calc(100vh - 74px - 64px);
+}
+
+@media only screen and (min-width:767px) {
+  .video-autoplay__video-container {
+    height: calc(100vh - 86px - 72px);
+  }
+}
+
+.video-autoplay__video-container-wrapper {
+  position: relative;
+  height: 100%;
+  margin: 0 auto;
 }
 
 @media only screen and (max-width:768px) {
-  .video-autoplay__video-container {
-    height: auto;
-    padding-bottom: 56.25%;
+  .video-autoplay__video-container-wrapper {
+    aspect-ratio: 16 / 9;
+  }
+}
+@media only screen and (min-width:767px) {
+  .video-autoplay__video-container--portrait .video-autoplay__video-container-wrapper {
+    aspect-ratio: 9 / 16;
   }
 }
 
