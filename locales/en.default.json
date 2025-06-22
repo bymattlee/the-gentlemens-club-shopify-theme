@@ -128,7 +128,7 @@
       "subtotal": "Subtotal",
       "discounts": "Discounts",
       "shipping_at_checkout": "Shipping, taxes, and discount codes calculated at checkout.",
-      "update": "Update bag",
+      "update": "Update Bag",
       "checkout": "Checkout",
       "empty": "Your bag is currently empty.",
       "continue_browsing_html": "<a href='{{ url }}'>Continue shopping</a>",
