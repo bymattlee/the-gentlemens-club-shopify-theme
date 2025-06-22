@@ -8384,6 +8384,15 @@ html[dir=rtl] .grid-product__content{
           hyphens:auto;
 }
 
+{% if settings.quick_add_enable %}
+@media (pointer: fine) {
+  .grid-product:hover .grid-product__title {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+{% endif %}
+
 .grid-product__link{
   display:block;
   transition: color 300ms;
@@ -8475,13 +8484,13 @@ html[dir=rtl] .grid-product__content{
 
 .grid-product__meta{
   position:relative;
-  padding:8px 0 0;
-  line-height:{{ settings.type_base_line_height | default: 1.4 | minus: 0.1 }}
+  margin:8px 0 0;
+  line-height:{{ settings.type_base_line_height | default: 1.4 | minus: 0.1 }};
 }
 
 @media only screen and (min-width:769px){
   .grid-product__meta{
-    padding-top: 12px;
+    margin-top: 12px;
   }
 }
 
@@ -8556,6 +8565,42 @@ html[dir=rtl] .grid-product__content{
   color:{{ settings.color_sale_tag_text | default: "#ffffff" }};
   color:var(--colorSaleTagText);
 }
+
+{% if settings.quick_add_enable %}
+  .grid-product__quick-add {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: none;
+  }
+
+  @media (pointer: fine) {
+    .grid-product:hover .grid-product__quick-add {
+      display: block;
+    }
+  }
+
+  .grid-product__quick-add-variants {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .grid-product__quick-add-variant {
+    padding: 0;
+  }
+
+  .grid-product__quick-add-variant:hover {
+    text-decoration: underline;
+  }
+
+  .grid-product__quick-add-variant--is-disabled {
+    color:{{ settings.color_borders | default: "#1c1d1d" }};
+    color:var(--colorBorder);
+    pointer-events: none;
+  }
+{% endif %}
 
 .quick-product__btn{
   font-size:calc(var(--typeBaseSize)*0.85);
@@ -13994,4 +14039,18 @@ div.okeReviews .oke-button:not(.oke-is-loading):not(.oke-is-active):hover {
 
 .article__grid-image {
 
+}
+
+.pw-variant-optimal-container .pw-variant-optimal .pw-title,
+.pw-variant-optimal-container .pw-variant-optimal .pw-quote {
+  color: var(--color-red) !important;
+}
+
+.pw-variant-optimal-container .pw-variant-optimal .pw-route-logo svg path,
+.pw-variant-optimal-container .pw-variant-optimal .pw-info-icon svg path {
+  fill: var(--color-red) !important;
+}
+
+label.pw-checkout-box-label:before {
+  background-color: var(--color-red) !important;
 }

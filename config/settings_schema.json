@@ -607,6 +607,11 @@
         "default": "Quick view"
       },
       {
+        "type": "checkbox",
+        "id": "quick_add_enable",
+        "label": "Enable quick add"
+      },
+      {
         "type": "select",
         "id": "product_grid_image_size",
         "label": "t:settings_schema.product_tiles.settings.product_grid_image_size.label",

@@ -6823,6 +6823,8 @@ lazySizesConfig.expFactor = 4
       tagsForm: '.filter-form',
       filters: '.collection-filter',
       priceRange: '.price-range',
+      quickAdd: '.grid-product__quick-add',
+      quickAddVariant: '.grid-product__quick-add-variant',
     }
 
     var classes = {
@@ -6857,6 +6859,7 @@ lazySizesConfig.expFactor = 4
         this.initFilters()
         this.initPriceRange()
         this.sidebar.init()
+        this.initQuickAdd()
       },
 
       initSort: function () {
@@ -7153,6 +7156,106 @@ lazySizesConfig.expFactor = 4
 
       startLoading: function () {
         document.querySelector(selectors.collectionGrid).classList.add('unload')
+      },
+
+      initQuickAdd: function () {
+        const quickAddEls = document.querySelectorAll(selectors.quickAdd)
+
+        if (!quickAddEls.length) return
+
+        const quickAddVariants = document.querySelectorAll(
+          selectors.quickAddVariant
+        )
+
+        quickAddVariants.forEach((el) => {
+          el.addEventListener('click', this.onQuickAddVariantClick.bind(this))
+        })
+      },
+
+      onQuickAddVariantClick: function (evt) {
+        const variantId = evt.currentTarget.dataset.variantId
+        this.quickAddToCart(evt.currentTarget, variantId)
+      },
+
+      quickAddToCart: function (currentVariantButton, variantId) {
+        // Loading indicator on add to cart button
+        currentVariantButton.classList.add(
+          'grid-product__quick-add-variant--is-disabled'
+        )
+
+        var data = new URLSearchParams({ id: variantId }).toString()
+
+        fetch(theme.routes.cartAdd, {
+          method: 'POST',
+          body: data,
+          credentials: 'same-origin',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'X-Requested-With': 'XMLHttpRequest',
+          },
+        })
+          .then((response) => response.json())
+          .then(
+            function (data) {
+              if (data.status === 422) {
+                this.quickAddError(data)
+              } else {
+                var product = data
+                this.quickAddSuccess(product, currentVariantButton)
+              }
+
+              currentVariantButton.classList.remove(
+                'grid-product__quick-add-variant--is-disabled'
+              )
+            }.bind(this)
+          )
+      },
+
+      quickAddSuccess: function (product, currentVariantButton) {
+        document.dispatchEvent(
+          new CustomEvent('ajaxProduct:added', {
+            detail: {
+              product: product,
+              addToCartBtn: currentVariantButton,
+            },
+          })
+        )
+
+        if (this.args && this.args.scopedEventId) {
+          document.dispatchEvent(
+            new CustomEvent('ajaxProduct:added:' + this.args.scopedEventId, {
+              detail: {
+                product: product,
+                addToCartBtn: currentVariantButton,
+              },
+            })
+          )
+        }
+      },
+
+      quickAddError: function (error) {
+        if (!error.description) {
+          console.warn(error)
+          return
+        }
+
+        document.dispatchEvent(
+          new CustomEvent('ajaxProduct:error', {
+            detail: {
+              errorMessage: error.description,
+            },
+          })
+        )
+
+        if (this.args && this.args.scopedEventId) {
+          document.dispatchEvent(
+            new CustomEvent('ajaxProduct:error:' + this.args.scopedEventId, {
+              detail: {
+                errorMessage: error.description,
+              },
+            })
+          )
+        }
       },
     })
 
