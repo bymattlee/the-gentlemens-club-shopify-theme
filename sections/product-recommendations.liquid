@@ -28,13 +28,14 @@
     data-enable="{{ recommend_products }}"
     data-product-id="{{ product.id }}"
     data-url="{{ routes.product_recommendations_url }}"
-    data-limit="{{ number_of_products }}">
-
+    data-limit="{{ number_of_products }}"
+  >
     <div
       data-section-id="{{ product.id }}"
       data-subsection
       data-section-type="collection-grid"
-      class="index-section">
+      class="index-section"
+    >
       <div class="page-width">
         <header class="section-header section-header--small">
           <h3 class="section-header__title section-header__title--right">
@@ -51,10 +52,7 @@
                 This content is visually hidden and replaced when recommended products show up
               {% endcomment %}
               <div class="grid grid--uniform visually-invisible" aria-hidden="true">
-                {%- render 'product-grid-item',
-                  product: product,
-                  quick_shop_enable: settings.quick_shop_enable
-                -%}
+                {%- render 'product-grid-item', product: product, quick_shop_enable: settings.quick_shop_enable -%}
               </div>
             </div>
           {%- endif -%}
@@ -62,14 +60,17 @@
             <div class="product-recommendations">
               <div class="grid grid--uniform" data-aos="overflow__animation">
                 {%- for product in related_collection.products limit: number_of_products -%}
-                  {%- comment %}<locksmith:bdf2>{% endcomment -%}
-                    {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: related_collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-                  {%- comment %}</locksmith:bdf2>{% endcomment -%}
-                  {%- render 'product-grid-item',
-                    product: product,
-                    per_row: number_of_products,
-                    quick_shop_enable: settings.quick_shop_enable
-                  -%}
+                  {%- if product.handle != 'routeins' -%}
+                    {%- comment %}<locksmith:bdf2>{%- endcomment %}
+                    {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: related_collection, variable: 'transparent' %}{% endcapture -%}
+                    {%- if var == 'true' %}{% else %}{% continue %}{% endif -%}
+                    {%- comment %}</locksmith:bdf2>{%- endcomment %}
+                    {%- render 'product-grid-item',
+                      product: product,
+                      per_row: number_of_products,
+                      quick_shop_enable: settings.quick_shop_enable
+                    -%}
+                  {%- endif -%}
                 {%- endfor -%}
               </div>
             </div>
