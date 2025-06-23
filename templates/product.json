@@ -41,13 +41,18 @@
             "tab_4_title": "",
             "tab_4_content": ""
           }
+        },
+        "complete_the_look_D3RkXz": {
+          "type": "complete_the_look",
+          "settings": {}
         }
       },
       "block_order": [
         "f5d49e77-9e1e-4406-8d7c-3a480f5d5a97",
         "variant_picker",
         "buy_buttons",
-        "f04516e7-cbde-4edf-989d-313bc0f49fee"
+        "f04516e7-cbde-4edf-989d-313bc0f49fee",
+        "complete_the_look_D3RkXz"
       ],
       "settings": {
         "sticker": "{{ product.metafields.theme.sticker.value }}",

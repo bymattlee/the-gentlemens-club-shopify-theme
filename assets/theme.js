@@ -7526,6 +7526,10 @@ lazySizesConfig.expFactor = 4
         variantColorSwatch: '.variant__input--color-swatch',
 
         availabilityContainer: '[data-store-availability-holder]',
+
+        completeTheLookQuickAdd: '.complete-the-look__product-quick-add',
+        completeTheLookQuickAddVariant:
+          '.complete-the-look__product-quick-add-variant',
       }
 
       this.cacheElements()
@@ -7566,6 +7570,7 @@ lazySizesConfig.expFactor = 4
           this.customMediaListners()
           this.addIdToRecentlyViewed()
           this.initContentToggle()
+          this.initCompleteTheLookQuickAdd()
 
           window.addEventListener('resize', this.initProductSlider.bind(this))
         }
@@ -8827,6 +8832,120 @@ lazySizesConfig.expFactor = 4
             }.bind(this)
           )
         })
+      },
+
+      /*============================================================================
+        Complete The Look Quick Add
+      ==============================================================================*/
+      initCompleteTheLookQuickAdd: function () {
+        const quickAddEls = document.querySelectorAll(
+          this.selectors.completeTheLookQuickAdd
+        )
+
+        if (!quickAddEls.length) return
+
+        const quickAddVariants = document.querySelectorAll(
+          this.selectors.completeTheLookQuickAddVariant
+        )
+
+        quickAddVariants.forEach((el) => {
+          el.addEventListener(
+            'click',
+            this.onCompleteTheLookQuickAddVariantClick.bind(this)
+          )
+        })
+      },
+
+      onCompleteTheLookQuickAddVariantClick: function (evt) {
+        const variantId = evt.currentTarget.dataset.variantId
+        this.completeTheLookQuickAddToCart(evt.currentTarget, variantId)
+      },
+
+      completeTheLookQuickAddToCart: function (
+        currentVariantButton,
+        variantId
+      ) {
+        // Loading indicator on add to cart button
+        currentVariantButton.classList.add(
+          'grid-product__quick-add-variant--is-disabled'
+        )
+
+        var data = new URLSearchParams({ id: variantId }).toString()
+
+        fetch(theme.routes.cartAdd, {
+          method: 'POST',
+          body: data,
+          credentials: 'same-origin',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'X-Requested-With': 'XMLHttpRequest',
+          },
+        })
+          .then((response) => response.json())
+          .then(
+            function (data) {
+              if (data.status === 422) {
+                this.completeTheLookQuickAddError(data)
+              } else {
+                var product = data
+                this.completeTheLookQuickAddSuccess(
+                  product,
+                  currentVariantButton
+                )
+              }
+
+              currentVariantButton.classList.remove(
+                'grid-product__quick-add-variant--is-disabled'
+              )
+            }.bind(this)
+          )
+      },
+
+      completeTheLookQuickAddSuccess: function (product, currentVariantButton) {
+        document.dispatchEvent(
+          new CustomEvent('ajaxProduct:added', {
+            detail: {
+              product: product,
+              addToCartBtn: currentVariantButton,
+            },
+          })
+        )
+
+        if (this.args && this.args.scopedEventId) {
+          document.dispatchEvent(
+            new CustomEvent('ajaxProduct:added:' + this.args.scopedEventId, {
+              detail: {
+                product: product,
+                addToCartBtn: currentVariantButton,
+              },
+            })
+          )
+        }
+      },
+
+      completeTheLookQuickAddError: function (error) {
+        if (!error.description) {
+          console.warn(error)
+          return
+        }
+
+        document.dispatchEvent(
+          new CustomEvent('ajaxProduct:error', {
+            detail: {
+              errorMessage: error.description,
+            },
+          })
+        )
+
+        if (this.args && this.args.scopedEventId) {
+          document.dispatchEvent(
+            new CustomEvent('ajaxProduct:error:' + this.args.scopedEventId, {
+              detail: {
+                errorMessage: error.description,
+              },
+            })
+          )
+        }
       },
     })
 

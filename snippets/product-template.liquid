@@ -45,7 +45,6 @@
           endif
         endfor
       endif
-
     endif
   endfor
 -%}
@@ -127,7 +126,8 @@
   {%- endcomment -%}
 {% endcapture %}
 
-<div id="ProductSection-{{ section_id }}-{{ product.id }}"
+<div
+  id="ProductSection-{{ section_id }}-{{ product.id }}"
   class="product-section"
   data-section-id="{{ section_id }}"
   data-product-id="{{ product.id }}"
@@ -140,13 +140,12 @@
   {% unless isModal %}
     data-history="true"
   {% endunless %}
-  data-modal="{{ isModal }}">
-
+  data-modal="{{ isModal }}"
+>
   {%- render 'product-template-variables', product: product, current_variant: current_variant -%}
 
   <div class="_page-content _page-content--product">
     <div class="page-width">
-
       <div class="grid{% unless image_position == 'left' %} grid--product-images-right{% endunless %}{% if mobile_layout == 'partial' %} grid--product-images--partial{% endif %}{% if thumbnail_position == 'remove' %} grid--thumbs-removed{% endif %}">
         {%- if image_position == 'left' -%}
           <div class="grid__item {{ product_image_width }} product-single__sticky">
@@ -167,7 +166,6 @@
         {%- endif -%}
 
         <div class="grid__item {{ product_description_width }}{% if thumbnail_position == 'remove' %} grid__item--thumbs-removed{% endif %}">
-
           <div class="product-single__meta{% if thumbnail_position == 'remove' %} product-single__meta--thumbs-removed{% endif %}">
             <div class="product-block product-block--header">
               {%- if settings.show_breadcrumbs and isModal != true -%}
@@ -194,9 +192,7 @@
               {%- endif -%}
 
               {%- if isModal -%}
-                <p class="h2 product-single__title">
-                  {{ product.title }} - {{ price_block }}
-                </p>
+                <p class="h2 product-single__title">{{ product.title }} - {{ price_block }}</p>
               {%- else -%}
                 <h1 class="h2 product-single__title">
                   {%- unless product.empty? -%}
@@ -229,7 +225,10 @@
                   {%- when 'separator' -%}
                     <div class="product-block" {{ block.shopify_attributes }}><hr></div>
                   {%- when 'text' -%}
-                    <div class="product-block{% if block.settings.enlarge_text %} enlarge-text{% endif %}" {{ block.shopify_attributes }}>
+                    <div
+                      class="product-block{% if block.settings.enlarge_text %} enlarge-text{% endif %}"
+                      {{ block.shopify_attributes }}
+                    >
                       {{ block.settings.text }}
                     </div>
                   {%- when 'tab' -%}
@@ -249,7 +248,10 @@
                       {%- render 'tab-contact', id: tab_id, block: block -%}
                     </div>
                   {%- when 'description' -%}
-                    <div class="product-block product-block--description{% if block.settings.is_tab %} product-block--tab{% endif %}" {{ block.shopify_attributes }}>
+                    <div
+                      class="product-block product-block--description{% if block.settings.is_tab %} product-block--tab{% endif %}"
+                      {{ block.shopify_attributes }}
+                    >
                       {%- assign id = block.id | append: product.id -%}
                       {%- render 'product-description', id: id, product: product, is_tab: block.settings.is_tab -%}
                     </div>
@@ -272,8 +274,7 @@
                       {%- endcapture -%}
 
                       <div class="size-chart__standalone" {{ block.shopify_attributes }}>
-                        {%- render
-                          'tool-tip-trigger',
+                        {%- render 'tool-tip-trigger',
                           title: size_chart_title,
                           content: block.settings.size_chart.content,
                           context: 'size-chart'
@@ -345,10 +346,11 @@
                       {%- endunless -%}
 
                       {%- if block.settings.surface_pickup_enable -%}
-                        <div data-store-availability-holder
+                        <div
+                          data-store-availability-holder
                           data-product-name="{{ product.title | escape }}"
                           data-base-url="{{ shop.url }}{{ routes.root_url }}"
-                          ></div>
+                        ></div>
                       {%- endif -%}
                     </div>
                   {%- when 'sales_point' -%}
@@ -358,20 +360,130 @@
                           <li class="sales-point">
                             <span class="icon-and-text">
                               {% case block.settings.icon %}
-                                {% when 'checkmark' %} <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--full-color" viewBox="0 0 32 33"><path d="M16 1.5c-8.3 0-15 6.7-15 15s6.7 15 15 15 15-6.7 15-15-6.7-15-15-15zm-2.5 21-5.7-5.7 1.4-1.4 4.3 4.3 9.2-9.2 1.4 1.4-10.6 10.6z" fill="none"/><path d="M16 .5C7.2.5 0 7.7 0 16.5s7.2 16 16 16 16-7.2 16-16-7.2-16-16-16zm0 31c-8.3 0-15-6.7-15-15s6.7-15 15-15 15 6.7 15 15-6.7 15-15 15z"/><path d="m13.5 19.7-4.2-4.3-1.5 1.4 5.7 5.7 10.7-10.6-1.5-1.4z"/></svg>
-                                {% when 'gift' %} <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-gift" viewBox="0 0 64 64"><defs><style>.a{fill:none;stroke:#000;stroke-width:2px}</style></defs><path class="a" d="M9 20.23h46v8.68H9zM13.34 28.91h36.89v24.3H13.34zM27.82 20.66v32.98M35.91 20.88v32.98M20.52 11.43a3.73 3.73 0 0 0-.74 2.87 4.57 4.57 0 0 0 .8 2.27C22 18.09 25.15 20 32 20.23a12 12 0 0 0-2.43-7 7.52 7.52 0 0 0-5.66-3.12 4 4 0 0 0-3.39 1.32z"/><path class="a" d="M43.37 11.43a3.73 3.73 0 0 1 .74 2.87 4.48 4.48 0 0 1-.8 2.27c-1.42 1.52-4.57 3.41-11.42 3.66a12.08 12.08 0 0 1 2.43-7A7.56 7.56 0 0 1 40 10.14a4 4 0 0 1 3.37 1.29z"/></svg>
-                                {% when 'globe' %} <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-globe" viewBox="0 0 64 64"><defs><style>.a{fill:none;stroke:#000;stroke-width:2px}</style></defs><circle class="a" cx="32" cy="32" r="22"/><path class="a" d="M13 21h38M10 32h44M13 43h38M32 10c-12 8-12 37 0 44M32 10c12 8 12 37 0 44"/></svg>
-                                {% when 'heart' %} <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-heart" viewBox="0 0 64 64"><defs><style>.a{fill:none;stroke:#000;stroke-width:2px}</style></defs><path class="a" d="M51.27 15.05a13 13 0 0 0-18.44 0l-.83.83-.83-.83a13 13 0 0 0-18.44 18.44l.83.83L32 52.77l18.44-18.45.83-.83a13 13 0 0 0 0-18.44z"/></svg>
-                                {% when 'leaf' %} <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-leaf" viewBox="0 0 64 64"><defs><style>.a{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:2px}</style></defs><path class="a" d="M52 11L13 50M35 13v15h16"/><path class="a" d="M52 11c6 24-16.72 47.29-33 32C7 22 29 10 52 11z"/></svg>
-                                {% when 'lock' %} <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-lock" viewBox="0 0 64 64"><defs><style>.a{fill:none;stroke:#000;stroke-width:2px}</style></defs><path class="a" d="M19.45 23.6v-3.2c0-7 5.89-11.75 12.55-11.75 7.21 0 12.55 5.49 12.55 11.75v3.2M10 23.6h44v31.75H10zM32 37.47v7.47"/><circle class="a" cx="32" cy="35.87" r="1.6"/></svg>
-                                {% when 'package' %} <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-package" viewBox="0 0 64 64"><defs><style>.a{fill:none;stroke:#000;stroke-width:2px}</style></defs><path class="a" d="M32 54.52L10 41.95v-19.9L32 9.48l22 12.57v19.9L32 54.52z"/><path class="a" d="M32 54.52v-19.9l22-12.57M32 34.62L10 22.05M41.7 15.02L21 28.33v8.38"/></svg>
-                                {% when 'phone' %} <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-phone" viewBox="0 0 64 64"><defs><style>.a{fill:none;stroke:#000;stroke-width:2px}</style></defs><path class="a" d="M18.4 9.65l10.2 10.2-6.32 6.32c2.1 7 6.89 12.46 15.55 15.55l6.32-6.32 10.2 10.2-8.75 8.75C25.71 50.3 13.83 38.21 9.65 18.4z"/></svg>
-                                {% when 'ribbon' %} <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-ribbon" viewBox="0 0 64 64"><defs><style>.a{fill:none;stroke:#000;stroke-width:2px}</style></defs><path class="a" d="M28.57 42.31l-8.36 13.07-2.6-7.17-7.61.65 8.35-13.07a17.05 17.05 0 0 0 8.12 5.94 17.3 17.3 0 0 0 1.74.5zM54 48.86l-7.61-.65-2.61 7.17-8.36-13.07.37-.08a16.4 16.4 0 0 0 1.73-.5 17 17 0 0 0 8.12-5.93z"/><path class="a" d="M49 25.64a16.79 16.79 0 0 1-3.14 9.85 3.55 3.55 0 0 1-.23.31 17 17 0 0 1-8.12 5.93 16.4 16.4 0 0 1-1.73.5l-.37.08a16.74 16.74 0 0 1-3.42.35 16.91 16.91 0 0 1-3.43-.35l-.36-.08a17.3 17.3 0 0 1-1.74-.5 17.05 17.05 0 0 1-8.12-5.94c-.07-.09-.15-.19-.22-.3A16.86 16.86 0 0 1 15 25.64a17 17 0 0 1 34 0z"/><path class="a" d="M36.09 27.78l.96 5.63L32 30.75l-5.05 2.66.96-5.63-4.09-3.98 5.65-.82L32 17.86l2.53 5.12 5.64.82-4.08 3.98z"/></svg>
-                                {% when 'shield' %} <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-shield" viewBox="0 0 64 64"><defs><style>.a{fill:none;stroke:#000;stroke-width:2px}</style></defs><path class="a" d="M21.18 31.69L28.54 39l15.91-15.88"/><path class="a" d="M53 12.54v15.24a31.41 31.41 0 0 1-3.7 14.95A25.46 25.46 0 0 1 32 56a25.46 25.46 0 0 1-17.3-13.27A31.41 31.41 0 0 1 11 27.78V12.54C24.88 13.67 32 8 32 8s7.12 5.67 21 4.54z"/></svg>
-                                {% when 'tag' %} <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-tag" viewBox="0 0 64 64"><defs><style>.a{fill:none;stroke:#000;stroke-width:2px}</style></defs><path class="a" d="M46.69 10.34l-10.55.07-25.8 25.8 17.45 17.45 25.8-25.8.07-10.55-6.97-6.97z"/><circle class="a" cx="43.95" cy="20.05" r="3.53"/><path class="a" d="M14.4 32.15L31.85 49.6"/></svg>
-                                {% when 'truck' %} <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-truck" viewBox="0 0 64 64"><defs><style>.a{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:2px}</style></defs><path class="a" d="M16.5 43.22H6.88V16.5h33.14v26.72H23.94M45.42 43.22h-5.4V30.4h17.1v12.82h-4.23M57.12 30.4l-6.41-8.56H40.02"/><circle class="a" cx="20.24" cy="43.76" r="3.74"/><path class="a" d="M45.42 43.23a3.82 3.82 0 1 1 0 .37v-.37"/></svg>
+                                {% when 'checkmark' %}
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    role="presentation"
+                                    class="icon icon--full-color"
+                                    viewBox="0 0 32 33"
+                                  >
+                                    <path d="M16 1.5c-8.3 0-15 6.7-15 15s6.7 15 15 15 15-6.7 15-15-6.7-15-15-15zm-2.5 21-5.7-5.7 1.4-1.4 4.3 4.3 9.2-9.2 1.4 1.4-10.6 10.6z" fill="none"/><path d="M16 .5C7.2.5 0 7.7 0 16.5s7.2 16 16 16 16-7.2 16-16-7.2-16-16-16zm0 31c-8.3 0-15-6.7-15-15s6.7-15 15-15 15 6.7 15 15-6.7 15-15 15z"/><path d="m13.5 19.7-4.2-4.3-1.5 1.4 5.7 5.7 10.7-10.6-1.5-1.4z"/>
+                                  </svg>
+                                {% when 'gift' %}
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    role="presentation"
+                                    class="icon icon-gift"
+                                    viewBox="0 0 64 64"
+                                  >
+                                    <defs><style>.a{fill:none;stroke:#000;stroke-width:2px}</style></defs><path class="a" d="M9 20.23h46v8.68H9zM13.34 28.91h36.89v24.3H13.34zM27.82 20.66v32.98M35.91 20.88v32.98M20.52 11.43a3.73 3.73 0 0 0-.74 2.87 4.57 4.57 0 0 0 .8 2.27C22 18.09 25.15 20 32 20.23a12 12 0 0 0-2.43-7 7.52 7.52 0 0 0-5.66-3.12 4 4 0 0 0-3.39 1.32z"/><path class="a" d="M43.37 11.43a3.73 3.73 0 0 1 .74 2.87 4.48 4.48 0 0 1-.8 2.27c-1.42 1.52-4.57 3.41-11.42 3.66a12.08 12.08 0 0 1 2.43-7A7.56 7.56 0 0 1 40 10.14a4 4 0 0 1 3.37 1.29z"/>
+                                  </svg>
+                                {% when 'globe' %}
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    role="presentation"
+                                    class="icon icon-globe"
+                                    viewBox="0 0 64 64"
+                                  >
+                                    <defs><style>.a{fill:none;stroke:#000;stroke-width:2px}</style></defs><circle class="a" cx="32" cy="32" r="22"/><path class="a" d="M13 21h38M10 32h44M13 43h38M32 10c-12 8-12 37 0 44M32 10c12 8 12 37 0 44"/>
+                                  </svg>
+                                {% when 'heart' %}
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    role="presentation"
+                                    class="icon icon-heart"
+                                    viewBox="0 0 64 64"
+                                  >
+                                    <defs><style>.a{fill:none;stroke:#000;stroke-width:2px}</style></defs><path class="a" d="M51.27 15.05a13 13 0 0 0-18.44 0l-.83.83-.83-.83a13 13 0 0 0-18.44 18.44l.83.83L32 52.77l18.44-18.45.83-.83a13 13 0 0 0 0-18.44z"/>
+                                  </svg>
+                                {% when 'leaf' %}
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    role="presentation"
+                                    class="icon icon-leaf"
+                                    viewBox="0 0 64 64"
+                                  >
+                                    <defs><style>.a{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:2px}</style></defs><path class="a" d="M52 11L13 50M35 13v15h16"/><path class="a" d="M52 11c6 24-16.72 47.29-33 32C7 22 29 10 52 11z"/>
+                                  </svg>
+                                {% when 'lock' %}
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    role="presentation"
+                                    class="icon icon-lock"
+                                    viewBox="0 0 64 64"
+                                  >
+                                    <defs><style>.a{fill:none;stroke:#000;stroke-width:2px}</style></defs><path class="a" d="M19.45 23.6v-3.2c0-7 5.89-11.75 12.55-11.75 7.21 0 12.55 5.49 12.55 11.75v3.2M10 23.6h44v31.75H10zM32 37.47v7.47"/><circle class="a" cx="32" cy="35.87" r="1.6"/>
+                                  </svg>
+                                {% when 'package' %}
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    role="presentation"
+                                    class="icon icon-package"
+                                    viewBox="0 0 64 64"
+                                  >
+                                    <defs><style>.a{fill:none;stroke:#000;stroke-width:2px}</style></defs><path class="a" d="M32 54.52L10 41.95v-19.9L32 9.48l22 12.57v19.9L32 54.52z"/><path class="a" d="M32 54.52v-19.9l22-12.57M32 34.62L10 22.05M41.7 15.02L21 28.33v8.38"/>
+                                  </svg>
+                                {% when 'phone' %}
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    role="presentation"
+                                    class="icon icon-phone"
+                                    viewBox="0 0 64 64"
+                                  >
+                                    <defs><style>.a{fill:none;stroke:#000;stroke-width:2px}</style></defs><path class="a" d="M18.4 9.65l10.2 10.2-6.32 6.32c2.1 7 6.89 12.46 15.55 15.55l6.32-6.32 10.2 10.2-8.75 8.75C25.71 50.3 13.83 38.21 9.65 18.4z"/>
+                                  </svg>
+                                {% when 'ribbon' %}
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    role="presentation"
+                                    class="icon icon-ribbon"
+                                    viewBox="0 0 64 64"
+                                  >
+                                    <defs><style>.a{fill:none;stroke:#000;stroke-width:2px}</style></defs><path class="a" d="M28.57 42.31l-8.36 13.07-2.6-7.17-7.61.65 8.35-13.07a17.05 17.05 0 0 0 8.12 5.94 17.3 17.3 0 0 0 1.74.5zM54 48.86l-7.61-.65-2.61 7.17-8.36-13.07.37-.08a16.4 16.4 0 0 0 1.73-.5 17 17 0 0 0 8.12-5.93z"/><path class="a" d="M49 25.64a16.79 16.79 0 0 1-3.14 9.85 3.55 3.55 0 0 1-.23.31 17 17 0 0 1-8.12 5.93 16.4 16.4 0 0 1-1.73.5l-.37.08a16.74 16.74 0 0 1-3.42.35 16.91 16.91 0 0 1-3.43-.35l-.36-.08a17.3 17.3 0 0 1-1.74-.5 17.05 17.05 0 0 1-8.12-5.94c-.07-.09-.15-.19-.22-.3A16.86 16.86 0 0 1 15 25.64a17 17 0 0 1 34 0z"/><path class="a" d="M36.09 27.78l.96 5.63L32 30.75l-5.05 2.66.96-5.63-4.09-3.98 5.65-.82L32 17.86l2.53 5.12 5.64.82-4.08 3.98z"/>
+                                  </svg>
+                                {% when 'shield' %}
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    role="presentation"
+                                    class="icon icon-shield"
+                                    viewBox="0 0 64 64"
+                                  >
+                                    <defs><style>.a{fill:none;stroke:#000;stroke-width:2px}</style></defs><path class="a" d="M21.18 31.69L28.54 39l15.91-15.88"/><path class="a" d="M53 12.54v15.24a31.41 31.41 0 0 1-3.7 14.95A25.46 25.46 0 0 1 32 56a25.46 25.46 0 0 1-17.3-13.27A31.41 31.41 0 0 1 11 27.78V12.54C24.88 13.67 32 8 32 8s7.12 5.67 21 4.54z"/>
+                                  </svg>
+                                {% when 'tag' %}
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    role="presentation"
+                                    class="icon icon-tag"
+                                    viewBox="0 0 64 64"
+                                  >
+                                    <defs><style>.a{fill:none;stroke:#000;stroke-width:2px}</style></defs><path class="a" d="M46.69 10.34l-10.55.07-25.8 25.8 17.45 17.45 25.8-25.8.07-10.55-6.97-6.97z"/><circle class="a" cx="43.95" cy="20.05" r="3.53"/><path class="a" d="M14.4 32.15L31.85 49.6"/>
+                                  </svg>
+                                {% when 'truck' %}
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    role="presentation"
+                                    class="icon icon-truck"
+                                    viewBox="0 0 64 64"
+                                  >
+                                    <defs><style>.a{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:2px}</style></defs><path class="a" d="M16.5 43.22H6.88V16.5h33.14v26.72H23.94M45.42 43.22h-5.4V30.4h17.1v12.82h-4.23M57.12 30.4l-6.41-8.56H40.02"/><circle class="a" cx="20.24" cy="43.76" r="3.74"/><path class="a" d="M45.42 43.23a3.82 3.82 0 1 1 0 .37v-.37"/>
+                                  </svg>
                               {% endcase %}
-                              <div class="sales-point__text{% if block.settings.enlarge_text %} enlarge-text{% endif %}">{{ block.settings.text }}</div>
+                              <div class="sales-point__text{% if block.settings.enlarge_text %} enlarge-text{% endif %}">
+                                {{ block.settings.text }}
+                              </div>
                             </span>
                           </li>
                         </ul>
@@ -381,21 +493,40 @@
                     {%- render 'product-inventory', product: product, current_variant: current_variant, block: block -%}
                   {%- when 'share' -%}
                     <div class="product-block" {{ block.shopify_attributes }}>
-                      {%- render 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product -%}
+                      {%- render 'social-sharing',
+                        share_title: product.title,
+                        share_permalink: product.url,
+                        share_image: product
+                      -%}
                     </div>
                   {%- when 'trust_badge' -%}
                     <div class="product-block" {{ block.shopify_attributes }}>
-                      <div class="aos-animate" style="max-width: {{ block.settings.trust_image.width }}px; margin: 0 auto;">
-                        <div class="image-wrap " style="height: 0; padding-bottom: {{ 100 | divided_by: block.settings.trust_image.aspect_ratio }}%;">
-                          {%- assign img_url = block.settings.trust_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-                          <img class="lazyload"
-                              data-src="{{ img_url }}"
-                              data-widths="[360, 540, 700, 1024]"
-                              data-aspectratio="{{ block.settings.trust_image.aspect_ratio }}"
-                              data-sizes="auto"
-                              alt="{{ block.settings.trust_image.alt }}">
+                      <div
+                        class="aos-animate"
+                        style="max-width: {{ block.settings.trust_image.width }}px; margin: 0 auto;"
+                      >
+                        <div
+                          class="image-wrap "
+                          style="height: 0; padding-bottom: {{ 100 | divided_by: block.settings.trust_image.aspect_ratio }}%;"
+                        >
+                          {%- assign img_url = block.settings.trust_image
+                            | img_url: '1x1'
+                            | replace: '_1x1.', '_{width}x.'
+                          -%}
+                          <img
+                            class="lazyload"
+                            data-src="{{ img_url }}"
+                            data-widths="[360, 540, 700, 1024]"
+                            data-aspectratio="{{ block.settings.trust_image.aspect_ratio }}"
+                            data-sizes="auto"
+                            alt="{{ block.settings.trust_image.alt }}"
+                          >
                           <noscript>
-                            <img class="lazyloaded" src="{{ block.settings.trust_image | img_url: '540x' }}" alt="{{ block.settings.trust_image.alt }}">
+                            <img
+                              class="lazyloaded"
+                              src="{{ block.settings.trust_image | img_url: '540x' }}"
+                              alt="{{ block.settings.trust_image.alt }}"
+                            >
                           </noscript>
                         </div>
                       </div>
@@ -411,11 +542,22 @@
                       <div class="product-block product-block--color-variations" {{ block.shopify_attributes }}>
                         <!-- <label class="variant__label">Color</label> -->
                         <div class="color-variations">
-                          {%- assign colors_array = product_colors | replace: "[", "" | replace: "]", "" | replace: '"', "" | split: "," -%}
+                          {%- assign colors_array = product_colors
+                            | replace: '[', ''
+                            | replace: ']', ''
+                            | replace: '"', ''
+                            | split: ','
+                          -%}
                           {%- for product_color_item in product_color_items.value -%}
                             {% assign index = forloop.index0 %}
-                            <a href="{{ product_color_item.url }}" class="color-variations__item{% if product_color_item.handle == product.handle %} is-active{% endif %}"> 
-                              <span class="color-variations__item-color" style="background-color:{{ colors_array[index] }}"></span>
+                            <a
+                              href="{{ product_color_item.url }}"
+                              class="color-variations__item{% if product_color_item.handle == product.handle %} is-active{% endif %}"
+                            >
+                              <span
+                                class="color-variations__item-color"
+                                style="background-color:{{ colors_array[index] }}"
+                              ></span>
                             </a>
                           {%- endfor -%}
                         </div>
@@ -425,15 +567,23 @@
                       <div class="product-block product-block--color-variations" {{ block.shopify_attributes }}>
                         <div class="color-variations">
                           {%- for product_color_item in product_color_items.value -%}
-                            <a href="{{ product_color_item.url }}" class="color-variations__item color-variations__item--auto{% if product_color_item.handle == product.handle %} is-active{% endif %}"> 
-                              {%- assign img_url = product_color_item.featured_media.preview_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-                              <img class="lazyload"
+                            <a
+                              href="{{ product_color_item.url }}"
+                              class="color-variations__item color-variations__item--auto{% if product_color_item.handle == product.handle %} is-active{% endif %}"
+                            >
+                              {%- assign img_url = product_color_item.featured_media.preview_image
+                                | img_url: '1x1'
+                                | replace: '_1x1.', '_{width}x.'
+                              -%}
+                              <img
+                                class="lazyload"
                                 data-src="{{ img_url }}"
                                 data-widths="[180, 360, 540, 750, 900, 1080]"
                                 data-aspectratio="{{ product_color_item.featured_media.preview_image.aspect_ratio }}"
                                 data-sizes="auto"
                                 alt="{{ product_color_item.featured_media.preview_image.alt }}"
-                                role="presentation">
+                                role="presentation"
+                              >
                             </a>
                           {%- endfor -%}
                         </div>
@@ -446,15 +596,21 @@
                           <button class="product-content-toggle__trigger" data-tab="1">Description</button>
 
                           {%- if block.settings.tab_2_title and block.settings.tab_2_content -%}
-                            <button class="product-content-toggle__trigger" data-tab="2">{{ block.settings.tab_2_title }}</button>
+                            <button class="product-content-toggle__trigger" data-tab="2">
+                              {{ block.settings.tab_2_title }}
+                            </button>
                           {%- endif -%}
 
                           {%- if block.settings.tab_3_title and block.settings.tab_3_content -%}
-                            <button class="product-content-toggle__trigger" data-tab="3">{{ block.settings.tab_3_title }}</button>
+                            <button class="product-content-toggle__trigger" data-tab="3">
+                              {{ block.settings.tab_3_title }}
+                            </button>
                           {%- endif -%}
 
                           {%- if block.settings.tab_4_title and block.settings.tab_4_content -%}
-                            <button class="product-content-toggle__trigger" data-tab="4">{{ block.settings.tab_4_title }}</button>
+                            <button class="product-content-toggle__trigger" data-tab="4">
+                              {{ block.settings.tab_4_title }}
+                            </button>
                           {%- endif -%}
                         </div>
                         <div class="product-content-toggle__content">
@@ -482,11 +638,90 @@
                         </div>
                       </div>
                     </div>
+                  {%- when 'complete_the_look' -%}
+                    {%- assign complete_the_look_products = product.metafields.complete_the_look.products -%}
+                    {%- if complete_the_look_products.value -%}
+                      <div class="product-block product-block--complete-the-look" {{ block.shopify_attributes }}>
+                        <div class="complete-the-look">
+                          <h2 class="complete-the-look__heading">Complete The Look</h2>
+                          <div class="complete-the-look__products">
+                            {%- for product in complete_the_look_products.value -%}
+                              {%- if product.available -%}
+                                <div class="complete-the-look__product">
+                                  <a href="{{ product.url }}">
+                                    {%- assign img_url = product.featured_media.preview_image
+                                      | img_url: '1x1'
+                                      | replace: '_1x1.', '_{width}x.'
+                                    -%}
+                                    <div
+                                      class="image-wrap"
+                                      style="height: 0; padding-bottom: {{ 100 | divided_by: product.featured_media.preview_image.aspect_ratio }}%;"
+                                    >
+                                      <img
+                                        class="lazyload"
+                                        data-src="{{ img_url }}"
+                                        data-widths="[360, 540, 720, 900, 1080]"
+                                        data-aspectratio="{{ product.featured_media.preview_image.aspect_ratio }}"
+                                        data-sizes="auto"
+                                        alt="{{ product.featured_media.preview_image.alt | escape }}"
+                                        role="presentation"
+                                      >
+                                      <noscript>
+                                        <img
+                                          class="lazyloaded"
+                                          src="{{ product.featured_media.preview_image | img_url: '400x' }}"
+                                          alt="{{ product.featured_media.preview_image.alt | escape }}"
+                                          role="presentation"
+                                        >
+                                      </noscript>
+                                    </div>
+                                  </a>
+                                  <div class="complete-the-look__product-details">
+                                    <a href="{{ product.url }}" class="complete-the-look__product-title">
+                                      {{ product.title }} - {{ product.price | money }}
+                                    </a>
+                                    {%- if settings.quick_add_enable -%}
+                                      <div class="complete-the-look__product-quick-add">
+                                        {%- for option in product.options_with_values -%}
+                                          {%- if option.name == 'Size' -%}
+                                            <div class="complete-the-look__product-quick-add-variants">
+                                              {%- for value in option.values -%}
+                                                <button
+                                                  class="complete-the-look__product-quick-add-variant{% if product.variants[forloop.index0].available == false %} complete-the-look__product-quick-add-variant--is-disabled{% endif %}"
+                                                  data-variant-id="{{ product.variants[forloop.index0].id }}"
+                                                >
+                                                  {{ value }}
+                                                </button>
+                                              {%- endfor -%}
+                                            </div>
+                                          {%- elsif option.name == 'Title' -%}
+                                            <div class="complete-the-look__product-quick-add-variants">
+                                              <button
+                                                class="complete-the-look__product-quick-add-variant {% if product.variants[0].available == false %} complete-the-look__product-quick-add-variant--is-disabled{% endif %}"
+                                                data-variant-id="{{ product.variants[0].id }}"
+                                              >
+                                                OS
+                                              </button>
+                                            </div>
+                                          {%- endif -%}
+                                        {%- endfor -%}
+                                      </div>
+                                    {%- endif -%}
+                                  </div>
+                                </div>
+                              {%- endif -%}
+                            {%- endfor -%}
+                          </div>
+                        </div>
+                      </div>
+                    {%- endif -%}
                 {%- endcase -%}
               {%- else -%}
-                <div data-blocks-holder
-                     data-url="{{ product.url | within: collection }}"
-                     data-template="{{ product.template_suffix }}">
+                <div
+                  data-blocks-holder
+                  data-url="{{ product.url | within: collection }}"
+                  data-template="{{ product.template_suffix }}"
+                >
                   <div class="placeholder-content" style="min-height: 86px;"></div>
                 </div>
               {%- endfor -%}
