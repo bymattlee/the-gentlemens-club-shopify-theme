@@ -1896,6 +1896,14 @@ lazySizesConfig.expFactor = 4
             return false
           }
         }
+
+        // FanForge tracking
+        var cartItems = this.form.querySelector('.cart__items')
+        fanforgeTrack('checkout_started', {
+          cart_value: parseInt(cartItems.dataset.cartSubtotal) / 100,
+          items_count: parseInt(cartItems.dataset.count),
+          currency: document.body.dataset.shopCurrency,
+        })
       },
 
       /*============================================================================
@@ -3128,6 +3136,18 @@ lazySizesConfig.expFactor = 4
             })
           )
         }
+
+        // FanForge tracking
+        fanforgeTrack('add_to_cart', {
+          product_id: product.product_id,
+          variant_id: product.variant_id,
+          product_name: product.product_title,
+          price: product.price / 100,
+          currency: document.body.dataset.shopCurrency,
+          quantity: product.quantity,
+          variant: product.variant_title,
+          sku: product.sku,
+        })
       },
 
       error: function (error) {
@@ -5311,7 +5331,7 @@ lazySizesConfig.expFactor = 4
     items.forEach((product) => {
       var image = theme.buildProductImage(product, imageSize)
       var markup = `
-        <div class="grid__item grid-product ${gridWidth} aos-animate" data-aos="row-of-${rowOf}">
+        <div class="grid__item grid-product grid__item grid-product--no-quick-add ${gridWidth} aos-animate" data-aos="row-of-${rowOf}">
           <div class="grid-product__content">
             <a href="${product.url}" class="grid-product__link">
               <div class="grid-product__image-mask">
@@ -5831,7 +5851,7 @@ lazySizesConfig.expFactor = 4
             theme.mobileNumberForm(attentiveSignUpEl)
           }
           if (klaviyoSignUpEl) {
-            theme.klaviyoForm(klaviyoSignUpEl)
+            theme.klaviyoForm(klaviyoSignUpEl, 'password_page_newsletter')
           }
         },
       }
@@ -5865,7 +5885,7 @@ lazySizesConfig.expFactor = 4
             theme.mobileNumberForm(attentiveSignUpEl)
           }
           if (klaviyoSignUpEl) {
-            theme.klaviyoForm(klaviyoSignUpEl)
+            theme.klaviyoForm(klaviyoSignUpEl, 'password_page_newsletter')
           }
           if (countdownEl) theme.countdown(countdownEl)
         },
@@ -6570,7 +6590,7 @@ lazySizesConfig.expFactor = 4
           theme.mobileNumberForm(attentiveSignUpEl)
         }
         if (klaviyoSignUpEl) {
-          theme.klaviyoForm(klaviyoSignUpEl)
+          theme.klaviyoForm(klaviyoSignUpEl, 'block_promo_newsletter')
         }
         if (countdownEl) theme.countdown(countdownEl)
         if (videos.length > 0) this.enableVideoSoundToggle(videos)
@@ -7231,6 +7251,20 @@ lazySizesConfig.expFactor = 4
             })
           )
         }
+
+        // FanForge tracking
+        fanforgeTrack('quick_add_to_cart', {
+          product_id: product.product_id,
+          product_name: product.product_title,
+          variant_id: product.variant_id,
+          price: product.price / 100,
+          currency: document.body.dataset.shopCurrency,
+          sku: product.sku,
+          collection: window.location.pathname.includes('/collections/')
+            ? window.location.pathname.split('/collections/')[1].split('/')[0]
+            : 'home',
+          page_type: window.location.pathname === '/' ? 'home' : 'collection',
+        })
       },
 
       quickAddError: function (error) {
@@ -7294,7 +7328,7 @@ lazySizesConfig.expFactor = 4
         }
 
         if (klaviyoSignUpEl) {
-          theme.klaviyoForm(klaviyoSignUpEl)
+          theme.klaviyoForm(klaviyoSignUpEl, 'footer_newsletter')
         }
 
         if (localeEl) {
@@ -7379,7 +7413,7 @@ lazySizesConfig.expFactor = 4
         }
 
         if (klaviyoSignUpEl) {
-          theme.klaviyoForm(klaviyoSignUpEl)
+          theme.klaviyoForm(klaviyoSignUpEl, 'mobile_nav_newsletter')
         }
       },
 
@@ -8921,6 +8955,18 @@ lazySizesConfig.expFactor = 4
             })
           )
         }
+
+        // FanForge tracking
+        fanforgeTrack('quick_add_to_cart', {
+          product_id: product.product_id,
+          product_name: product.product_title,
+          variant_id: product.variant_id,
+          price: product.price / 100,
+          currency: document.body.dataset.shopCurrency,
+          sku: product.sku,
+          collection: 'complete-the-look',
+          page_type: 'product',
+        })
       },
 
       completeTheLookQuickAddError: function (error) {
@@ -9369,6 +9415,18 @@ lazySizesConfig.expFactor = 4
               })
             )
           }
+
+          // FanForge tracking
+          fanforgeTrack('cart_upsell_add_to_cart', {
+            product_id: product.product_id,
+            variant_id: product.variant_id,
+            product_name: product.product_title,
+            price: product.price / 100,
+            currency: document.body.dataset.shopCurrency,
+            quantity: product.quantity,
+            variant: product.variant_title,
+            sku: product.sku,
+          })
         },
 
         addError: function (error) {
@@ -9588,7 +9646,7 @@ lazySizesConfig.expFactor = 4
     })
   }
 
-  theme.klaviyoForm = function (section) {
+  theme.klaviyoForm = function (section, source) {
     // Form submit
     var form = section.querySelector('.klaviyo-form')
     form.addEventListener('submit', function (e) {
@@ -9638,6 +9696,13 @@ lazySizesConfig.expFactor = 4
 
         if (status === 202) {
           message = successMessage
+
+          // FanForge tracking
+          fanforgeTrack('newsletter_signup', {
+            email: input.value,
+            source: source,
+            page_url: window.location.href,
+          })
         } else {
           message = errorMessage
         }

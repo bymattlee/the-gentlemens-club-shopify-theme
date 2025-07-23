@@ -8385,7 +8385,7 @@ html[dir=rtl] .grid-product__content{
 
 {% if settings.quick_add_enable %}
 @media (pointer: fine) {
-  .grid-product:hover .grid-product__title {
+  .grid-product:not(.grid-product--no-quick-add):hover .grid-product__title {
     opacity: 0;
     pointer-events: none;
   }
@@ -8575,7 +8575,7 @@ html[dir=rtl] .grid-product__content{
   }
 
   @media (pointer: fine) {
-    .grid-product:hover .grid-product__quick-add {
+    .grid-product:not(.grid-product--no-quick-add):hover .grid-product__quick-add {
       display: block;
     }
   }
@@ -12978,6 +12978,10 @@ html[dir=rtl] .product-single__meta .rte{
   font-size: 12px;
   padding: 0px 8px 0 0;
   height: auto;
+}
+
+.cart-upsell__product-variants .variant-input-wrap label.disabled {
+  pointer-events: none;
 }
 
 .cart-upsell__button-row {

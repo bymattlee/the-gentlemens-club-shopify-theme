@@ -52,7 +52,11 @@
                 This content is visually hidden and replaced when recommended products show up
               {% endcomment %}
               <div class="grid grid--uniform visually-invisible" aria-hidden="true">
-                {%- render 'product-grid-item', product: product, quick_shop_enable: settings.quick_shop_enable -%}
+                {%- render 'product-grid-item',
+                  product: product,
+                  quick_shop_enable: settings.quick_shop_enable,
+                  quick_add_disable: true
+                -%}
               </div>
             </div>
           {%- endif -%}
@@ -60,14 +64,16 @@
             <div class="product-recommendations">
               <div class="grid grid--uniform" data-aos="overflow__animation">
                 {%- for product in related_collection.products limit: number_of_products -%}
-                  {%- comment %}<locksmith:7e1e>{% endcomment -%}
-                    {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: related_collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-                  {%- comment %}</locksmith:7e1e>{% endcomment -%}
+                  {%- comment %}<locksmith:7e1e>{%- endcomment %}
+                  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: related_collection, variable: 'transparent' %}{% endcapture -%}
+                  {%- if var == 'true' %}{% else %}{% continue %}{% endif -%}
+                  {%- comment %}</locksmith:7e1e>{%- endcomment %}
                   {%- if product.handle != 'routeins' -%}
                     {%- render 'product-grid-item',
                       product: product,
                       per_row: number_of_products,
-                      quick_shop_enable: settings.quick_shop_enable
+                      quick_shop_enable: settings.quick_shop_enable,
+                      quick_add_disable: true
                     -%}
                   {%- endif -%}
                 {%- endfor -%}

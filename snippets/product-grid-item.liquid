@@ -50,7 +50,7 @@
 -%}
 
 <div
-  class="grid__item grid-product {{ grid_item_width }}{% if quick_shop_enable %} grid-product__has-quick-shop{% endif %}"
+  class="grid__item grid-product {{ grid_item_width }}{% if quick_shop_enable %} grid-product__has-quick-shop{% endif %}{% if quick_add_disable %} grid-product--no-quick-add{% endif %}"
   data-aos="row-of-{{ per_row }}"
   data-product-handle="{{ product.handle }}"
   data-product-id="{{ product.id }}"
