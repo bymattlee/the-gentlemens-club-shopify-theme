@@ -28,10 +28,50 @@
         "view_all": false,
         "divider": false
       }
+    },
+    "advanced_content_U9EWen": {
+      "type": "advanced-content",
+      "blocks": {
+        "image_a68LyQ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Main_4ca04aaa-ac37-48c8-8df0-f4c39f34115f.jpg",
+            "link": "",
+            "width": "33%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "image_a68LyQ"
+      ],
+      "disabled": true,
+      "name": "t:sections.advanced-content.presets.custom_content.name",
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "center_content": true
+      }
+    },
+    "featured_collection_CjNpRq": {
+      "type": "featured-collection",
+      "disabled": true,
+      "name": "t:sections.featured-collection.presets.featured_collection.name",
+      "settings": {
+        "title": "4hunnid X Shoreline Mafia Collection",
+        "home_featured_products": "2025-4hunnid-x-shoreline-mafia-collection",
+        "per_row": 4,
+        "rows": 20,
+        "mobile_scrollable": false,
+        "view_all": false,
+        "divider": false
+      }
     }
   },
   "order": [
     "video_autoplay_hUtCcj",
-    "9be68cd0-7327-422f-a4fc-850561ae28e4"
+    "9be68cd0-7327-422f-a4fc-850561ae28e4",
+    "advanced_content_U9EWen",
+    "featured_collection_CjNpRq"
   ]
 }
