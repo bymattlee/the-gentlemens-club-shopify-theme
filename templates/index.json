@@ -11,6 +11,7 @@
   "sections": {
     "video_autoplay_hUtCcj": {
       "type": "video-autoplay",
+      "disabled": true,
       "name": "Video autoplay",
       "settings": {
         "video": "shopify://files/videos/MOZZY PERFORMANCE_e039a29e-044a-4144-a2d1-3232d4a7b919.mov",
@@ -19,6 +20,7 @@
     },
     "9be68cd0-7327-422f-a4fc-850561ae28e4": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Here Fourever Collection",
         "home_featured_products": "2025-here-fourever-collection",
@@ -45,7 +47,6 @@
       "block_order": [
         "image_a68LyQ"
       ],
-      "disabled": true,
       "name": "t:sections.advanced-content.presets.custom_content.name",
       "settings": {
         "full_width": false,
@@ -55,7 +56,6 @@
     },
     "featured_collection_CjNpRq": {
       "type": "featured-collection",
-      "disabled": true,
       "name": "t:sections.featured-collection.presets.featured_collection.name",
       "settings": {
         "title": "4hunnid X Shoreline Mafia Collection",
