@@ -37,7 +37,7 @@
         "image_a68LyQ": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Main_4ca04aaa-ac37-48c8-8df0-f4c39f34115f.jpg",
+            "image": "shopify://shop_images/Main_becb7253-5fad-4e87-a7e0-cdb6fea75302.jpg",
             "link": "",
             "width": "33%",
             "alignment": "center"
@@ -58,8 +58,8 @@
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.featured_collection.name",
       "settings": {
-        "title": "4hunnid X Shoreline Mafia Collection",
-        "home_featured_products": "2025-4hunnid-x-shoreline-mafia-collection",
+        "title": "I Come From Nothing Collection",
+        "home_featured_products": "2025-i-come-from-nothing-collection",
         "per_row": 4,
         "rows": 20,
         "mobile_scrollable": false,
