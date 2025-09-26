@@ -37,7 +37,7 @@
         "image_a68LyQ": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Main_72d3a318-412b-491c-906e-08633dc20ede.jpg",
+            "image": "shopify://shop_images/Main_f388475e-c1ae-4cae-9cff-a33776c95dc0.jpg",
             "link": "",
             "width": "33%",
             "alignment": "center"
@@ -58,9 +58,9 @@
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.featured_collection.name",
       "settings": {
-        "title": "Summer Sale",
-        "home_featured_products": "2025-summer-sale",
-        "per_row": 4,
+        "title": "Good Sex Collection",
+        "home_featured_products": "2025-good-sex-collection",
+        "per_row": 3,
         "rows": 20,
         "mobile_scrollable": false,
         "view_all": false,
