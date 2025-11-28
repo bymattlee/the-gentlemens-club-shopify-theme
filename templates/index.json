@@ -37,7 +37,7 @@
         "image_a68LyQ": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Main_f388475e-c1ae-4cae-9cff-a33776c95dc0.jpg",
+            "image": "shopify://shop_images/Main_adf4fdae-ebc7-40fd-9772-f2c98b71e975.jpg",
             "link": "",
             "width": "33%",
             "alignment": "center"
@@ -58,9 +58,9 @@
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.featured_collection.name",
       "settings": {
-        "title": "Good Sex Collection",
-        "home_featured_products": "2025-good-sex-collection",
-        "per_row": 3,
+        "title": "Red Friday Collection",
+        "home_featured_products": "2025-red-friday-collection",
+        "per_row": 4,
         "rows": 20,
         "mobile_scrollable": false,
         "view_all": false,
