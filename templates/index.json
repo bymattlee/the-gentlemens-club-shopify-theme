@@ -37,7 +37,7 @@
         "image_a68LyQ": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Main_adf4fdae-ebc7-40fd-9772-f2c98b71e975.jpg",
+            "image": "shopify://shop_images/Drop_f081b42a-fc3b-4027-9115-c2dc603c18b8.jpg",
             "link": "",
             "width": "33%",
             "alignment": "center"
@@ -58,8 +58,8 @@
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.featured_collection.name",
       "settings": {
-        "title": "Red Friday Collection",
-        "home_featured_products": "2025-red-friday-collection",
+        "title": "Holiday Sale - 60% Off",
+        "home_featured_products": "2025-holiday-sale",
         "per_row": 4,
         "rows": 20,
         "mobile_scrollable": false,
