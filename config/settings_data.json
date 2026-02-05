@@ -108,6 +108,7 @@
         "blocks": {
           "announcement_PHNBWT": {
             "type": "announcement",
+            "disabled": true,
             "settings": {
               "text": "Holiday Sale",
               "link_text": "Up To 60% Off",

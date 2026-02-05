@@ -9,35 +9,13 @@
  */
 {
   "sections": {
-    "video_autoplay_hUtCcj": {
-      "type": "video-autoplay",
-      "disabled": true,
-      "name": "Video autoplay",
-      "settings": {
-        "video": "shopify://files/videos/MOZZY PERFORMANCE_e039a29e-044a-4144-a2d1-3232d4a7b919.mov",
-        "video_orientation": "portrait"
-      }
-    },
-    "9be68cd0-7327-422f-a4fc-850561ae28e4": {
-      "type": "featured-collection",
-      "disabled": true,
-      "settings": {
-        "title": "Here Fourever Collection",
-        "home_featured_products": "2025-here-fourever-collection",
-        "per_row": 4,
-        "rows": 20,
-        "mobile_scrollable": false,
-        "view_all": false,
-        "divider": false
-      }
-    },
     "advanced_content_U9EWen": {
       "type": "advanced-content",
       "blocks": {
         "image_a68LyQ": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Drop_2.jpg",
+            "image": "shopify://shop_images/Hero_Top.jpg",
             "link": "",
             "width": "33%",
             "alignment": "center"
@@ -58,7 +36,7 @@
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.featured_collection.name",
       "settings": {
-        "title": "Holiday Sale - 60% Off",
+        "title": "Collection 1",
         "home_featured_products": "2025-holiday-sale",
         "per_row": 4,
         "rows": 20,
@@ -66,12 +44,34 @@
         "view_all": false,
         "divider": false
       }
+    },
+    "advanced_content_tNgqhh": {
+      "type": "advanced-content",
+      "blocks": {
+        "image_t6yCbU": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Hero_Bottom.jpg",
+            "link": "",
+            "width": "33%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "image_t6yCbU"
+      ],
+      "name": "t:sections.advanced-content.presets.custom_content.name",
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "center_content": true
+      }
     }
   },
   "order": [
-    "video_autoplay_hUtCcj",
-    "9be68cd0-7327-422f-a4fc-850561ae28e4",
     "advanced_content_U9EWen",
-    "featured_collection_CjNpRq"
+    "featured_collection_CjNpRq",
+    "advanced_content_tNgqhh"
   ]
 }
