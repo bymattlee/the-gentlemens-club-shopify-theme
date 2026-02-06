@@ -37,7 +37,7 @@
       "name": "t:sections.featured-collection.presets.featured_collection.name",
       "settings": {
         "title": "Collection 1",
-        "home_featured_products": "2025-holiday-sale",
+        "home_featured_products": "2026-collection-1",
         "per_row": 4,
         "rows": 20,
         "mobile_scrollable": false,
