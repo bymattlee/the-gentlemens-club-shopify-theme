@@ -1,61 +1,53 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "1660952011bc1a394d": {
-      "type": "block-promo",
+    "advanced_content_Efwc9q": {
+      "type": "advanced-content",
       "blocks": {
-        "da8df5c6-e3d5-416e-baba-0943502720ea": {
+        "image_V6EBCY": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/The_Flame_Flyer_7f56e101-9c4f-4fe4-990e-31a4d07fb792.jpg"
-          }
-        },
-        "107945d0-ce6e-4bbe-a86f-2c2fe6d24300": {
-          "type": "form",
-          "settings": {
-            "main_message": "<p>The Flame<br\/>Available 9.07.22<\/p>",
-            "countdown": "2022-09-07 09:00",
-            "show_attentive_signup": true,
-            "background_image": "shopify:\/\/shop_images\/Sign_Up_Form_BG.jpg"
-          }
-        },
-        "d7c64174-2425-4991-8019-9a7771b4c6c5": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/THE_BLOCK_RUNNER_WHITE_RED_-_1_9fa7520c-c67d-40b5-8da1-9344878ec06b.jpg"
-          }
-        },
-        "b32f4a08-fc3d-4860-ad7b-ec1dc83d5877": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/THE_BLOCK_RUNNER_WHITE_RED_-_2_9904e066-1908-4647-a1b5-975b7a9bc91c.jpg"
-          }
-        },
-        "7c264ea6-981e-4479-94e5-06e21ebc8ed5": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/THE_BLOCK_RUNNER_WHITE_RED_-_3_06bc6c84-308d-4548-89e0-6da07d2914bc.jpg"
-          }
-        },
-        "238fc86a-d080-40de-8714-d15702a3d6ed": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/THE_BLOCK_RUNNER_WHITE_RED_-_4_e05bc192-a3e8-47ee-97df-4ca157ab7c2d.jpg"
+            "image": "shopify://shop_images/The_Flame.jpg",
+            "link": "",
+            "width": "33%",
+            "alignment": "center"
           }
         }
       },
       "block_order": [
-        "da8df5c6-e3d5-416e-baba-0943502720ea",
-        "107945d0-ce6e-4bbe-a86f-2c2fe6d24300",
-        "d7c64174-2425-4991-8019-9a7771b4c6c5",
-        "b32f4a08-fc3d-4860-ad7b-ec1dc83d5877",
-        "7c264ea6-981e-4479-94e5-06e21ebc8ed5",
-        "238fc86a-d080-40de-8714-d15702a3d6ed"
+        "image_V6EBCY"
       ],
+      "name": "t:sections.advanced-content.presets.custom_content.name",
       "settings": {
+        "full_width": false,
+        "space_around": true,
+        "center_content": true
+      }
+    },
+    "featured_collection_GJBJrJ": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.featured_collection.name",
+      "settings": {
+        "title": "",
+        "home_featured_products": "shoes",
+        "per_row": 4,
+        "rows": 20,
+        "mobile_scrollable": false,
+        "view_all": false,
+        "divider": false
       }
     }
   },
   "order": [
-    "1660952011bc1a394d"
+    "advanced_content_Efwc9q",
+    "featured_collection_GJBJrJ"
   ]
 }
