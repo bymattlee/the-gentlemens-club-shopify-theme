@@ -109,8 +109,8 @@
           "announcement_PHNBWT": {
             "type": "announcement",
             "settings": {
-              "text": "Discount",
-              "link_text": "5% Off Orders Over $200",
+              "text": "5% Off Orders Over $200",
+              "link_text": "",
               "link": ""
             }
           },
@@ -142,7 +142,7 @@
           "show_klaviyo_signup": false,
           "klaviyo_message": "<p>Enter your email address to be the first to know about the next collection release.</p>",
           "announcement_compact": true,
-          "announcement_above_header": false,
+          "announcement_above_header": true,
           "toolbar_menu": "",
           "toolbar_social": false,
           "show_locale_selector": false,
