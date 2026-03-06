@@ -25,6 +25,7 @@
       "block_order": [
         "image_a68LyQ"
       ],
+      "disabled": true,
       "name": "t:sections.advanced-content.presets.custom_content.name",
       "settings": {
         "full_width": false,
@@ -36,8 +37,8 @@
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.featured_collection.name",
       "settings": {
-        "title": "Collection 1",
-        "home_featured_products": "2026-collection-1",
+        "title": "Sale",
+        "home_featured_products": "2026-march-sale",
         "per_row": 4,
         "rows": 20,
         "mobile_scrollable": false,
