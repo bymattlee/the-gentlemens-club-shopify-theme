@@ -15,7 +15,7 @@
         "image_a68LyQ": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Hero_Top.jpg",
+            "image": "shopify://shop_images/4H_SPRING_2026_SALE.jpg",
             "link": "",
             "width": "33%",
             "alignment": "center"
@@ -25,7 +25,6 @@
       "block_order": [
         "image_a68LyQ"
       ],
-      "disabled": true,
       "name": "t:sections.advanced-content.presets.custom_content.name",
       "settings": {
         "full_width": false,
