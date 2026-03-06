@@ -37,8 +37,8 @@
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.featured_collection.name",
       "settings": {
-        "title": "Sale",
-        "home_featured_products": "2026-march-sale",
+        "title": "",
+        "home_featured_products": "2026-collection-1-copy",
         "per_row": 4,
         "rows": 20,
         "mobile_scrollable": false,
