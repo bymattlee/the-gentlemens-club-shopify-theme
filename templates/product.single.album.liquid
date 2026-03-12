@@ -53,8 +53,14 @@
     <!-- Product Metatags -->
     <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
     <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
-    <meta property="og:title" content="{{ product.title }}">
-    <meta property="og:image" content="{{ product.featured_image.src | img_url: 'grande' }}">
+    {%- comment %}<locksmith:3bc6>{% endcomment -%}
+      {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:title" content="{{ product.title }}">{% endif -%}
+      {%- comment %}original: <meta property="og:title" content="{{ product.title }}">{%- endcomment %}
+    {%- comment %}</locksmith:3bc6>{% endcomment -%}
+    {%- comment %}<locksmith:7b7d>{% endcomment -%}
+      {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:image" content="{{ product.featured_image.src | img_url: 'grande' }}">{% endif -%}
+      {%- comment %}original: <meta property="og:image" content="{{ product.featured_image.src | img_url: 'grande' }}">{%- endcomment %}
+    {%- comment %}</locksmith:7b7d>{% endcomment -%}
     <meta property="og:url" content="{{ shop.url }}{{ product.url }}">
     <!-- Left Column -->
     <div class="single-col col-2_4">
@@ -225,6 +231,9 @@
           class="single-tracklist"
         >
           {% for track in products %}
+            {%- comment %}<locksmith:f33f>{% endcomment -%}
+              {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: track, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+            {%- comment %}</locksmith:f33f>{% endcomment -%}
             {% include 'single-music-track' with track %}
           {% endfor %}
         </div>
@@ -272,6 +281,9 @@
 
 <!-- Footer Player -->
 {% for track in products %}
+  {%- comment %}<locksmith:29c9>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: track, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+  {%- comment %}</locksmith:29c9>{% endcomment -%}
   {% capture trackReleaseDateString %}{{ track.metafields.track.release_date }}{% endcapture %}
   {% assign trackDateParts = trackReleaseDateString | split: '/' %}
   {% capture trackReleaseDateFormatted -%}
