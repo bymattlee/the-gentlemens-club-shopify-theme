@@ -1,13 +1,13 @@
 {
-  "name": "4hunnid-shopify-theme",
+  "name": "the-gentlemens-club-shopify-theme",
   "version": "1.0.0",
   "private": true,
-  "description": "4Hunnid Shopify theme by Matt Lee.",
+  "description": "The Gentlemen's Club Shopify theme by Matt Lee.",
   "scripts": {
-    "dev": "shopify theme dev --store=4hunnid-original.myshopify.com",
-    "pull": "shopify theme pull --store=4hunnid-original.myshopify.com",
-    "pull-dev": "shopify theme pull -d --store=4hunnid-original.myshopify.com",
-    "push": "shopify theme push --store=4hunnid-original.myshopify.com",
+    "dev": "shopify theme dev --store=theegentlemensclub.myshopify.com",
+    "pull": "shopify theme pull --store=theegentlemensclub.myshopify.com",
+    "pull-dev": "shopify theme pull -d --store=theegentlemensclub.myshopify.com",
+    "push": "shopify theme push --store=theegentlemensclub.myshopify.com",
     "auth-logout": "shopify auth logout"
   }
 }

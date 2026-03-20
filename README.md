@@ -1,4 +1,4 @@
-# 4Hunnid Shopify Theme
+# The Gentlemen's Club Shopify Theme
 
 ---
 
