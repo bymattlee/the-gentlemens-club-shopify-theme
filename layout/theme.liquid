@@ -1,6 +1,6 @@
-{%- comment %}<locksmith:2b71>{% endcomment -%}
-  {%- include 'locksmith' -%}
-{%- comment %}</locksmith:2b71>{% endcomment -%}
+{%- comment %}<locksmith:2b71>{%- endcomment %}
+{%- include 'locksmith' -%}
+{%- comment %}</locksmith:2b71>{%- endcomment %}
 
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}" dir="{{ settings.text_direction }}">
@@ -37,28 +37,15 @@
     {%- render 'seo-title' -%}
 
     {%- if page_description -%}
-      {%- comment %}<locksmith:78cd>{% endcomment -%}
-        {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
-        {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
-      {%- comment %}</locksmith:78cd>{% endcomment -%}
+      {%- comment %}<locksmith:78cd>{%- endcomment %}
+      {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture -%}
+      {%- if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
+      {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
+      {%- comment %}</locksmith:78cd>{%- endcomment %}
     {%- endif -%}
 
     {%- render 'social-meta-tags' -%}
 
-    {%- if template.suffix == 'tour-2023-sttk' -%}
-      <style>
-        @font-face {
-          font-display: swap;
-          font-family: 'Cool Font';
-          font-style: normal;
-          font-weight: 400;
-          src: url("{{ 'cool-font-regular.woff2' | asset_url }}") format('woff2'),
-            url("{{ 'cool-font-regular.woff' | asset_url }}") format('woff');
-        }
-      </style>
-    {%- endif -%}
-
-    <link rel="stylesheet" href="https://use.typekit.net/ygf1abr.css">
     {%- render 'font-face' -%}
     {{ 'theme.css' | asset_url | stylesheet_tag: preload: true }}
     {%- render 'css-variables' -%}
@@ -123,7 +110,9 @@
 
     {% render 'fbTrack' %}
 
-    <script src="https://cdn.ff1.ai/020aa30f-3ca2-400a-a5ec-1953b3bd1919/fanforge.min.js?campaign_name=FANFORGE2025"></script>
+    <script
+      src="https://cdn.ff1.ai/020aa30f-3ca2-400a-a5ec-1953b3bd1919/fanforge.min.js?campaign_name=FANFORGE2025"
+    ></script>
   </head>
 
   <body
@@ -163,7 +152,5 @@
       render 'tool-tip'
       render 'back-in-stock'
     -%}
-
-    <script src="https://cdn.attn.tv/4hunnid/dtag.js"></script>
   </body>
 </html>

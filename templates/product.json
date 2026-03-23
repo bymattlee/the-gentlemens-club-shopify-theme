@@ -34,32 +34,27 @@
         "f04516e7-cbde-4edf-989d-313bc0f49fee": {
           "type": "content_toggle",
           "settings": {
-            "tab_2_title": "Size Guide",
-            "tab_2_content": "{{ product.metafields.tab.size_guide_page.value }}",
-            "tab_3_title": "Shipping & Returns",
-            "tab_3_content": "shipping-returns-tab",
+            "tab_2_title": "",
+            "tab_2_content": "",
+            "tab_3_title": "",
+            "tab_3_content": "",
             "tab_4_title": "",
             "tab_4_content": ""
           }
-        },
-        "complete_the_look_D3RkXz": {
-          "type": "complete_the_look",
-          "settings": {}
         }
       },
       "block_order": [
         "f5d49e77-9e1e-4406-8d7c-3a480f5d5a97",
         "variant_picker",
         "buy_buttons",
-        "f04516e7-cbde-4edf-989d-313bc0f49fee",
-        "complete_the_look_D3RkXz"
+        "f04516e7-cbde-4edf-989d-313bc0f49fee"
       ],
       "settings": {
-        "sticker": "{{ product.metafields.theme.sticker.value }}",
-        "caption": "{{ product.metafields.theme.caption.value }}",
+        "sticker": "",
+        "caption": "",
         "sku_enable": false,
         "image_position": "left",
-        "image_size": "medium",
+        "image_size": "large",
         "product_zoom_enable": true,
         "thumbnail_position": "remove",
         "thumbnail_arrows": false,

@@ -183,7 +183,7 @@
         class="grid-product__title grid-product__title--{{ settings.type_product_style }}"
       >
         {{ product.title }}
-        -&nbsp;
+        <br>
         {%- if on_sale -%}
           <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
           <span class="grid-product__price--original">{{ product.compare_at_price | money }}</span>
@@ -290,7 +290,7 @@
                   class="grid-product__quick-add-variant {% if product.variants[0].available == false %} grid-product__quick-add-variant--is-disabled{% endif %}"
                   data-variant-id="{{ product.variants[0].id }}"
                 >
-                  OS
+                  Add
                 </button>
               </div>
             {%- endif -%}
