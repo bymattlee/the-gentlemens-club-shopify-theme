@@ -9,69 +9,21 @@
  */
 {
   "sections": {
-    "advanced_content_U9EWen": {
-      "type": "advanced-content",
-      "blocks": {
-        "image_a68LyQ": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/4H_SPRING_2026_SALE.jpg",
-            "link": "",
-            "width": "33%",
-            "alignment": "center"
-          }
-        }
-      },
-      "block_order": [
-        "image_a68LyQ"
-      ],
-      "name": "t:sections.advanced-content.presets.custom_content.name",
-      "settings": {
-        "full_width": false,
-        "space_around": true,
-        "center_content": true
-      }
-    },
     "featured_collection_CjNpRq": {
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.featured_collection.name",
       "settings": {
         "title": "",
-        "home_featured_products": "2026-collection-1-spring-sale",
+        "home_featured_products": "tgc-test-collection",
         "per_row": 4,
         "rows": 20,
         "mobile_scrollable": false,
         "view_all": false,
         "divider": false
       }
-    },
-    "advanced_content_tNgqhh": {
-      "type": "advanced-content",
-      "blocks": {
-        "image_t6yCbU": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Hero_Bottom.jpg",
-            "link": "",
-            "width": "33%",
-            "alignment": "center"
-          }
-        }
-      },
-      "block_order": [
-        "image_t6yCbU"
-      ],
-      "name": "t:sections.advanced-content.presets.custom_content.name",
-      "settings": {
-        "full_width": false,
-        "space_around": true,
-        "center_content": true
-      }
     }
   },
   "order": [
-    "advanced_content_U9EWen",
-    "featured_collection_CjNpRq",
-    "advanced_content_tNgqhh"
+    "featured_collection_CjNpRq"
   ]
 }

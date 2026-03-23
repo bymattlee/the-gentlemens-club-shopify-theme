@@ -106,32 +106,21 @@
       "header": {
         "type": "header",
         "blocks": {
-          "announcement_PHNBWT": {
-            "type": "announcement",
-            "settings": {
-              "text": "Up To 50% Off",
-              "link_text": "",
-              "link": ""
-            }
-          },
           "1524770014057": {
             "type": "logo",
             "settings": {
-              "logo": "shopify://shop_images/4hunnid_Hit_Up_Logo_-_Red.png",
-              "logo-inverted": "shopify://shop_images/4hunnid_Hit_Up_Logo_-_White.png",
               "desktop_logo_width": 110,
               "mobile_logo_width": 90
             }
           }
         },
         "block_order": [
-          "announcement_PHNBWT",
           "1524770014057"
         ],
         "settings": {
-          "main_menu_link_list": "main-menu",
+          "main_menu_link_list": "",
           "mega_menu_images": false,
-          "main_menu_alignment": "right-center",
+          "main_menu_alignment": "center",
           "header_style": "sticky",
           "sticky_index": false,
           "sticky_collection": false,
@@ -166,7 +155,7 @@
             "type": "menu",
             "settings": {
               "show_footer_title": false,
-              "menu": "footer-menu-3",
+              "menu": "",
               "container_width": 25
             }
           },
@@ -174,7 +163,7 @@
             "type": "menu",
             "settings": {
               "show_footer_title": false,
-              "menu": "footer-menu-2",
+              "menu": "",
               "container_width": 25
             }
           },
@@ -247,57 +236,7 @@
         }
       }
     },
-    "content_for_index": [],
-    "blocks": {
-      "5888675206956468567": {
-        "type": "shopify://apps/loop-returns-exchanges/blocks/onstore/e32ccd84-40d6-4b16-98bf-b6b9da010afd",
-        "disabled": true,
-        "settings": {
-          "show-onstore-bar": false,
-          "api-key": "test-key",
-          "checkout-selector": "#checkout",
-          "replace-checkout-button": false,
-          "preserve-cart": false,
-          "available-credit-bar-label": "in available credit",
-          "bar-value-font-size": "15",
-          "bar-label-font-size": "10",
-          "bar-button-font-size": "10",
-          "bottom-bar-alignment": "full",
-          "bar-color": "rgb(0,0,0)",
-          "bar-text-color": "rgb(255,255,255)",
-          "bump-side-cart": false,
-          "side-cart-selector": ".sidecart"
-        }
-      },
-      "17151115064775110295": {
-        "type": "shopify://apps/recharge-subscriptions/blocks/recharge-theme/371eed76-0b44-4869-9813-730372ea378e",
-        "disabled": false,
-        "settings": {
-          "color_brand": "#ed1c24",
-          "contrast_color": "#ffffff",
-          "color_brand_secondary": "#ed1c24",
-          "corners": "0px",
-          "app_background": "#ffffff",
-          "app_container": 1200,
-          "app_vertical_padding": 32,
-          "images_aspect_ratio": "1",
-          "cards_background": "#ffffff",
-          "cards_border_color": "rgba(0,0,0,0)"
-        }
-      },
-      "733389323033596483": {
-        "type": "shopify://apps/okendo/blocks/theme-settings/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
-        "disabled": false,
-        "settings": {
-          "show_preview_data": true
-        }
-      },
-      "855628211100114053": {
-        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
-        "disabled": false,
-        "settings": {}
-      }
-    }
+    "content_for_index": []
   },
   "presets": {
     "Modern": {
