@@ -141,47 +141,6 @@
       },
       "footer": {
         "type": "footer",
-        "blocks": {
-          "1b050507-37a6-43c8-a3e1-dda0bc45fdc4": {
-            "type": "menu",
-            "settings": {
-              "show_footer_title": false,
-              "menu": "",
-              "container_width": 95
-            }
-          },
-          "c121f1cd-3fff-4ded-8626-2ce0d7531b34": {
-            "type": "menu",
-            "settings": {
-              "show_footer_title": false,
-              "menu": "",
-              "container_width": 95
-            }
-          },
-          "1494301487049": {
-            "type": "menu",
-            "settings": {
-              "show_footer_title": false,
-              "menu": "footer",
-              "container_width": 95
-            }
-          },
-          "6447d789-e2ac-4a34-8a78-82294e775b82": {
-            "type": "custom",
-            "settings": {
-              "show_footer_title": false,
-              "title": "",
-              "text": "<p>© 2025 The Gentlemen's Club</p>",
-              "container_width": 95
-            }
-          }
-        },
-        "block_order": [
-          "1b050507-37a6-43c8-a3e1-dda0bc45fdc4",
-          "c121f1cd-3fff-4ded-8626-2ce0d7531b34",
-          "1494301487049",
-          "6447d789-e2ac-4a34-8a78-82294e775b82"
-        ],
         "settings": {
           "show_attentive_signup": false,
           "attentive_message": "<p>Enter your mobile number to be the first to know about the next collection release.</p>",
