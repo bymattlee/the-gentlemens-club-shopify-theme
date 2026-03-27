@@ -64,10 +64,6 @@
             <div class="product-recommendations">
               <div class="grid grid--uniform" data-aos="overflow__animation">
                 {%- for product in related_collection.products limit: number_of_products -%}
-                  {%- comment %}<locksmith:42cf>{%- endcomment %}
-                  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: related_collection, variable: 'transparent' %}{% endcapture -%}
-                  {%- if var == 'true' %}{% else %}{% continue %}{% endif -%}
-                  {%- comment %}</locksmith:42cf>{%- endcomment %}
                   {%- if product.handle != 'routeins' -%}
                     {%- render 'product-grid-item',
                       product: product,

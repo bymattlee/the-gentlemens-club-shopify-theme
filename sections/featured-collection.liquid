@@ -71,9 +71,6 @@
         {%- else -%}
 
           {%- for product in collections[section.settings.home_featured_products].products limit: product_limit -%}
-            {%- comment %}<locksmith:6356>{% endcomment -%}
-              {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collections[section.settings.home_featured_products], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-            {%- comment %}</locksmith:6356>{% endcomment -%}
             {%- render 'product-grid-item',
               product: product,
               collection: collection,
