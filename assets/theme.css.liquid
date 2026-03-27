@@ -2296,7 +2296,7 @@ button[disabled],html input[disabled]{
 .btn--full{
   width:100%;
   transition:none;
-  padding:12px 24px
+  padding:10px 24px
 }
 
 [data-button_style=angled] .btn--full{
@@ -2308,13 +2308,14 @@ button[disabled],html input[disabled]{
 }
 
 .btn--inverse{
-  background-color:transparent;
+  background-color:transparent !important;
   color:#fff;
-  border:2px solid #fff
+  border:1px solid #fff
 }
 
 .btn--inverse:focus,.btn--inverse:hover{
     background-color:transparent;
+    color: #fff !important;
   }
 
 [data-button_style=angled] .btn--inverse{
@@ -2340,6 +2341,11 @@ button[disabled],html input[disabled]{
       border-top:2px solid;
       border-right:2px solid;
     }
+
+.btn--inverse.btn--loading:before {
+  border-color: #fff !important;
+  border-top-color: transparent !important;
+}
 
 .hero__link .btn--inverse{
     color:{{ settings.color_image_text | default: "#fff" }};

@@ -192,11 +192,11 @@
               {%- endif -%}
 
               {%- if isModal -%}
-                <p class="h2 product-single__title">{{ product.title }} - {{ price_block }}</p>
+                <p class="h2 product-single__title">{{ product.title }}</p>
               {%- else -%}
                 <h1 class="h2 product-single__title">
                   {%- unless product.empty? -%}
-                    {{ product.title }} - {{ price_block }}
+                    {{ product.title }}
                   {%- else -%}
                     {{ 'home_page.onboarding.product_title' | t }}
                   {%- endunless -%}
