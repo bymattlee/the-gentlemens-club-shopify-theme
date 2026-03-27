@@ -12,6 +12,10 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "price_j6DBen": {
+          "type": "price",
+          "settings": {}
+        },
         "f5d49e77-9e1e-4406-8d7c-3a480f5d5a97": {
           "type": "color_variations",
           "settings": {}
@@ -44,6 +48,7 @@
         }
       },
       "block_order": [
+        "price_j6DBen",
         "f5d49e77-9e1e-4406-8d7c-3a480f5d5a97",
         "variant_picker",
         "buy_buttons",
