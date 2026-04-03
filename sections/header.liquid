@@ -167,7 +167,7 @@
                   {%- render 'header-desktop-nav', main_menu: main_menu, dropdown_alignment: dropdown_alignment -%}
                 {%- endif -%}
 
-                <div class="site-nav{% unless section.settings.main_menu_alignment == 'center-drawer' %} medium-up--hide{% endunless %} hide">
+                <div class="site-nav{% unless section.settings.main_menu_alignment == 'center-drawer' %} medium-up--hide{% endunless %}">
                   <button
                     type="button"
                     class="site-nav__link site-nav__link--icon js-drawer-open-nav"
@@ -502,7 +502,7 @@
           "label": "t:sections.header.blocks.logo.settings.desktop_logo_width.label",
           "default": 200,
           "min": 100,
-          "max": 400,
+          "max": 800,
           "step": 10,
           "unit": "px"
         },
@@ -512,7 +512,7 @@
           "label": "t:sections.header.blocks.logo.settings.mobile_logo_width.label",
           "default": 140,
           "min": 60,
-          "max": 200,
+          "max": 600,
           "step": 10,
           "unit": "px",
           "info": "t:sections.header.blocks.logo.settings.mobile_logo_width.info"
