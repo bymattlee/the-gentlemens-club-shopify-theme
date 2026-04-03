@@ -110,8 +110,8 @@
             "type": "logo",
             "settings": {
               "logo": "shopify://shop_images/Logo_-_The_Gentlemen_s_Club_-_White_71ab5b47-0cf0-421c-a38a-908be31d99a4.png",
-              "desktop_logo_width": 400,
-              "mobile_logo_width": 200
+              "desktop_logo_width": 640,
+              "mobile_logo_width": 600
             }
           }
         },
@@ -121,10 +121,11 @@
         "settings": {
           "main_menu_link_list": "",
           "mega_menu_images": false,
-          "main_menu_alignment": "center",
-          "header_style": "sticky",
+          "main_menu_alignment": "center-top",
+          "header_style": "normal",
           "sticky_index": false,
           "sticky_collection": false,
+          "hide_menu_button_mobile": true,
           "mobile_secondary_menu_link_list": "",
           "show_attentive_signup": false,
           "attentive_message": "<p>Enter your mobile number to be the first to know about the next collection release.</p>",
