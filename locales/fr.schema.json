@@ -874,6 +874,10 @@
           "label": "En-tête superposé sur la collection",
           "info": "(si l'image de la collection est activée)"
         },
+        "hide_menu_button_mobile": {
+          "label": "Masquer le bouton de menu sur mobile",
+          "info": "Masque le contrôle qui ouvre le tiroir de navigation mobile sur les petits écrans. Assurez-vous que les visiteurs peuvent toujours accéder au menu autrement."
+        },
         "header_announcement_bar": "Barre d'annonces",
         "announcement_compact": {
           "label": "Utiliser le style compact"

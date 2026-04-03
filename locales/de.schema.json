@@ -874,6 +874,10 @@
           "label": "Header über Kategorie legen",
           "info": "(wenn Kategoriebild aktiviert ist)"
         },
+        "hide_menu_button_mobile": {
+          "label": "Menütaste auf dem Smartphone ausblenden",
+          "info": "Blendet die Schaltfläche aus, die die mobile Navigations-Schublade auf kleinen Bildschirmen öffnet. Stellen Sie sicher, dass Besucher Ihr Menü trotzdem erreichen können."
+        },
         "header_announcement_bar": "Ankündigungsleiste",
         "announcement_compact": {
           "label": "Kompaktes Design verwenden"

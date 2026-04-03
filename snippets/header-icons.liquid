@@ -39,7 +39,7 @@
     -%}
       <button
         type="button"
-        class="site-nav__link site-nav__link--icon site-nav__link--menu js-drawer-open-nav{% if section.settings.main_menu_alignment == 'left' or section.settings.main_menu_alignment == 'left-center' or section.settings.main_menu_alignment == 'right-center' %} medium-up--hide{% endif %}"
+        class="site-nav__link site-nav__link--icon site-nav__link--menu js-drawer-open-nav{% if section.settings.main_menu_alignment == 'left' or section.settings.main_menu_alignment == 'left-center' or section.settings.main_menu_alignment == 'right-center' %} medium-up--hide{% endif %}{% if section.settings.hide_menu_button_mobile %} small--hide{% endif %}"
         aria-controls="NavDrawer"
       >
         <svg

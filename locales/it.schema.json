@@ -874,6 +874,10 @@
           "label": "Intestazione sovrapposta alla collezione",
           "info": "(se l'immagine della collezione è abilitata)"
         },
+        "hide_menu_button_mobile": {
+          "label": "Nascondi pulsante menu su mobile",
+          "info": "Nasconde il controllo che apre il drawer di navigazione mobile su schermi piccoli. Assicurati che i visitatori possano comunque raggiungere il menu in altro modo."
+        },
         "header_announcement_bar": "Barra degli annunci",
         "announcement_compact": {
           "label": "Usa lo stile compatto"

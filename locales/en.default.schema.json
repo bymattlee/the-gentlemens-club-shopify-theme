@@ -877,6 +877,10 @@
           "label": "Overlay header over collection",
           "info": "(if collection image is enabled)"
         },
+        "hide_menu_button_mobile": {
+          "label": "Hide menu button on mobile",
+          "info": "Hides the control that opens the mobile navigation drawer on small screens. Ensure visitors can still reach your menu another way."
+        },
         "header_announcement_bar": "Announcement bar",
         "announcement_compact": {
           "label": "Use compact style"

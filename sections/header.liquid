@@ -160,7 +160,7 @@
                         </a>
                       </div>
                     {%- endif -%}
-                    <div class="site-nav medium-up--hide">
+                    <div class="site-nav medium-up--hide{% if section.settings.hide_menu_button_mobile %} small--hide{% endif %}">
                       <button
                         type="button"
                         class="site-nav__link site-nav__link--icon js-drawer-open-nav"
@@ -200,7 +200,7 @@
                     {%- render 'header-desktop-nav', main_menu: main_menu, dropdown_alignment: dropdown_alignment -%}
                   {%- endif -%}
 
-                  <div class="site-nav{% unless section.settings.main_menu_alignment == 'center-drawer' %} medium-up--hide{% endunless %}">
+                  <div class="site-nav{% unless section.settings.main_menu_alignment == 'center-drawer' %} medium-up--hide{% endunless %}{% if section.settings.hide_menu_button_mobile %} small--hide{% endif %}">
                     <button
                       type="button"
                       class="site-nav__link site-nav__link--icon js-drawer-open-nav"
@@ -420,6 +420,13 @@
     {
       "type": "header",
       "content": "Mobile menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_menu_button_mobile",
+      "label": "t:sections.header.settings.hide_menu_button_mobile.label",
+      "info": "t:sections.header.settings.hide_menu_button_mobile.info",
+      "default": false
     },
     {
       "type": "link_list",

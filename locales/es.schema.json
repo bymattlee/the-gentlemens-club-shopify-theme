@@ -874,6 +874,10 @@
           "label": "Cabecera superpuesta sobre la colección",
           "info": "(si la imagen de la colección está activada)"
         },
+        "hide_menu_button_mobile": {
+          "label": "Ocultar botón de menú en móvil",
+          "info": "Oculta el control que abre el cajón de navegación móvil en pantallas pequeñas. Asegúrate de que los visitantes puedan acceder al menú de otro modo."
+        },
         "header_announcement_bar": "Barra de anuncios",
         "announcement_compact": {
           "label": "Utilizar el estilo compacto"
