@@ -11089,6 +11089,19 @@ newsletter-reminder .newsletter-reminder__message{
   border-top-color:{{ settings.color_drawer_border | default: "#343535" }};
   border-top-color:var(--colorDrawerBorder);
   padding: 8px 0;
+  padding-left: 24px;
+  padding-left: var(--drawer-gutter);
+  padding-right: 24px;
+  padding-right: var(--drawer-gutter);
+}
+
+@media only screen and (min-width: 769px) {
+  .cart__route {
+    padding-left: 32px;
+    padding-left: var(--drawer-gutter-desktop);
+    padding-right: 32px;
+    padding-right: var(--drawer-gutter-desktop);
+  }
 }
 
 .cart__route--cart-page {
