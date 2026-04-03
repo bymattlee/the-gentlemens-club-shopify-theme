@@ -25,6 +25,21 @@
         }
       }
 
+      .header-layout--center-top .header-item--logo {
+        -webkit-box-flex: 1 1 100%;
+        -ms-flex: 1 1 100%;
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+
+      @media only screen and (min-width: 769px) {
+        .header-layout--center-top .header-item--logo {
+          -webkit-box-flex: 1 1 100%;
+          -ms-flex: 1 1 100%;
+          flex: 1 1 100%;
+        }
+      }
+
       .site-header__logo a {
         max-width: {{ block.settings.mobile_logo_width }}px;
       }

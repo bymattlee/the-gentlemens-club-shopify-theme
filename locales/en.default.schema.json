@@ -851,6 +851,9 @@
             "center-drawer": {
               "label": "Logo center, menu drawer"
             },
+            "center-top": {
+              "label": "Logo center, menu below, details top"
+            },
             "right-center": {
               "label": "Logo right, menu center"
             }

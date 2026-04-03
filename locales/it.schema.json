@@ -850,6 +850,9 @@
             },
             "center-drawer": {
               "label": "Centro del logo, cassetto del menu"
+            },
+            "center-top": {
+              "label": "Logo al centro, menu sotto, dettagli in alto"
             }
           }
         },

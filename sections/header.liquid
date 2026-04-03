@@ -4,14 +4,14 @@
   assign toolbar_menu = linklists[section.settings.toolbar_menu]
 
   assign logo_alignment = 'left'
-  if section.settings.main_menu_alignment == 'center-left' or section.settings.main_menu_alignment == 'center-split' or section.settings.main_menu_alignment == 'center' or section.settings.main_menu_alignment == 'center-drawer'
+  if section.settings.main_menu_alignment == 'center-left' or section.settings.main_menu_alignment == 'center-split' or section.settings.main_menu_alignment == 'center' or section.settings.main_menu_alignment == 'center-drawer' or section.settings.main_menu_alignment == 'center-top'
     assign logo_alignment = 'center'
   elsif section.settings.main_menu_alignment == 'right-center'
     assign logo_alignment = 'right'
   endif
 
   assign dropdown_alignment = 'left'
-  if section.settings.main_menu_alignment == 'left-center' or section.settings.main_menu_alignment == 'center-split' or section.settings.main_menu_alignment == 'center'
+  if section.settings.main_menu_alignment == 'left-center' or section.settings.main_menu_alignment == 'center-split' or section.settings.main_menu_alignment == 'center' or section.settings.main_menu_alignment == 'center-top'
     assign dropdown_alignment = 'center'
   endif
 
@@ -146,58 +146,92 @@
             {%- endif -%}
 
             {%- if logo_alignment == 'center' -%}
-              <div class="header-item header-item--left header-item--navigation">
-                {%- if section.settings.main_menu_alignment == 'center'
-                  or section.settings.main_menu_alignment == 'center-split'
-                -%}
-                  {%- if settings.search_enable -%}
-                    <div class="site-nav small--hide">
-                      <a href="{{ routes.search_url }}" class="site-nav__link site-nav__link--icon js-search-header">
-                        <!--
-                          <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-search" viewBox="0 0 64 64"><path d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42"/></svg>
-                        -->
-                        {{ 'general.search.title' | t }}
-                        <span class="icon__fallback-text">{{ 'general.search.title' | t }}</span>
-                      </a>
+              {%- if section.settings.main_menu_alignment == 'center-top' -%}
+                <div class="header-layout__details-row">
+                  <div class="header-item header-item--left header-item--navigation">
+                    {%- if settings.search_enable -%}
+                      <div class="site-nav small--hide">
+                        <a href="{{ routes.search_url }}" class="site-nav__link site-nav__link--icon js-search-header">
+                          <!--
+                            <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-search" viewBox="0 0 64 64"><path d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42"/></svg>
+                          -->
+                          {{ 'general.search.title' | t }}
+                          <span class="icon__fallback-text">{{ 'general.search.title' | t }}</span>
+                        </a>
+                      </div>
+                    {%- endif -%}
+                    <div class="site-nav medium-up--hide">
+                      <button
+                        type="button"
+                        class="site-nav__link site-nav__link--icon js-drawer-open-nav"
+                        aria-controls="NavDrawer"
+                      >
+                        Menu
+                        <span class="icon__fallback-text">{{ 'general.drawers.navigation' | t }}</span>
+                      </button>
                     </div>
-                  {%- endif -%}
-                {%- endif -%}
-
-                {%- if section.settings.main_menu_alignment == 'center-left' -%}
-                  {%- render 'header-desktop-nav', main_menu: main_menu, dropdown_alignment: dropdown_alignment -%}
-                {%- endif -%}
-
-                <div class="site-nav{% unless section.settings.main_menu_alignment == 'center-drawer' %} medium-up--hide{% endunless %}">
-                  <button
-                    type="button"
-                    class="site-nav__link site-nav__link--icon js-drawer-open-nav"
-                    aria-controls="NavDrawer"
-                  >
-                    <!--
-                      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-hamburger" viewBox="0 0 64 64"><path d="M7 15h51M7 32h43M7 49h51"/></svg>
-                    -->
-                    Menu
-                    <span class="icon__fallback-text">{{ 'general.drawers.navigation' | t }}</span>
-                  </button>
+                  </div>
+                  <div class="header-item header-item--icons">
+                    {%- render 'header-icons', section: section -%}
+                  </div>
                 </div>
-              </div>
-
-              {%- if section.settings.main_menu_alignment == 'center-split' -%}
-                {%- render 'header-split-nav',
-                  main_menu: main_menu,
-                  section: section,
-                  dropdown_alignment: dropdown_alignment
-                -%}
-              {%- endif -%}
-
-              {%- if section.settings.main_menu_alignment != 'center-split' -%}
                 <div class="header-item header-item--logo">
                   {%- render 'header-logo-block', section: section -%}
                 </div>
+              {%- else -%}
+                <div class="header-item header-item--left header-item--navigation">
+                  {%- if section.settings.main_menu_alignment == 'center'
+                    or section.settings.main_menu_alignment == 'center-split'
+                  -%}
+                    {%- if settings.search_enable -%}
+                      <div class="site-nav small--hide">
+                        <a href="{{ routes.search_url }}" class="site-nav__link site-nav__link--icon js-search-header">
+                          <!--
+                            <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-search" viewBox="0 0 64 64"><path d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42"/></svg>
+                          -->
+                          {{ 'general.search.title' | t }}
+                          <span class="icon__fallback-text">{{ 'general.search.title' | t }}</span>
+                        </a>
+                      </div>
+                    {%- endif -%}
+                  {%- endif -%}
+
+                  {%- if section.settings.main_menu_alignment == 'center-left' -%}
+                    {%- render 'header-desktop-nav', main_menu: main_menu, dropdown_alignment: dropdown_alignment -%}
+                  {%- endif -%}
+
+                  <div class="site-nav{% unless section.settings.main_menu_alignment == 'center-drawer' %} medium-up--hide{% endunless %}">
+                    <button
+                      type="button"
+                      class="site-nav__link site-nav__link--icon js-drawer-open-nav"
+                      aria-controls="NavDrawer"
+                    >
+                      <!--
+                        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-hamburger" viewBox="0 0 64 64"><path d="M7 15h51M7 32h43M7 49h51"/></svg>
+                      -->
+                      Menu
+                      <span class="icon__fallback-text">{{ 'general.drawers.navigation' | t }}</span>
+                    </button>
+                  </div>
+                </div>
+
+                {%- if section.settings.main_menu_alignment == 'center-split' -%}
+                  {%- render 'header-split-nav',
+                    main_menu: main_menu,
+                    section: section,
+                    dropdown_alignment: dropdown_alignment
+                  -%}
+                {%- endif -%}
+
+                {%- if section.settings.main_menu_alignment != 'center-split' -%}
+                  <div class="header-item header-item--logo">
+                    {%- render 'header-logo-block', section: section -%}
+                  </div>
+                {%- endif -%}
               {%- endif -%}
             {%- endif -%}
 
-            {%- if logo_alignment != 'right' -%}
+            {%- if logo_alignment != 'right' and section.settings.main_menu_alignment != 'center-top' -%}
               <div class="header-item header-item--icons">
                 {%- render 'header-icons', section: section -%}
               </div>
@@ -210,7 +244,9 @@
             {%- endif -%}
           </div>
 
-          {%- if section.settings.main_menu_alignment == 'center' -%}
+          {%- if section.settings.main_menu_alignment == 'center'
+            or section.settings.main_menu_alignment == 'center-top'
+          -%}
             <div class="text-center">
               {%- render 'header-desktop-nav', main_menu: main_menu, dropdown_alignment: dropdown_alignment -%}
             </div>
@@ -341,6 +377,10 @@
         {
           "value": "center-drawer",
           "label": "t:sections.header.settings.main_menu_alignment.options.center-drawer.label"
+        },
+        {
+          "value": "center-top",
+          "label": "t:sections.header.settings.main_menu_alignment.options.center-top.label"
         },
         {
           "value": "right-center",

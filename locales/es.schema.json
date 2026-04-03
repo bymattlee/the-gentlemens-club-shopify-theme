@@ -850,6 +850,9 @@
             },
             "center-drawer": {
               "label": "Centro del logotipo, bandeja de menús"
+            },
+            "center-top": {
+              "label": "Logo centrado, menú abajo, detalles arriba"
             }
           }
         },

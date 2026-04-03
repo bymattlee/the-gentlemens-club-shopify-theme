@@ -850,6 +850,9 @@
             },
             "center-drawer": {
               "label": "Logo in der Mitte, Navigationsschublade"
+            },
+            "center-top": {
+              "label": "Logo zentriert, Menü unten, Details oben"
             }
           }
         },
