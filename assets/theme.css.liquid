@@ -3917,10 +3917,11 @@ tool-tip[data-tool-tip-open=true] .tool-tip__inner{
   }
 
 .footer__small-text{
-  font-size:max(calc(var(--typeBaseSize)*0.7), 12px);
-  padding:7.5px 0;
+  font-size:max(calc(var(--typeBaseSize)*0.7), 11px);
+  padding:8px 0;
   margin:0;
-  text-align:center
+  text-align:center;
+  color:var(--color-grey)
 }
 
 ul+.footer__small-text{
@@ -3933,14 +3934,14 @@ ul+.footer__small-text{
 }
 
 .footer__section{
-  margin-bottom:15px
+  margin-bottom:16px
 }
 
 @media only screen and (min-width:769px){
 
 .footer__section{
-    margin-top:30px;
-    margin-bottom:0
+    margin-top:16px;
+    margin-bottom:16px
 }
   }
 
@@ -3973,6 +3974,12 @@ ul+.footer__small-text{
   margin:0
 }
 
+.site-footer__linklist--horizontal {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
 .site-footer__linklist li{
   margin-bottom: 8px;
 }

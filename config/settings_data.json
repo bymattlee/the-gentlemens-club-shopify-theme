@@ -149,11 +149,13 @@
           "attentive_disclaimer_message": "<p>Agree to <a href=\"http://attn.tv/4hunnid/terms.html\">Terms</a> & <a href=\"https://attnl.tv/p/g4j\">Privacy</a>.</p>",
           "show_klaviyo_signup": false,
           "klaviyo_message": "<p>Playas Only!<br/>Enter your email address to be the first to know about the next collection release.</p>",
+          "primary_menu": "primary-footer-menu",
+          "secondary_menu": "footer",
           "show_locale_selector": false,
           "show_currency_selector": false,
           "show_currency_flags": false,
           "show_payment_icons": false,
-          "show_copyright": false,
+          "show_copyright": true,
           "copyright_text": ""
         }
       },

@@ -25,25 +25,21 @@
 {%- endif -%}
 
 <footer class="site-footer" data-section-id="{{ section.id }}" data-section-type="footer-section">
+
   {%- if section.settings.show_attentive_signup != blank or section.settings.show_klaviyo_signup != blank -%}
     <div class="site-footer__signup">
       <div class="page-width">
+
         {%- if section.settings.show_attentive_signup != blank -%}
           <div class="site-footer__signup-form site-footer__signup-form--attentive">
             <form class="mobile-number-form">
+
               {% unless section.settings.attentive_message == blank %}
                 <div class="mobile-number-form__heading">{{ section.settings.attentive_message }}</div>
               {% endunless %}
 
               <div class="mobile-number-form__fieldset">
-                <input
-                  class="mobile-number-form__input input-group-field"
-                  autocomplete="tel"
-                  pattern="(\+1)?\(?\d{3}\)?[ -]?\d{3}[ -]?\d{4}"
-                  type="tel"
-                  placeholder="(XXX) XXX - XXXX"
-                  required
-                >
+                <input class="mobile-number-form__input input-group-field" autocomplete="tel" pattern="(\+1)?\(?\d{3}\)?[ -]?\d{3}[ -]?\d{4}" type="tel"  placeholder="(XXX) XXX - XXXX" required>
                 <button type="submit" class="mobile-number-form__submit">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 13" xml:space="preserve">
                     <path d="m6 6.6-.4-.4L1.1 1 0 1.9l4 4.7-4 4.7 1.1 1 4.5-5.2.4-.5z"/>
@@ -54,12 +50,7 @@
               {% unless section.settings.attentive_disclaimer_message == blank %}
                 <label class="mobile-number-form__disclaimer" for="mobile-number-form__disclaimer-checkbox--footer">
                   <div class="mobile-number-form__disclaimer-checkbox-container">
-                    <input
-                      type="checkbox"
-                      id="mobile-number-form__disclaimer-checkbox--footer"
-                      class="mobile-number-form__disclaimer-checkbox"
-                      required
-                    >
+                    <input type="checkbox" id="mobile-number-form__disclaimer-checkbox--footer" class="mobile-number-form__disclaimer-checkbox" required>
                     <span class="mobile-number-form__disclaimer-checkbox-ui"></span>
                   </div>
                   <div class="mobile-number-form__disclaimer-message">
@@ -75,18 +66,13 @@
         {%- if section.settings.show_klaviyo_signup != blank -%}
           <div class="site-footer__signup-form site-footer__signup-form--klaviyo">
             <form class="klaviyo-form">
+
               {% unless section.settings.klaviyo_message == blank %}
                 <div class="klaviyo-form__heading">{{ section.settings.klaviyo_message }}</div>
               {% endunless %}
 
               <div class="klaviyo-form__fieldset">
-                <input
-                  class="klaviyo-form__input input-group-field"
-                  autocomplete="email"
-                  type="email"
-                  placeholder="Enter your email address"
-                  required
-                >
+                <input class="klaviyo-form__input input-group-field" autocomplete="email" type="email" placeholder="Enter your email address" required>
                 <button type="submit" class="klaviyo-form__submit">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 13" xml:space="preserve">
                     <path d="m6 6.6-.4-.4L1.1 1 0 1.9l4 4.7-4 4.7 1.1 1 4.5-5.2.4-.5z"/>
@@ -97,12 +83,14 @@
             </form>
           </div>
         {%- endif -%}
+
       </div>
     </div>
   {%- endif -%}
 
   <div class="site-footer__main">
     <div class="page-width">
+
       <div class="grid">
         {%- assign row_width = 0 -%}
         {%- for block in section.blocks -%}
@@ -112,11 +100,7 @@
             {%- assign row_width = row_width | minus: 100 -%}
           {%- endif -%}
 
-          <div
-            {{ block.shopify_attributes }}
-            class="grid__item footer__item--{{ block.id }}"
-            data-type="{{ block.type }}"
-          >
+          <div {{ block.shopify_attributes }} class="grid__item footer__item--{{ block.id }}" data-type="{{ block.type }}">
             {%- style -%}
               @media only screen and (min-width: 769px) and (max-width: 959px) {
                 .footer__item--{{ block.id }} {
@@ -163,7 +147,7 @@
           {%- render 'multi-selectors',
             locale_selector: locale_selector,
             currency_selector: currency_selector,
-            show_currency_flags: section.settings.show_currency_flags,
+            show_currency_flags: section.settings.show_currency_flags
             location: 'footer'
           -%}
         </div>
@@ -181,39 +165,16 @@
         {%- endunless -%}
       {%- endif -%}
 
-      {%- if linklists[section.settings.primary_menu].links.size > 0 -%}
-        <div class="footer__section">
-          <ul class="no-bullets site-footer__linklist site-footer__linklist--horizontal">
-            {%- for link in linklists[section.settings.primary_menu].links -%}
-              <li>
-                <a href="{{ link.url }}">{{ link.title }}</a>
-              </li>
-            {%- endfor -%}
-          </ul>
-        </div>
-      {%- endif -%}
-
-      {%- if linklists[section.settings.secondary_menu].links.size > 0 -%}
-        <div class="footer__section">
-          <ul class="no-bullets site-footer__linklist site-footer__linklist--horizontal">
-            {%- for link in linklists[section.settings.secondary_menu].links -%}
-              <li>
-                <a href="{{ link.url }}">{{ link.title }}</a>
-              </li>
-            {%- endfor -%}
-          </ul>
-        </div>
-      {%- endif -%}
-
       {%- if section.settings.show_copyright -%}
         <p class="footer__small-text">
-          &copy; {{ 'now' | date: '%Y' }}
-          {{ shop.name }}
+          &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}
           {%- if section.settings.copyright_text != blank -%}
             {{ section.settings.copyright_text }}
           {%- endif -%}
         </p>
       {%- endif -%}
+      <!-- <p class="footer__small-text">{{ powered_by_link }}</p> -->
+
     </div>
   </div>
 </footer>
@@ -221,6 +182,7 @@
 {% schema %}
 {
   "name": "t:sections.footer.name",
+  "max_blocks": 12,
   "settings": [
     {
       "type": "header",
@@ -255,20 +217,6 @@
       "id": "klaviyo_message",
       "label": "Klaviyo message",
       "default": "<p>Enter your email address to be the first to know about the next collection release.</p>"
-    },
-    {
-      "type": "header",
-      "content": "Menus"
-    },
-    {
-      "type": "link_list",
-      "id": "primary_menu",
-      "label": "Primary menu"
-    },
-    {
-      "type": "link_list",
-      "id": "secondary_menu",
-      "label": "Secondary menu"
     },
     {
       "type": "header",
@@ -319,9 +267,154 @@
       "label": "t:sections.footer.settings.copyright_text.label"
     }
   ],
-  "blocks": [],
+  "blocks": [
+    {
+      "type": "logo_social",
+      "name": "t:sections.footer.blocks.logo.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "t:sections.footer.blocks.logo.settings.logo.label"
+        },
+        {
+          "type": "range",
+          "id": "desktop_logo_height",
+          "label": "t:sections.footer.blocks.logo.settings.desktop_logo_height.label",
+          "default": 50,
+          "min": 20,
+          "max": 120,
+          "unit": "px"
+        },
+        {
+          "type": "range",
+          "id": "container_width",
+          "label": "t:sections.footer.blocks.logo.settings.container_width.label",
+          "default": 25,
+          "min": 15,
+          "max": 95,
+          "unit": "%"
+        }
+      ]
+    },
+    {
+      "type": "menu",
+      "name": "t:sections.footer.blocks.navigation.name",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_footer_title",
+          "label": "t:sections.footer.blocks.navigation.settings.show_footer_title.label"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "t:sections.footer.blocks.navigation.settings.menu.label",
+          "default": "footer",
+          "info": "t:sections.footer.blocks.navigation.settings.menu.info"
+        },
+        {
+          "type": "range",
+          "id": "container_width",
+          "label": "t:sections.footer.blocks.navigation.settings.container_width.label",
+          "default": 25,
+          "min": 15,
+          "max": 95,
+          "unit": "%"
+        }
+      ]
+    },
+    {
+      "type": "newsletter",
+      "name": "t:sections.footer.blocks.newsletter_and_social.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_footer_title",
+          "label": "t:sections.footer.blocks.newsletter_and_social.settings.show_footer_title.label",
+          "default": true
+        },
+        {
+          "type": "paragraph",
+          "content": "t:sections.footer.blocks.newsletter_and_social.settings.content"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.footer.blocks.newsletter_and_social.settings.title.label",
+          "default": "Sign up and save"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:sections.footer.blocks.newsletter_and_social.settings.text.label",
+          "info": "t:sections.footer.blocks.newsletter_and_social.settings.text.info",
+          "default": "<p>Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>"
+        },
+        {
+          "type": "range",
+          "id": "container_width",
+          "label": "t:sections.footer.blocks.newsletter_and_social.settings.container_width.label",
+          "default": 25,
+          "min": 15,
+          "max": 95,
+          "unit": "%"
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "name": "t:sections.footer.blocks.custom_text.name",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_footer_title",
+          "label": "t:sections.footer.blocks.custom_text.settings.show_footer_title.label",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.footer.blocks.custom_text.settings.title.label",
+          "default": "Custom text"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.footer.blocks.custom_text.settings.image.label"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:sections.footer.blocks.custom_text.settings.text.label",
+          "default": "<p>Add your own custom text here.</p>"
+        },
+        {
+          "type": "range",
+          "id": "container_width",
+          "label": "t:sections.footer.blocks.custom_text.settings.container_width.label",
+          "default": 25,
+          "min": 15,
+          "max": 95,
+          "unit": "%"
+        }
+      ]
+    }
+  ],
   "default": {
-    "settings": {}
+    "settings": {},
+    "blocks": [
+      {
+        "type": "menu",
+        "settings": {}
+      },
+      {
+        "type": "logo_social",
+        "settings": {}
+      }
+    ]
   }
 }
 {% endschema %}
