@@ -6499,6 +6499,61 @@ lazySizesConfig.expFactor = 4
     return VideoAutoplay
   })()
 
+  theme.FullWidthVideo = (function () {
+    var selectors = {
+      trigger: '[data-full-width-video-trigger]',
+      embed: '[data-full-width-video-embed]',
+    }
+
+    function FullWidthVideo(container) {
+      this.container = container
+      this.trigger = container.querySelector(selectors.trigger)
+      this.embedHost = container.querySelector(selectors.embed)
+      this.started = false
+      this.onTriggerClick = this.onTriggerClick.bind(this)
+
+      if (this.trigger && this.embedHost) {
+        this.trigger.addEventListener('click', this.onTriggerClick)
+      }
+    }
+
+    FullWidthVideo.prototype = Object.assign({}, FullWidthVideo.prototype, {
+      onTriggerClick: function (evt) {
+        if (this.started) return
+        var videoId = this.container.getAttribute('data-video-id')
+        if (!videoId) return
+
+        evt.preventDefault()
+        this.started = true
+
+        var src =
+          'https://www.youtube.com/embed/' +
+          encodeURIComponent(videoId) +
+          '?autoplay=1&playsinline=1&rel=0&modestbranding=1&controls=1'
+
+        var iframe = document.createElement('iframe')
+        iframe.setAttribute('src', src)
+        iframe.setAttribute('title', 'YouTube video')
+        iframe.setAttribute(
+          'allow',
+          'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+        )
+        iframe.setAttribute('allowfullscreen', '')
+        this.embedHost.appendChild(iframe)
+
+        this.container.classList.add('is-started')
+      },
+
+      onUnload: function () {
+        if (this.trigger) {
+          this.trigger.removeEventListener('click', this.onTriggerClick)
+        }
+      },
+    })
+
+    return FullWidthVideo
+  })()
+
   theme.LookbookScroller = (function () {
     function LookbookScroller(container) {
       this.container = container
@@ -9874,6 +9929,7 @@ lazySizesConfig.expFactor = 4
     theme.sections.register('testimonials', theme.Testimonials)
     theme.sections.register('video-section', theme.VideoSection)
     theme.sections.register('video-autoplay', theme.VideoAutoplay)
+    theme.sections.register('full-width-video', theme.FullWidthVideo)
     theme.sections.register('lookbook-scroller', theme.LookbookScroller)
     theme.sections.register('block-promo', theme.BlockPromo)
     theme.sections.register('map', theme.Maps)

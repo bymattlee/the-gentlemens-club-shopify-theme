@@ -21,9 +21,18 @@
         "view_all": false,
         "divider": false
       }
+    },
+    "full_width_video_JtAqc4": {
+      "type": "full-width-video",
+      "name": "Full-width video",
+      "settings": {
+        "video_url": "https://www.youtube.com/watch?v=0i4UlhUkn5w",
+        "cover_image": "shopify://shop_images/Video.jpg"
+      }
     }
   },
   "order": [
-    "featured_collection_CjNpRq"
+    "featured_collection_CjNpRq",
+    "full_width_video_JtAqc4"
   ]
 }
