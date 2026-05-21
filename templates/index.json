@@ -14,7 +14,7 @@
       "name": "t:sections.featured-collection.presets.featured_collection.name",
       "settings": {
         "title": "",
-        "home_featured_products": "tgc-test-collection",
+        "home_featured_products": "the-gentlemens-club",
         "per_row": 4,
         "rows": 20,
         "mobile_scrollable": false,
