@@ -9,27 +9,6 @@
  */
 {
   "sections": {
-    "rich_text_reCM7E": {
-      "type": "rich-text",
-      "blocks": {
-        "text_D99tTb": {
-          "type": "text",
-          "settings": {
-            "enlarge_text": false,
-            "text": "{{ product.metafields.custom.page_header_text | metafield_tag }}"
-          }
-        }
-      },
-      "block_order": [
-        "text_D99tTb"
-      ],
-      "name": "t:sections.rich-text.presets.rich_text.name",
-      "settings": {
-        "align_text": "center",
-        "narrow_column": true,
-        "divider": false
-      }
-    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -112,7 +91,6 @@
     }
   },
   "order": [
-    "rich_text_reCM7E",
     "main",
     "sub",
     "product-recommendations",
