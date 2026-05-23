@@ -127,7 +127,7 @@
 {% endcapture %}
 
 {%- if product.metafields.custom.page_header_text != blank -%}
-  <div class="shopify-section index-section">
+  <div class="shopify-section index-section index-section--extra-bottom">
     <div class="text-center page-width page-width--narrow">
       <div class="theme-block">
         <div class="rte">{{ product.metafields.custom.page_header_text | metafield_tag }}</div>
