@@ -9,6 +9,27 @@
  */
 {
   "sections": {
+    "rich_text_RwgztM": {
+      "type": "rich-text",
+      "blocks": {
+        "text_UYQVTx": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p>The items within the merchandise bundles are also sold separately.<br/>The CD is available <a href=\"/products/the-gentlemens-club-standard-cd\" title=\"/products/the-gentlemens-club-standard-cd\">HERE</a> & the album T-Shirt is available <a href=\"/products/the-gentlemens-club-photo-tee-black\" title=\"/products/the-gentlemens-club-photo-tee-black\">HERE</a>.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_UYQVTx"
+      ],
+      "name": "t:sections.rich-text.presets.rich_text.name",
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false
+      }
+    },
     "featured_collection_CjNpRq": {
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.featured_collection.name",
@@ -32,6 +53,7 @@
     }
   },
   "order": [
+    "rich_text_RwgztM",
     "featured_collection_CjNpRq",
     "full_width_video_JtAqc4"
   ]
