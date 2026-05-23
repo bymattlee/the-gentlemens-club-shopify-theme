@@ -146,10 +146,16 @@
 
   <div class="_page-content _page-content--product">
 
-    <div class="page-width">
-      <div class="text-center page-width page-width--narrow"><div class="theme-block"><div class="rte">This section doesn’t currently include any content. Add content to this section using the sidebar.
-</div></div></div>
-    </div>
+    {%- if product.metafields.custom.page_header_text != blank -%}
+      <div class="page-width">
+        <div class="text-center page-width page-width--narrow">
+          <div class="theme-block">
+            <div class="rte">!!{{ product.metafields.custom.page_header_text }}</div>
+          </div>
+        </div>
+      </div>
+    {%- endif -%}
+
     <div class="page-width">
       <div class="grid{% unless image_position == 'left' %} grid--product-images-right{% endunless %}{% if mobile_layout == 'partial' %} grid--product-images--partial{% endif %}{% if thumbnail_position == 'remove' %} grid--thumbs-removed{% endif %}">
         {%- if image_position == 'left' -%}
