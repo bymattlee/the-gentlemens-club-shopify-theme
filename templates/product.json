@@ -55,6 +55,7 @@
         "f04516e7-cbde-4edf-989d-313bc0f49fee"
       ],
       "settings": {
+        "page_header_text": "{{ product.metafields.custom.page_header_text | metafield_tag }}",
         "sticker": "",
         "caption": "",
         "sku_enable": false,
