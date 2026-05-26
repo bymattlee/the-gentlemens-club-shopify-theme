@@ -554,7 +554,7 @@
                         <div class="color-variations">
                           {%- for product_color_item in variant_products.value -%}
                             {% assign index = forloop.index0 %}
-                            
+                            <a
                               href="{{ product_color_item.url }}"
                               class="color-variations__item{% if product_color_item.handle == product.handle %} is-active{% endif %}"
                             >
