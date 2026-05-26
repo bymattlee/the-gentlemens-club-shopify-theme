@@ -554,19 +554,15 @@
                         <div class="color-variations">
                           {%- for product_color_item in variant_products.value -%}
                             {% assign index = forloop.index0 %}
-
-{%- for variant_name_item in variant_names.value limit:1 offset:index -%}
-    {{ variant_name_item.name }}
-  {%- endfor -%}
-
                             <a
                               href="{{ product_color_item.url }}"
                               class="color-variations__item{% if product_color_item.handle == product.handle %} is-active{% endif %}"
                             >
-                              <span class="color-variations__item-color">
-                                {%- assign variant_name_item = variant_names.value[index] -%}
-                                {{ variant_name_item.name }}
-                              </span>
+                              {%- for variant_name_item in variant_names.value limit:1 offset:index -%}
+                                <span class="color-variations__item-color">
+                                  {{ variant_name_item.name }}
+                                </span>
+                              {%- endfor -%}
                             </a>
                           {%- endfor -%}
                         </div>
