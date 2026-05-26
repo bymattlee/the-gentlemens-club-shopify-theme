@@ -548,45 +548,34 @@
                   {%- when 'color_variations' -%}
                     {%- assign variant_products = product.metafields.custom.variant_products -%}
                     {%- assign variant_names = product.metafields.custom.variant_names -%}
-                    {%- if variant_products.value and variant_names.value -%}
+                    {%- if variant_products.value -%}
                       <div class="product-block product-block--color-variations" {{ block.shopify_attributes }}>
-                        <!-- <label class="variant__label">Color</label> -->
                         <div class="color-variations">
                           {%- for product_color_item in variant_products.value -%}
-                            {% assign index = forloop.index0 %}
+                            {%- assign index = forloop.index0 -%}
                             <a
-                              href="{{ product_color_item.url }}"
+                              href="/products/{{ product_color_item.handle }}"
                               class="color-variations__item{% if product_color_item.handle == product.handle %} is-active{% endif %}"
                             >
-                              <span class="color-variations__item-color">
-                                {{ variant_names.value[index].name }}
-                              </span>
-                            </a>
-                          {%- endfor -%}
-                        </div>
-                      </div>
-                    {%- endif -%}
-                    {%- if variant_products.value and variant_names.value == blank -%}
-                      <div class="product-block product-block--color-variations" {{ block.shopify_attributes }}>
-                        <div class="color-variations">
-                          {%- for product_color_item in variant_products.value -%}
-                            
-                              href="{{ product_color_item.url }}"
-                              class="color-variations__item color-variations__item--auto{% if product_color_item.handle == product.handle %} is-active{% endif %}"
-                            >
-                              {%- assign img_url = product_color_item.featured_media.preview_image
-                                | img_url: '1x1'
-                                | replace: '_1x1.', '_{width}x.'
-                              -%}
-                              <img
-                                class="lazyload"
-                                data-src="{{ img_url }}"
-                                data-widths="[180, 360, 540, 750, 900, 1080]"
-                                data-aspectratio="{{ product_color_item.featured_media.preview_image.aspect_ratio }}"
-                                data-sizes="auto"
-                                alt="{{ product_color_item.featured_media.preview_image.alt }}"
-                                role="presentation"
-                              >
+                              {%- if variant_names.value[index].name != blank -%}
+                                <span class="color-variations__item-color">
+                                  {{ variant_names.value[index].name }}
+                                </span>
+                              {%- else -%}
+                                {%- assign img_url = product_color_item.featured_media.preview_image
+                                  | img_url: '1x1'
+                                  | replace: '_1x1.', '_{width}x.'
+                                -%}
+                                <img
+                                  class="lazyload"
+                                  data-src="{{ img_url }}"
+                                  data-widths="[180, 360, 540, 750, 900, 1080]"
+                                  data-aspectratio="{{ product_color_item.featured_media.preview_image.aspect_ratio }}"
+                                  data-sizes="auto"
+                                  alt="{{ product_color_item.featured_media.preview_image.alt }}"
+                                  role="presentation"
+                                >
+                              {%- endif -%}
                             </a>
                           {%- endfor -%}
                         </div>
