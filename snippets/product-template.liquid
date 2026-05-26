@@ -555,12 +555,8 @@
                           {%- for product_color_item in variant_products.value -%}
                             {% assign index = forloop.index0 %}
 
-                              <p>index: {{ index }}</p>
-  <p>variant_names raw: {{ product.metafields.custom.variant_names }}</p>
-  <p>variant_names value: {{ product.metafields.custom.variant_names.value }}</p>
-  <p>variant_names[index]: {{ product.metafields.custom.variant_names.value[index] }}</p>
-  <p>variant_names[index].name: {{ product.metafields.custom.variant_names.value[index].name }}</p>
-
+{%- assign variant_name_item = variant_names.value | offset: index | first -%}
+  {{ variant_name_item.name }}
 
                             <a
                               href="{{ product_color_item.url }}"
