@@ -559,8 +559,7 @@
                               class="color-variations__item{% if product_color_item.handle == product.handle %} is-active{% endif %}"
                             >
                               <span class="color-variations__item-color">
-                                {%- assign variant_name = variant_names.value[index] -%}
-                                {{ variant_name.name }}
+                                {{ variant_names.value[index] }}
                               </span>
                             </a>
                           {%- endfor -%}
