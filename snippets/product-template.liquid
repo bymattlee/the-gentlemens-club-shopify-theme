@@ -555,8 +555,9 @@
                           {%- for product_color_item in variant_products.value -%}
                             {% assign index = forloop.index0 %}
 
-{%- assign variant_name_item = variant_names.value | offset: index | first -%}
-  {{ variant_name_item.name }}
+{%- for variant_name_item in variant_names.value limit:1 offset:index -%}
+    {{ variant_name_item.name }}
+  {%- endfor -%}
 
                             <a
                               href="{{ product_color_item.url }}"
