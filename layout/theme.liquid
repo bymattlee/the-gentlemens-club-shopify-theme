@@ -141,7 +141,9 @@
       render 'video-modal'
       render 'photoswipe-template'
       render 'tool-tip'
-      render 'back-in-stock'
     -%}
+    {%- comment -%}
+      {%- liquid render 'back-in-stock' -%}
+    {%- endcomment -%}
   </body>
 </html>
