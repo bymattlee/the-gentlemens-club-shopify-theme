@@ -57,7 +57,7 @@
       "settings": {
         "page_header_text": "<p>{{ product.metafields.custom.page_header_text | metafield_tag }}</p>",
         "sticker": "{{ product.metafields.custom.sticker_text.value }}",
-        "caption": "{{ product.metafields.custom.caption_text.value }}",
+        "caption": "",
         "sku_enable": false,
         "image_position": "left",
         "image_size": "large",
