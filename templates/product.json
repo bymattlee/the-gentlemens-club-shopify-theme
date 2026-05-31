@@ -38,8 +38,8 @@
         "f04516e7-cbde-4edf-989d-313bc0f49fee": {
           "type": "content_toggle",
           "settings": {
-            "tab_2_title": "",
-            "tab_2_content": "",
+            "tab_2_title": "Size Guide",
+            "tab_2_content": "{{ product.metafields.custom.size_guide_page.value }}",
             "tab_3_title": "",
             "tab_3_content": "",
             "tab_4_title": "",
