@@ -33,9 +33,9 @@
 
   assign product_tags = product.tags | join: ','
   assign has_custom_label = false
-  if product.metafields.theme.label and product.metafields.theme.label != blank
+  if product.metafields.custom.custom_label and product.metafields.custom.custom_label != blank
     assign has_custom_label = true
-    assign custom_label = product.metafields.theme.label.value
+    assign custom_label = product.metafields.custom.custom_label.value
   elsif product_tags contains '_label_'
     for tag in product.tags
       if tag contains '_label_'
