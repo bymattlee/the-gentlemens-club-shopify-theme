@@ -922,6 +922,14 @@
               "label": "Logo bianco",
               "info": "Usato quando si trova sopra un'immagine"
             },
+            "logo_mobile": {
+              "label": "Logo mobile",
+              "info": "Facoltativo. Mostrato su mobile al posto del logo principale della homepage. Usa il logo principale se vuoto."
+            },
+            "logo_inverted_mobile": {
+              "label": "Logo bianco mobile",
+              "info": "Facoltativo. Mostrato su mobile al posto del logo bianco. Usa il logo mobile, poi quello bianco, se vuoto."
+            },
             "desktop_logo_width": {
               "label": "Larghezza logo desktop"
             },

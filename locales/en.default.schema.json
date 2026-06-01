@@ -925,6 +925,14 @@
               "label": "White logo",
               "info": "Used when on top of an image"
             },
+            "logo_mobile": {
+              "label": "Mobile logo",
+              "info": "Optional. Shown on mobile instead of the main homepage logo. Falls back to the main logo if empty."
+            },
+            "logo_inverted_mobile": {
+              "label": "Mobile white logo",
+              "info": "Optional. Shown on mobile instead of the white homepage logo. Falls back to the mobile logo, then the white logo."
+            },
             "desktop_logo_width": {
               "label": "Desktop logo width"
             },

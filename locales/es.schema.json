@@ -922,6 +922,14 @@
               "label": "Logotipo blanco",
               "info": "Utilizar cuando está encima de una imagen"
             },
+            "logo_mobile": {
+              "label": "Logotipo móvil",
+              "info": "Opcional. Se muestra en móvil en lugar del logotipo principal de la página de inicio. Usa el logotipo principal si está vacío."
+            },
+            "logo_inverted_mobile": {
+              "label": "Logotipo blanco móvil",
+              "info": "Opcional. Se muestra en móvil en lugar del logotipo blanco. Usa el logotipo móvil y luego el blanco si está vacío."
+            },
             "desktop_logo_width": {
               "label": "Ancho del logotipo de escritorio"
             },

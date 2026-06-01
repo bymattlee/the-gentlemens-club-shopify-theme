@@ -110,6 +110,7 @@
             "type": "logo",
             "settings": {
               "logo": "shopify://shop_images/Header_Image.jpg",
+              "logo_mobile": "shopify://shop_images/Header_Image_-_Mobile.jpg",
               "desktop_logo_width": 1400,
               "mobile_logo_width": 600,
               "homepage_logo_banner": true,

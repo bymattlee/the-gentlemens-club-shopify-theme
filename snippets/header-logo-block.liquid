@@ -19,9 +19,19 @@
     {%- liquid
       if template_name == 'index'
         assign logo_image = block.settings.logo
+        assign logo_image_mobile = block.settings.logo_mobile
         assign logo_inverted = block.settings['logo-inverted']
+        assign logo_inverted_mobile = block.settings.logo_inverted_mobile
         assign desktop_width = block.settings.desktop_logo_width
         assign mobile_width = block.settings.mobile_logo_width
+
+        if logo_image_mobile == blank
+          assign logo_image_mobile = logo_image
+        endif
+
+        if logo_inverted_mobile == blank
+          assign logo_inverted_mobile = logo_inverted
+        endif
       else
         assign logo_image = block.settings.logo_other
         assign logo_inverted = block.settings.logo_inverted_other
@@ -75,9 +85,9 @@
             >
             <img
               class="medium-up--hide site-header__logo-image--banner"
-              src="{{ logo_image | img_url: header_logo_size_mobile }}"
-              srcset="{{ logo_image | img_url: header_logo_size_mobile }} 1x, {{ logo_image | img_url: header_logo_size_mobile, scale: 2 }} 2x"
-              alt="{{ logo_image.alt | default: shop.name }}"
+              src="{{ logo_image_mobile | img_url: header_logo_size_mobile }}"
+              srcset="{{ logo_image_mobile | img_url: header_logo_size_mobile }} 1x, {{ logo_image_mobile | img_url: header_logo_size_mobile, scale: 2 }} 2x"
+              alt="{{ logo_image_mobile.alt | default: shop.name }}"
             >
           </a>
           {%- if logo_inverted -%}
@@ -95,9 +105,9 @@
               >
               <img
                 class="medium-up--hide site-header__logo-image--banner"
-                src="{{ logo_inverted | img_url: header_logo_size_mobile }}"
-                srcset="{{ logo_inverted | img_url: header_logo_size_mobile }} 1x, {{ logo_inverted | img_url: header_logo_size_mobile, scale: 2 }} 2x"
-                alt="{{ logo_inverted.alt | default: shop.name }}"
+                src="{{ logo_inverted_mobile | img_url: header_logo_size_mobile }}"
+                srcset="{{ logo_inverted_mobile | img_url: header_logo_size_mobile }} 1x, {{ logo_inverted_mobile | img_url: header_logo_size_mobile, scale: 2 }} 2x"
+                alt="{{ logo_inverted_mobile.alt | default: shop.name }}"
               >
             </a>
           {%- endif -%}
@@ -183,9 +193,9 @@
           >
           <img
             class="medium-up--hide"
-            src="{{ logo_image | img_url: header_logo_size_mobile }}"
-            srcset="{{ logo_image | img_url: header_logo_size_mobile }} 1x, {{ logo_image | img_url: header_logo_size_mobile, scale: 2 }} 2x"
-            alt="{{ logo_image.alt | default: shop.name }}"
+            src="{{ logo_image_mobile | img_url: header_logo_size_mobile }}"
+            srcset="{{ logo_image_mobile | img_url: header_logo_size_mobile }} 1x, {{ logo_image_mobile | img_url: header_logo_size_mobile, scale: 2 }} 2x"
+            alt="{{ logo_image_mobile.alt | default: shop.name }}"
           >
         </a>
         {%- if logo_inverted -%}
@@ -204,9 +214,9 @@
             >
             <img
               class="medium-up--hide"
-              src="{{ logo_inverted | img_url: header_logo_size_mobile }}"
-              srcset="{{ logo_inverted | img_url: header_logo_size_mobile }} 1x, {{ logo_inverted | img_url: header_logo_size_mobile, scale: 2 }} 2x"
-              alt="{{ logo_inverted.alt | default: shop.name }}"
+              src="{{ logo_inverted_mobile | img_url: header_logo_size_mobile }}"
+              srcset="{{ logo_inverted_mobile | img_url: header_logo_size_mobile }} 1x, {{ logo_inverted_mobile | img_url: header_logo_size_mobile, scale: 2 }} 2x"
+              alt="{{ logo_inverted_mobile.alt | default: shop.name }}"
             >
           </a>
         {%- endif -%}

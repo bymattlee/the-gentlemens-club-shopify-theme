@@ -922,6 +922,14 @@
               "label": "Weißes Logo",
               "info": "Verwendet, wenn über einem Bild"
             },
+            "logo_mobile": {
+              "label": "Mobiles Logo",
+              "info": "Optional. Wird auf Mobilgeräten anstelle des Startseiten-Logos angezeigt. Verwendet das Hauptlogo, wenn leer."
+            },
+            "logo_inverted_mobile": {
+              "label": "Weißes mobiles Logo",
+              "info": "Optional. Wird auf Mobilgeräten anstelle des weißen Logos angezeigt. Verwendet das mobile Logo, dann das weiße Logo, wenn leer."
+            },
             "desktop_logo_width": {
               "label": "Breite des Desktop-Logos"
             },
