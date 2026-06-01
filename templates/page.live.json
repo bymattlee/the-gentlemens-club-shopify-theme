@@ -29,7 +29,7 @@
         "liquid_Y7VmJM": {
           "type": "liquid",
           "settings": {
-            "code": "<p class=\"text-center\"><a href=\"https://www.axs.com/artists/110215/yg-tickets\" target=\"_blank\">Buy Tickets</a></p>",
+            "code": "<p class=\"text-center\"><a href=\"https://www.axs.com/artists/110215/yg-tickets\" class=\"btn\" target=\"_blank\">Buy Tickets</a></p>",
             "width": "100%",
             "alignment": "center"
           }
