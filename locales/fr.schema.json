@@ -909,6 +909,12 @@
         "logo": {
           "name": "Logo",
           "settings": {
+            "homepage_header": {
+              "content": "Logo page d'accueil"
+            },
+            "other_pages_header": {
+              "content": "Logo autres pages"
+            },
             "logo": {
               "label": "Logo"
             },
@@ -920,6 +926,20 @@
               "label": "Largeur du logo pour ordinateur de bureau"
             },
             "mobile_logo_width": {
+              "label": "Largeur du logo pour mobile",
+              "info": "Défini comme une largeur maximale, peut apparaître plus petit"
+            },
+            "logo_other": {
+              "label": "Logo"
+            },
+            "logo_inverted_other": {
+              "label": "Logo blanc",
+              "info": "Utilisé lorsqu'il se trouve au-dessus d'une image"
+            },
+            "desktop_logo_width_other": {
+              "label": "Largeur du logo pour ordinateur de bureau"
+            },
+            "mobile_logo_width_other": {
               "label": "Largeur du logo pour mobile",
               "info": "Défini comme une largeur maximale, peut apparaître plus petit"
             }

@@ -533,6 +533,10 @@
       "limit": 1,
       "settings": [
         {
+          "type": "header",
+          "content": "t:sections.header.blocks.logo.settings.homepage_header.content"
+        },
+        {
           "type": "image_picker",
           "id": "logo",
           "label": "t:sections.header.blocks.logo.settings.logo.label"
@@ -549,8 +553,8 @@
           "label": "t:sections.header.blocks.logo.settings.desktop_logo_width.label",
           "default": 200,
           "min": 100,
-          "max": 800,
-          "step": 10,
+          "max": 1400,
+          "step": 20,
           "unit": "px"
         },
         {
@@ -559,10 +563,46 @@
           "label": "t:sections.header.blocks.logo.settings.mobile_logo_width.label",
           "default": 140,
           "min": 60,
-          "max": 600,
+          "max": 900,
           "step": 10,
           "unit": "px",
           "info": "t:sections.header.blocks.logo.settings.mobile_logo_width.info"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.header.blocks.logo.settings.other_pages_header.content"
+        },
+        {
+          "type": "image_picker",
+          "id": "logo_other",
+          "label": "t:sections.header.blocks.logo.settings.logo_other.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "logo_inverted_other",
+          "label": "t:sections.header.blocks.logo.settings.logo_inverted_other.label",
+          "info": "t:sections.header.blocks.logo.settings.logo_inverted_other.info"
+        },
+        {
+          "type": "range",
+          "id": "desktop_logo_width_other",
+          "label": "t:sections.header.blocks.logo.settings.desktop_logo_width_other.label",
+          "default": 200,
+          "min": 100,
+          "max": 1400,
+          "step": 20,
+          "unit": "px"
+        },
+        {
+          "type": "range",
+          "id": "mobile_logo_width_other",
+          "label": "t:sections.header.blocks.logo.settings.mobile_logo_width_other.label",
+          "default": 140,
+          "min": 60,
+          "max": 900,
+          "step": 10,
+          "unit": "px",
+          "info": "t:sections.header.blocks.logo.settings.mobile_logo_width_other.info"
         }
       ]
     },

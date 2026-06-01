@@ -909,6 +909,12 @@
         "logo": {
           "name": "Logotipo",
           "settings": {
+            "homepage_header": {
+              "content": "Logotipo de la página de inicio"
+            },
+            "other_pages_header": {
+              "content": "Logotipo de otras páginas"
+            },
             "logo": {
               "label": "Logotipo"
             },
@@ -920,6 +926,20 @@
               "label": "Ancho del logotipo de escritorio"
             },
             "mobile_logo_width": {
+              "label": "Anchura del logotipo en el móvil",
+              "info": "Establecido como ancho máximo, puede aparecer más pequeño"
+            },
+            "logo_other": {
+              "label": "Logotipo"
+            },
+            "logo_inverted_other": {
+              "label": "Logotipo blanco",
+              "info": "Utilizar cuando está encima de una imagen"
+            },
+            "desktop_logo_width_other": {
+              "label": "Ancho del logotipo de escritorio"
+            },
+            "mobile_logo_width_other": {
               "label": "Anchura del logotipo en el móvil",
               "info": "Establecido como ancho máximo, puede aparecer más pequeño"
             }

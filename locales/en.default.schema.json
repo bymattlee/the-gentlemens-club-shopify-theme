@@ -912,6 +912,12 @@
         "logo": {
           "name": "Logo",
           "settings": {
+            "homepage_header": {
+              "content": "Homepage logo"
+            },
+            "other_pages_header": {
+              "content": "Other pages logo"
+            },
             "logo": {
               "label": "Logo"
             },
@@ -923,6 +929,20 @@
               "label": "Desktop logo width"
             },
             "mobile_logo_width": {
+              "label": "Mobile logo width",
+              "info": "Set as a max-width, may appear smaller"
+            },
+            "logo_other": {
+              "label": "Logo"
+            },
+            "logo_inverted_other": {
+              "label": "White logo",
+              "info": "Used when on top of an image"
+            },
+            "desktop_logo_width_other": {
+              "label": "Desktop logo width"
+            },
+            "mobile_logo_width_other": {
               "label": "Mobile logo width",
               "info": "Set as a max-width, may appear smaller"
             }
