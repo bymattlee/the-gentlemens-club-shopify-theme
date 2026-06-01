@@ -28,6 +28,17 @@
   if template_name contains 'collection' and collection.image and section.settings.sticky_collection
     assign overlay_header = true
   endif
+
+  assign homepage_logo_banner = false
+  for block in section.blocks
+    if block.type == 'logo' and template_name == 'index' and section.settings.main_menu_alignment == 'center-top' and block.settings.homepage_logo_banner
+      assign homepage_logo_banner = true
+    endif
+  endfor
+
+  if homepage_logo_banner
+    assign sticky_header = false
+  endif
 -%}
 
 {%- render 'drawer-menu',
@@ -112,10 +123,28 @@
       {%- endif -%}
       <header
         id="SiteHeader"
-        class="site-header{% if settings.type_navigation_style == 'heading' %} site-header--heading-style{% endif %}"
+        class="site-header{% if settings.type_navigation_style == 'heading' %} site-header--heading-style{% endif %}{% if homepage_logo_banner %} site-header--banner{% endif %}"
         data-sticky="{{ sticky_header }}"
         data-overlay="{{ overlay_header }}"
+        {% if homepage_logo_banner %}data-banner="true"{% endif %}
       >
+        {%- if homepage_logo_banner -%}
+          <div class="header-banner">
+            <div class="header-banner__media">
+              {%- render 'header-logo-block', section: section, banner: true -%}
+            </div>
+            <div class="header-banner__controls">
+              <div class="header-banner__controls-inner page-width">
+                {%- render 'header-banner-controls', section: section -%}
+              </div>
+            </div>
+          </div>
+          <div class="page-width">
+            <div class="text-center">
+              {%- render 'header-desktop-nav', main_menu: main_menu, dropdown_alignment: dropdown_alignment -%}
+            </div>
+          </div>
+        {%- else -%}
         <div class="page-width">
           <div
             class="header-layout header-layout--{{ section.settings.main_menu_alignment }}"
@@ -252,6 +281,7 @@
             </div>
           {%- endif -%}
         </div>
+        {%- endif -%}
         <div class="site-header__search-container">
           <div class="site-header__search">
             <div class="page-width">
@@ -567,6 +597,13 @@
           "step": 10,
           "unit": "px",
           "info": "t:sections.header.blocks.logo.settings.mobile_logo_width.info"
+        },
+        {
+          "type": "checkbox",
+          "id": "homepage_logo_banner",
+          "label": "t:sections.header.blocks.logo.settings.homepage_logo_banner.label",
+          "info": "t:sections.header.blocks.logo.settings.homepage_logo_banner.info",
+          "default": false
         },
         {
           "type": "header",

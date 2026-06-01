@@ -929,6 +929,10 @@
               "label": "Breite des Mobile-Logos",
               "info": "Als maximale Breite eingestellt, kann kleiner erscheinen"
             },
+            "homepage_logo_banner": {
+              "label": "Startseiten-Banner-Logo",
+              "info": "Logo in voller Breite oben in der Kopfzeile auf der Startseite. Menü und Warenkorb liegen über dem Logo. Erfordert Header-Layout: Mitte (oben). Breitenregler werden ignoriert, wenn aktiviert."
+            },
             "logo_other": {
               "label": "Logo"
             },

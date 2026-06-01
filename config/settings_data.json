@@ -112,6 +112,7 @@
               "logo": "shopify://shop_images/Header_Image.jpg",
               "desktop_logo_width": 1400,
               "mobile_logo_width": 600,
+              "homepage_logo_banner": true,
               "logo_other": "shopify://shop_images/Logo_-_The_Gentlemen_s_Club_-_White_b269ea48-b021-4ad0-8c3b-042b5760f730.png",
               "desktop_logo_width_other": 480,
               "mobile_logo_width_other": 300

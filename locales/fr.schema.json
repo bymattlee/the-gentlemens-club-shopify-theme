@@ -929,6 +929,10 @@
               "label": "Largeur du logo pour mobile",
               "info": "Défini comme une largeur maximale, peut apparaître plus petit"
             },
+            "homepage_logo_banner": {
+              "label": "Logo bannière page d'accueil",
+              "info": "Logo pleine largeur en haut de l'en-tête sur la page d'accueil. Le menu et le panier se superposent au logo. Nécessite la disposition d'en-tête : Centre (haut). Les curseurs de largeur sont ignorés lorsque cette option est activée."
+            },
             "logo_other": {
               "label": "Logo"
             },

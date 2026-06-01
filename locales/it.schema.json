@@ -929,6 +929,10 @@
               "label": "Larghezza logo mobile",
               "info": "Impostato come larghezza massima, può apparire più piccolo"
             },
+            "homepage_logo_banner": {
+              "label": "Logo banner homepage",
+              "info": "Logo a larghezza intera in cima all'header nella homepage. Menu e carrello si sovrappongono al logo. Richiede layout header: Centro (in alto). I cursori di larghezza vengono ignorati quando attivo."
+            },
             "logo_other": {
               "label": "Logo"
             },

@@ -932,6 +932,10 @@
               "label": "Mobile logo width",
               "info": "Set as a max-width, may appear smaller"
             },
+            "homepage_logo_banner": {
+              "label": "Homepage banner logo",
+              "info": "Full-width logo flush to the top of the header on the homepage. Menu and bag icons overlay the logo. Requires Header layout: Center (top). Width sliders are ignored when enabled."
+            },
             "logo_other": {
               "label": "Logo"
             },

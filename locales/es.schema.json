@@ -929,6 +929,10 @@
               "label": "Anchura del logotipo en el móvil",
               "info": "Establecido como ancho máximo, puede aparecer más pequeño"
             },
+            "homepage_logo_banner": {
+              "label": "Logotipo banner de inicio",
+              "info": "Logotipo a ancho completo en la parte superior del encabezado en la página de inicio. El menú y la bolsa se superponen al logotipo. Requiere diseño de encabezado: Centro (arriba). Los controles de ancho se ignoran cuando está activado."
+            },
             "logo_other": {
               "label": "Logotipo"
             },
