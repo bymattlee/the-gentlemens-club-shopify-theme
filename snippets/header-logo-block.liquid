@@ -47,6 +47,9 @@
         if logo_inverted == blank
           assign logo_inverted = block.settings['logo-inverted']
         endif
+
+        assign logo_image_mobile = logo_image
+        assign logo_inverted_mobile = logo_inverted
       endif
 
       if logo_image != blank
