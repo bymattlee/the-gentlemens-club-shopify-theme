@@ -24,7 +24,7 @@
             "location": "Licorice Pizza Records",
             "venue": "12230 Venutra Blvd, Studio City, CA 91604",
             "button_1_text": "Sign-Up",
-            "button_1_url": "#",
+            "button_1_url": "https://licoricepizzarecords.com/events/yg-in-store-signing",
             "button_2_text": "",
             "button_2_url": ""
           }
@@ -36,7 +36,7 @@
             "location": "Zia Records (Eastern)",
             "venue": "7380 S Eastern Ave, Las Vegas, NV 89123",
             "button_1_text": "Sign-Up",
-            "button_1_url": "#",
+            "button_1_url": "https://www.ziarecords.com/c/773/in-store-2?&so=0&page=1",
             "button_2_text": "",
             "button_2_url": ""
           }
@@ -48,7 +48,7 @@
             "location": "1-2-3-4 Go! Records",
             "venue": "420 40th Street #5, Oakland, CA 94609",
             "button_1_text": "Sign-Up",
-            "button_1_url": "#",
+            "button_1_url": "https://1234gorecords.shop/products/yggentlemensclub",
             "button_2_text": "",
             "button_2_url": ""
           }
