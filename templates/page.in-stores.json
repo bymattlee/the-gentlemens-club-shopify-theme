@@ -11,10 +11,63 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {}
+    },
+    "tour_dates_R3jNFw": {
+      "type": "tour-dates",
+      "blocks": {
+        "tour_date_hYBVxh": {
+          "type": "tour_date",
+          "settings": {
+            "title": "6/19/26, 12pm",
+            "location": "Licorice Pizza Records",
+            "venue": "12230 Venutra Blvd, Studio City, CA 91604",
+            "button_1_text": "Sign-Up",
+            "button_1_url": "#",
+            "button_2_text": "",
+            "button_2_url": ""
+          }
+        },
+        "tour_date_TniqEd": {
+          "type": "tour_date",
+          "settings": {
+            "title": "6/20/26, 1PM",
+            "location": "Zia Records (Eastern)",
+            "venue": "7380 S Eastern Ave, Las Vegas, NV 89123",
+            "button_1_text": "Sign-Up",
+            "button_1_url": "#",
+            "button_2_text": "",
+            "button_2_url": ""
+          }
+        },
+        "tour_date_jJHpEc": {
+          "type": "tour_date",
+          "settings": {
+            "title": "6/25/26, 2PM",
+            "location": "1-2-3-4 Go! Records",
+            "venue": "420 40th Street #5, Oakland, CA 94609",
+            "button_1_text": "Sign-Up",
+            "button_1_url": "#",
+            "button_2_text": "",
+            "button_2_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "tour_date_hYBVxh",
+        "tour_date_TniqEd",
+        "tour_date_jJHpEc"
+      ],
+      "name": "Tour dates",
+      "settings": {
+        "tour_flyer": "shopify://shop_images/YG_In_Store_General_Flyer_Final2.png",
+        "title": "The Gentlemen's Club In-Store Album Signing"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "tour_dates_R3jNFw"
   ]
 }
