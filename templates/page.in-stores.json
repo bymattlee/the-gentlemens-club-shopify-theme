@@ -17,30 +17,6 @@
     "tour_dates_R3jNFw": {
       "type": "tour-dates",
       "blocks": {
-        "tour_date_hYBVxh": {
-          "type": "tour_date",
-          "settings": {
-            "title": "6/19/26, 12pm",
-            "location": "Licorice Pizza Records",
-            "venue": "12230 Venutra Blvd, Studio City, CA 91604",
-            "button_1_text": "Sign-Up",
-            "button_1_url": "https://licoricepizzarecords.com/events/yg-in-store-signing",
-            "button_2_text": "",
-            "button_2_url": ""
-          }
-        },
-        "tour_date_TniqEd": {
-          "type": "tour_date",
-          "settings": {
-            "title": "6/20/26, 1PM",
-            "location": "Zia Records (Eastern)",
-            "venue": "7380 S Eastern Ave, Las Vegas, NV 89123",
-            "button_1_text": "Sign-Up",
-            "button_1_url": "https://www.ziarecords.com/c/773/in-store-2?&so=0&page=1",
-            "button_2_text": "",
-            "button_2_url": ""
-          }
-        },
         "tour_date_jJHpEc": {
           "type": "tour_date",
           "settings": {
@@ -55,8 +31,6 @@
         }
       },
       "block_order": [
-        "tour_date_hYBVxh",
-        "tour_date_TniqEd",
         "tour_date_jJHpEc"
       ],
       "name": "Tour dates",
